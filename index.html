@@ -17,7 +17,7 @@
         }
 
         body {
-            background-color:#1a1a1a;
+            background-color: #1a1a1a;
             color: #e3e3e3;
             line-height: 1.6;
             display: flex;
@@ -49,6 +49,7 @@
             width: 150px;
             margin-bottom: 2rem;
         }
+
         nav {
             margin-top: 3rem;
             display: flex;
@@ -71,7 +72,6 @@
             background-color: #f9c303;
             color: #1a1a1a;
         }
-        
 
         .main-content {
             margin-left: 200px;
@@ -148,6 +148,7 @@
             border-radius: 5px;
             font-size: 1.1rem;
             transition: background-color 0.3s;
+            margin-right: 10px; /* Add spacing between buttons */
         }
 
         .btn:hover {
@@ -184,6 +185,7 @@
         <div class="logo">
             <a href="index.html">
                 <img src="MagicNoBackground.png" alt="Magic Sole Logo">
+            </a>
         </div>
         <nav>
             <a href="index.html">Home</a>
@@ -192,18 +194,16 @@
             <a href="about.html">About Us</a>
             <a href="#policies">Policies</a>
             <a href="booking.html">Booking</a>
+            <a href="login.html">Login</a>
         </nav>
     </header>
 
     <div class="main-content">
         <div class="slideshow">
             <img src="Background.JPG" class="slide active" alt="Sneaker Image 1">
-            <img src="Jordan.jpg" class="slide active" alt="Sneaker Image 2">
-
-            <!-- <img src="MagicGif.png" class="slide active" alt="Sneaker Image 1">
-            <img src="Shoes.png" class="slide" alt="Sneaker Image 2"> -->
+            <img src="Jordan.jpg" class="slide" alt="Sneaker Image 2">
             <video class="slide" autoplay muted loop>
-            <source src="ShowRoom.MOV" type="video/mp4">
+                <source src="ShowRoom.MOV" type="video/mp4">
             </video>
         </div>
         <section class="hero">
@@ -211,12 +211,13 @@
                 <h2>Revive your sneakers</h2>
                 <p>Professional cleaning and restoration for your favourite kicks</p>
                 <a href="booking.html" class="btn">Book Now</a>
+                <a href="login.html" class="btn">Login</a>
             </div>
         </section>
     </div>
 
     <footer>
-        <p>&copy; 2025 Magic Sole. All rights reserved.</p>
+        <p>© 2025 Magic Sole. All rights reserved.</p>
     </footer>
 
     <script>
