@@ -13,9 +13,10 @@
         }
 
         body {
-            background: linear-gradient(135deg, #76797d, #c3cfe2);
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
             color: #333;
             display: flex;
+            overflow-x: hidden; /* Prevent horizontal overflow from animations */
         }
 
         header {
@@ -90,17 +91,51 @@
         }
 
         .about-details h2 {
-            font-size: 2.5rem;
-            margin-top: 30px;
-            display: inline-block;
+            font-size: 3rem; /* Increased from 2.5rem to match hero section boldness */
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            position: relative;
             padding-bottom: 10px;
+            letter-spacing: 1.5px; /* Adds visual appeal */
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s forwards 0.2s; /* Animated entrance */
+        }
+
+        .about-details h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #d4af37, #f9c303);
+            transition: width 0.3s ease; /* Smooth transition for hover */
+        }
+
+        .about-details h2:hover::after {
+            width: 100px; /* Expands underline on hover */
+        }
+
+        .about-details p {
+            font-size: 1.3rem; /* Increased from default for better readability */
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #444;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s forwards 0.4s; /* Animated entrance with delay */
         }
 
         .team-members {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
-            margin-top: 30px;
+            margin-top: 40px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s forwards 0.6s; /* Animated entrance for team section */
         }
 
         .team-member {
@@ -110,7 +145,12 @@
             text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            animation: fadeInUp 0.8s forwards 0.8s; /* Individual card animation */
         }
+
+        .team-member:nth-child(2) { animation-delay: 1s; }
+        .team-member:nth-child(3) { animation-delay: 1.2s; }
 
         .team-member img {
             width: 180px;
@@ -118,11 +158,27 @@
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 15px;
+            transition: transform 0.3s ease;
         }
 
         .team-member:hover {
-            transform: translateY(-10px);
+            transform: translateY(-10px) scale(1.05); /* Enhanced hover effect */
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-member:hover img {
+            transform: rotate(5deg); /* Subtle rotation on hover */
+        }
+
+        .team-member h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .team-member p {
+            font-size: 1.1rem;
+            color: #666;
         }
 
         footer {
@@ -139,15 +195,21 @@
         }
 
         .social-media-section {
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 50px;
-            border-radius: 20px;
-        }
+    color: white;
+    text-align: center;
+    padding: 30px 10px;
+    margin-left: 38%;
+    margin-top: 50px;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15); /* Reduced vertical spread from 8px to 4px */
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s forwards 1s; /* Animated entrance */
+}
 
         .social-media-section h2 {
-            font-size: 2rem;
+            font-size: 2.5rem; /* Increased for consistency */
             margin-bottom: 20px;
             color: #1a1a1a;
         }
@@ -162,12 +224,12 @@
         .social-icons a img {
             width: 40px;
             height: 40px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .social-icons a img:hover {
-            transform: scale(1.2);
-            box-shadow: 0 4px 12px rgba(249, 195, 3, 0.4);
+            transform: scale(1.3) rotate(10deg); /* Enhanced hover with rotation */
+            box-shadow: 0 6px 15px rgba(249, 195, 3, 0.5);
         }
 
         #map {
@@ -177,26 +239,30 @@
             align-items: center;
             padding: 50px 20px;
             border-radius: 20px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-            margin: 50px auto;
+            margin: 20px auto; /* Reduced from 50px to bring closer */
             max-width: 1000px;
             animation: fadeIn 1s ease-out;
             position: relative;
             overflow: hidden;
             gap: 20px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s forwards 1.2s; /* Animated entrance */
         }
 
         .find-us-section {
-            color: white;
             text-align: center;
-            padding: 40px 20px;
-            margin-top: 30px;
-            border-radius: 20px;
+            padding: 10px; /* Reduced from 40px to bring closer */
+            margin-top: 90px; /* Reduced from 30px to bring closer */
+            border-radius: 20px;            
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s forwards 0.8s; /* Animated entrance */
         }
         
         .find-us-section h2 {
             margin-top: -20px;
-            font-size: 2rem;
+            font-size: 2.5rem; /* Increased for consistency */
             margin-bottom: 20px;
             color: #1a1a1a;
         }
@@ -214,6 +280,11 @@
             height: 400px;
             border: none;
             border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .map-container:hover iframe {
+            transform: scale(1.02); /* Subtle zoom on hover */
         }
 
         .gif-container {
@@ -229,6 +300,11 @@
             height: 400px;
             object-fit: cover;
             border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .gif-container:hover img {
+            transform: scale(1.02); /* Subtle zoom on hover */
         }
 
         @media (max-width: 768px) {
@@ -251,26 +327,35 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
-<header>
-    <div class="logo">
-        <a href="index.html">
-            <img src="MagicNoBackground.png" alt="Magic Sole Logo">
-    </div>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact</a>
-        <a href="policies.html">Policies</a>
-        <a href="booking.html">Booking</a>
-    </nav>
-    <footer>
-        <p>© 2025 Magic Sole. All rights reserved.</p>
-    </footer>
-</header>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="MagicNoBackground.png" alt="Magic Sole Logo">
+            </a>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About Us</a>
+                <a href="policies.html">Policies</a>
+                <a href="booking.html">Booking</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="login.html">Login</a>
+        </nav>
+        <footer>
+            <p>© 2025 Magic Sole. All rights reserved.</p>
+        </footer>
+    </header>
 
 <div class="main-content">
     <section class="hero">
@@ -285,14 +370,14 @@
         <h2>Meet the Team</h2>
         <div class="team-members">
             <div class="team-member">
-                <img src="Quan.png" alt="Quan">
+                <img src="Kev.png" alt="Kevin">
                 <h3>Quan</h3>
                 <p>Sneaker Spray Paint Expert</p>
             </div>
             <div class="team-member">
                 <img src="Joshua.png" alt="Joshua">
                 <h3>Joshua</h3>
-                <p>Sneaker Restoration God</p>
+                <p>Sneaker Restoration Pro</p>
             </div>
             <div class="team-member">
                 <img src="Joey.png" alt="Joey">

@@ -13,7 +13,7 @@
         }
 
         body {
-            background: linear-gradient(135deg, #76797d, #c3cfe2);
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
             color: #393838;
             display: flex;
         }
@@ -168,6 +168,16 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        @keyframes slideInLeft {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -179,11 +189,12 @@
     </div>
     <nav>
         <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact</a>
-        <a href="policies.html">Policies</a>
-        <a href="booking.html">Booking</a>
+            <a href="services.html">Services</a>
+            <a href="about.html">About Us</a>
+            <a href="policies.html">Policies</a>
+            <a href="booking.html">Booking</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="login.html">Login</a>
     </nav>
 </header>
 
