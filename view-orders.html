@@ -501,11 +501,16 @@
     let orders = [
         { orderId: '#1001', customerName: 'Chris Tren', date: '2025-04-01', total: '$75.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' },
         { orderId: '#1002', customerName: 'Joshua Ayoub', date: '2025-04-02', total: '$120.00', status: 'Ready for Pickup', email: 'jane@example.com', phone: '234-567-8901', items: 'Sneaker Restoration x2' },
-        { orderId: '#1003', customerName: 'Joey Ayoub', date: '2025-04-03', total: '$45.00', status: 'Completed', email: 'mike@example.com', phone: '345-678-9012', items: 'Sneaker Cleaning x1' }
+        { orderId: '#1003', customerName: 'Joey Ayoub', date: '2025-04-03', total: '$45.00', status: 'Completed', email: 'mike@example.com', phone: '345-678-9012', items: 'Sneaker Cleaning x1' },
+        { orderId: '#1004', customerName: 'Jack Black', date: '2025-04-01', total: '$50.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' },
+        { orderId: '#1005', customerName: 'P. Diddy', date: '2025-04-01', total: '$100.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' },
+        { orderId: '#1006', customerName: 'Chicken Jockey', date: '2025-04-01', total: '$95.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' },
+        { orderId: '#1007', customerName: 'The Nether', date: '2025-04-01', total: '$75.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' },
+
     ];
 
     let currentPage = 1;
-    const rowsPerPage = 5;
+    const rowsPerPage = 10;
     let selectedOrderId = null;
 
     function displayOrders(filteredOrders) {
