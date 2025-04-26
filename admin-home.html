@@ -143,12 +143,11 @@
             transition: transform 0.3s, box-shadow 0.3s;
             opacity: 0;
             transform: translateY(50px);
-            animation: fadeInUp 1s forwards 0.5s;
+            animation: fadeInUp 1s forwards;
         }
 
-        .admin-option:nth-child(2) {
-            animation-delay: 0.7s;
-        }
+        .admin-option:nth-child(2) { animation-delay: 0.7s; }
+        .admin-option:nth-child(3) { animation-delay: 0.9s; }
 
         .admin-option a {
             text-decoration: none;
@@ -223,7 +222,7 @@
 <body>
 <header>
     <div class="logo">
-        <a href="index.html">
+        <a href="admin-home.html">
             <img src="MagicNoBackground.png" alt="Magic Sole Logo">
         </a>
     </div>
@@ -231,7 +230,8 @@
         <a href="admin-home.html">Admin Home</a>
         <a href="view-orders.html">View Orders</a>
         <a href="order-status.html">Order Status</a>
-        <a href="login.html">Logout</a>
+        <a href="admin-gallery.html">Manage Gallery</a>
+        <a href="#" onclick="logout()">Logout</a>
     </nav>
     <footer>
         <p>© 2025 Magic Sole. All rights reserved.</p>
@@ -242,7 +242,7 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Admin Dashboard</h1>
-            <p>Manage your orders and statuses.</p>
+            <p>Manage your orders, statuses, and gallery content.</p>
         </div>
     </section>
     <div class="summary-section">
@@ -269,12 +269,22 @@
         <div class="admin-option">
             <a href="order-status.html">Order Status</a>
         </div>
+        <div class="admin-option">
+            <a href="admin-gallery.html">Manage Gallery</a>
+        </div>
     </div>
 </div>
 
 <script>
-    // Check if the user is an admin (for demo purposes)
+    // Check if the user is an admin
     if (!localStorage.getItem('isAdmin')) {
+        window.location.href = 'login.html';
+    }
+
+    // Logout function
+    function logout() {
+        localStorage.removeItem('isAdmin');
+        localStorage.removeItem('clientEmail');
         window.location.href = 'login.html';
     }
 
