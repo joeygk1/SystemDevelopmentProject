@@ -1,7 +1,6 @@
 {
     "name": "joeygk1/system-development-project",
     "description": "Sneaker restoration project with 2FA login",
-    "type": "project",
     "autoload": {
         "psr-4": {
             "Joeygk1\\SystemDevelopmentProject\\": "src/"
@@ -13,7 +12,6 @@
             "email": "joeyayoubdisalvo@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
     "require": {
         "phpmailer/phpmailer": "^6.10"
     }
