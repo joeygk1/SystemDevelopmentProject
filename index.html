@@ -374,16 +374,6 @@
             index = (index + 1) % slides.length;
             slides[index].classList.add('active');
         }, 15000);
-
-        // In index.html, order-status.html
-fetch('check_session.php')
-    .then(response => response.json())
-    .then(data => {
-        if (!data.loggedIn || !data.clientEmail) {
-            window.location.href = 'login.php';
-        }
-    });
-
     </script>
 </body>
 </html>
