@@ -240,7 +240,7 @@
             <a href="policies.html" data-lang-key="nav-policies">Policies</a>
             <a href="booking.html" data-lang-key="nav-booking">Booking</a>
             <a href="gallery.html" data-lang-key="nav-gallery">Gallery</a>
-            <a href="login.html" data-lang-key="nav-login" id="login-logout-link">Login</a>
+            <a href="login.php" data-lang-key="nav-login" id="login-logout-link">Login</a>
         </nav>
         <footer>
             <p data-lang-key="footer-text">© 2025 Magic Sole. All rights reserved.</p>
@@ -263,7 +263,7 @@
                 <h2 data-lang-key="hero-title">Revive your sneakers</h2>
                 <p data-lang-key="hero-subtitle">Professional cleaning and restoration for your favourite kicks</p>
                 <a href="booking.html" class="btn" data-lang-key="book-now">Book Now</a>
-                <a href="login.html" class="btn" data-lang-key="nav-login" id="login-btn">Login</a>
+                <a href="login.php" class="btn" data-lang-key="nav-login" id="login-btn">Login</a>
             </div>
         </section>
     </div>
@@ -346,7 +346,7 @@
                 loginLogoutLink.onclick = null;
                 loginBtn.setAttribute('data-lang-key', 'nav-login');
                 loginBtn.textContent = translations[lang]['nav-login'];
-                loginBtn.href = 'login.html';
+                loginBtn.href = 'login.php';
                 loginBtn.onclick = null;
             }
 
@@ -374,6 +374,16 @@
             index = (index + 1) % slides.length;
             slides[index].classList.add('active');
         }, 15000);
+
+        // In index.html, order-status.html
+fetch('check_session.php')
+    .then(response => response.json())
+    .then(data => {
+        if (!data.loggedIn || !data.clientEmail) {
+            window.location.href = 'login.php';
+        }
+    });
+
     </script>
 </body>
 </html>

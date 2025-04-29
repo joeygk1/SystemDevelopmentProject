@@ -1,3 +1,88 @@
+<?php
+session_start();
+require 'vendor/autoload.php';
+require 'config.php';
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+$error = '';
+$show_otp_form = false;
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!isset($_SESSION['2fa_user_id'])) {
+        // Step 1: Verify username and password
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        $stmt = $db->prepare("SELECT id, username, email, password, role FROM users WHERE email = ?");
+        $stmt->execute([$email]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($user && password_verify($password, $user['password'])) {
+            // Generate 6-digit OTP
+            $otp = sprintf("%06d", mt_rand(100000, 999999));
+            $_SESSION['2fa_user_id'] = $user['id'];
+            $_SESSION['2fa_otp'] = $otp;
+            $_SESSION['2fa_email'] = $user['email'];
+            $_SESSION['2fa_role'] = $user['role'];
+
+            // Send OTP via email
+            $mail = new PHPMailer(true);
+            try {
+                // SMTP settings (Gmail example)
+                $mail->isSMTP();
+                $mail->Host = 'smtp.gmail.com';
+                $mail->SMTPAuth = true;
+                $mail->Username = 'your_gmail@gmail.com'; // Your Gmail address
+                $mail->Password = 'your_app_password'; // Gmail App Password
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+                $mail->Port = 465;
+
+                // Email content
+                $mail->setFrom('your_gmail@gmail.com', 'Magic Sole');
+                $mail->addAddress($user['email']);
+                $mail->isHTML(true);
+                $mail->Subject = 'Your Magic Sole 2FA Code';
+                $mail->Body = "Your one-time code is: <b>$otp</b><br>This code expires in 10 minutes.";
+                $mail->send();
+
+                $show_otp_form = true;
+            } catch (Exception $e) {
+                $error = "Failed to send OTP: {$mail->ErrorInfo}";
+            }
+        } else {
+            $error = 'Invalid email or password';
+        }
+    } else {
+        // Step 2: Verify OTP
+        $otp = $_POST['otp'];
+        if ($otp === $_SESSION['2fa_otp']) {
+            // Successful login
+            $_SESSION['user_id'] = $_SESSION['2fa_user_id'];
+            $_SESSION['role'] = $_SESSION['2fa_role'];
+            $email = $_SESSION['2fa_email'];
+
+            // Set localStorage-compatible data
+            if ($_SESSION['role'] === 'admin') {
+                $_SESSION['isAdmin'] = true;
+            } else {
+                $_SESSION['clientEmail'] = $email;
+            }
+
+            // Clear 2FA session data
+            unset($_SESSION['2fa_user_id'], $_SESSION['2fa_otp'], $_SESSION['2fa_email'], $_SESSION['2fa_role']);
+
+            // Redirect based on role
+            header('Location: ' . ($_SESSION['role'] === 'admin' ? 'admin-home.html' : 'index.html'));
+            exit;
+        } else {
+            $error = 'Invalid OTP';
+            $show_otp_form = true;
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +101,7 @@
             background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
             color: #333;
             display: flex;
-            min-height: 100vh; /* Ensure the body takes up the full viewport height */
+            min-height: 100vh;
         }
 
         header {
@@ -248,10 +333,10 @@
         }
 
         .success-message {
+            margin-top: 10px;
             color: #2ecc71;
             font-size: 0.9rem;
             text-align: center;
-            margin-top: 10px;
             display: none;
             opacity: 0;
             transform: translateY(10px);
@@ -361,7 +446,7 @@
         <a href="policies.html">Policies</a>
         <a href="booking.html">Booking</a>
         <a href="gallery.html">Gallery</a>
-        <a href="login.html" id="login-link">Login</a>
+        <a href="login.php" id="login-link">Login</a>
         <a href="#" id="logout-link" style="display: none;" onclick="logout()">Logout</a>
     </nav>
     <footer>
@@ -379,17 +464,25 @@
 
     <section class="login-section">
         <h2>Login to Your Account</h2>
-        <form class="login-form" id="login-form">
-            <label for="email">Email</label>
-            <input type="text" id="email" name="email" placeholder="Enter your email" required>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password" required>
-            <button type="submit">Login</button>
-            <div class="forgot-password">
-                <a href="#" onclick="openForgotPasswordModal()">Forgot Password?</a>
-            </div>
+        <form class="login-form" method="POST">
+            <?php if (!$show_otp_form) { ?>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <button type="submit">Login</button>
+                <div class="forgot-password">
+                    <a href="#" onclick="openForgotPasswordModal()">Forgot Password?</a>
+                </div>
+            <?php } else { ?>
+                <label for="otp">Enter OTP</label>
+                <input type="text" id="otp" name="otp" placeholder="Enter the code sent to your email" required>
+                <button type="submit">Verify OTP</button>
+            <?php } ?>
         </form>
-        <p class="error-message" id="error-message">Invalid email or password.</p>
+        <?php if ($error) { ?>
+            <p class="error-message" style="display: block;"><?php echo htmlspecialchars($error); ?></p>
+        <?php } ?>
     </section>
 
     <div class="modal" id="forgot-password-modal">
@@ -425,68 +518,31 @@
         logoutLink.style.display = 'none';
     }
 
-    // Login form submission
-    document.getElementById('login-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-        const errorMessage = document.getElementById('error-message');
-
-        // Hard-coded admin credentials (replace with back-end authentication)
-        const adminEmail = 'admin@magicsole.com';
-        const adminPassword = 'admin123';
-
-        // Hard-coded client credentials (replace with back-end authentication)
-        const clientEmailTest = 'client@example.com';
-        const clientPasswordTest = 'client123';
-
-        if (email === adminEmail && password === adminPassword) {
-            // Store admin status in localStorage
-            localStorage.setItem('isAdmin', 'true');
-            localStorage.removeItem('clientEmail'); // Clear client data if any
-            // Redirect to admin home page
-            window.location.href = 'admin-home.html';
-        } else if (email === clientEmailTest && password === clientPasswordTest) {
-            // Store client email in localStorage
-            localStorage.setItem('clientEmail', email);
-            localStorage.removeItem('isAdmin'); // Clear admin data if any
-            // Redirect to index page (which now includes the View Orders section)
-            window.location.href = 'index.html';
-        } else {
-            // Show error message for invalid credentials
-            errorMessage.style.display = 'block';
-        }
-    });
-
     // Forgot Password Modal functionality
     function openForgotPasswordModal() {
         document.getElementById('forgot-password-modal').style.display = 'flex';
-        // Prevent scrolling on the body while the modal is open
         document.body.style.overflow = 'hidden';
     }
 
     function closeForgotPasswordModal() {
         document.getElementById('forgot-password-modal').style.display = 'none';
         document.getElementById('success-message').style.display = 'none';
-        document.getElementById('reset-email').value = ''; // Clear the email input
-        // Restore scrolling on the body
+        document.getElementById('reset-email').value = '';
         document.body.style.overflow = 'auto';
     }
 
     document.getElementById('forgot-password-form').addEventListener('submit', function(event) {
         event.preventDefault();
-
         const email = document.getElementById('reset-email').value;
         const successMessage = document.getElementById('success-message');
 
-        // Simulate sending a password reset email
+        // Simulate sending a password reset email (implement backend logic)
         if (email) {
             successMessage.style.display = 'block';
-            document.getElementById('reset-email').value = ''; // Clear the email input
+            document.getElementById('reset-email').value = '';
             setTimeout(() => {
                 closeForgotPasswordModal();
-            }, 2000); // Close the modal after 2 seconds
+            }, 2000);
         }
     });
 
@@ -496,8 +552,7 @@
         localStorage.removeItem('clientEmail');
         loginLink.style.display = 'block';
         logoutLink.style.display = 'none';
-        // Optionally redirect to login page or refresh
-        window.location.href = 'login.html';
+        window.location.href = 'login.php';
     }
 </script>
 </body>
