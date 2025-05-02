@@ -1,0 +1,95 @@
+POST data: Array
+(
+    [email] => client@example.com
+    [password] => client123
+)
+
+Email entered: client@example.com
+User found: Array
+(
+    [id] => 2
+    [username] => client
+    [email] => client@example.com
+    [password] => $2y$10$B.Xgoa.qCw/E4a6JpS9NY.9zsdeosHGdUMyAcguRJmeNFrEaEFI1y
+    [role] => client
+)
+
+Password correct: Yes
+POST data: Array
+(
+    [email] => client@example.com
+    [password] => client123
+)
+
+OTP expected but not provided
+POST data: Array
+(
+    [email] => client@example.com
+    [password] => client123
+)
+
+OTP expected but not provided
+POST data: Array
+(
+    [email] => client@example.com
+    [password] => client123
+)
+
+OTP expected but not provided
+Session data: Array
+(
+    [2fa_user_id] => 2
+    [2fa_otp] => 519592
+    [2fa_email] => client@example.com
+    [2fa_role] => client
+    [2fa_expires] => 1745940880
+)
+
+POST data: Array
+(
+    [email] => client@example.com
+    [password] => client123
+)
+
+Error: OTP expected but not provided
+Session data: Array
+(
+    [2fa_user_id] => 2
+    [2fa_otp] => 519592
+    [2fa_email] => client@example.com
+    [2fa_role] => client
+    [2fa_expires] => 1745940880
+)
+
+POST data: Array
+(
+    [email] => client@example.com
+    [password] => client123
+)
+
+Error: OTP expected but not provided
+Session data: Array
+(
+    [2fa_user_id] => 2
+    [2fa_otp] => 519592
+    [2fa_email] => client@example.com
+    [2fa_role] => client
+    [2fa_expires] => 1745940880
+)
+
+Session data: Array
+(
+    [2fa_user_id] => 2
+    [2fa_otp] => 519592
+    [2fa_email] => client@example.com
+    [2fa_role] => client
+    [2fa_expires] => 1745940880
+)
+
+POST data: Array
+(
+    [email] => client@example.com
+    [password] => client123
+)
+
+Error: OTP expected but not provided

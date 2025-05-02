@@ -664,6 +664,16 @@
 </div>
 
 <script>
+
+    // In admin-home.html, admin-gallery.html
+fetch('check_session.php')
+    .then(response => response.json())
+    .then(data => {
+        if (!data.loggedIn || !data.isAdmin) {
+            window.location.href = 'login.php';
+        }
+    });
+    
     // Redirect non-admins to login
     if (!localStorage.getItem('isAdmin')) {
         window.location.href = 'login.html';
