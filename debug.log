@@ -93,3 +93,2815 @@ POST data: Array
 )
 
 Error: OTP expected but not provided
+Session data: Array
+(
+)
+
+Session data: Array
+(
+)
+
+Session data: Array
+(
+)
+
+Session data: Array
+(
+)
+
+Session data: Array
+(
+)
+
+Session data: Array
+(
+)
+
+POST data: Array
+(
+    [email] => joeyayoubdisalvo@gmail.com
+    [password] => Joeyisagoalkeeper1
+)
+
+Email entered: joeyayoubdisalvo@gmail.com
+User found: Array
+(
+    [id] => 1
+    [username] => Joey
+    [email] => joeyayoubdisalvo@gmail.com
+    [password] => $2y$10$Kzg1Mp9rsYZB5KunEPLJI.W7Ix9gbjloQX6rVZUmEEPVKpLUur0Y.
+    [role] => client
+)
+
+Password correct: Yes
+OTP generated: 699483 for email: joeyayoubdisalvo@gmail.com
+PHPMailer Error: Invalid address:  (From): 
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+POST data: Array
+(
+    [email] => joeyayoubdisalvo@gmail.com
+    [password] => Joeyisagoalkeeper1
+)
+
+Error: OTP expected but not provided
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+POST data: Array
+(
+    [email] => joeyayoubdisalvo@gmail.com
+    [password] => Joeyisagoalkeeper1
+)
+
+Error: OTP expected but not provided
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+POST data: Array
+(
+    [email] => joeyayoubdisalvo@gmail.com
+    [password] => Joeyisagoalkeeper1
+)
+
+Error: OTP expected but not provided
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+POST data: Array
+(
+    [email] => joeyayoubdisalvo@gmail.com
+    [password] => Joeyisagoalkeeper1
+)
+
+Error: OTP expected but not provided
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+POST data: Array
+(
+    [email] => joeyayoubdisalvo@gmail.com
+    [password] => Joeyisagoalkeeper1
+)
+
+Error: OTP expected but not provided
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+POST data: Array
+(
+    [email] => joeyayoubdisalvo@gmail.com
+    [password] => Joeyisagoalkeeper1
+)
+
+Error: OTP expected but not provided
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+POST data: Array
+(
+    [email] => joeyayoubdisalvo@gmail.com
+    [password] => Joeyisagoalkeeper1
+)
+
+Error: OTP expected but not provided
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+Session data: Array
+(
+    [2fa_user_id] => 1
+    [2fa_otp] => 699483
+    [2fa_email] => joeyayoubdisalvo@gmail.com
+    [2fa_role] => client
+    [2fa_expires] => 1745953635
+)
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+POST data: Array
+(
+    [email] => joeyayoubdisalvo@gmail.com
+    [password] => Joeyisagoalkeeper1
+)
+
+OTP generated: 999899 for email: joeyayoubdisalvo@gmail.com
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+POST data: Array
+(
+    [email] => joeyayoubdisalvo@gmail.com
+    [password] => Joeyisagoalkeeper1
+)
+
+OTP generated: 447419 for email: joeyayoubdisalvo@gmail.com
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+POST data: Array
+(
+    [email] => joeyayoubdisalvo@gmail.com
+    [password] => Joeyisagoalkeeper1
+)
+
+OTP generated: 633166 for email: joeyayoubdisalvo@gmail.com
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: 
+GMAIL_APP_PASSWORD: 
+Error: Gmail credentials missing
+POST data: Array
+(
+    [email] => joeyayoubdisalvo@gmail.com
+    [password] => Joeyisagoalkeeper1
+)
+
+OTP generated: 717337 for email: joeyayoubdisalvo@gmail.com
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joeyayoubdisalvo@gmail.com
+    [password] => Joeyisagoalkeeper1
+)
+
+OTP generated: 689887 for email: joeyayoubdisalvo@gmail.com
+Email sent successfully to joeyayoubdisalvo@gmail.com
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joeyayoubdisalvo@gmail.com
+    [password] => Joeyisagoalkeeper1
+)
+
+OTP generated: 832508 for email: joeyayoubdisalvo@gmail.com
+Email sent successfully to joeyayoubdisalvo@gmail.com
+POST data: Array
+(
+    [otp] => 832508
+)
+
+OTP entered: 832508
+Login successful for joeyayoubdisalvo@gmail.com
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => admin@magicsole.com
+    [password] => admin123
+)
+
+Error: Invalid email or password
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => admin@magicsole.com
+    [password] => Admin123
+)
+
+Error: Invalid email or password
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => admin@magicsole.com
+    [password] => Admin123
+)
+
+Error: Invalid email or password
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 870515 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 870515
+)
+
+OTP entered: 870515
+Login successful for joey.ayoubdisalvo@icloud.com
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 458649 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 458649
+)
+
+OTP entered: 458649
+Login successful for joey.ayoubdisalvo@icloud.com
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists (forgot_password.php): Yes
+POST data (forgot_password.php): Array
+(
+    [reset-email] => client@example.com
+)
+
+GMAIL_USERNAME (forgot_password.php): joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD (forgot_password.php): ijcbgdekkqiokahg
+Error: Email not found (forgot_password.php): client@example.com
+Env file exists (forgot_password.php): Yes
+POST data (forgot_password.php): Array
+(
+    [reset-email] => admin@example.com
+)
+
+GMAIL_USERNAME (forgot_password.php): joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD (forgot_password.php): ijcbgdekkqiokahg
+Error: Email not found (forgot_password.php): admin@example.com
+Env file exists (forgot_password.php): Yes
+POST data (forgot_password.php): Array
+(
+    [reset-email] => admin@example.com
+)
+
+GMAIL_USERNAME (forgot_password.php): joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD (forgot_password.php): ijcbgdekkqiokahg
+Error: Email not found (forgot_password.php): admin@example.com
+Env file exists (forgot_password.php): Yes
+POST data (forgot_password.php): Array
+(
+    [reset-email] => admin@example.com
+)
+
+GMAIL_USERNAME (forgot_password.php): joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD (forgot_password.php): ijcbgdekkqiokahg
+Error: Email not found (forgot_password.php): admin@example.com
+Env file exists (forgot_password.php): Yes
+POST data (forgot_password.php): Array
+(
+    [reset-email] => admin@example.com
+)
+
+GMAIL_USERNAME (forgot_password.php): joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD (forgot_password.php): ijcbgdekkqiokahg
+Error: Email not found (forgot_password.php): admin@example.com
+Env file exists (forgot_password.php): Yes
+POST data (forgot_password.php): Array
+(
+    [reset-email] => joey.ayoubdisalvo@icloud.com
+)
+
+GMAIL_USERNAME (forgot_password.php): joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD (forgot_password.php): ijcbgdekkqiokahg
+Reset token generated (forgot_password.php): b8aad99939c0ad478d9bd5e0cedb0b562dd8f74a95d3234fb605afc518e7dc5a for email: joey.ayoubdisalvo@icloud.com
+Reset link (forgot_password.php): http://localhost/SystemDevelopmentProject/reset_password.php?token=b8aad99939c0ad478d9bd5e0cedb0b562dd8f74a95d3234fb605afc518e7dc5a
+Password reset email sent successfully to joey.ayoubdisalvo@icloud.com
+Env file exists (forgot_password.php): Yes
+POST data (forgot_password.php): Array
+(
+    [reset-email] => joey.ayoubdisalvo@icloud.com
+)
+
+GMAIL_USERNAME (forgot_password.php): joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD (forgot_password.php): ijcbgdekkqiokahg
+Reset token generated (forgot_password.php): b61c86248d0275fd16766acd363fe4470da77bb83b5187ce0401321f2bd8d5b4 for email: joey.ayoubdisalvo@icloud.com
+Reset link (forgot_password.php): http://localhost/SystemDevelopmentProject/reset_password.php?token=b61c86248d0275fd16766acd363fe4470da77bb83b5187ce0401321f2bd8d5b4
+Password reset email sent successfully to joey.ayoubdisalvo@icloud.com
+Env file exists (forgot_password.php): Yes
+POST data (forgot_password.php): Array
+(
+    [reset-email] => joeyayoubdisalvo@gmail.com
+)
+
+GMAIL_USERNAME (forgot_password.php): joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD (forgot_password.php): ijcbgdekkqiokahg
+Reset token generated (forgot_password.php): 6c99c8d27fa032a864437b654fe6a295fdb4e0e069f0a1eede299b2a1653a83c for email: joeyayoubdisalvo@gmail.com
+Reset link (forgot_password.php): http://localhost/SystemDevelopmentProject/reset_password.php?token=6c99c8d27fa032a864437b654fe6a295fdb4e0e069f0a1eede299b2a1653a83c
+Password reset email sent successfully to joeyayoubdisalvo@gmail.com
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joeyayoubdisalvo@gmail.com
+    [password] => Joeyisagoalkeeper1
+)
+
+OTP generated: 650667 for email: joeyayoubdisalvo@gmail.com
+Email sent successfully to joeyayoubdisalvo@gmail.com
+POST data: Array
+(
+    [otp] => 650667
+)
+
+OTP entered: 650667
+Login successful for joeyayoubdisalvo@gmail.com
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joeyayoubdisalvo@gmail.com
+    [password] => Joeyisagoalkeeper1
+)
+
+OTP generated: 907039 for email: joeyayoubdisalvo@gmail.com
+Email sent successfully to joeyayoubdisalvo@gmail.com
+POST data: Array
+(
+    [otp] => 907039
+)
+
+OTP entered: 907039
+Login successful for joeyayoubdisalvo@gmail.com
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joeyayoubdisalvo@gmail.com
+    [password] => Joeyisagoalkeeper1
+)
+
+OTP generated: 295791 for email: joeyayoubdisalvo@gmail.com
+Email sent successfully to joeyayoubdisalvo@gmail.com
+OTP verified successfully for email: joeyayoubdisalvo@gmail.com
+Redirecting to: index.html
+Error: Missing session variables in verify_otp.php
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joeyayoubdisalvo@gmail.com
+    [password] => Joeyisagoalkeeper1
+)
+
+OTP generated: 229059 for email: joeyayoubdisalvo@gmail.com
+Email sent successfully to joeyayoubdisalvo@gmail.com
+POST data: Array
+(
+    [otp] => 229059
+)
+
+OTP entered: 229059
+Redirecting to: index.html
+Login successful for joeyayoubdisalvo@gmail.com
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => admin123
+)
+
+Error: Invalid email or password
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Joeyjosh2019
+)
+
+Error: Invalid email or password
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 483857 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 483587
+)
+
+OTP entered: 483587
+Error: Invalid OTP
+POST data: Array
+(
+    [otp] => 483587
+)
+
+OTP entered: 483587
+Error: Invalid OTP
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 489411 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 489411
+)
+
+OTP entered: 489411
+Redirecting to: admin-home.html
+Login successful for joey.ayoubdisalvo@icloud.com
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 520366 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 520366
+)
+
+OTP entered: 520366
+Redirecting to: admin-home.html
+Login successful for joey.ayoubdisalvo@icloud.com
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 122518 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 122518
+)
+
+OTP entered: 122518
+Redirecting to: admin-home.html
+Login successful for joey.ayoubdisalvo@icloud.com
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 796974 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 796974
+)
+
+OTP entered: 796974
+Redirecting to: admin-home.html
+Login successful for joey.ayoubdisalvo@icloud.com
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 679902 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 679902
+)
+
+OTP entered: 679902
+Redirecting to: admin-home.html
+Login successful for joey.ayoubdisalvo@icloud.com
+check_session.php called at 2025-05-02 17:46:31
+Session ID: 22j1odrlnfcpqboc0ul45hm701
+Session Data: Array
+(
+    [user_id] => 2
+    [role] => admin
+    [clientEmail] => joeyayoubdisalvo@gmail.com
+)
+
+Session valid: loggedIn=1, isAdmin=1
+check_session.php called at 2025-05-02 17:46:35
+Session ID: 22j1odrlnfcpqboc0ul45hm701
+Session Data: Array
+(
+    [user_id] => 2
+    [role] => admin
+    [clientEmail] => joeyayoubdisalvo@gmail.com
+)
+
+Session valid: loggedIn=1, isAdmin=1
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 151752 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 151752
+)
+
+OTP entered: 151752
+Redirecting to: admin-home.html
+Login successful for joey.ayoubdisalvo@icloud.com
+check_session.php called at 2025-05-02 17:55:18
+Session ID: 22j1odrlnfcpqboc0ul45hm701
+Session Data: Array
+(
+    [user_id] => 2
+    [role] => admin
+    [clientEmail] => joeyayoubdisalvo@gmail.com
+)
+
+Session valid: loggedIn=1, isAdmin=1
+check_session.php called at 2025-05-02 17:55:26
+Session ID: 22j1odrlnfcpqboc0ul45hm701
+Session Data: Array
+(
+    [user_id] => 2
+    [role] => admin
+    [clientEmail] => joeyayoubdisalvo@gmail.com
+)
+
+Session valid: loggedIn=1, isAdmin=1
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 594976 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 594976
+)
+
+OTP entered: 594976
+Redirecting to: admin-home.html
+Login successful for joey.ayoubdisalvo@icloud.com
+check_session.php called at 2025-05-02 18:05:07
+Session ID: 22j1odrlnfcpqboc0ul45hm701
+Session Data: Array
+(
+    [user_id] => 2
+    [role] => admin
+    [clientEmail] => joeyayoubdisalvo@gmail.com
+)
+
+Session valid: loggedIn=1, isAdmin=1
+check_session.php called at 2025-05-02 18:05:10
+Session ID: 22j1odrlnfcpqboc0ul45hm701
+Session Data: Array
+(
+    [user_id] => 2
+    [role] => admin
+    [clientEmail] => joeyayoubdisalvo@gmail.com
+)
+
+Session valid: loggedIn=1, isAdmin=1
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 904852 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 904852
+)
+
+OTP entered: 904852
+Redirecting to: admin-home.html
+Login successful for joey.ayoubdisalvo@icloud.com
+check_session.php called at 2025-05-02 18:10:12
+Session ID: 22j1odrlnfcpqboc0ul45hm701
+Session Data: Array
+(
+    [user_id] => 2
+    [role] => admin
+    [clientEmail] => joeyayoubdisalvo@gmail.com
+)
+
+Session valid: loggedIn=1, isAdmin=1
+check_session.php called at 2025-05-02 18:10:17
+Session ID: 22j1odrlnfcpqboc0ul45hm701
+Session Data: Array
+(
+    [user_id] => 2
+    [role] => admin
+    [clientEmail] => joeyayoubdisalvo@gmail.com
+)
+
+Session valid: loggedIn=1, isAdmin=1
+check_session.php called at 2025-05-02 18:10:19
+Session ID: 22j1odrlnfcpqboc0ul45hm701
+Session Data: Array
+(
+    [user_id] => 2
+    [role] => admin
+    [clientEmail] => joeyayoubdisalvo@gmail.com
+)
+
+Session valid: loggedIn=1, isAdmin=1
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 882861 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 882861
+)
+
+OTP entered: 882861
+Redirecting to: admin-home.html
+Login successful for joey.ayoubdisalvo@icloud.com
+[2025-05-02 18:13:52] check_session.php called
+[2025-05-02 18:13:52] Session ID: 22j1odrlnfcpqboc0ul45hm701
+[2025-05-02 18:13:52] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 18:13:52] Logged In: true
+[2025-05-02 18:13:52] Is Admin: true
+[2025-05-02 18:13:55] check_session.php called
+[2025-05-02 18:13:55] Session ID: 22j1odrlnfcpqboc0ul45hm701
+[2025-05-02 18:13:55] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 18:13:55] Logged In: true
+[2025-05-02 18:13:55] Is Admin: true
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 757587 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 757587
+)
+
+OTP entered: 757587
+Redirecting to: admin-home.html
+Login successful for joey.ayoubdisalvo@icloud.com
+[2025-05-02 18:15:22] check_session.php called
+[2025-05-02 18:15:22] Session ID: 22j1odrlnfcpqboc0ul45hm701
+[2025-05-02 18:15:22] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 18:15:22] Logged In: true
+[2025-05-02 18:15:22] Is Admin: true
+[2025-05-02 18:15:23] check_session.php called
+[2025-05-02 18:15:23] Session ID: 22j1odrlnfcpqboc0ul45hm701
+[2025-05-02 18:15:23] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 18:15:23] Logged In: true
+[2025-05-02 18:15:23] Is Admin: true
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+[2025-05-02 18:16:44] check_session.php called
+[2025-05-02 18:16:44] Session ID: 22j1odrlnfcpqboc0ul45hm701
+[2025-05-02 18:16:44] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 18:16:44] Logged In: true
+[2025-05-02 18:16:44] Is Admin: true
+[2025-05-02 18:16:46] check_session.php called
+[2025-05-02 18:16:46] Session ID: 22j1odrlnfcpqboc0ul45hm701
+[2025-05-02 18:16:46] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 18:16:46] Logged In: true
+[2025-05-02 18:16:46] Is Admin: true
+[2025-05-02 18:16:48] check_session.php called
+[2025-05-02 18:16:48] Session ID: 22j1odrlnfcpqboc0ul45hm701
+[2025-05-02 18:16:48] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 18:16:48] Logged In: true
+[2025-05-02 18:16:48] Is Admin: true
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+[2025-05-02 18:16:55] check_session.php called
+[2025-05-02 18:16:55] Session ID: 22j1odrlnfcpqboc0ul45hm701
+[2025-05-02 18:16:55] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 18:16:55] Logged In: true
+[2025-05-02 18:16:55] Is Admin: true
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 527060 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 757857
+)
+
+OTP entered: 757857
+Error: Invalid OTP
+POST data: Array
+(
+    [otp] => 757857
+)
+
+OTP entered: 757857
+Error: Invalid OTP
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 665795 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 665795
+)
+
+OTP entered: 665795
+Redirecting to: admin-home.html
+Login successful for joey.ayoubdisalvo@icloud.com
+[2025-05-02 18:25:12] check_session.php called
+[2025-05-02 18:25:12] Session ID: 22j1odrlnfcpqboc0ul45hm701
+[2025-05-02 18:25:12] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 18:25:12] Logged In: true
+[2025-05-02 18:25:12] Is Admin: true
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 683030 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 954083 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 964083
+)
+
+OTP entered: 964083
+Error: Invalid OTP
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 159264 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 159264
+)
+
+OTP entered: 159264
+Redirecting to: admin-home.html
+Login successful for joey.ayoubdisalvo@icloud.com
+[2025-05-02 18:30:12] check_session.php called
+[2025-05-02 18:30:12] Session ID: 22j1odrlnfcpqboc0ul45hm701
+[2025-05-02 18:30:12] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 18:30:12] Logged In: true
+[2025-05-02 18:30:12] Is Admin: true
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+[2025-05-02 18:32:03] check_session.php called
+[2025-05-02 18:32:03] Session ID: 22j1odrlnfcpqboc0ul45hm701
+[2025-05-02 18:32:03] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 18:32:03] Logged In: true
+[2025-05-02 18:32:03] Is Admin: true
+[2025-05-02 18:34:22] check_session.php called
+[2025-05-02 18:34:22] Session ID: 22j1odrlnfcpqboc0ul45hm701
+[2025-05-02 18:34:22] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 18:34:22] Logged In: true
+[2025-05-02 18:34:22] Is Admin: true
+[2025-05-02 18:34:34] check_session.php called
+[2025-05-02 18:34:34] Session ID: 22j1odrlnfcpqboc0ul45hm701
+[2025-05-02 18:34:34] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 18:34:34] Logged In: true
+[2025-05-02 18:34:34] Is Admin: true
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+[2025-05-02 18:42:36] check_session.php called
+[2025-05-02 18:42:36] Session ID: 22j1odrlnfcpqboc0ul45hm701
+[2025-05-02 18:42:36] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 18:42:36] Logged In: true
+[2025-05-02 18:42:36] Is Admin: true
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+[2025-05-02 18:43:35] check_session.php called
+[2025-05-02 18:43:35] Session ID: 22j1odrlnfcpqboc0ul45hm701
+[2025-05-02 18:43:35] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 18:43:35] Logged In: true
+[2025-05-02 18:43:35] Is Admin: true
+[2025-05-02 18:43:36] check_session.php called
+[2025-05-02 18:43:36] Session ID: 22j1odrlnfcpqboc0ul45hm701
+[2025-05-02 18:43:36] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 18:43:36] Logged In: true
+[2025-05-02 18:43:36] Is Admin: true
+[2025-05-02 18:43:36] check_session.php called
+[2025-05-02 18:43:36] Session ID: 22j1odrlnfcpqboc0ul45hm701
+[2025-05-02 18:43:36] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 18:43:36] Logged In: true
+[2025-05-02 18:43:36] Is Admin: true
+[2025-05-02 18:43:36] check_session.php called
+[2025-05-02 18:43:36] Session ID: 22j1odrlnfcpqboc0ul45hm701
+[2025-05-02 18:43:36] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 18:43:36] Logged In: true
+[2025-05-02 18:43:36] Is Admin: true
+[2025-05-02 18:43:37] check_session.php called
+[2025-05-02 18:43:37] Session ID: 22j1odrlnfcpqboc0ul45hm701
+[2025-05-02 18:43:37] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 18:43:37] Logged In: true
+[2025-05-02 18:43:37] Is Admin: true
+[2025-05-02 18:43:49] check_session.php called
+[2025-05-02 18:43:49] Session ID: 22j1odrlnfcpqboc0ul45hm701
+[2025-05-02 18:43:49] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 18:43:49] Logged In: true
+[2025-05-02 18:43:49] Is Admin: true
+[2025-05-02 18:43:50] check_session.php called
+[2025-05-02 18:43:50] Session ID: 22j1odrlnfcpqboc0ul45hm701
+[2025-05-02 18:43:50] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 18:43:50] Logged In: true
+[2025-05-02 18:43:50] Is Admin: true
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 722164 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+[2025-05-02 19:09:42] Env file exists: Yes
+[2025-05-02 19:09:42] Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+[2025-05-02 19:09:42] GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+[2025-05-02 19:09:42] GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 226493 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 226493
+)
+
+OTP entered: 226493
+Login successful for joey.ayoubdisalvo@icloud.com
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 572428 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 572428
+)
+
+OTP entered: 572428
+Login successful for joey.ayoubdisalvo@icloud.com
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 327586 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 327586
+)
+
+OTP entered: 327586
+Login successful for joey.ayoubdisalvo@icloud.com
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 731855 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 731855
+)
+
+OTP entered: 731855
+Login successful for joey.ayoubdisalvo@icloud.com
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 547444 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 547444
+)
+
+OTP entered: 547444
+Login successful for joey.ayoubdisalvo@icloud.com
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 368045 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 368045
+)
+
+OTP entered: 368045
+Login successful for joey.ayoubdisalvo@icloud.com
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 897889 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 897889
+)
+
+OTP entered: 897889
+Login successful for joey.ayoubdisalvo@icloud.com
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 495138 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 495138
+)
+
+OTP entered: 495138
+Login successful for joey.ayoubdisalvo@icloud.com
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 604120 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 604120
+)
+
+OTP entered: 604120
+Login successful for joey.ayoubdisalvo@icloud.com
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+[2025-05-02 21:02:32] check_session.php called
+[2025-05-02 21:02:32] Session ID: k7gcgqcldcei3nu3msahl0jjkn
+[2025-05-02 21:02:32] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 21:02:32] Logged In: true
+[2025-05-02 21:02:32] Is Admin: true
+[2025-05-02 21:02:33] check_session.php called
+[2025-05-02 21:02:33] Session ID: k7gcgqcldcei3nu3msahl0jjkn
+[2025-05-02 21:02:33] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 21:02:33] Logged In: true
+[2025-05-02 21:02:33] Is Admin: true
+[2025-05-02 21:02:33] check_session.php called
+[2025-05-02 21:02:33] Session ID: k7gcgqcldcei3nu3msahl0jjkn
+[2025-05-02 21:02:33] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 21:02:33] Logged In: true
+[2025-05-02 21:02:33] Is Admin: true
+[2025-05-02 21:02:33] check_session.php called
+[2025-05-02 21:02:33] Session ID: k7gcgqcldcei3nu3msahl0jjkn
+[2025-05-02 21:02:33] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 21:02:33] Logged In: true
+[2025-05-02 21:02:33] Is Admin: true
+[2025-05-02 21:02:33] check_session.php called
+[2025-05-02 21:02:34] Session ID: k7gcgqcldcei3nu3msahl0jjkn
+[2025-05-02 21:02:34] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 21:02:34] Logged In: true
+[2025-05-02 21:02:34] Is Admin: true
+[2025-05-02 21:02:34] check_session.php called
+[2025-05-02 21:02:34] Session ID: k7gcgqcldcei3nu3msahl0jjkn
+[2025-05-02 21:02:34] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 21:02:34] Logged In: true
+[2025-05-02 21:02:34] Is Admin: true
+[2025-05-02 21:02:35] check_session.php called
+[2025-05-02 21:02:35] Session ID: k7gcgqcldcei3nu3msahl0jjkn
+[2025-05-02 21:02:35] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 21:02:35] Logged In: true
+[2025-05-02 21:02:35] Is Admin: true
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+[2025-05-02 21:02:38] check_session.php called
+[2025-05-02 21:02:38] Session ID: k7gcgqcldcei3nu3msahl0jjkn
+[2025-05-02 21:02:38] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 21:02:38] Logged In: true
+[2025-05-02 21:02:38] Is Admin: true
+[2025-05-02 21:02:39] check_session.php called
+[2025-05-02 21:02:39] Session ID: k7gcgqcldcei3nu3msahl0jjkn
+[2025-05-02 21:02:39] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 21:02:39] Logged In: true
+[2025-05-02 21:02:39] Is Admin: true
+[2025-05-02 21:02:39] check_session.php called
+[2025-05-02 21:02:39] Session ID: k7gcgqcldcei3nu3msahl0jjkn
+[2025-05-02 21:02:39] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 21:02:39] Logged In: true
+[2025-05-02 21:02:39] Is Admin: true
+[2025-05-02 21:02:39] check_session.php called
+[2025-05-02 21:02:39] Session ID: k7gcgqcldcei3nu3msahl0jjkn
+[2025-05-02 21:02:39] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 21:02:39] Logged In: true
+[2025-05-02 21:02:39] Is Admin: true
+[2025-05-02 21:05:07] check_session.php called
+[2025-05-02 21:05:07] Session ID: k7gcgqcldcei3nu3msahl0jjkn
+[2025-05-02 21:05:07] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 21:05:07] Logged In: true
+[2025-05-02 21:05:07] Is Admin: true
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+[2025-05-02 21:09:55] check_session.php called
+[2025-05-02 21:09:55] Session ID: k7gcgqcldcei3nu3msahl0jjkn
+[2025-05-02 21:09:55] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 21:09:55] Logged In: true
+[2025-05-02 21:09:55] Is Admin: true
+[2025-05-02 21:09:56] check_session.php called
+[2025-05-02 21:09:56] Session ID: k7gcgqcldcei3nu3msahl0jjkn
+[2025-05-02 21:09:56] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 21:09:56] Logged In: true
+[2025-05-02 21:09:56] Is Admin: true
+[2025-05-02 21:10:01] check_session.php called
+[2025-05-02 21:10:01] Session ID: k7gcgqcldcei3nu3msahl0jjkn
+[2025-05-02 21:10:01] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 21:10:01] Logged In: true
+[2025-05-02 21:10:01] Is Admin: true
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 635162 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 635152
+)
+
+OTP entered: 635152
+Error: Invalid OTP
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 730054 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 730054
+)
+
+OTP entered: 730054
+Login successful for joey.ayoubdisalvo@icloud.com
+[2025-05-02 21:12:06] check_session.php called
+[2025-05-02 21:12:06] Session ID: k7gcgqcldcei3nu3msahl0jjkn
+[2025-05-02 21:12:06] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 21:12:06] Logged In: true
+[2025-05-02 21:12:06] Is Admin: true
+[2025-05-02 21:12:08] check_session.php called
+[2025-05-02 21:12:08] Session ID: k7gcgqcldcei3nu3msahl0jjkn
+[2025-05-02 21:12:08] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 21:12:08] Logged In: true
+[2025-05-02 21:12:08] Is Admin: true
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 353552 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 353552
+)
+
+OTP entered: 353552
+Login successful for joey.ayoubdisalvo@icloud.com
+[2025-05-02 21:17:35] check_session.php called
+[2025-05-02 21:17:35] Session ID: k7gcgqcldcei3nu3msahl0jjkn
+[2025-05-02 21:17:35] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 21:17:35] Logged In: true
+[2025-05-02 21:17:35] Is Admin: true
+[2025-05-02 21:17:37] check_session.php called
+[2025-05-02 21:17:37] Session ID: k7gcgqcldcei3nu3msahl0jjkn
+[2025-05-02 21:17:37] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 21:17:37] Logged In: true
+[2025-05-02 21:17:37] Is Admin: true
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+[2025-05-02 21:21:18] check_session.php called
+[2025-05-02 21:21:18] Session ID: k7gcgqcldcei3nu3msahl0jjkn
+[2025-05-02 21:21:18] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 21:21:18] Logged In: true
+[2025-05-02 21:21:18] Is Admin: true
+[2025-05-02 21:21:20] check_session.php called
+[2025-05-02 21:21:20] Session ID: k7gcgqcldcei3nu3msahl0jjkn
+[2025-05-02 21:21:20] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 21:21:20] Logged In: true
+[2025-05-02 21:21:20] Is Admin: true
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+[2025-05-02 21:21:23] check_session.php called
+[2025-05-02 21:21:23] Session ID: k7gcgqcldcei3nu3msahl0jjkn
+[2025-05-02 21:21:23] Session Data: {"user_id":"2","role":"admin"}
+[2025-05-02 21:21:23] Logged In: true
+[2025-05-02 21:21:23] Is Admin: true
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: Yes
+Env file contents: GMAIL_USERNAME=joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD=ijcbgdekkqiokahg
+
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg

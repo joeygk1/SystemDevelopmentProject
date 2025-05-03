@@ -276,16 +276,31 @@
 </div>
 
 <script>
-    // Check if the user is an admin
-    if (!localStorage.getItem('isAdmin')) {
-        window.location.href = 'login.html';
-    }
+    // Lightweight session check for logging (optional, since .htaccess handles redirect)
+    fetch('check_session.php')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Session check response:', data);
+        })
+        .catch(error => {
+            console.error('Error checking session:', error);
+        });
 
     // Logout function
     function logout() {
-        localStorage.removeItem('isAdmin');
-        localStorage.removeItem('clientEmail');
-        window.location.href = 'login.html';
+        fetch('logout.php', { method: 'POST' })
+            .then(() => {
+                window.location.href = 'login.php';
+            })
+            .catch(error => {
+                console.error('Error during logout:', error);
+                window.location.href = 'login.php';
+            });
     }
 
     // Simulate fetching summary data (replace with real API call)
@@ -294,15 +309,6 @@
         document.getElementById('pending-orders').textContent = '0';
         document.getElementById('total-revenue').textContent = '$0';
     }, 1000);
-
-    // In admin-home.html, admin-gallery.html
-fetch('check_session.php')
-    .then(response => response.json())
-    .then(data => {
-        if (!data.loggedIn || !data.isAdmin) {
-            window.location.href = 'login.php';
-        }
-    });
 </script>
 </body>
 </html>

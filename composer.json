@@ -1,18 +1,1 @@
-{
-    "name": "joeygk1/system-development-project",
-    "description": "Sneaker restoration project with 2FA login",
-    "autoload": {
-        "psr-4": {
-            "Joeygk1\\SystemDevelopmentProject\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Joey",
-            "email": "joeyayoubdisalvo@gmail.com"
-        }
-    ],
-    "require": {
-        "phpmailer/phpmailer": "^6.10"
-    }
-}
+{ "require": { "phpmailer/phpmailer": "^6.8", "vlucas/phpdotenv": "^5.5" } }

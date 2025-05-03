@@ -1,59 +1,75 @@
 <?php
 session_start();
-require 'config.php';
 
-// Initialize variables
 $error = '';
-$success = '';
-$token = $_GET['token'] ?? '';
 
-if (empty($token)) {
-    $error = 'Invalid or missing token.';
+if (!isset($_SESSION['2fa_user_id']) || !isset($_SESSION['2fa_otp'])) {
+    header('Location: login.php');
+    exit;
 }
 
-// Validate token and check if it exists and is not expired
-if (!$error) {
-    try {
-        $stmt = $db->prepare("SELECT email, expires_at FROM password_resets WHERE token = ?");
-        $stmt->execute([$token]);
-        $reset = $stmt->fetch();
+$email = $_SESSION['2fa_email'] ?? 'your email';
 
-        if (!$reset) {
-            $error = 'Invalid token.';
-        } elseif (strtotime($reset['expires_at']) < time()) {
-            $error = 'This password reset link has expired.';
-        }
-    } catch (PDOException $e) {
-        $error = 'Database error: ' . $e->getMessage();
-    }
-}
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    file_put_contents('debug.log', "POST data: " . print_r($_POST, true) . "\n", FILE_APPEND);
 
-// Handle password reset form submission
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
-    $new_password = $_POST['new_password'] ?? '';
-    $confirm_password = $_POST['confirm_password'] ?? '';
+    $otp = trim($_POST['otp'] ?? '');
+    file_put_contents('debug.log', "OTP entered: $otp\n", FILE_APPEND);
 
-    if (empty($new_password) || empty($confirm_password)) {
-        $error = 'Both password fields are required.';
-    } elseif ($new_password !== $confirm_password) {
-        $error = 'Passwords do not match.';
-    } elseif (strlen($new_password) < 8) {
-        $error = 'Password must be at least 8 characters long.';
+    if (empty($otp)) {
+        $error = 'OTP is required';
+        file_put_contents('debug.log', "Error: OTP empty\n", FILE_APPEND);
+    } elseif (time() > $_SESSION['2fa_expires']) {
+        $error = 'OTP has expired. Please try again.';
+        unset($_SESSION['2fa_user_id'], $_SESSION['2fa_otp'], $_SESSION['2fa_email'], $_SESSION['2fa_role'], $_SESSION['2fa_expires']);
+        file_put_contents('debug.log', "Error: OTP expired\n", FILE_APPEND);
+        header('Location: login.php');
+        exit;
+    } elseif ($otp === $_SESSION['2fa_otp']) {
+        // Successful login
+        $_SESSION['user_id'] = $_SESSION['2fa_user_id'];
+        $_SESSION['role'] = $_SESSION['2fa_role'];
+        $email = $_SESSION['2fa_email'];
+
+        $isAdmin = ($_SESSION['role'] === 'admin');
+        $clientEmail = ($isAdmin ? '' : $email);
+
+        // Clear 2FA session data
+        unset($_SESSION['2fa_user_id'], $_SESSION['2fa_otp'], $_SESSION['2fa_email'], $_SESSION['2fa_role'], $_SESSION['2fa_expires']);
+        file_put_contents('debug.log', "Login successful for $email\n", FILE_APPEND);
+
+        $redirectUrl = $isAdmin ? 'admin-home.html' : 'index.html';
+        $isAdminJs = $isAdmin ? 'true' : 'false';
+
+        echo <<<EOD
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Redirecting...</title>
+        </head>
+        <body>
+            <script>
+                const isAdmin = $isAdminJs;
+                const clientEmail = '$clientEmail';
+
+                if (isAdmin) {
+                    localStorage.setItem('isAdmin', 'true');
+                    localStorage.removeItem('clientEmail');
+                } else {
+                    localStorage.setItem('clientEmail', clientEmail);
+                    localStorage.removeItem('isAdmin');
+                }
+
+                window.location.href = '$redirectUrl';
+            </script>
+        </body>
+        </html>
+        EOD;
+        exit;
     } else {
-        try {
-            // Update the user's password
-            $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
-            $stmt = $db->prepare("UPDATE users SET password = ? WHERE email = ?");
-            $stmt->execute([$hashed_password, $reset['email']]);
-
-            // Delete the reset token
-            $stmt = $db->prepare("DELETE FROM password_resets WHERE token = ?");
-            $stmt->execute([$token]);
-
-            $success = 'Your password has been reset successfully. You can now <a href="login.php">log in</a> with your new password.';
-        } catch (PDOException $e) {
-            $error = 'Database error: ' . $e->getMessage();
-        }
+        $error = 'Invalid OTP';
+        file_put_contents('debug.log', "Error: Invalid OTP\n", FILE_APPEND);
     }
 }
 ?>
@@ -63,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset Password - Magic Sole</title>
+    <title>Verify OTP - Magic Sole</title>
     <style>
         * {
             margin: 0;
@@ -125,6 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
             margin-left: 250px;
             width: calc(100% - 250px);
             padding: 50px;
+            position: relative;
         }
 
         .hero {
@@ -142,7 +159,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
             margin-bottom: 15px;
         }
 
-        .reset-section {
+        .otp-section {
             padding: 30px;
             max-width: 500px;
             margin: 40px auto;
@@ -154,25 +171,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
             animation: fadeInUp 1s forwards 0.5s;
         }
 
-        .reset-section h2 {
+        .otp-section h2 {
             font-size: 2.5rem;
             margin-bottom: 20px;
             text-align: center;
             color: #1a1a1a;
         }
 
-        .reset-form {
+        .otp-form {
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
 
-        .reset-form label {
+        .otp-form label {
             font-size: 1.1rem;
             color: #333;
         }
 
-        .reset-form input {
+        .otp-form p {
+            font-size: 1rem;
+            color: #555;
+            text-align: center;
+        }
+
+        .otp-form input {
             padding: 10px;
             font-size: 1rem;
             border: 1px solid #ccc;
@@ -180,11 +203,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
             outline: none;
         }
 
-        .reset-form input:focus {
+        .otp-form input:focus {
             border: 1px solid #d4af37;
         }
 
-        .reset-form button {
+        .otp-form button {
             background: #1a1a1a;
             color: white;
             padding: 10px;
@@ -194,23 +217,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
             cursor: pointer;
         }
 
-        .reset-form button:hover {
+        .otp-form button:hover {
             background: #333;
             transform: scale(1.05);
         }
 
-        .error-message, .success-message {
+        .error-message {
+            color: #e74c3c;
             font-size: 0.9rem;
             text-align: center;
             margin-top: 10px;
-        }
-
-        .error-message {
-            color: #e74c3c;
-        }
-
-        .success-message {
-            color: #2ecc71;
+            display: none;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeInUp 0.5s forwards;
         }
 
         footer {
@@ -224,6 +244,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
             width: 250px;
             background-color: #1a1a1a;
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .bottom-logo {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bottom-logo img {
+            width: 200px;
+            max-width: 100%;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 0.5s;
+        }
+
+        .bottom-logo img:hover {
+            transform: scale(1.1);
         }
 
         @media (max-width: 768px) {
@@ -250,6 +290,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
                 position: relative;
                 width: 100%;
                 left: 0;
+            }
+
+            .bottom-logo {
+                margin-top: 20px;
             }
         }
 
@@ -285,8 +329,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
         <a href="policies.html">Policies</a>
         <a href="booking.html">Booking</a>
         <a href="gallery.html">Gallery</a>
-        <a href="login.php">Login</a>
+        <a href="login.php" id="login-link">Login</a>
         <a href="register.php">Register</a>
+        <a href="#" id="logout-link" style="display: none;" onclick="logout()">Logout</a>
     </nav>
     <footer>
         <p>© 2025 Magic Sole. All rights reserved.</p>
@@ -296,26 +341,57 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
 <div class="main-content">
     <section class="hero">
         <div class="hero-content">
-            <h1>Reset Password</h1>
+            <h1>Verify OTP</h1>
+            <p>Enter the code sent to your email to log in.</p>
         </div>
     </section>
 
-    <section class="reset-section">
-        <h2>Reset Your Password</h2>
+    <section class="otp-section">
+        <h2>Enter Your OTP</h2>
+        <form class="otp-form" method="POST">
+            <label for="otp">OTP Code</label>
+            <p>We’ve sent a code to <?php echo htmlspecialchars($email); ?>. It expires in 10 minutes.</p>
+            <input type="text" id="otp" name="otp" placeholder="Enter the 6-digit code" required>
+            <button type="submit">Verify OTP</button>
+        </form>
         <?php if ($error) { ?>
-            <p class="error-message"><?php echo htmlspecialchars($error); ?></p>
-        <?php } elseif ($success) { ?>
-            <p class="success-message"><?php echo $success; ?></p>
-        <?php } else { ?>
-            <form class="reset-form" method="POST">
-                <label for="new_password">New Password</label>
-                <input type="password" id="new_password" name="new_password" placeholder="Enter new password" required>
-                <label for="confirm_password">Confirm Password</label>
-                <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm new password" required>
-                <button type="submit">Reset Password</button>
-            </form>
+            <p class="error-message" style="display: block;"><?php echo htmlspecialchars($error); ?></p>
         <?php } ?>
     </section>
+
+    <div class="bottom-logo">
+        <img src="MagicNoBackground.png" alt="Magic Sole Logo">
+    </div>
 </div>
+
+<script>
+    // Check if a user is already logged in
+    const isAdmin = localStorage.getItem('isAdmin') === 'true';
+    const clientEmail = localStorage.getItem('clientEmail');
+    const loginLink = document.getElementById('login-link');
+    const logoutLink = document.getElementById('logout-link');
+
+    if (isAdmin || clientEmail) {
+        loginLink.style.display = 'none';
+        logoutLink.style.display = 'block';
+    } else {
+        loginLink.style.display = 'block';
+        logoutLink.style.display = 'none';
+    }
+
+    // Logout functionality
+    function logout() {
+        localStorage.removeItem('isAdmin');
+        localStorage.removeItem('clientEmail');
+        fetch('logout.php', {
+            method: 'POST'
+        })
+        .then(() => {
+            loginLink.style.display = 'block';
+            logoutLink.style.display = 'none';
+            window.location.href = 'login.php';
+        });
+    }
+</script>
 </body>
 </html>

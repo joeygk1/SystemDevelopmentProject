@@ -17,6 +17,7 @@
             background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
             color: #333;
             display: flex;
+            min-height: 100vh;
         }
 
         header {
@@ -318,331 +319,275 @@
                 width: 100%;
                 padding: 20px;
             }
-
-            header {
-                width: 100%;
-                height: auto;
-                position: relative;
-                padding: 1rem;
-            }
-
-            nav {
-                flex-direction: row;
-                justify-content: center;
-                gap: 15px;
-                flex-wrap: wrap;
-            }
-
-            footer {
-                position: relative;
-                width: 100%;
-                left: 0;
-            }
-
-            .orders-section {
-                max-width: 100%;
-            }
-
-            .orders-table {
-                font-size: 0.9rem;
-            }
-
-            .orders-table th, .orders-table td {
-                padding: 10px;
-            }
-
-            .orders-table .action-btn {
-                padding: 5px 10px;
-                font-size: 0.8rem;
-            }
-
-            .search-filter {
-                flex-direction: column;
-            }
         }
 
         @keyframes slideInLeft {
-            from { transform: translateX(-100%); }
-            to { transform: translateX(0); }
+            0% {
+                transform: translateX(-300px);
+            }
+            100% {
+                transform: translateX(0);
+            }
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
         }
 
         @keyframes fadeInUp {
-            to {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
         @keyframes modalFadeIn {
-            to {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
                 opacity: 1;
                 transform: scale(1);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
             }
         }
     </style>
 </head>
 <body>
-<header>
-    <div class="logo">
-        <a href="index.html">
-            <img src="MagicNoBackground.png" alt="Magic Sole Logo">
-        </a>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Magic Sole Logo">
+        </div>
+        <nav>
+            <a href="dashboard.php">Dashboard</a>
+            <a href="view_orders.php">Manage Orders</a>
+            <a href="logout.php">Logout</a>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Manage Order Status</h1>
+                <p>View and update order status here.</p>
+            </div>
+        </div>
+
+        <div class="orders-section" id="orders-section">
+            <h2>Orders</h2>
+            <div class="search-filter">
+                <input type="text" id="searchOrder" placeholder="Search by Order ID...">
+                <select id="statusFilter">
+                    <option value="">All Statuses</option>
+                    <option value="Processing">Processing</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Ready for Pickup">Ready for Pickup</option>
+                </select>
+            </div>
+
+            <table class="orders-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Date</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="orders-tbody">
+                    <!-- Orders will be displayed here -->
+                </tbody>
+            </table>
+
+            <div class="pagination">
+                <button id="prevPage">Prev</button>
+                <button id="nextPage">Next</button>
+            </div>
+
+            <div class="loading-spinner" id="loading-spinner">
+                <i class="fa fa-spinner"></i>
+            </div>
+        </div>
     </div>
-    <nav>
-        <a href="admin-home.html">Admin Home</a>
-        <a href="view-orders.html">View Orders</a>
-        <a href="order-status.html">Order Status</a>
-        <a href="admin-gallery.html">Manage Gallery</a>
-        <a href="login.php">Logout</a>
-    </nav>
+
     <footer>
         <p>© 2025 Magic Sole. All rights reserved.</p>
     </footer>
-</header>
 
-<div class="main-content">
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Manage Order Status</h1>
-            <p>Update the status of customer orders here.</p>
-        </div>
-    </section>
-    <div class="orders-section">
-        <h2>Order Status Management</h2>
-        <div class="search-filter">
-            <input type="text" id="search-input" placeholder="Search by customer name...">
-            <select id="status-filter">
-                <option value="">All Statuses</option>
-                <option value="Processing">Processing</option>
-                <option value="Ready for Pickup">Ready for Pickup</option>
-                <option value="Completed">Completed</option>
-                <option value="Cancelled">Cancelled</option>
-            </select>
-        </div>
-        <div class="loading-spinner" id="loading-spinner">
-            <i class="fas fa-spinner"></i>
-        </div>
-        <table class="orders-table" id="orders-table">
-            <thead>
-                <tr>
-                    <th>Order ID</th>
-                    <th>Customer Name</th>
-                    <th>Date</th>
-                    <th>Total</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody id="orders-tbody">
-            </tbody>
-        </table>
-        <div class="pagination">
-            <button onclick="changePage(-1)">Previous</button>
-            <button onclick="changePage(1)">Next</button>
-        </div>
-    </div>
-    <div class="modal" id="order-modal">
+    <!-- Modal for Order Details -->
+    <div class="modal" id="orderModal">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">×</span>
+            <span class="close-btn" id="closeModal">×</span>
             <h3>Order Details</h3>
-            <p><strong>Order ID:</strong> <span id="modal-order-id"></span></p>
-            <p><strong>Customer Name:</strong> <span id="modal-customer-name"></span></p>
-            <p><strong>Email:</strong> <span id="modal-email"></span></p>
-            <p><strong>Phone:</strong> <span id="modal-phone"></span></p>
-            <p><strong>Items:</strong> <span id="modal-items"></span></p>
-            <p><strong>Total:</strong> <span id="modal-total"></span></p>
-            <p><strong>Status:</strong> <span id="modal-status"></span></p>
-        </div>
-    </div>
-    <div class="modal" id="update-modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeUpdateModal()">×</span>
-            <h3>Update Order</h3>
-            <label for="update-order-id">Order ID</label>
-            <input type="text" id="update-order-id" readonly>
-            <label for="update-customer-name">Customer Name</label>
-            <input type="text" id="update-customer-name">
-            <label for="update-date">Date</label>
-            <input type="text" id="update-date">
-            <label for="update-email">Email</label>
-            <input type="email" id="update-email">
-            <label for="update-phone">Phone</label>
-            <input type="text" id="update-phone">
-            <label for="update-items">Items</label>
-            <input type="text" id="update-items">
-            <label for="update-total">Total</label>
-            <input type="text" id="update-total">
-            <label for="update-status">Status</label>
-            <select id="update-status">
+            <p><strong>Order ID:</strong> <span id="modalOrderId"></span></p>
+            <p><strong>Customer Name:</strong> <span id="modalCustomerName"></span></p>
+            <p><strong>Email:</strong> <span id="modalEmail"></span></p>
+            <p><strong>Phone:</strong> <span id="modalPhone"></span></p>
+            <p><strong>Items:</strong> <span id="modalItems"></span></p>
+            <p><strong>Status:</strong> <span id="modalStatus"></span></p>
+            <label for="updateStatus">Update Status:</label>
+            <select id="updateStatus">
                 <option value="Processing">Processing</option>
-                <option value="Ready for Pickup">Ready for Pickup</option>
                 <option value="Completed">Completed</option>
-                <option value="Cancelled">Cancelled</option>
+                <option value="Ready for Pickup">Ready for Pickup</option>
             </select>
-            <button onclick="saveOrder()">Save</button>
+            <button id="updateStatusBtn">Update</button>
         </div>
     </div>
-</div>
 
-<script>
+    <script>
+        // Show loading spinner and hide content initially
+        document.getElementById('loading-spinner').style.display = 'block';
+        document.getElementById('orders-section').style.display = 'none';
 
-    // In index.html, order-status.html
-fetch('check_session.php')
-    .then(response => response.json())
-    .then(data => {
-        if (!data.loggedIn || !data.clientEmail) {
-            window.location.href = 'login.php';
-        }
-    });
-
-    // Check if the user is an admin
-    if (!localStorage.getItem('isAdmin')) {
-        window.location.href = 'login.html';
-    }
-
-    let orders = [
-    { orderId: '#1001', customerName: 'Chris Tren', date: '2025-04-01', total: '$75.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' },
-        { orderId: '#1002', customerName: 'Joshua Ayoub', date: '2025-04-02', total: '$120.00', status: 'Ready for Pickup', email: 'jane@example.com', phone: '234-567-8901', items: 'Sneaker Restoration x2' },
-        { orderId: '#1003', customerName: 'Joey Ayoub', date: '2025-04-03', total: '$45.00', status: 'Completed', email: 'mike@example.com', phone: '345-678-9012', items: 'Sneaker Cleaning x1' },
-        { orderId: '#1004', customerName: 'Jack Black', date: '2025-04-01', total: '$50.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' },
-        { orderId: '#1005', customerName: 'P. Diddy', date: '2025-04-01', total: '$100.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' },
-        { orderId: '#1006', customerName: 'Chicken Jockey', date: '2025-04-01', total: '$95.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' },
-        { orderId: '#1007', customerName: 'The Nether', date: '2025-04-01', total: '$75.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' },
-    ];
-
-    let currentPage = 1;
-    const rowsPerPage = 10;
-    let selectedOrderId = null;
-
-    function displayOrders(filteredOrders) {
-        const tbody = document.getElementById('orders-tbody');
-        tbody.innerHTML = '';
-        const start = (currentPage - 1) * rowsPerPage;
-        const end = start + rowsPerPage;
-        const paginatedOrders = filteredOrders.slice(start, end);
-
-        paginatedOrders.forEach(order => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${order.orderId}</td>
-                <td>${order.customerName}</td>
-                <td>${order.date}</td>
-                <td>${order.total}</td>
-                <td>${order.status}</td>
-                <td>
-                    <button class="action-btn update-btn" onclick="openUpdateModal('${order.orderId}')">Update</button>
-                    <button class="action-btn delete-btn" onclick="deleteOrder('${order.orderId}')">Delete</button>
-                </td>
-            `;
-            row.addEventListener('click', (e) => {
-                if (e.target.tagName !== 'BUTTON') {
-                    showOrderDetails(order);
+        // Lightweight session check for logging (optional, since .htaccess handles redirect)
+        fetch('check_session.php')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
                 }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Session check response:', data);
+                // Proceed with page load (no redirect needed here; .htaccess handles it)
+                document.getElementById('loading-spinner').style.display = 'none';
+                document.getElementById('orders-section').style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Error checking session:', error);
+                // No redirect here; .htaccess will handle it
+                document.getElementById('loading-spinner').style.display = 'none';
+                document.getElementById('orders-section').style.display = 'block';
             });
-            tbody.appendChild(row);
-        });
-    }
 
-    function showOrderDetails(order) {
-        document.getElementById('modal-order-id').textContent = order.orderId;
-        document.getElementById('modal-customer-name').textContent = order.customerName;
-        document.getElementById('modal-email').textContent = order.email;
-        document.getElementById('modal-phone').textContent = order.phone;
-        document.getElementById('modal-items').textContent = order.items;
-        document.getElementById('modal-total').textContent = order.total;
-        document.getElementById('modal-status').textContent = order.status;
-        document.getElementById('order-modal').style.display = 'flex';
-    }
+        let orders = [
+            { orderId: '#1001', customerName: 'Chris Tren', date: '2025-04-01', total: '$75.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' },
+            { orderId: '#1002', customerName: 'Joshua Ayoub', date: '2025-04-02', total: '$120.00', status: 'Ready for Pickup', email: 'jane@example.com', phone: '234-567-8901', items: 'Sneaker Restoration x2' },
+            { orderId: '#1003', customerName: 'Joey Ayoub', date: '2025-04-03', total: '$45.00', status: 'Completed', email: 'mike@example.com', phone: '345-678-9012', items: 'Sneaker Cleaning x1' },
+            { orderId: '#1004', customerName: 'Jack Black', date: '2025-04-01', total: '$50.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' },
+            { orderId: '#1005', customerName: 'P. Diddy', date: '2025-04-01', total: '$100.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' },
+            { orderId: '#1006', customerName: 'Chicken Jockey', date: '2025-04-01', total: '$95.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' },
+            { orderId: '#1007', customerName: 'The Nether', date: '2025-04-01', total: '$75.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' }
+        ];
 
-    function closeModal() {
-        document.getElementById('order-modal').style.display = 'none';
-    }
+        let currentPage = 1;
+        const rowsPerPage = 10;
+        let selectedOrderId = null;
 
-    function openUpdateModal(orderId) {
-        selectedOrderId = orderId;
-        const order = orders.find(o => o.orderId === orderId);
-        document.getElementById('update-order-id').value = order.orderId;
-        document.getElementById('update-customer-name').value = order.customerName;
-        document.getElementById('update-date').value = order.date;
-        document.getElementById('update-email').value = order.email;
-        document.getElementById('update-phone').value = order.phone;
-        document.getElementById('update-items').value = order.items;
-        document.getElementById('update-total').value = order.total;
-        document.getElementById('update-status').value = order.status;
-        document.getElementById('update-modal').style.display = 'flex';
-    }
+        function displayOrders(filteredOrders) {
+            const tbody = document.getElementById('orders-tbody');
+            tbody.innerHTML = '';
+            const start = (currentPage - 1) * rowsPerPage;
+            const end = start + rowsPerPage;
+            const paginatedOrders = filteredOrders.slice(start, end);
 
-    function closeUpdateModal() {
-        document.getElementById('update-modal').style.display = 'none';
-        selectedOrderId = null;
-    }
-
-    function saveOrder() {
-        const order = orders.find(o => o.orderId === selectedOrderId);
-        if (order) {
-            order.customerName = document.getElementById('update-customer-name').value;
-            order.date = document.getElementById('update-date').value;
-            order.email = document.getElementById('update-email').value;
-            order.phone = document.getElementById('update-phone').value;
-            order.items = document.getElementById('update-items').value;
-            order.total = document.getElementById('update-total').value;
-            order.status = document.getElementById('update-status').value;
-            filterOrders();
-            closeUpdateModal();
+            paginatedOrders.forEach(order => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${order.orderId}</td>
+                    <td>${order.customerName}</td>
+                    <td>${order.date}</td>
+                    <td>${order.total}</td>
+                    <td>${order.status}</td>
+                    <td>
+                        <button class="update-btn" onclick="openModal('${order.orderId}')">Update</button>
+                        <button class="delete-btn" onclick="deleteOrder('${order.orderId}')">Delete</button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
         }
-    }
 
-    function deleteOrder(orderId) {
-        if (confirm('Are you sure you want to delete this order?')) {
-            orders = orders.filter(o => o.orderId !== orderId);
-            filterOrders();
+        function openModal(orderId) {
+            const order = orders.find(order => order.orderId === orderId);
+            if (order) {
+                selectedOrderId = orderId;
+                document.getElementById('modalOrderId').textContent = order.orderId;
+                document.getElementById('modalCustomerName').textContent = order.customerName;
+                document.getElementById('modalEmail').textContent = order.email;
+                document.getElementById('modalPhone').textContent = order.phone;
+                document.getElementById('modalItems').textContent = order.items;
+                document.getElementById('modalStatus').textContent = order.status;
+                document.getElementById('updateStatus').value = order.status;
+
+                document.getElementById('orderModal').style.display = 'flex';
+            }
         }
-    }
 
-    function changePage(direction) {
-        currentPage += direction;
-        if (currentPage < 1) currentPage = 1;
-        filterOrders();
-    }
+        function closeModal() {
+            document.getElementById('orderModal').style.display = 'none';
+        }
 
-    // Search and filter functionality
-    document.getElementById('search-input').addEventListener('input', filterOrders);
-    document.getElementById('status-filter').addEventListener('change', filterOrders);
+        document.getElementById('closeModal').addEventListener('click', closeModal);
 
-    function filterOrders() {
-        const searchTerm = document.getElementById('search-input').value.toLowerCase();
-        const statusFilter = document.getElementById('status-filter').value;
+        function updateOrderStatus() {
+            const newStatus = document.getElementById('updateStatus').value;
+            const order = orders.find(order => order.orderId === selectedOrderId);
+            if (order) {
+                order.status = newStatus;
+                displayOrders(orders);
+                closeModal();
+            }
+        }
 
-        const filteredOrders = orders.filter(order => {
-            const matchesSearch = order.customerName.toLowerCase().includes(searchTerm);
-            const matchesStatus = statusFilter ? order.status === statusFilter : true;
-            return matchesSearch && matchesStatus;
+        document.getElementById('updateStatusBtn').addEventListener('click', updateOrderStatus);
+
+        // Add page navigation and filtering functionality
+        document.getElementById('prevPage').addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                displayOrders(orders);
+            }
         });
 
-        currentPage = 1;
-        displayOrders(filteredOrders);
-    }
+        document.getElementById('nextPage').addEventListener('click', () => {
+            if (currentPage * rowsPerPage < orders.length) {
+                currentPage++;
+                displayOrders(orders);
+            }
+        });
 
-    // Simulate loading
-    const spinner = document.getElementById('loading-spinner');
-    const table = document.getElementById('orders-table');
-    spinner.style.display = 'block';
-    table.style.display = 'none';
+        // Filter orders based on the status
+        document.getElementById('statusFilter').addEventListener('change', () => {
+            const filteredOrders = orders.filter(order => {
+                const status = document.getElementById('statusFilter').value;
+                return status === '' || order.status === status;
+            });
+            displayOrders(filteredOrders);
+        });
 
-    setTimeout(() => {
-        spinner.style.display = 'none';
-        table.style.display = 'table';
-        displayOrders(orders);
-    }, 1000);
-</script>
+        // Search orders by order ID
+        document.getElementById('searchOrder').addEventListener('input', () => {
+            const query = document.getElementById('searchOrder').value.toLowerCase();
+            const filteredOrders = orders.filter(order => order.orderId.toLowerCase().includes(query));
+            displayOrders(filteredOrders);
+        });
+
+        // Initial display of orders after session check
+        document.addEventListener('DOMContentLoaded', () => {
+            displayOrders(orders);
+        });
+    </script>
 </body>
 </html>

@@ -1,56 +1,53 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 session_start();
+require 'vendor/autoload.php';
 require 'config.php';
 
-// Initialize variables
+// Load environment variables (if needed in the future)
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 $error = '';
 $success = '';
-$token = $_GET['token'] ?? '';
 
-if (empty($token)) {
-    $error = 'Invalid or missing token.';
-}
-
-// Validate token and check if it exists and is not expired
-if (!$error) {
-    try {
-        $stmt = $db->prepare("SELECT email, expires_at FROM password_resets WHERE token = ?");
-        $stmt->execute([$token]);
-        $reset = $stmt->fetch();
-
-        if (!$reset) {
-            $error = 'Invalid token.';
-        } elseif (strtotime($reset['expires_at']) < time()) {
-            $error = 'This password reset link has expired.';
-        }
-    } catch (PDOException $e) {
-        $error = 'Database error: ' . $e->getMessage();
-    }
-}
-
-// Handle password reset form submission
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
-    $new_password = $_POST['new_password'] ?? '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = trim($_POST['username'] ?? '');
+    $email = filter_var($_POST['email'] ?? '', FILTER_SANITIZE_EMAIL);
+    $password = $_POST['password'] ?? '';
     $confirm_password = $_POST['confirm_password'] ?? '';
 
-    if (empty($new_password) || empty($confirm_password)) {
-        $error = 'Both password fields are required.';
-    } elseif ($new_password !== $confirm_password) {
-        $error = 'Passwords do not match.';
-    } elseif (strlen($new_password) < 8) {
-        $error = 'Password must be at least 8 characters long.';
+    // Validation
+    if (empty($username) || empty($email) || empty($password) || empty($confirm_password)) {
+        $error = 'All fields are required';
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $error = 'Invalid email format';
+    } elseif ($password !== $confirm_password) {
+        $error = 'Passwords do not match';
+    } elseif (strlen($password) < 8) {
+        $error = 'Password must be at least 8 characters long';
     } else {
         try {
-            // Update the user's password
-            $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
-            $stmt = $db->prepare("UPDATE users SET password = ? WHERE email = ?");
-            $stmt->execute([$hashed_password, $reset['email']]);
+            // Check if email already exists
+            $stmt = $db->prepare("SELECT id FROM users WHERE email = ?");
+            $stmt->execute([$email]);
+            if ($stmt->fetch()) {
+                $error = 'Email already registered';
+            } else {
+                // Hash the password
+                $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-            // Delete the reset token
-            $stmt = $db->prepare("DELETE FROM password_resets WHERE token = ?");
-            $stmt->execute([$token]);
+                // Insert the new user
+                $stmt = $db->prepare("INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, 'client')");
+                $stmt->execute([$username, $email, $hashed_password]);
 
-            $success = 'Your password has been reset successfully. You can now <a href="login.php">log in</a> with your new password.';
+                $success = 'Registration successful! You can now log in.';
+                // Optionally redirect to login.php after a delay
+                header('Refresh: 2; URL=login.php');
+            }
         } catch (PDOException $e) {
             $error = 'Database error: ' . $e->getMessage();
         }
@@ -63,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset Password - Magic Sole</title>
+    <title>Client Register - Magic Sole</title>
     <style>
         * {
             margin: 0;
@@ -125,6 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
             margin-left: 250px;
             width: calc(100% - 250px);
             padding: 50px;
+            position: relative;
         }
 
         .hero {
@@ -142,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
             margin-bottom: 15px;
         }
 
-        .reset-section {
+        .register-section {
             padding: 30px;
             max-width: 500px;
             margin: 40px auto;
@@ -154,25 +152,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
             animation: fadeInUp 1s forwards 0.5s;
         }
 
-        .reset-section h2 {
+        .register-section h2 {
             font-size: 2.5rem;
             margin-bottom: 20px;
             text-align: center;
             color: #1a1a1a;
         }
 
-        .reset-form {
+        .register-form {
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
 
-        .reset-form label {
+        .register-form label {
             font-size: 1.1rem;
             color: #333;
         }
 
-        .reset-form input {
+        .register-form input {
             padding: 10px;
             font-size: 1rem;
             border: 1px solid #ccc;
@@ -180,11 +178,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
             outline: none;
         }
 
-        .reset-form input:focus {
+        .register-form input:focus {
             border: 1px solid #d4af37;
         }
 
-        .reset-form button {
+        .register-form button {
             background: #1a1a1a;
             color: white;
             padding: 10px;
@@ -194,7 +192,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
             cursor: pointer;
         }
 
-        .reset-form button:hover {
+        .register-form button:hover {
             background: #333;
             transform: scale(1.05);
         }
@@ -203,6 +201,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
             font-size: 0.9rem;
             text-align: center;
             margin-top: 10px;
+            display: none;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeInUp 0.5s forwards;
         }
 
         .error-message {
@@ -224,6 +226,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
             width: 250px;
             background-color: #1a1a1a;
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .bottom-logo {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bottom-logo img {
+            width: 200px;
+            max-width: 100%;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 0.5s;
+        }
+
+        .bottom-logo img:hover {
+            transform: scale(1.1);
         }
 
         @media (max-width: 768px) {
@@ -250,6 +272,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
                 position: relative;
                 width: 100%;
                 left: 0;
+            }
+
+            .bottom-logo {
+                margin-top: 20px;
             }
         }
 
@@ -287,6 +313,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
         <a href="gallery.html">Gallery</a>
         <a href="login.php">Login</a>
         <a href="register.php">Register</a>
+        <a href="#" id="logout-link" style="display: none;" onclick="logout()">Logout</a>
     </nav>
     <footer>
         <p>© 2025 Magic Sole. All rights reserved.</p>
@@ -296,26 +323,60 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
 <div class="main-content">
     <section class="hero">
         <div class="hero-content">
-            <h1>Reset Password</h1>
+            <h1>Register</h1>
+            <p>Create an account to start booking your sneaker restoration!</p>
         </div>
     </section>
 
-    <section class="reset-section">
-        <h2>Reset Your Password</h2>
+    <section class="register-section">
+        <h2>Create Your Account</h2>
+        <form class="register-form" method="POST">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" value="<?php echo htmlspecialchars($username ?? ''); ?>" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" value="<?php echo htmlspecialchars($email ?? ''); ?>" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            <label for="confirm_password">Confirm Password</label>
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password" required>
+            <button type="submit">Register</button>
+        </form>
         <?php if ($error) { ?>
-            <p class="error-message"><?php echo htmlspecialchars($error); ?></p>
-        <?php } elseif ($success) { ?>
-            <p class="success-message"><?php echo $success; ?></p>
-        <?php } else { ?>
-            <form class="reset-form" method="POST">
-                <label for="new_password">New Password</label>
-                <input type="password" id="new_password" name="new_password" placeholder="Enter new password" required>
-                <label for="confirm_password">Confirm Password</label>
-                <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm new password" required>
-                <button type="submit">Reset Password</button>
-            </form>
+            <p class="error-message" style="display: block;"><?php echo htmlspecialchars($error); ?></p>
+        <?php } ?>
+        <?php if ($success) { ?>
+            <p class="success-message" style="display: block;"><?php echo htmlspecialchars($success); ?></p>
         <?php } ?>
     </section>
+
+    <div class="bottom-logo">
+        <img src="MagicNoBackground.png" alt="Magic Sole Logo">
+    </div>
 </div>
+
+<script>
+    // Check if a user is already logged in
+    const isAdmin = localStorage.getItem('isAdmin') === 'true';
+    const clientEmail = localStorage.getItem('clientEmail');
+    const logoutLink = document.getElementById('logout-link');
+
+    if (isAdmin || clientEmail) {
+        logoutLink.style.display = 'block';
+    } else {
+        logoutLink.style.display = 'none';
+    }
+
+    // Logout functionality
+    function logout() {
+        localStorage.removeItem('isAdmin');
+        localStorage.removeItem('clientEmail');
+        fetch('logout.php', {
+            method: 'POST'
+        })
+        .then(() => {
+            window.location.href = 'login.php';
+        });
+    }
+</script>
 </body>
 </html>
