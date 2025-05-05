@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 29, 2025 at 07:27 AM
+-- Generation Time: May 05, 2025 at 10:37 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,16 +24,39 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `actions`
+--
+
+CREATE TABLE `actions` (
+  `action_id` int(1) NOT NULL,
+  `action_name` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(3) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `bookings`
 --
 
 CREATE TABLE `bookings` (
-  `booking_id` int(11) NOT NULL,
-  `client_id` int(11) NOT NULL,
+  `booking_id` int(5) NOT NULL,
+  `client_id` int(4) NOT NULL,
   `dropoff_date` datetime NOT NULL,
   `pickup_date` datetime NOT NULL,
-  `shoes_quantity` int(5) NOT NULL,
-  `status` varchar(15) NOT NULL
+  `shoes_quantity` int(2) NOT NULL,
+  `status` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -43,9 +66,9 @@ CREATE TABLE `bookings` (
 --
 
 CREATE TABLE `booking_service` (
-  `shoe_id` int(11) NOT NULL,
-  `service_id` int(11) NOT NULL,
-  `booking_id` int(11) NOT NULL,
+  `shoe_id` int(5) NOT NULL,
+  `service_id` int(5) NOT NULL,
+  `booking_id` int(5) NOT NULL,
   `shoe_name` varchar(64) NOT NULL,
   `shoe_image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -67,15 +90,37 @@ CREATE TABLE `clients` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `groups`
+--
+
+CREATE TABLE `groups` (
+  `group_id` int(1) NOT NULL,
+  `group_name` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `groups_actions`
+--
+
+CREATE TABLE `groups_actions` (
+  `action_id` int(1) NOT NULL,
+  `group_id` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `payments`
 --
 
 CREATE TABLE `payments` (
-  `payment_id` int(11) NOT NULL,
-  `booking_id` int(11) NOT NULL,
+  `payment_id` int(5) NOT NULL,
+  `booking_id` int(5) NOT NULL,
   `payment_method` varchar(25) NOT NULL,
   `is_payed` tinyint(1) NOT NULL DEFAULT 0,
-  `total_price` double(10,2) NOT NULL,
+  `total_price` double(2,2) NOT NULL,
   `payment_date` date NOT NULL,
   `deposit_amount` double(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -87,7 +132,7 @@ CREATE TABLE `payments` (
 --
 
 CREATE TABLE `services` (
-  `service_id` int(11) NOT NULL,
+  `service_id` int(5) NOT NULL,
   `service_name` varchar(25) NOT NULL,
   `price` double(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -95,6 +140,18 @@ CREATE TABLE `services` (
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `actions`
+--
+ALTER TABLE `actions`
+  ADD PRIMARY KEY (`action_id`);
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `bookings`
@@ -119,6 +176,19 @@ ALTER TABLE `clients`
   ADD PRIMARY KEY (`client_id`);
 
 --
+-- Indexes for table `groups`
+--
+ALTER TABLE `groups`
+  ADD PRIMARY KEY (`group_id`);
+
+--
+-- Indexes for table `groups_actions`
+--
+ALTER TABLE `groups_actions`
+  ADD KEY `group_id` (`group_id`),
+  ADD KEY `action_id` (`action_id`);
+
+--
 -- Indexes for table `payments`
 --
 ALTER TABLE `payments`
@@ -136,16 +206,28 @@ ALTER TABLE `services`
 --
 
 --
+-- AUTO_INCREMENT for table `actions`
+--
+ALTER TABLE `actions`
+  MODIFY `action_id` int(1) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `booking_id` int(5) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `booking_service`
 --
 ALTER TABLE `booking_service`
-  MODIFY `shoe_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `shoe_id` int(5) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `clients`
@@ -154,16 +236,22 @@ ALTER TABLE `clients`
   MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `groups`
+--
+ALTER TABLE `groups`
+  MODIFY `group_id` int(1) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `payment_id` int(5) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `service_id` int(5) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -181,6 +269,13 @@ ALTER TABLE `bookings`
 ALTER TABLE `booking_service`
   ADD CONSTRAINT `booking_service_ibfk_1` FOREIGN KEY (`booking_id`) REFERENCES `bookings` (`booking_id`),
   ADD CONSTRAINT `booking_service_ibfk_2` FOREIGN KEY (`service_id`) REFERENCES `services` (`service_id`);
+
+--
+-- Constraints for table `groups_actions`
+--
+ALTER TABLE `groups_actions`
+  ADD CONSTRAINT `groups_actions_ibfk_1` FOREIGN KEY (`action_id`) REFERENCES `actions` (`action_id`),
+  ADD CONSTRAINT `groups_actions_ibfk_2` FOREIGN KEY (`group_id`) REFERENCES `groups` (`group_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
