@@ -1,0 +1,297 @@
+<?php
+$path = $_SERVER['SCRIPT_NAME'];
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Policies - Magic Sole</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            color: #333;
+            display: flex;
+            overflow-x: hidden; /* Prevent horizontal overflow from animations */
+        }
+
+        header {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .logo img {
+            width: 120px;
+            margin-bottom: 2rem;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+        }
+
+        nav a {
+            color: #e3e3e3;
+            text-decoration: none;
+            font-size: 1.4rem;
+            padding: 10px;
+            transition: background 0.3s, color 0.3s;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        nav a:hover {
+            background: #f9c303;
+            color: #1a1a1a;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            width: calc(100% - 250px);
+            padding: 50px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #d4af37, #f9c303);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            color: #1a1a1a;
+            animation: fadeIn 1s ease-out;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        .policy-section {
+            padding: 30px;
+            max-width: 900px;
+            margin: 40px auto;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s forwards 0.4s;
+        }
+
+        .policy-section h2 {
+            font-size: 2.5rem;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            position: relative;
+            padding-bottom: 10px;
+            letter-spacing: 1.5px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s forwards 0.6s;
+        }
+
+        .policy-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #d4af37, #f9c303);
+            transition: width 0.3s ease;
+        }
+
+        .policy-section h2:hover::after {
+            width: 100px;
+        }
+
+        .policy-section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #555;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 0.8s;
+        }
+
+        .policy-section ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        .policy-section ul li {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #666;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 1s;
+        }
+
+        .policy-section ul li::before {
+            content: '•';
+            color: #d4af37;
+            font-weight: bold;
+            position: absolute;
+            left: -20px;
+        }
+
+        footer {
+            font-size: 0.9rem;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 250px;
+            background-color: #1a1a1a;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+                padding: 20px;
+            }
+
+            header {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 1rem;
+            }
+
+            nav {
+                flex-direction: row;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            footer {
+                position: relative;
+                width: 100%;
+                left: 0;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">
+        <a href="index.html">
+            <img src="MagicNoBackground.png" alt="Magic Sole Logo">
+        </a>
+    </div>
+    <nav>
+        <a href="<?php echo dirname($path);?>/client/home"> Home</a>
+        <a href="<?php echo dirname($path);?>/client/services">Services</a>
+        <a href="<?php echo dirname($path);?>/client/about">About</a>
+        <a href="<?php echo dirname($path);?>/client/policies">Policies</a>
+        <a href="<?php echo dirname($path);?>/booking/booking">Booking</a>
+        <a href="<?php echo dirname($path);?>/client/gallery">Gallery</a>
+        <?php
+        if($_SESSION['token'] == null){
+            ?>
+            <a href="<?php echo dirname($path);?>/client/login">Login</a>
+            <?php
+        }
+        else{
+            ?>
+            <a href="<?php echo dirname($path);?>/client/client-view-orders.php">Orders</a>
+            <?php
+        }
+        ?>
+    </nav>
+    <footer>
+        <p>© 2025 Magic Sole. All rights reserved.</p>
+    </footer>
+</header>
+
+<div class="main-content">
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Policies</h1>
+            <p>Transparency and trust are our priorities.</p>
+        </div>
+    </section>
+    <div class="policy-section">
+        <h2>Payment Policy</h2>
+        <p>We require the following payment terms to ensure a smooth process for all clients:</p>
+        <ul>
+            <li>Clients dropping off 3 pairs or more must pay a 50% deposit upfront.</li>
+            <li>Clients dropping off fewer than 3 pairs must pay the full amount of the order upfront.</li>
+        </ul>
+
+        <h2>Pickup Policy</h2>
+        <p>Once an order is completed, clients will be notified and must pick up their order within the specified time frame:</p>
+        <ul>
+            <li>Clients have a maximum of 4 days to pick up their order after being notified of completion.</li>
+            <li>If an order is not picked up within 4 days, a late fee of $5 per day will be added to the final bill until the order is picked up.</li>
+            <li>All orders will be inspected together with the client at the time of pickup to ensure satisfaction. We are not responsible for any damages after the order has been picked up.</li>
+        </ul>
+
+        <h2>Pricing Policy</h2>
+        <p>We strive to provide accurate pricing, but additional work may be required during the restoration process:</p>
+        <ul>
+            <li>Prices are subject to change if more work is needed. We will contact the client before starting any extra work to discuss and approve additional costs.</li>
+        </ul>
+
+        <h2>Service Expectations</h2>
+        <p>We aim to deliver the best possible results for every order:</p>
+        <ul>
+            <li>We do not guarantee brand-new results, but we always aim for maximum results on every order.</li>
+        </ul>
+
+        <h2>Privacy Policy</h2>
+        <p>We value your privacy. Your personal information is collected solely to process your orders and will not be shared with third parties without your consent, except as required by law:</p>
+        <ul>
+            <li>Data is encrypted and stored securely.</li>
+            <li>You can request data deletion at any time.</li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
