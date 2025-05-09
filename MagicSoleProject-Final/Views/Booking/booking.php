@@ -1,3 +1,7 @@
+<?php
+$path = $_SERVER['SCRIPT_NAME'];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -208,13 +212,25 @@
         </a>
     </div>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="about.html">About Us</a>
-        <a href="policies.html">Policies</a>
-        <a href="booking.html">Booking</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="login.html">Login</a>
+        <a href="<?php echo dirname($path);?>/client/home"> Home</a>
+        <a href="<?php echo dirname($path);?>/client/services">Services</a>
+        <a href="<?php echo dirname($path);?>/client/about">About</a>
+        <a href="<?php echo dirname($path);?>/client/policies">Policies</a>
+        <a href="<?php echo dirname($path);?>/booking/booking">Booking</a>
+        <a href="<?php echo dirname($path);?>/client/gallery">Gallery</a>
+        <?php
+        if($_SESSION['token'] == null){
+            ?>
+            <a href="<?php echo dirname($path);?>/client/login">Login</a>
+            <?php
+        }
+        else{
+            ?>
+            <a href="<?php echo dirname($path);?>/client/client-view-orders.php">Orders</a>
+            <?php
+        }
+        ?>
+        <a href="#" id="logout-link" style="display: none;" onclick="logout()">Logout</a>
     </nav>
     <footer>
         <p>© 2025 Magic Sole. All rights reserved.</p>
