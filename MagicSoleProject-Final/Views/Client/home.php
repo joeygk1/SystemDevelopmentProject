@@ -252,7 +252,7 @@ $path = $_SERVER['SCRIPT_NAME'];
         }
         else{
             ?>
-            <a href="<?php echo dirname($path);?>/client/client-view-orders.php">Orders</a>
+            <a href="<?php echo dirname($path);?>/client/client-orders">Orders</a>
             <?php
         }
         ?>
@@ -339,6 +339,7 @@ $path = $_SERVER['SCRIPT_NAME'];
                <a href="<?php echo dirname($path);?>/client/home" data-lang-key="nav-home">${translations[lang]['nav-home']}</a>
                 <a href="<?php echo dirname($path);?>/client/services" data-lang-key="nav-services">${translations[lang]['nav-services']}</a>
                 <a href="<?php echo dirname($path);?>/client/about" data-lang-key="nav-about">${translations[lang]['nav-about']}</a>
+                <a href="<?php echo dirname($path);?>/booking/booking" data-lang-key="nav-about">${translations[lang]['nav-about']}</a>
                 <a href="<?php echo dirname($path);?>/client/policies" data-lang-key="nav-policies">${translations[lang]['nav-policies']}</a>
                 <a href="<?php echo dirname($path);?>/client/gallery" data-lang-key="nav-gallery">${translations[lang]['nav-gallery']}</a>
                 <?php
@@ -349,7 +350,7 @@ $path = $_SERVER['SCRIPT_NAME'];
                     }
                     else{
                         ?>
-                        <a href="orders.php">Login</a>
+                        <a href="<?php echo dirname($path);?>/client/client-orders">Orders</a>
                       <?php
                     }
                     ?>

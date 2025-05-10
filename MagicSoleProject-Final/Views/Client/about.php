@@ -352,17 +352,18 @@ $path = $_SERVER['SCRIPT_NAME'];
             <a href="<?php echo dirname($path);?>/client/services">Services</a>
             <a href="<?php echo dirname($path);?>/client/about">About</a>
             <a href="<?php echo dirname($path);?>/client/policies">Policies</a>
-            <a href="<?php echo dirname($path);?>/booking/booking">BSooking</a>
+            <a href="<?php echo dirname($path);?>/booking/booking">Booking</a>
             <a href="<?php echo dirname($path);?>/client/gallery">Gallery</a>
             <?php
             if($_SESSION['token'] == null){
                 ?>
                 <a href="<?php echo dirname($path);?>/client/login">Login</a>
                 <?php
+                echo __DIR__.'config';
             }
             else{
                 ?>
-                <a href="<?php echo dirname($path);?>/client/client-view-orders.php">Orders</a>
+                <a href="<?php echo dirname($path);?>/client/client-orders">Orders</a>
                 <?php
             }
             ?>

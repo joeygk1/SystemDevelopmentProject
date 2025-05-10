@@ -2,15 +2,16 @@
 include_once "Models/Model.php";
 $path = $_SERVER['SCRIPT_NAME'];
 
-session_start();
+
 require 'vendor/autoload.php';
-require 'config.php';
+require 'config/config.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 
 // Load environment variables
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+//$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv = Dotenv\Dotenv::createImmutable('config');
 $dotenv->load();
 
 $error = '';
@@ -50,9 +51,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         try {
             $conn = Model::connect();
-            $stmt = -$conn>prepare("SELECT id, username, email, password, role FROM users WHERE email = ?");
+            $stmt = $conn->prepare("SELECT id, username, email, password, role FROM users WHERE email = ?");
             $stmt->execute([$email]);
             $user = $stmt->fetch();
+
+
 
             if ($user && password_verify($password, $user['password'])) {
                 // Generate 6-digit OTP

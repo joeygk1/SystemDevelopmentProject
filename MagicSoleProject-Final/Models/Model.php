@@ -1,20 +1,22 @@
 <?php
-class Model{
-
-    public static function connect(){
+class Model {
+    public static function connect() {
         $server = "localhost";
         $user = "root";
         $pass = "";
         $db = "magicsole";
 
-        $connect = new mysqli($server, $user, $pass, $db);
-
-        if($connect->connect_error){
-            die("Connection error! I can't deal with this anymore<br>" . $connect->connect_error);
+        try {
+            $connect = new PDO("mysql:host=$server;dbname=$db", $user, $pass, [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // Enable exceptions
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC // Optional: Set default fetch mode
+            ]);
+        } catch (PDOException $e) {
+            die("Connection error: " . $e->getMessage());
         }
+
         return $connect;
     }
-
 }
-
 ?>
+

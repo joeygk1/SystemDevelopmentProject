@@ -468,7 +468,7 @@ $path = $_SERVER['SCRIPT_NAME'];
         }
         else{
             ?>
-            <a href="<?php echo dirname($path);?>/client/client-view-orders.php">Orders</a>
+            <a href="<?php echo dirname($path);?>/client/client-orders">Orders</a>
             <?php
         }
         ?>

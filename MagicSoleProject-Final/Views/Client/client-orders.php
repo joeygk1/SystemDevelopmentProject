@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Your Orders - Magic Sole</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            color: #333;
+            display: flex;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .logo img {
+            width: 120px;
+            margin-bottom: 2rem;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+        }
+
+        nav a {
+            color: #e3e3e3;
+            text-decoration: none;
+            font-size: 1.4rem;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        nav a:hover {
+            background: #f9c303;
+            color: #1a1a1a;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            width: calc(100% - 250px);
+            padding: 50px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #d4af37, #f9c303);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            color: #1a1a1a;
+            animation: fadeIn 1s ease-out;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        .orders-section {
+            max-width: 1400px;
+            margin: 40px auto;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s forwards 0.5s;
+        }
+
+        .orders-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            text-align: center;
+        }
+
+        .search-filter {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            justify-content: space-between;
+        }
+
+        .search-filter input, .search-filter select {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            flex: 1;
+        }
+
+        .search-filter input:focus, .search-filter select:focus {
+            border: 1px solid #d4af37;
+        }
+
+        .orders-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .orders-table th, .orders-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .orders-table th {
+            background: linear-gradient(135deg, #d4af37, #f9c303);
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .orders-table tr {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s forwards;
+        }
+
+        .orders-table tr:nth-child(1) { animation-delay: 0.7s; }
+        .orders-table tr:nth-child(2) { animation-delay: 0.8s; }
+        .orders-table tr:nth-child(3) { animation-delay: 0.9s; }
+
+        .orders-table tr:hover {
+            background: #f5f7fa;
+            cursor: pointer;
+        }
+
+        .orders-table .action-btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .orders-table .update-btn {
+            background-color: #f9c303;
+            color: #1a1a1a;
+            margin-right: 10px;
+        }
+
+        .orders-table .update-btn:hover {
+            background-color: #d4af37;
+        }
+
+        .orders-table .delete-btn {
+            background-color: #ff4444;
+            color: #fff;
+        }
+
+        .orders-table .delete-btn:hover {
+            background-color: #cc0000;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .pagination button {
+            padding: 8px 16px;
+            background: #1a1a1a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .pagination button:hover {
+            background: #333;
+        }
+
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .loading-spinner i {
+            font-size: 2rem;
+            color: #d4af37;
+            animation: spin 1s linear infinite;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: modalFadeIn 0.3s forwards;
+        }
+
+        .modal-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .modal-content p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .modal-content .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            cursor: pointer;
+        }
+
+        .modal-content label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+
+        .modal-content input, .modal-content select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .modal-content input:focus, .modal-content select:focus {
+            border: 1px solid #d4af37;
+        }
+
+        .modal-content input[readonly] {
+            background: #f5f5f5;
+            cursor: not-allowed;
+        }
+
+        .modal-content button {
+            padding: 10px 20px;
+            background: #f9c303;
+            color: #1a1a1a;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .modal-content button:hover {
+            background: #d4af37;
+        }
+
+        footer {
+            font-size: 0.9rem;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 250px;
+            background-color: #1a1a1a;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+                padding: 20px;
+            }
+
+            header {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 1rem;
+            }
+
+            nav {
+                flex-direction: row;
+                justify-content: center;
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+
+            footer {
+                position: relative;
+                width: 100%;
+                left: 0;
+            }
+
+            .orders-section {
+                max-width: 100%;
+            }
+
+            .orders-table {
+                font-size: 0.9rem;
+            }
+
+            .orders-table th, .orders-table td {
+                padding: 10px;
+            }
+
+            .orders-table .action-btn {
+                padding: 5px 10px;
+                font-size: 0.8rem;
+            }
+
+            .search-filter {
+                flex-direction: column;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes modalFadeIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">
+        <a href="index.html">
+            <img src="MagicNoBackground.png" alt="Magic Sole Logo">
+        </a>
+    </div>
+    <nav>
+        <a href="<?php echo dirname($path);?>/client/home"> Home</a>
+        <a href="<?php echo dirname($path);?>/client/services">Services</a>
+        <a href="<?php echo dirname($path);?>/client/about">About</a>
+        <a href="<?php echo dirname($path);?>/client/policies">Policies</a>
+        <a href="<?php echo dirname($path);?>/booking/booking">Booking</a>
+        <a href="<?php echo dirname($path);?>/client/gallery">Gallery</a>
+        <?php
+        if($_SESSION['token'] == null){
+            ?>
+            <a href="<?php echo dirname($path);?>/client/login">Login</a>
+            <?php
+        }
+        else{
+            ?>
+            <a href="<?php echo dirname($path);?>/client/client-orders">Orders</a>
+            <?php
+        }
+        ?>
+    </nav>
+    <footer>
+        <p>© 2025 Magic Sole. All rights reserved.</p>
+    </footer>
+</header>
+
+<div class="main-content">
+    <section class="hero">
+        <div class="hero-content">
+            <h1>View Your Orders</h1>
+            <p>Manage your bookings here.</p>
+        </div>
+    </section>
+    <div class="orders-section">
+        <h2>Your Bookings</h2>
+        <div class="search-filter">
+            <input type="text" id="search-input" placeholder="Search by order ID...">
+            <select id="status-filter">
+                <option value="">All Statuses</option>
+                <option value="Processing">Processing</option>
+                <option value="Ready for Pickup">Ready for Pickup</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
+            </select>
+        </div>
+        <div class="loading-spinner" id="loading-spinner">
+            <i class="fas fa-spinner"></i>
+        </div>
+        <table class="orders-table" id="orders-table">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Date</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="orders-tbody">
+            </tbody>
+        </table>
+        <div class="pagination">
+            <button onclick="changePage(-1)">Previous</button>
+            <button onclick="changePage(1)">Next</button>
+        </div>
+    </div>
+    <div class="modal" id="order-modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">×</span>
+            <h3>Order Details</h3>
+            <p><strong>Order ID:</strong> <span id="modal-order-id"></span></p>
+            <p><strong>Date:</strong> <span id="modal-date"></span></p>
+            <p><strong>Items:</strong> <span id="modal-items"></span></p>
+            <p><strong>Total:</strong> <span id="modal-total"></span></p>
+            <p><strong>Status:</strong> <span id="modal-status"></span></p>
+        </div>
+    </div>
+    <div class="modal" id="update-modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeUpdateModal()">×</span>
+            <h3>Update Booking</h3>
+            <label for="update-order-id">Order ID</label>
+            <input type="text" id="update-order-id" readonly>
+            <label for="update-date">Date</label>
+            <input type="text" id="update-date">
+            <label for="update-items">Items</label>
+            <input type="text" id="update-items">
+            <label for="update-total">Total</label>
+            <input type="text" id="update-total">
+            <button onclick="saveOrder()">Save</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Check if the user is logged in as a client
+    if (!localStorage.getItem('clientEmail')) {
+        window.location.href = 'login.html';
+    }
+
+    // Simulated client email (in a real app, this would come from authentication)
+    const clientEmail = localStorage.getItem('clientEmail') || 'client@example.com';
+
+    // Simulated orders data (in a real app, this would come from a backend)
+    let orders = [
+        { orderId: '#1001', date: '2025-04-01', total: '$75.00', status: 'Processing', email: 'client@example.com', items: 'Sneaker Cleaning x1' },
+        { orderId: '#1002', date: '2025-04-02', total: '$120.00', status: 'Ready for Pickup', email: 'client@example.com', items: 'Sneaker Restoration x2' },
+        { orderId: '#1003', date: '2025-04-03', total: '$45.00', status: 'Completed', email: 'otherclient@example.com', items: 'Sneaker Cleaning x1' }
+    ];
+
+    let currentPage = 1;
+    const rowsPerPage = 5;
+    let selectedOrderId = null;
+
+    function displayOrders(filteredOrders) {
+        const tbody = document.getElementById('orders-tbody');
+        tbody.innerHTML = '';
+        const start = (currentPage - 1) * rowsPerPage;
+        const end = start + rowsPerPage;
+        const paginatedOrders = filteredOrders.slice(start, end);
+
+        paginatedOrders.forEach(order => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${order.orderId}</td>
+                <td>${order.date}</td>
+                <td>${order.total}</td>
+                <td>${order.status}</td>
+                <td>
+                    <button class="action-btn update-btn" onclick="openUpdateModal('${order.orderId}')">Update</button>
+                    <button class="action-btn delete-btn" onclick="deleteOrder('${order.orderId}')">Delete</button>
+                </td>
+            `;
+            row.addEventListener('click', (e) => {
+                if (e.target.tagName !== 'BUTTON') {
+                    showOrderDetails(order);
+                }
+            });
+            tbody.appendChild(row);
+        });
+    }
+
+    function showOrderDetails(order) {
+        document.getElementById('modal-order-id').textContent = order.orderId;
+        document.getElementById('modal-date').textContent = order.date;
+        document.getElementById('modal-items').textContent = order.items;
+        document.getElementById('modal-total').textContent = order.total;
+        document.getElementById('modal-status').textContent = order.status;
+        document.getElementById('order-modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('order-modal').style.display = 'none';
+    }
+
+    function openUpdateModal(orderId) {
+        selectedOrderId = orderId;
+        const order = orders.find(o => o.orderId === orderId);
+        document.getElementById('update-order-id').value = order.orderId;
+        document.getElementById('update-date').value = order.date;
+        document.getElementById('update-items').value = order.items;
+        document.getElementById('update-total').value = order.total;
+        document.getElementById('update-modal').style.display = 'flex';
+    }
+
+    function closeUpdateModal() {
+        document.getElementById('update-modal').style.display = 'none';
+        selectedOrderId = null;
+    }
+
+    function saveOrder() {
+        const order = orders.find(o => o.orderId === selectedOrderId);
+        if (order) {
+            order.date = document.getElementById('update-date').value;
+            order.items = document.getElementById('update-items').value;
+            order.total = document.getElementById('update-total').value;
+            filterOrders();
+            closeUpdateModal();
+        }
+    }
+
+    function deleteOrder(orderId) {
+        if (confirm('Are you sure you want to delete this booking?')) {
+            orders = orders.filter(o => o.orderId !== orderId);
+            filterOrders();
+        }
+    }
+
+    function changePage(direction) {
+        currentPage += direction;
+        if (currentPage < 1) currentPage = 1;
+        filterOrders();
+    }
+
+    // Search and filter functionality
+    document.getElementById('search-input').addEventListener('input', filterOrders);
+    document.getElementById('status-filter').addEventListener('change', filterOrders);
+
+    function filterOrders() {
+        const searchTerm = document.getElementById('search-input').value.toLowerCase();
+        const statusFilter = document.getElementById('status-filter').value;
+
+        // Filter orders for the logged-in client only
+        const filteredOrders = orders.filter(order => {
+            const matchesSearch = order.orderId.toLowerCase().includes(searchTerm);
+            const matchesStatus = statusFilter ? order.status === statusFilter : true;
+            const matchesClient = order.email === clientEmail;
+            return matchesSearch && matchesStatus && matchesClient;
+        });
+
+        currentPage = 1;
+        displayOrders(filteredOrders);
+    }
+
+    // Simulate loading
+    const spinner = document.getElementById('loading-spinner');
+    const table = document.getElementById('orders-table');
+    spinner.style.display = 'block';
+    table.style.display = 'none';
+
+    setTimeout(() => {
+        spinner.style.display = 'none';
+        table.style.display = 'table';
+        displayOrders(orders.filter(order => order.email === clientEmail));
+    }, 1000);
+</script>
+</body>
+</html>

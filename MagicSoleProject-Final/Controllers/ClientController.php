@@ -45,6 +45,10 @@ class ClientController extends Controller{
                 $this->render($controller,$action);
 
                 break;
+            case "client-orders":
+                $this->render($controller,$action);
+
+                break;
 
 
 

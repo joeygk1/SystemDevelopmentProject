@@ -1,5 +1,6 @@
 
 <?php
+
 session_start();
 $_SESSION['token'] = null;
  $controller = (isset($_GET['controller'])) ? $_GET['controller'] : 'client';
