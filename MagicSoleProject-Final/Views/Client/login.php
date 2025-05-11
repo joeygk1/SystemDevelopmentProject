@@ -485,7 +485,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if($_SESSION['token'] == null){
             ?>
             <a href="<?php echo dirname($path);?>/client/login">Login</a>
-            <a href="<?php echo dirname($path);?>/register.php">Register</a>
+            <a href="<?php echo dirname($path);?>/client/register">Register</a>
             <?php
         }
         else{
