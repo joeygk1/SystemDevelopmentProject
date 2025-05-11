@@ -1,5 +1,6 @@
 <?php
 $path = $_SERVER['SCRIPT_NAME'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -354,7 +355,7 @@ $path = $_SERVER['SCRIPT_NAME'];
         <a href="<?php echo dirname($path);?>/booking/booking">Booking</a>
         <a href="<?php echo dirname($path);?>/client/gallery">Gallery</a>
         <?php
-        if($_SESSION['token'] == null){
+        if($_SESSION['token'] == null ||$_SESSION['token'] == "" ){
             ?>
             <a href="<?php echo dirname($path);?>/client/login">Login</a>
             <a href="<?php echo dirname($path);?>/register.php">Register</a>
