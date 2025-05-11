@@ -232,13 +232,13 @@ $path = $_SERVER['SCRIPT_NAME'];
 </head>
 <body>
 <header>
-    <div class="logo">
+    <<div class="logo">
         <a href="index.html">
             <img src="MagicNoBackground.png" alt="Magic Sole Logo">
         </a>
     </div>
-    <nav id="nav-menu">
-        <a href="<?php echo dirname($path);?>/client/home"> Home</a>
+    <nav>
+        <a href="<?php echo dirname($path);?>/client/home">Home</a>
         <a href="<?php echo dirname($path);?>/client/services">Services</a>
         <a href="<?php echo dirname($path);?>/client/about">About</a>
         <a href="<?php echo dirname($path);?>/client/policies">Policies</a>
@@ -248,6 +248,7 @@ $path = $_SERVER['SCRIPT_NAME'];
         if($_SESSION['token'] == null){
             ?>
             <a href="<?php echo dirname($path);?>/client/login">Login</a>
+            <a href="<?php echo dirname($path);?>/register.php">Register</a>
             <?php
         }
         else{
@@ -256,9 +257,10 @@ $path = $_SERVER['SCRIPT_NAME'];
             <?php
         }
         ?>
+        <a href="#" id="logout-link" style="display: none;" onclick="logout()">Logout</a>
     </nav>
     <footer>
-        <p data-lang-key="footer-text">© 2025 Magic Sole. All rights reserved.</p>
+        <p>© 2025 Magic Sole. All rights reserved.</p>
     </footer>
 </header>
 

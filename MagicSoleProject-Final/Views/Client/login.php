@@ -88,8 +88,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $mail->AltBody = "Hello {$user['username']},\n\nYour one-time code is: $otp\nThis code expires in 10 minutes.";
                         $mail->send();
                         file_put_contents('debug.log', "Email sent successfully to {$user['email']}\n", FILE_APPEND);
+
                         // Redirect to OTP verification page
-                        header('Location: verify_otp.php');
+                        $newURL = dirname($path) . '/admin/verify_otp';
+                        header('Location: '. $newURL);
                         exit;
                     } catch (Exception $e) {
                         $error = "Failed to send OTP. Please try again or contact support.";
@@ -473,7 +475,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </a>
     </div>
     <nav>
-        <a href="<?php echo dirname($path);?>/client/home"> Home</a>
+        <a href="<?php echo dirname($path);?>/client/home">Home</a>
         <a href="<?php echo dirname($path);?>/client/services">Services</a>
         <a href="<?php echo dirname($path);?>/client/about">About</a>
         <a href="<?php echo dirname($path);?>/client/policies">Policies</a>
@@ -483,11 +485,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if($_SESSION['token'] == null){
             ?>
             <a href="<?php echo dirname($path);?>/client/login">Login</a>
+            <a href="<?php echo dirname($path);?>/register.php">Register</a>
             <?php
         }
         else{
             ?>
-            <a href="<?php echo dirname($path);?>/client/client-view-orders.php">Orders</a>
+            <a href="<?php echo dirname($path);?>/client/client-orders">Orders</a>
             <?php
         }
         ?>

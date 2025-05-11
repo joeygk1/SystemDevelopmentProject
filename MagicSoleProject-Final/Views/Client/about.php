@@ -1,7 +1,6 @@
 <?php
 $path = $_SERVER['SCRIPT_NAME'];
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -199,18 +198,18 @@ $path = $_SERVER['SCRIPT_NAME'];
         }
 
         .social-media-section {
-    color: white;
-    text-align: center;
-    padding: 30px 10px;
-    margin-left: 35%;
-    margin-top: 50px;
-    max-width: 500px;
-    border-radius: 20px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15); /* Reduced vertical spread from 8px to 4px */
-    opacity: 0;
-    transform: translateY(50px);
-    animation: fadeInUp 1s forwards 1s; /* Animated entrance */
-}
+            color: white;
+            text-align: center;
+            padding: 30px 10px;
+            margin-left: 35%;
+            margin-top: 50px;
+            max-width: 500px;
+            border-radius: 20px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15); /* Reduced vertical spread from 8px to 4px */
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s forwards 1s; /* Animated entrance */
+        }
 
         .social-media-section h2 {
             font-size: 2.5rem; /* Increased for consistency */
@@ -258,12 +257,12 @@ $path = $_SERVER['SCRIPT_NAME'];
             text-align: center;
             padding: 10px; /* Reduced from 40px to bring closer */
             margin-top: 90px; /* Reduced from 30px to bring closer */
-            border-radius: 20px;            
+            border-radius: 20px;
             opacity: 0;
             transform: translateY(50px);
             animation: fadeInUp 1s forwards 0.8s; /* Animated entrance */
         }
-        
+
         .find-us-section h2 {
             margin-top: -20px;
             font-size: 2.5rem; /* Increased for consistency */
@@ -341,37 +340,38 @@ $path = $_SERVER['SCRIPT_NAME'];
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="index.html">
-                <img src="MagicNoBackground.png" alt="Magic Sole Logo">
-            </a>
-        </div>
-        <nav>
-            <a href="<?php echo dirname($path);?>/client/home"> Home</a>
-            <a href="<?php echo dirname($path);?>/client/services">Services</a>
-            <a href="<?php echo dirname($path);?>/client/about">About</a>
-            <a href="<?php echo dirname($path);?>/client/policies">Policies</a>
-            <a href="<?php echo dirname($path);?>/booking/booking">Booking</a>
-            <a href="<?php echo dirname($path);?>/client/gallery">Gallery</a>
-            <?php
-            if($_SESSION['token'] == null){
-                ?>
-                <a href="<?php echo dirname($path);?>/client/login">Login</a>
-                <?php
-                echo __DIR__.'config';
-            }
-            else{
-                ?>
-                <a href="<?php echo dirname($path);?>/client/client-orders">Orders</a>
-                <?php
-            }
+<header>
+    <div class="logo">
+        <a href="index.html">
+            <img src="MagicNoBackground.png" alt="Magic Sole Logo">
+        </a>
+    </div>
+    <nav>
+        <a href="<?php echo dirname($path);?>/client/home">Home</a>
+        <a href="<?php echo dirname($path);?>/client/services">Services</a>
+        <a href="<?php echo dirname($path);?>/client/about">About</a>
+        <a href="<?php echo dirname($path);?>/client/policies">Policies</a>
+        <a href="<?php echo dirname($path);?>/booking/booking">Booking</a>
+        <a href="<?php echo dirname($path);?>/client/gallery">Gallery</a>
+        <?php
+        if($_SESSION['token'] == null){
             ?>
-        </nav>
-        <footer>
-            <p>© 2025 Magic Sole. All rights reserved.</p>
-        </footer>
-    </header>
+            <a href="<?php echo dirname($path);?>/client/login">Login</a>
+            <a href="<?php echo dirname($path);?>/register.php">Register</a>
+            <?php
+        }
+        else{
+            ?>
+            <a href="<?php echo dirname($path);?>/client/client-orders">Orders</a>
+            <?php
+        }
+        ?>
+        <a href="#" id="logout-link" style="display: none;" onclick="logout()">Logout</a>
+    </nav>
+    <footer>
+        <p>© 2025 Magic Sole. All rights reserved.</p>
+    </footer>
+</header>
 
 <div class="main-content">
     <section class="hero">

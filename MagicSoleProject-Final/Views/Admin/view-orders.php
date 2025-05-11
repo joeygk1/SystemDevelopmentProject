@@ -1,3 +1,6 @@
+<?php
+$path = $_SERVER['SCRIPT_NAME'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -398,11 +401,11 @@
         </a>
     </div>
     <nav>
-        <a href="admin-home.html">Admin Home</a>
-        <a href="view-orders.html">View Orders</a>
-        <a href="order-status.html">Order Status</a>
-        <a href="admin-gallery.html">Manage Gallery</a>
-        <a href="login.php">Logout</a>
+        <a href="<?php echo dirname($path);?>/admin/admin-home">Admin Home</a>
+        <a href="<?php echo dirname($path);?>/admin/view-orders">View Orders</a>
+        <a href="<?php echo dirname($path);?>/admin/order-status">Order Status</a>
+        <a href="<?php echo dirname($path);?>/admin/admin-gallery">Order Status</a>
+        <a href="<?php echo dirname($path);?>/admin/logout">Logout</a>
     </nav>
     <footer>
         <p>© 2025 Magic Sole. All rights reserved.</p>
