@@ -1,5 +1,6 @@
 <?php
 $path = $_SERVER['SCRIPT_NAME'];
+//session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -417,7 +418,7 @@ $path = $_SERVER['SCRIPT_NAME'];
         else{
             ?>
             <a href="<?php echo dirname($path);?>/client/client-orders">Orders</a>
-            <a href="#" id="logout-link" style="display: none;" onclick="logout()">Logout</a>
+            <a href="<?php echo dirname($path);?>/client/logout" >Logout</a>
             <?php
         }
         ?>
@@ -498,9 +499,7 @@ $path = $_SERVER['SCRIPT_NAME'];
 
 <script>
     // Check if the user is logged in as a client
-    if (!localStorage.getItem('clientEmail')) {
-        window.location.href = 'login.html';
-    }
+
 
     // Simulated client email (in a real app, this would come from authentication)
     const clientEmail = localStorage.getItem('clientEmail') || 'client@example.com';

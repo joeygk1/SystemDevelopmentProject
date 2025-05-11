@@ -71,11 +71,12 @@ class ClientController extends Controller{
                     <script>
                         localStorage.removeItem('isAdmin');
                         localStorage.removeItem('clientEmail');
-                        window.location.href = 'login.php';
+                        // window.location.href = 'login.php';
                     </script>
                 </body>
                 </html>
                 EOD;
+                header('Location:'.dirname($path).'/client/login');
                 break;
 
 

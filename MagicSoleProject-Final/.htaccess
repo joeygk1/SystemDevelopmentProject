@@ -2,5 +2,5 @@ ReWriteEngine On
 
 
 ReWriteRule "^([a-zA-Z]+)/?$" "index.php?controller=$1&action=$2"
-ReWriteRule "^([a-zA-Z]+)/([a-zA-Z_-]+)?$" "index.php?controller=$1&action=$2"
-ReWriteRule "^([a-zA-Z]+)/([a-zA-Z_-]+)/([0-9]+)?$" "index.php?controller=$1&action=$2&id=$3"
+ReWriteRule "^([a-zA-Z]+)/([a-zA-Z\_-]+)?$" "index.php?controller=$1&action=$2"
+ReWriteRule "^([a-zA-Z]+)/([a-zA-Z\_-]+)/([0-9]+)?$" "index.php?controller=$1&action=$2&id=$3"

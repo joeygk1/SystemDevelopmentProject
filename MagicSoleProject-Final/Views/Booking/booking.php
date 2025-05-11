@@ -227,10 +227,11 @@ $path = $_SERVER['SCRIPT_NAME'];
         else{
             ?>
             <a href="<?php echo dirname($path);?>/client/client-orders">Orders</a>
+            <a href="<?php echo dirname($path);?>/client/logout" >Logout</a>
+
             <?php
         }
         ?>
-        <a href="#" id="logout-link" style="display: none;" onclick="logout()">Logout</a>
     </nav>
     <footer>
         <p>© 2025 Magic Sole. All rights reserved.</p>
