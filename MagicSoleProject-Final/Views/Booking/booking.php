@@ -288,7 +288,10 @@ $path = $_SERVER['SCRIPT_NAME'];
                     <label><input type="radio" name="payment" value="etransfer"> E-transfer</label>
                 </div>
             </div>
-
+            <div class="form-group">
+                <label for="shoeImages">Upload Shoe Images (Multiple allowed)</label>
+                <input type="file" id="shoeImages" multiple accept="image/*">
+            </div>
             <div class="form-group">
                 <label for="comments">Comments</label>
                 <textarea id="comments" rows="4"></textarea>
@@ -323,10 +326,6 @@ $path = $_SERVER['SCRIPT_NAME'];
             shoeDiv.className = 'shoe-service-group';
             shoeDiv.innerHTML = `
                     <h3>Shoe Pair ${i} - Select Services</h3>
-                    <div class="form-group">
-                        <label for="shoeImageUrl_${i}">Shoe Image URL</label>
-                        <input type="url" id="shoeImageUrl_${i}" name="shoeImageUrl_${i}" placeholder="https://example.com/image.jpg">
-                    </div>
                     <div class="service-checkboxes">
                         <label><input type="checkbox" name="services_${i}" value="cleaning" data-price="50"> Cleaning ($50)</label>
                         <label><input type="checkbox" name="services_${i}" value="repaint" data-price="80"> Re-paint ($80)</label>
@@ -375,10 +374,9 @@ $path = $_SERVER['SCRIPT_NAME'];
         for (let i = 1; i <= shoeCount; i++) {
             const services = Array.from(document.querySelectorAll(`input[name="services_${i}"]:checked`))
                 .map(input => input.value);
-            const imageUrl = document.getElementById(`shoeImageUrl_${i}`).value;
-            selectedServices.push({ pair: i, services, imageUrl });
+            selectedServices.push({ pair: i, services });
         }
-        console.log('Selected services and image URLs:', selectedServices);
+        console.log('Selected services:', selectedServices);
         alert('Booking request submitted!');
     });
 

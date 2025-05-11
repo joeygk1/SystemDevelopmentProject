@@ -2,9 +2,9 @@
 
 include_once "Controllers/Controller.php";
 
-include_once "Models/Client.php";
+include_once "Models/Admin.php";
 
-class ClientController extends Controller{
+class AdminController extends Controller{
 
     function route()
     {
@@ -15,36 +15,29 @@ class ClientController extends Controller{
         $id = isset($_GET['id']) ? intval($_GET['id']) : -1;
 
         switch($action){
-            case "home":
+            case "admin-home":
                 $this->render($controller,$action);
                 break;
 
-            case "services":
-                $this->render($controller,$action);
-
-                break;
-
-            case "about":
+            case "order-status":
                 $this->render($controller,$action);
 
                 break;
 
-            case "policies":
+            case "view-orders":
                 $this->render($controller,$action);
 
                 break;
 
-            case "gallery":
+            case "admin-gallery":
                 $this->render($controller,$action);
 
                 break;
-            case "login":
-                if(isset($_POST['email']) && isset($_POST['password'])){
-
-                }
+            case "verify_otp":
                 $this->render($controller,$action);
 
                 break;
+
 
 
 
