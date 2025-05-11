@@ -246,7 +246,8 @@ $path = $_SERVER['SCRIPT_NAME'];
         <a href="<?php echo dirname($path);?>/booking/booking">Booking</a>
         <a href="<?php echo dirname($path);?>/client/gallery">Gallery</a>
         <?php
-        if($_SESSION['token'] == null){
+
+        if(!isset($_SESSION['token'])){
             ?>
             <a href="<?php echo dirname($path);?>/client/login">Login</a>
             <a href="<?php echo dirname($path);?>/client/register">Register</a>
@@ -255,10 +256,10 @@ $path = $_SERVER['SCRIPT_NAME'];
         else{
             ?>
             <a href="<?php echo dirname($path);?>/client/client-orders">Orders</a>
+            <a href="#" id="logout-link" style="display: none;" onclick="logout()">Logout</a>
             <?php
         }
         ?>
-        <a href="#" id="logout-link" style="display: none;" onclick="logout()">Logout</a>
     </nav>
     <footer>
         <p>© 2025 Magic Sole. All rights reserved.</p>
@@ -281,7 +282,7 @@ $path = $_SERVER['SCRIPT_NAME'];
             <h2 data-lang-key="hero-title">Revive your sneakers</h2>
             <p data-lang-key="hero-subtitle">Professional cleaning and restoration for your favourite kicks</p>
             <a href="<?php echo dirname($path);?>/booking/booking" class="btn" data-lang-key="book-now">Book Now</a>
-            <a href="login.php" class="btn" data-lang-key="nav-login" id="login-btn">Login</a>
+            <a href="<?php echo dirname($path);?>/client/login" class="btn" data-lang-key="nav-login" id="login-btn">Login</a>
         </div>
     </section>
 </div>
@@ -339,24 +340,26 @@ $path = $_SERVER['SCRIPT_NAME'];
 
         // Clear and rebuild nav menu
         navMenu.innerHTML = `
-               <a href="<?php echo dirname($path);?>/client/home" data-lang-key="nav-home">${translations[lang]['nav-home']}</a>
-                <a href="<?php echo dirname($path);?>/client/services" data-lang-key="nav-services">${translations[lang]['nav-services']}</a>
-                <a href="<?php echo dirname($path);?>/client/about" data-lang-key="nav-about">${translations[lang]['nav-about']}</a>
-                <a href="<?php echo dirname($path);?>/booking/booking" data-lang-key="nav-booking">${translations[lang]['nav-booking']}</a>
-                <a href="<?php echo dirname($path);?>/client/policies" data-lang-key="nav-policies">${translations[lang]['nav-policies']}</a>
-                <a href="<?php echo dirname($path);?>/client/gallery" data-lang-key="nav-gallery">${translations[lang]['nav-gallery']}</a>
-                <?php
-                    if($_SESSION['token'] == null){
-                        ?>
-                        <a href="<?php echo dirname($path);?>/client/login">Login</a>
-                        <?php
-                    }
-                    else{
-                        ?>
-                        <a href="<?php echo dirname($path);?>/client/client-orders">Orders</a>
-                      <?php
-                    }
-                    ?>
+               <a href="<?php echo dirname($path);?>/client/home">Home</a>
+        <a href="<?php echo dirname($path);?>/client/services">Services</a>
+        <a href="<?php echo dirname($path);?>/client/about">About</a>
+        <a href="<?php echo dirname($path);?>/client/policies">Policies</a>
+        <a href="<?php echo dirname($path);?>/booking/booking">Booking</a>
+        <a href="<?php echo dirname($path);?>/client/gallery">Gallery</a>
+        <?php
+        if($_SESSION['token'] == null){
+        ?>
+            <a href="<?php echo dirname($path);?>/client/login">Login</a>
+            <a href="<?php echo dirname($path);?>/client/register">Register</a>
+            <?php
+        }
+        else{
+        ?>
+            <a href="<?php echo dirname($path);?>/client/client-orders">Orders</a>
+            <a href="#" id="logout-link" style="display: none;" onclick="logout()">Logout</a>
+            <?php
+        }
+        ?>
             `;
 
         if (isLoggedIn) {

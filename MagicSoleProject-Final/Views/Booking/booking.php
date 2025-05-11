@@ -69,7 +69,7 @@ $path = $_SERVER['SCRIPT_NAME'];
             margin-left: 250px;
             width: calc(100% - 250px);
             padding: 50px;
-            background-image: url('./Sneakers.jpg');
+            background-image: url('<?php echo dirname($path);?>/Images/Sneakers.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -207,7 +207,7 @@ $path = $_SERVER['SCRIPT_NAME'];
 <body>
 <header>
     <div class="logo">
-        <a href="<?php echo dirname($path);?>/client/home">">
+        <a href="<?php echo dirname($path);?>/client/home">
             <img src="<?php echo dirname($path);?>/Images/MagicNoBackground.png" alt="Magic Sole Logo">
         </a>
     </div>

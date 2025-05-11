@@ -39,7 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         unset($_SESSION['2fa_user_id'], $_SESSION['2fa_otp'], $_SESSION['2fa_email'], $_SESSION['2fa_role'], $_SESSION['2fa_expires']);
         file_put_contents('debug.log', "Login successful for $email\n", FILE_APPEND);
 
-        $redirectUrl = $isAdmin ? 'admin-home' : 'index';
+//        $redirectUrl = $isAdmin ? 'admin-home' : $path;
+        $redirectUrl = $isAdmin ? dirname($path).'/admin/admin-home' : dirname($path).'/client/home';
         $isAdminJs = $isAdmin ? 'true' : 'false';
 
         echo <<<EOD
@@ -51,8 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </head>
         <body>
             <script>
-                const isAdmin =  $isAdminJs;
-                const clientEmail = '$clientEmail';
+                const isAdmin =  '$isAdminJs';
+                const clientEmail = '$clientEmail';  
 
                 if (isAdmin) {
                     localStorage.setItem('isAdmin', 'true');
@@ -62,11 +63,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     localStorage.removeItem('isAdmin');
                 }
 
-                window.location.href = '$redirectUrl';
+                
             </script>
         </body>
         </html>
         EOD;
+        $_SESSION['token'] = $clientEmail;
+        header('Location: '.$redirectUrl);
         exit;
     } else {
         $error = 'Invalid OTP';

@@ -49,7 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 $success = 'Registration successful! You can now log in.';
                 // Optionally redirect to login.php after a delay
-                header('Refresh: 2; URL=login.php');
+                header('Refresh: 2; URL='.dirname($path).'/client/login');
+//                header('Location:'.dirname($path).'/client/login');
             }
         } catch (PDOException $e) {
             $error = 'Database error: ' . $e->getMessage();
@@ -315,7 +316,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <a href="<?php echo dirname($path);?>/booking/booking">Booking</a>
         <a href="<?php echo dirname($path);?>/client/gallery">Gallery</a>
         <?php
-        if($_SESSION['token'] == null){
+        if(!isset($_SESSION['token'])){
             ?>
             <a href="<?php echo dirname($path);?>/client/login">Login</a>
             <a href="<?php echo dirname($path);?>/client/register">Register</a>
@@ -324,10 +325,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         else{
             ?>
             <a href="<?php echo dirname($path);?>/client/client-orders">Orders</a>
+            <a href="#" id="logout-link" style="display: none;" onclick="logout()">Logout</a>
             <?php
         }
         ?>
-        <a href="#" id="logout-link" style="display: none;" onclick="logout()">Logout</a>
+
     </nav>
     <footer>
         <p>© 2025 Magic Sole. All rights reserved.</p>
@@ -364,7 +366,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </section>
 
     <div class="bottom-logo">
-        <img src="MagicNoBackground.png" alt="Magic Sole Logo">
+        <img src="<?php echo dirname($path);?>/Images/MagicNoBackground.png" alt="Magic Sole Logo">
     </div>
 </div>
 

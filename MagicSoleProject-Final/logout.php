@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 // Clear all session data
 $_SESSION = [];
 session_destroy();

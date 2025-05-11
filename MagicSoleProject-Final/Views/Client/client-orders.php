@@ -408,7 +408,7 @@ $path = $_SERVER['SCRIPT_NAME'];
         <a href="<?php echo dirname($path);?>/booking/booking">Booking</a>
         <a href="<?php echo dirname($path);?>/client/gallery">Gallery</a>
         <?php
-        if($_SESSION['token'] == null){
+        if(!isset($_SESSION['token'])){
             ?>
             <a href="<?php echo dirname($path);?>/client/login">Login</a>
             <a href="<?php echo dirname($path);?>/client/register">Register</a>
@@ -417,10 +417,11 @@ $path = $_SERVER['SCRIPT_NAME'];
         else{
             ?>
             <a href="<?php echo dirname($path);?>/client/client-orders">Orders</a>
+            <a href="#" id="logout-link" style="display: none;" onclick="logout()">Logout</a>
             <?php
         }
         ?>
-        <a href="#" id="logout-link" style="display: none;" onclick="logout()">Logout</a>
+
     </nav>
     <footer>
         <p>© 2025 Magic Sole. All rights reserved.</p>

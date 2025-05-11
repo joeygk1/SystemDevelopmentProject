@@ -945,3 +945,276 @@ POST data: Array
 
 OTP entered: 545656
 Login successful for kishaan2006@gmail.com
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => weirdgrimreaper12@gmail.com
+    [password] => client123
+)
+
+OTP generated: 584350 for email: weirdgrimreaper12@gmail.com
+Email sent successfully to weirdgrimreaper12@gmail.com
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => weirdgrimreaper13@gmail.com
+    [password] => client123
+)
+
+OTP generated: 245045 for email: weirdgrimreaper13@gmail.com
+Email sent successfully to weirdgrimreaper13@gmail.com
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => weirdgrimreaper13@gmail.com
+    [password] => client123
+)
+
+OTP generated: 584590 for email: weirdgrimreaper13@gmail.com
+Email sent successfully to weirdgrimreaper13@gmail.com
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => kishaan2006@gmail.com
+    [password] => test123
+)
+
+OTP generated: 772203 for email: kishaan2006@gmail.com
+Email sent successfully to kishaan2006@gmail.com
+POST data: Array
+(
+    [otp] => 772203
+)
+
+OTP entered: 772203
+Login successful for kishaan2006@gmail.com
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => weirdgrimreaper13@gmail.com
+    [password] => client123
+)
+
+OTP generated: 685705 for email: weirdgrimreaper13@gmail.com
+Email sent successfully to weirdgrimreaper13@gmail.com
+POST data: Array
+(
+    [otp] => 685705
+)
+
+OTP entered: 685705
+Login successful for weirdgrimreaper13@gmail.com
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => weirdgrimreaper13@gmail.com
+    [password] => client123
+)
+
+OTP generated: 577446 for email: weirdgrimreaper13@gmail.com
+Email sent successfully to weirdgrimreaper13@gmail.com
+POST data: Array
+(
+    [otp] => 577446
+)
+
+OTP entered: 577446
+Login successful for weirdgrimreaper13@gmail.com
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => weirdgrimreaper13@gmail.com
+    [password] => client123
+)
+
+OTP generated: 155749 for email: weirdgrimreaper13@gmail.com
+Email sent successfully to weirdgrimreaper13@gmail.com
+POST data: Array
+(
+    [otp] => 155749
+)
+
+OTP entered: 155749
+Login successful for weirdgrimreaper13@gmail.com
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => weirdgrimreaper13@gmail.com
+    [password] => client123
+)
+
+OTP generated: 120835 for email: weirdgrimreaper13@gmail.com
+Email sent successfully to weirdgrimreaper13@gmail.com
+POST data: Array
+(
+    [otp] => 120835
+)
+
+OTP entered: 120835
+Login successful for weirdgrimreaper13@gmail.com
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => weirdgrimreaper13@gmail.com
+    [password] => client123
+)
+
+OTP generated: 284052 for email: weirdgrimreaper13@gmail.com
+Email sent successfully to weirdgrimreaper13@gmail.com
+POST data: Array
+(
+    [otp] => 284052
+)
+
+OTP entered: 284052
+Login successful for weirdgrimreaper13@gmail.com
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => weirdgrimreaper13@gmail.com
+    [password] => client123
+)
+
+OTP generated: 557032 for email: weirdgrimreaper13@gmail.com
+Email sent successfully to weirdgrimreaper13@gmail.com
+POST data: Array
+(
+    [otp] => 557032
+)
+
+OTP entered: 557032
+Login successful for weirdgrimreaper13@gmail.com
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => weirdgrimreaper13@gmail.com
+    [password] => client123
+)
+
+OTP generated: 568613 for email: weirdgrimreaper13@gmail.com
+Email sent successfully to weirdgrimreaper13@gmail.com
+POST data: Array
+(
+    [otp] => 568613
+)
+
+OTP entered: 568613
+Login successful for weirdgrimreaper13@gmail.com
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => weirdgrimreaper13@gmail.com
+    [password] => client123
+)
+
+OTP generated: 317139 for email: weirdgrimreaper13@gmail.com
+Email sent successfully to weirdgrimreaper13@gmail.com
+POST data: Array
+(
+    [otp] => 317139
+)
+
+OTP entered: 317139
+Login successful for weirdgrimreaper13@gmail.com
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => weirdgrimreaper13@gmail.com
+    [password] => client123
+)
+
+OTP generated: 640667 for email: weirdgrimreaper13@gmail.com
+Email sent successfully to weirdgrimreaper13@gmail.com
+POST data: Array
+(
+    [otp] => 640667
+)
+
+OTP entered: 640667
+Login successful for weirdgrimreaper13@gmail.com
