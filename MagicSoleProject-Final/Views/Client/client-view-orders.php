@@ -393,19 +393,19 @@
 <body>
 <header>
     <div class="logo">
-        <a href="index.html">
-            <img src="MagicNoBackground.png" alt="Magic Sole Logo">
+        <a href="<?php echo dirname($path);?>/client/home">
+            <img src="<?php echo dirname($path);?>/Images/MagicNoBackground.png" alt="Magic Sole Logo">
         </a>
     </div>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="services.php">Services</a>
-        <a href="about.php">About Us</a>
-        <a href="policies.php">Policies</a>
-        <a href="../Booking/booking.php">Booking</a>
-        <a href="gallery.php">Gallery</a>
-        <a href="client-view-orders.html">View Orders</a>
-        <a href="login.php">Logout</a>
+        <a href="<?php echo dirname($path);?>/client/home"> Home</a>
+        <a href="<?php echo dirname($path);?>/client/services">Services</a>
+        <a href="<?php echo dirname($path);?>/client/about">About</a>
+        <a href="<?php echo dirname($path);?>/client/policies">Policies</a>
+        <a href="<?php echo dirname($path);?>/booking/booking">Booking</a>
+        <a href="<?php echo dirname($path);?>/client/gallery">Gallery</a>
+        <a href="<?php echo dirname($path);?>/client/client-view-orders">View Orders</a>
+        <a href="<?php echo dirname($path);?>/client/login">Logout</a>
     </nav>
     <footer>
         <p>© 2025 Magic Sole. All rights reserved.</p>

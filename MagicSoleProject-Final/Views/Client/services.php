@@ -186,8 +186,8 @@ $path = $_SERVER['SCRIPT_NAME'];
 <body>
 <header>
     <div class="logo">
-        <a href="index.html">
-            <img src="MagicNoBackground.png" alt="Magic Sole Logo">
+        <a href="<?php echo dirname($path);?>/client/home">
+            <img src="<?php echo dirname($path);?>/Images/MagicNoBackground.png" alt="Magic Sole Logo">
         </a>
     </div>
     <nav>
@@ -224,34 +224,34 @@ $path = $_SERVER['SCRIPT_NAME'];
         <h2>Explore Our Services</h2>
         <div class="services-grid">
             <div class="service-card">
-                <img src="cleaning.jpeg" alt="Sneaker Cleaning">
+                <img src="<?php echo dirname($path);?>/Images/cleaning.jpeg" alt="Sneaker Cleaning">
                 <h3>Sneaker Cleaning</h3>
                 <p>Deep cleaning to make your sneakers look brand new.</p>
                 <div class="price">$50 per pair</div>
-                <a href="booking.html"><button class="book-now">Book Now</button></a>
+                <a href="<?php echo dirname($path);?>/booking/booking"><button class="book-now">Book Now</button></a>
             </div>
             <div class="service-card">
-                <img src="re-paint.png" alt="Sneaker Repaint">
+                <img src="<?php echo dirname($path);?>/Images/re-paint.png" alt="Sneaker Repaint">
                 <h3>Sneaker Repaint</h3>
                 <p>Custom repainting to refresh or completely change the color.</p>
                 <div class="price">$80 per pair</div>
-                <a href="booking.html"><button class="book-now">Book Now</button></a>
+                <a href="<?php echo dirname($path);?>/booking/booking"><button class="book-now">Book Now</button></a>
             </div>
 
             <div class="service-card">
-                <img src="redye.jpg" alt="Sneaker Re-dye">
+                <img src="<?php echo dirname($path);?>/Images/redye.jpg" alt="Sneaker Re-dye">
                 <h3>Sneaker Redye</h3>
                 <p>Custom repainting to refresh or completely change the color.</p>
                 <div class="price">$80 per pair</div>
-                <a href="booking.html"><button class="book-now">Book Now</button></a>
+                <a href="<?php echo dirname($path);?>/booking/booking"><button class="book-now">Book Now</button></a>
             </div>
 
             <div class="service-card">
-                <img src="icysole.jpg" alt="Icy Sole">
+                <img src="<?php echo dirname($path);?>/Images/icysole.jpg" alt="Icy Sole">
                 <h3>Icy Sole Treatment</h3>
                 <p>Restore yellowed soles to a crystal-clear, icy finish.</p>
                 <div class="price">$20 per pair</div>
-                <a href="booking.html"><button class="book-now">Book Now</button></a>
+                <a href="<?php echo dirname($path);?>/booking/booking"><button class="book-now">Book Now</button></a>
             </div>
         </div>
     </section>

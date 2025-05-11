@@ -1,3 +1,6 @@
+<?php
+$path = $_SERVER['SCRIPT_NAME'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -143,12 +146,11 @@
             transition: transform 0.3s, box-shadow 0.3s;
             opacity: 0;
             transform: translateY(50px);
-            animation: fadeInUp 1s forwards 0.5s;
+            animation: fadeInUp 1s forwards;
         }
 
-        .admin-option:nth-child(2) {
-            animation-delay: 0.7s;
-        }
+        .admin-option:nth-child(2) { animation-delay: 0.7s; }
+        .admin-option:nth-child(3) { animation-delay: 0.9s; }
 
         .admin-option a {
             text-decoration: none;
@@ -223,15 +225,16 @@
 <body>
 <header>
     <div class="logo">
-        <a href="index.html">
-            <img src="MagicNoBackground.png" alt="Magic Sole Logo">
+        <a href="<?php echo dirname($path);?>/admin/admin-home">
+            <img src="<?php echo dirname($path);?>/Images/MagicNoBackground.png" alt="Magic Sole Logo">
         </a>
     </div>
     <nav>
-        <a href="admin-home.html">Admin Home</a>
-        <a href="view-orders.php">View Orders</a>
-        <a href="order-status.php">Order Status</a>
-        <a href="../Client/login.php">Logout</a>
+        <a href="<?php echo dirname($path);?>/admin/admin-home">Admin Home</a>
+        <a href="<?php echo dirname($path);?>/admin/view-orders">View Orders</a>
+        <a href="<?php echo dirname($path);?>/admin/order-status">Order Status</a>
+        <a href="<?php echo dirname($path);?>/admin/admin-gallery">Manage Gallery</a>
+        <a href="<?php echo dirname($path);?>/admin/logout">Logout</a>
     </nav>
     <footer>
         <p>© 2025 Magic Sole. All rights reserved.</p>
@@ -242,7 +245,7 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Admin Dashboard</h1>
-            <p>Manage your orders and statuses.</p>
+            <p>Manage your orders, statuses, and gallery content.</p>
         </div>
     </section>
     <div class="summary-section">
@@ -264,18 +267,43 @@
     </div>
     <div class="admin-options">
         <div class="admin-option">
-            <a href="view-orders.php">View Orders</a>
+            <a href="view-orders.html">View Orders</a>
         </div>
         <div class="admin-option">
-            <a href="order-status.php">Order Status</a>
+            <a href="order-status.html">Order Status</a>
+        </div>
+        <div class="admin-option">
+            <a href="admin-gallery.php">Manage Gallery</a>
         </div>
     </div>
 </div>
 
 <script>
-    // Check if the user is an admin (for demo purposes)
-    if (!localStorage.getItem('isAdmin')) {
-        window.location.href = 'login.html';
+    // Lightweight session check for logging (optional, since .htaccess handles redirect)
+    fetch('check_session.php')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Session check response:', data);
+        })
+        .catch(error => {
+            console.error('Error checking session:', error);
+        });
+
+    // Logout function
+    function logout() {
+        fetch('logout.php', { method: 'POST' })
+            .then(() => {
+                window.location.href = 'login.php';
+            })
+            .catch(error => {
+                console.error('Error during logout:', error);
+                window.location.href = 'login.php';
+            });
     }
 
     // Simulate fetching summary data (replace with real API call)

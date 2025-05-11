@@ -1,5 +1,6 @@
 <?php
 $path = $_SERVER['SCRIPT_NAME'];
+
 ?>
 
 <!DOCTYPE html>
@@ -233,8 +234,8 @@ $path = $_SERVER['SCRIPT_NAME'];
 <body>
 <header>
     <div class="logo">
-        <a href="index.html">
-            <img src="MagicNoBackground.png" alt="Magic Sole Logo">
+        <a href="<?php echo dirname($path);?>/client/home">
+            <img src="<?php echo dirname($path);?>/Images/MagicNoBackground.png" alt="Magic Sole Logo">
         </a>
     </div>
     <nav id="nav-menu">
@@ -267,17 +268,17 @@ $path = $_SERVER['SCRIPT_NAME'];
         <button class="language-btn" onclick="toggleLanguage()">Français</button>
     </div>
     <div class="slideshow">
-        <img src="Background.JPG" class="slide active" alt="Sneaker Image 1">
-        <img src="Jordan.jpg" class="slide" alt="Sneaker Image 2">
+        <img src="<?php echo dirname($path);?>/Images/Background.JPG" class="slide active" alt="Sneaker Image 1">
+        <img src="<?php echo dirname($path);?>/Images/Jordan.jpg" class="slide" alt="Sneaker Image 2">
         <video class="slide" autoplay muted loop>
-            <source src="ShowRoom.MOV" type="video/mp4">
+            <source src="<?php echo dirname($path);?>/Videos/ShowRoom.MOV" type="video/mp4">
         </video>
     </div>
     <section class="hero">
         <div class="hero-content">
             <h2 data-lang-key="hero-title">Revive your sneakers</h2>
             <p data-lang-key="hero-subtitle">Professional cleaning and restoration for your favourite kicks</p>
-            <a href="booking.html" class="btn" data-lang-key="book-now">Book Now</a>
+            <a href="<?php echo dirname($path);?>/booking/booking" class="btn" data-lang-key="book-now">Book Now</a>
             <a href="login.php" class="btn" data-lang-key="nav-login" id="login-btn">Login</a>
         </div>
     </section>
@@ -339,7 +340,7 @@ $path = $_SERVER['SCRIPT_NAME'];
                <a href="<?php echo dirname($path);?>/client/home" data-lang-key="nav-home">${translations[lang]['nav-home']}</a>
                 <a href="<?php echo dirname($path);?>/client/services" data-lang-key="nav-services">${translations[lang]['nav-services']}</a>
                 <a href="<?php echo dirname($path);?>/client/about" data-lang-key="nav-about">${translations[lang]['nav-about']}</a>
-                <a href="<?php echo dirname($path);?>/booking/booking" data-lang-key="nav-about">${translations[lang]['nav-about']}</a>
+                <a href="<?php echo dirname($path);?>/booking/booking" data-lang-key="nav-booking">${translations[lang]['nav-booking']}</a>
                 <a href="<?php echo dirname($path);?>/client/policies" data-lang-key="nav-policies">${translations[lang]['nav-policies']}</a>
                 <a href="<?php echo dirname($path);?>/client/gallery" data-lang-key="nav-gallery">${translations[lang]['nav-gallery']}</a>
                 <?php
@@ -369,11 +370,11 @@ $path = $_SERVER['SCRIPT_NAME'];
         } else {
             loginLogoutLink.setAttribute('data-lang-key', 'nav-login');
             loginLogoutLink.textContent = translations[lang]['nav-login'];
-            loginLogoutLink.href = 'login.html';
+            loginLogoutLink.href = "<?php echo dirname($path);?>/client/login";
             loginLogoutLink.onclick = null;
             loginBtn.setAttribute('data-lang-key', 'nav-login');
             loginBtn.textContent = translations[lang]['nav-login'];
-            loginBtn.href = 'login.php';
+            loginBtn.href = "<?php echo dirname($path);?>/client/login";
             loginBtn.onclick = null;
         }
 

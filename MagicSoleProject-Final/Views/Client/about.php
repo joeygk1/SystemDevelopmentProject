@@ -343,8 +343,8 @@ $path = $_SERVER['SCRIPT_NAME'];
 <body>
     <header>
         <div class="logo">
-            <a href="index.html">
-                <img src="MagicNoBackground.png" alt="Magic Sole Logo">
+            <a href="<?php echo dirname($path);?>/client/home">
+                <img src="<?php echo dirname($path);?>/Images/MagicNoBackground.png" alt="Magic Sole Logo">
             </a>
         </div>
         <nav>
@@ -359,7 +359,6 @@ $path = $_SERVER['SCRIPT_NAME'];
                 ?>
                 <a href="<?php echo dirname($path);?>/client/login">Login</a>
                 <?php
-                echo __DIR__.'config';
             }
             else{
                 ?>
@@ -386,17 +385,17 @@ $path = $_SERVER['SCRIPT_NAME'];
         <h2>Meet the Team</h2>
         <div class="team-members">
             <div class="team-member">
-                <img src="Kev.png" alt="Kevin">
+                <img src="<?php echo dirname($path);?>/Images/Kev.png" alt="Kevin">
                 <h3>Quan</h3>
                 <p>Sneaker Spray Paint Expert</p>
             </div>
             <div class="team-member">
-                <img src="Joshua.png" alt="Joshua">
+                <img src="<?php echo dirname($path);?>/Images/Joshua.png" alt="Joshua">
                 <h3>Joshua</h3>
                 <p>Sneaker Restoration Pro</p>
             </div>
             <div class="team-member">
-                <img src="Joey.png" alt="Joey">
+                <img src="<?php echo dirname($path);?>/Images/Joey.png" alt="Joey">
                 <h3>Joey</h3>
                 <p>Sneaker Cleaning Expert</p>
             </div>
@@ -409,10 +408,10 @@ $path = $_SERVER['SCRIPT_NAME'];
         <h2>Connect with Us</h2>
         <div class="social-icons">
             <a href="https://www.instagram.com/magic.sole" target="_blank" aria-label="Instagram">
-                <img src="instagram.png" alt="Instagram">
+                <img src="<?php echo dirname($path);?>/Images/instagram.png" alt="Instagram">
             </a>
             <a href="https://www.tiktok.com/search?q=magic%20sole&t=1740277844045" target="_blank" aria-label="LinkedIn">
-                <img src="tiktok.png" alt="LinkedIn">
+                <img src="<?php echo dirname($path);?>/Images/tiktok.png" alt="LinkedIn">
             </a>
         </div>
     </div>
@@ -426,7 +425,7 @@ $path = $_SERVER['SCRIPT_NAME'];
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5580.2239612157955!2d-73.5923419!3d45.628486699999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91fd17c33d1d7%3A0x88b0e88ca7448d3c!2s7775%20Av.%20Ren%C3%A9-Descartes%2C%20Montr%C3%A9al%2C%20QC%20H1E%203G6!5e0!3m2!1sen!2sca!4v1730674771104!5m2!1sen!2sca" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <div class="gif-container">
-            <img src="./CoolGrey.gif" alt="Cool Grey Sneaker GIF">
+            <img src="<?php echo dirname($path);?>/Images/CoolGrey.gif" alt="Cool Grey Sneaker GIF">
         </div>
     </section>
 </div>

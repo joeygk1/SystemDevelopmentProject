@@ -1,3 +1,6 @@
+<?php
+$path = $_SERVER['SCRIPT_NAME'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -374,12 +377,14 @@
 <body>
 <header>
     <div class="logo">
-        <img src="logo.png" alt="Magic Sole Logo">
+        <img src="<?php echo dirname($path);?>/Images/MagicNoBackground.png" alt="Magic Sole Logo">
     </div>
     <nav>
-        <a href="dashboard.php">Dashboard</a>
-        <a href="view_orders.php">Manage Orders</a>
-        <a href="logout.php">Logout</a>
+        <a href="<?php echo dirname($path);?>/admin/admin-home">Admin Home</a>
+        <a href="<?php echo dirname($path);?>/admin/view-orders">View Orders</a>
+        <a href="<?php echo dirname($path);?>/admin/order-status">Order Status</a>
+        <a href="<?php echo dirname($path);?>/admin/admin-gallery">Order Status</a>
+        <a href="<?php echo dirname($path);?>/admin/logout">Logout</a>
     </nav>
 </header>
 
