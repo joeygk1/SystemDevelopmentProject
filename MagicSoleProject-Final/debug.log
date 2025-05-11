@@ -918,3 +918,30 @@ POST data: Array
 
 OTP entered: 890197
 Login successful for kishaan2006@gmail.com
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => kishaan2006@gmail.com
+    [password] => test123
+)
+
+OTP generated: 545656 for email: kishaan2006@gmail.com
+Email sent successfully to kishaan2006@gmail.com
+POST data: Array
+(
+    [otp] => 545656
+)
+
+OTP entered: 545656
+Login successful for kishaan2006@gmail.com

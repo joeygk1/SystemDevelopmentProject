@@ -49,7 +49,10 @@ class ClientController extends Controller{
                 $this->render($controller,$action);
 
                 break;
+            case "register":
+                $this->render($controller,$action);
 
+                break;
 
 
 
