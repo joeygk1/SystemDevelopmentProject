@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2025 at 04:36 AM
+-- Generation Time: May 12, 2025 at 02:51 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -54,10 +54,17 @@ CREATE TABLE `bookings` (
   `booking_id` int(5) NOT NULL,
   `client_id` int(4) NOT NULL,
   `dropoff_date` datetime NOT NULL,
-  `pickup_date` datetime NOT NULL,
+  `pickup_date` datetime DEFAULT NULL,
   `shoes_quantity` int(2) NOT NULL,
   `status` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `bookings`
+--
+
+INSERT INTO `bookings` (`booking_id`, `client_id`, `dropoff_date`, `pickup_date`, `shoes_quantity`, `status`) VALUES
+(4, 5, '0000-00-00 00:00:00', NULL, 1, 'pending');
 
 -- --------------------------------------------------------
 
@@ -164,7 +171,8 @@ INSERT INTO `users` (`id`, `admin_id`, `username`, `email`, `password`, `role`, 
 (1, 0, 'Joey', 'joeyayoubdisalvo@gmail.com', '$2y$10$sSke6AdEMyZEQ/w7yKHhYu56gead1mft2.U0iAi7/g9yL59Q9SCpG', 'client', NULL),
 (2, 0, 'Admin', 'joey.ayoubdisalvo@icloud.com', '$2y$10$GeYBdgM.BLA9rOVN/05j3.OEdkVGMHzQPFh2.mO95cmOpu4OoSKZC', 'admin', NULL),
 (3, 0, 'Kishaan', 'kishaan2006@gmail.com', '$2y$10$w/JwTBREuJtTy.KCXPyqTuC1rCYhFGDa4P/kefab1d3Bek6jhHE8C', 'admin', NULL),
-(4, 0, 'jaimejoe', 'billonesjaimejose@gmail.com', '$2y$10$zvjBpoYi1lqWPQ15tk1rPeJH8YwXDZ5l2w6IoW2oMUyXR.3rtIjcW', 'admin', NULL);
+(4, 0, 'jaimejoe', 'billonesjaimejose@gmail.com', '$2y$10$zvjBpoYi1lqWPQ15tk1rPeJH8YwXDZ5l2w6IoW2oMUyXR.3rtIjcW', 'admin', NULL),
+(5, 0, 'clientKishaan', 'weirdgrimreaper13@gmail.com', '$2y$10$JmWa3SLEe9.QP2LE1dRrweJkHbL8URZEsURaQpmEst4nu8R23w9XG', 'client', NULL);
 
 --
 -- Indexes for dumped tables
@@ -228,7 +236,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `booking_id` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `booking_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `booking_service`
@@ -264,7 +272,7 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
@@ -274,7 +282,7 @@ ALTER TABLE `users`
 -- Constraints for table `bookings`
 --
 ALTER TABLE `bookings`
-  ADD CONSTRAINT `bookings_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `clients` (`client_id`);
+  ADD CONSTRAINT `bookings_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `booking_service`
