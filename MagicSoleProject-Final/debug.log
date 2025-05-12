@@ -1367,3 +1367,93 @@ POST data: Array
 
 OTP entered: 325864
 Login successful for kishaan2006@gmail.com
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => kishaan2006@gmail.com
+    [password] => test123
+)
+
+OTP generated: 156760 for email: kishaan2006@gmail.com
+Email sent successfully to kishaan2006@gmail.com
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => kishaan2006@gmail.com
+    [password] => test123
+)
+
+OTP generated: 130792 for email: kishaan2006@gmail.com
+Email sent successfully to kishaan2006@gmail.com
+POST data: Array
+(
+    [otp] => 130792
+)
+
+OTP entered: 130792
+Login successful for kishaan2006@gmail.com
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => weirdgrimreaper13@gmail.com
+    [password] => client123
+)
+
+OTP generated: 385043 for email: weirdgrimreaper13@gmail.com
+Email sent successfully to weirdgrimreaper13@gmail.com
+POST data: Array
+(
+    [otp] => 385043
+)
+
+OTP entered: 385043
+Login successful for weirdgrimreaper13@gmail.com
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => kishaan2006@gmail.com
+    [password] => test123
+)
+
+OTP generated: 696663 for email: kishaan2006@gmail.com
+Email sent successfully to kishaan2006@gmail.com
+POST data: Array
+(
+    [otp] => 69663
+)
+
+OTP entered: 69663
+Error: Invalid OTP
+POST data: Array
+(
+    [otp] => 696663
+)
+
+OTP entered: 696663
+Login successful for kishaan2006@gmail.com

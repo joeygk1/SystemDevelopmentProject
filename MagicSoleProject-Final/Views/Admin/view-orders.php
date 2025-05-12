@@ -472,7 +472,7 @@ $path = $_SERVER['SCRIPT_NAME'];
                     <td><?= $row->getBookingId(); ?></td>
                     <td><?= $row->getName() ?></td>
                     <td><?= $row->getDropoffDate(); ?></td>
-                    <td><?= $row->getTotal();?></td>
+                    <td><?= $row->getTotalPrice();?></td>
                     <td><?= $row->getStatus(); ?></td>
                 </tr>
                 <?php

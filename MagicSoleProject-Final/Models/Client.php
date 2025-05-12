@@ -81,5 +81,21 @@ class Client extends Model {
     public function isClient($email){
         // Implement email check logic
     }
+
+    public function view_bookings(){
+        $arr = [];
+        $conn = Model::connect();
+        $sql = "SELECT * FROM `bookings` WHERE `client_id` = ?";
+        $stmt = $conn->prepare($sql);
+        $clientId = $_SESSION["user_id"];
+        $stmt->bindParam(1, $clientId, PDO::PARAM_INT);
+        $stmt->execute();
+
+        while($row = $stmt->fetch(PDO::FETCH_OBJ)){
+            $booking = new Booking($row);
+            array_push($arr, $booking);
+        }
+        return $arr;
+    }
 }
 ?>

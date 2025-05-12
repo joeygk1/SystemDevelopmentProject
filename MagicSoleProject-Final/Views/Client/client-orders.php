@@ -462,6 +462,22 @@ $path = $_SERVER['SCRIPT_NAME'];
                 </tr>
             </thead>
             <tbody id="orders-tbody">
+            <?php
+            foreach ($data as $booking){
+                ?>
+                <tr>
+                    <td><?php echo $booking->getBookingId()?></td>
+                    <td><?php echo $booking->getDropoffDate(); ?></td>
+                    <td><?php echo $booking->getTotalPrice(); ?></td>
+                    <td><?php echo $booking->getStatus(); ?></td>
+                    <td>
+                        <button class="action-btn update-btn" onclick="openUpdateModal('<?php echo $booking->getBookingId(); ?>')">Update</button>
+                        <button class="action-btn delete-btn" onclick="deleteOrder('<?php echo $booking->getBookingId(); ?>')">Delete</button>
+                    </td>
+                </tr>
+                <?php
+            }
+            ?>
             </tbody>
         </table>
         <div class="pagination">
@@ -515,33 +531,33 @@ $path = $_SERVER['SCRIPT_NAME'];
     const rowsPerPage = 5;
     let selectedOrderId = null;
 
-    function displayOrders(filteredOrders) {
-        const tbody = document.getElementById('orders-tbody');
-        tbody.innerHTML = '';
-        const start = (currentPage - 1) * rowsPerPage;
-        const end = start + rowsPerPage;
-        const paginatedOrders = filteredOrders.slice(start, end);
-
-        paginatedOrders.forEach(order => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${order.orderId}</td>
-                <td>${order.date}</td>
-                <td>${order.total}</td>
-                <td>${order.status}</td>
-                <td>
-                    <button class="action-btn update-btn" onclick="openUpdateModal('${order.orderId}')">Update</button>
-                    <button class="action-btn delete-btn" onclick="deleteOrder('${order.orderId}')">Delete</button>
-                </td>
-            `;
-            row.addEventListener('click', (e) => {
-                if (e.target.tagName !== 'BUTTON') {
-                    showOrderDetails(order);
-                }
-            });
-            tbody.appendChild(row);
-        });
-    }
+    // function displayOrders(filteredOrders) {
+    //     const tbody = document.getElementById('orders-tbody');
+    //     tbody.innerHTML = '';
+    //     const start = (currentPage - 1) * rowsPerPage;
+    //     const end = start + rowsPerPage;
+    //     const paginatedOrders = filteredOrders.slice(start, end);
+    //
+    //     paginatedOrders.forEach(order => {
+    //         const row = document.createElement('tr');
+    //         row.innerHTML = `
+    //             <td>${order.orderId}</td>
+    //             <td>${order.date}</td>
+    //             <td>${order.total}</td>
+    //             <td>${order.status}</td>
+    //             <td>
+    //                 <button class="action-btn update-btn" onclick="openUpdateModal('${order.orderId}')">Update</button>
+    //                 <button class="action-btn delete-btn" onclick="deleteOrder('${order.orderId}')">Delete</button>
+    //             </td>
+    //         `;
+    //         row.addEventListener('click', (e) => {
+    //             if (e.target.tagName !== 'BUTTON') {
+    //                 showOrderDetails(order);
+    //             }
+    //         });
+    //         tbody.appendChild(row);
+    //     });
+    // }
 
     function showOrderDetails(order) {
         document.getElementById('modal-order-id').textContent = order.orderId;
@@ -584,8 +600,11 @@ $path = $_SERVER['SCRIPT_NAME'];
 
     function deleteOrder(orderId) {
         if (confirm('Are you sure you want to delete this booking?')) {
-            orders = orders.filter(o => o.orderId !== orderId);
-            filterOrders();
+            const redirectBase = "<?php echo dirname($path) ?>/booking/delete/";
+            window.location.replace(redirectBase + orderId);
+
+            // orders = orders.filter(o => o.orderId !== orderId);
+            // filterOrders();
         }
     }
 
@@ -629,3 +648,29 @@ $path = $_SERVER['SCRIPT_NAME'];
 </script>
 </body>
 </html>
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
+    <div style="
+        position: fixed;
+        top: 0;
+        left: 260px;
+        width: calc(100% - 260px);
+        background: rgba(255,255,255,0.95);
+        color: #000;
+        z-index: 9999;
+        padding: 10px;
+        font-size: 14px;
+        border-bottom: 1px solid #ccc;
+        max-height: 300px;
+        overflow-y: auto;
+    ">
+        <pre><?php var_dump([
+                $_SESSION['user_id'],
+                $_POST['date'] . ' ' . $_POST['timeSlot'],
+                null,
+                $_POST['shoeCount'],
+                "Pending"
+            ]); ?></pre>
+    </div>
+<?php endif;
+?>

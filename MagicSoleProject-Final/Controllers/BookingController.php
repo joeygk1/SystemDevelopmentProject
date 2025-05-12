@@ -21,6 +21,7 @@ class BookingController extends Controller{
                     $this->render($controller,$action);
                 }
                 else{
+
                     $booking = new Booking();
                     $booking->bookAppointment();
                     $newUrl = dirname($path).'/booking/booking';
@@ -28,8 +29,12 @@ class BookingController extends Controller{
                 }
                 break;
 
-            case "services":
-                $this->render($controller,$action);
+            case "delete":
+                $booking = new Booking($id);
+                $booking->delete();
+//                echo "Booking attempt done"; break;
+                $newUrl = dirname($path).'/client/client-orders';
+                header("Location: ".$newUrl);
 
                 break;
 

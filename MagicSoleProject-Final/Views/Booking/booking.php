@@ -242,9 +242,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
         <a href="<?php echo dirname($path);?>/booking/booking">Booking</a>
         <a href="<?php echo dirname($path);?>/client/gallery">Gallery</a>
         <?php
-        if($_SESSION['token'] == null){
+        if(!isset($_SESSION['token'])){
             ?>
             <a href="<?php echo dirname($path);?>/client/login">Login</a>
+            <a href="<?php echo dirname($path);?>/client/register">Register</a>
             <?php
         }
         else{
@@ -264,10 +265,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
 <div class="main-content">
     <section class="booking-form">
         <h1>Book Now!</h1>
-        <form id="bookingForm" method="POST">
+        <form id="bookingForm" method="POST"  enctype="multipart/form-data">
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" required>
+                <input type="text" id="name" name="name" required>
             </div>
             <div class="form-group">
                 <label for="phone">Phone Number</label>
@@ -321,7 +322,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
 <!--                <textarea id="comments" rows="4"></textarea>-->
 <!--            </div>-->
             <label class="total-cost">
-                Total Cost: $<label for="totalCost"></label><input id="totalCost" name="totalCost" value="0" disabled style="width:50px; align-content: center">
+                Total Cost: $<label for="totalCost"></label><input id="totalCost" name="totalCost" value="0" readonly style="width:50px; align-content: center">
             </label>
             <button type="submit" class="request-btn">Request Booking</button>
         </form>

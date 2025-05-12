@@ -3,14 +3,14 @@ include_once "Models/Model.php";
 
 class Booking extends Model
 {
-    private $bookingId;
-    private $clientId;
-    private $dropoffDate;
-    private $pickupDate;
-    private $shoesQuantity;
+    private $booking_id;
+    private $client_id;
+    private $dropoff_date;
+    private $pickup_date;
+    private $shoes_quantity;
     private $status;
     private $name;
-    private $total;
+    private $total_Price;
 
     public function __construct($param = null)
     {
@@ -33,20 +33,20 @@ class Booking extends Model
 
     public function setProperties($param = null)
     {
-        $this->bookingId = $param->booking_id;
-        $this->clientId = $param->client_id;
-        $this->dropoffDate = $param->dropoff_date;
-        $this->pickupDate = $param->pickup_date;
-        $this->shoesQuantity = $param->shoes_quantity;
+        $this->booking_id = $param->booking_id;
+        $this->client_id = $param->client_id;
+        $this->dropoff_date = $param->dropoff_date;
+        $this->pickup_date = $param->pickup_date;
+        $this->shoes_quantity = $param->shoes_quantity;
         $this->status = $param->status;
         $this->name = $param->name;
-        $this->total = $param->total_price;
+        $this->total_Price = $param->total_Price;
     }
 
     public static function list() {
         $list = [];
         $sql = "SELECT b.`booking_id`, b.`client_id`, CONCAT(CONCAT(c.`firstName`,' '), c.`lastName`) AS name,
-            b.`dropoff_date`, b.`status`, b.`shoes_quantity`, b.`pickup_date`, p.`total_price`
+            b.`dropoff_date`, b.`status`, b.`shoes_quantity`, b.`pickup_date`, p.`total_Price`
             FROM `bookings` b
             LEFT JOIN `clients` c ON (b.client_id = c.client_id )
             LEFT JOIN `payments` p ON (b.`booking_id` = p.`booking_id`)
@@ -76,11 +76,7 @@ class Booking extends Model
     }
     public function getBookingId()
     {
-        return $this->bookingId;
-    }
-    public function getTotal()
-    {
-        return '$'.$this->total;
+        return $this->booking_id;
     }
     public function getName()
     {
@@ -89,29 +85,43 @@ class Booking extends Model
 
     public function getClientId()
     {
-        return $this->clientId;
+        return $this->client_id;
     }
 
     public function getDropoffDate()
     {
-        return $this->dropoffDate;
+        return $this->dropoff_date;
     }
 
     public function getPickupDate()
     {
-        return $this->pickupDate;
+        return $this->pickup_date;
     }
 
     public function getShoesQuantity()
     {
-        return $this->shoesQuantity;
+        return $this->shoes_quantity;
     }
 
     public function getStatus()
     {
         return $this->status;
     }
+    public function getTotalPrice()
+    {
+        return $this->total_Price;
+    }
 
+    public function delete()
+    {
+        $conn = Model::connect();
+
+        $sql = "DELETE FROM `bookings` WHERE `booking_id` = ?";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt ->execute([$this->getBookingId()]);
+    }
     function bookAppointment(){
         try {
             $conn = Model::connect();
@@ -120,9 +130,13 @@ class Booking extends Model
                                         `dropoff_date`,
                                         `pickup_date`,
                                         `shoes_quantity`,
-                                        `status`
+                                        `status`,
+                                        `name`,
+                                        `total_Price`
                                     )   
                                     VALUES (
+                                        ?,
+                                        ?,
                                         ?,
                                         ?,
                                         ?,
@@ -133,9 +147,11 @@ class Booking extends Model
             $stmt->execute([
                 $_SESSION['user_id'],
                 $_POST['date'] . ' ' . $_POST['timeSlot'],
-                 null,
+                null,
                 $_POST['shoeCount'],
-                "Pending"
+                "Pending",
+                $_POST['name'],
+                $_POST['totalCost']
             ]);
         }
         catch(PDOException $e){

@@ -3,6 +3,7 @@
 include_once "Controllers/Controller.php";
 
 include_once "Models/Client.php";
+include_once "Models/Booking.php";
 
 class ClientController extends Controller{
 
@@ -46,7 +47,9 @@ class ClientController extends Controller{
 
                 break;
             case "client-orders":
-                $this->render($controller,$action);
+                $client = new Client();
+                $data = $client->view_bookings();
+                $this->render($controller,$action,$data);
 
                 break;
             case "register":
@@ -58,7 +61,7 @@ class ClientController extends Controller{
                 // Clear all session data
                 $_SESSION = [];
                 session_destroy();
-
+                $home = dirname($path).'/client/home';
                 // Clear localStorage via JavaScript
                 echo <<<EOD
                 <!DOCTYPE html>
@@ -71,12 +74,12 @@ class ClientController extends Controller{
                     <script>
                         localStorage.removeItem('isAdmin');
                         localStorage.removeItem('clientEmail');
-                        // window.location.href = 'login.php';
+                         window.location.href = $home;
                     </script>
                 </body>
                 </html>
                 EOD;
-                header('Location:'.dirname($path).'/client/login');
+
                 break;
 
 

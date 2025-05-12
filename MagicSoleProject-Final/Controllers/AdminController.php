@@ -43,11 +43,10 @@ class AdminController extends Controller{
 
                 break;
             case "logout":
-
                 // Clear all session data
                 $_SESSION = [];
                 session_destroy();
-
+                $home = dirname($path).'/client/home';
                 // Clear localStorage via JavaScript
                 echo <<<EOD
                 <!DOCTYPE html>
@@ -60,11 +59,12 @@ class AdminController extends Controller{
                     <script>
                         localStorage.removeItem('isAdmin');
                         localStorage.removeItem('clientEmail');
-                        window.location.href = 'login.php';
+                         window.location.href = "$home";
                     </script>
                 </body>
                 </html>
                 EOD;
+
                 break;
 
 
