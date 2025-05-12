@@ -10,6 +10,7 @@
 //$stmt->execute([$username, $email, $hashed_password]);
 
 session_start();
+
  $controller = (isset($_GET['controller'])) ? $_GET['controller'] : 'client';
 
  $controllerClassName = ucfirst($controller) . 'Controller';

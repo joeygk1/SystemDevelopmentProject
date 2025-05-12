@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </body>
         </html>
         EOD;
-        $_SESSION['token'] = $clientEmail;
+        $_SESSION['token'] = $_SESSION['user_id'];
         header('Location: '.$redirectUrl);
         exit;
     } else {

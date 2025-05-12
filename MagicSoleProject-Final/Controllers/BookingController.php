@@ -3,6 +3,7 @@
 include_once "Controllers/Controller.php";
 
 include_once "Models/Booking.php";
+include_once "Models/Model.php";
 
 class BookingController extends Controller{
 
@@ -16,7 +17,15 @@ class BookingController extends Controller{
 
         switch($action){
             case "booking":
-                $this->render($controller,$action);
+                if(empty($_POST)){
+                    $this->render($controller,$action);
+                }
+                else{
+                    $booking = new Booking();
+                    $booking->bookAppointment();
+                    $newUrl = dirname($path).'/booking/booking';
+                    header("Location: ".$newUrl);
+                }
                 break;
 
             case "services":

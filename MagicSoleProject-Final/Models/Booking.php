@@ -68,4 +68,36 @@ class Booking extends Model
     {
         return $this->status;
     }
+
+    function bookAppointment(){
+        try {
+            $conn = Model::connect();
+            $sql = "INSERT INTO `bookings` (
+                                        `client_id`,
+                                        `dropoff_date`,
+                                        `pickup_date`,
+                                        `shoes_quantity`,
+                                        `status`
+                                    )   
+                                    VALUES (
+                                        ?,
+                                        ?,
+                                        ?,
+                                        ?,
+                                        ?
+                                    ) ";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute([
+                $_SESSION['user_id'],
+                $_POST['date'] . ' ' . $_POST['timeSlot'],
+                 null,
+                $_POST['shoeCount'],
+                "Pending"
+            ]);
+        }
+        catch(PDOException $e){
+            echo "Error: " . $e->getMessage();
+        }
+
+    }
 }

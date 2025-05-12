@@ -1,6 +1,29 @@
 <?php
 $path = $_SERVER['SCRIPT_NAME'];
-
+if ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
+    <div style="
+        position: fixed;
+        top: 0;
+        left: 260px;
+        width: calc(100% - 260px);
+        background: rgba(255,255,255,0.95);
+        color: #000;
+        z-index: 9999;
+        padding: 10px;
+        font-size: 14px;
+        border-bottom: 1px solid #ccc;
+        max-height: 300px;
+        overflow-y: auto;
+    ">
+        <pre><?php var_dump([
+                $_SESSION['user_id'],
+                $_POST['date'] . ' ' . $_POST['timeSlot'],
+                null,
+                $_POST['shoeCount'],
+                "Pending"
+            ]); ?></pre>
+    </div>
+<?php endif;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -241,23 +264,23 @@ $path = $_SERVER['SCRIPT_NAME'];
 <div class="main-content">
     <section class="booking-form">
         <h1>Book Now!</h1>
-        <form id="bookingForm">
+        <form id="bookingForm" method="POST">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" required>
             </div>
             <div class="form-group">
                 <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" required>
+                <input type="tel" id="phone" name="phoneNumber" required>
             </div>
             <div class="form-group">
-                <label for="instagram">Instagram Username</label>
-                <input type="text" id="instagram" placeholder="@username" required>
+                <label for="instagram">Instagram Username (optional) </label>
+                <input type="text" id="instagram" placeholder="@username" >
             </div>
 
             <div class="form-group">
                 <label for="shoeCount">Number of Shoe Pairs (Max 10)</label>
-                <select id="shoeCount" required>
+                <select id="shoeCount" name="shoeCount" required>
                     <option value="">Select number</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -276,7 +299,7 @@ $path = $_SERVER['SCRIPT_NAME'];
 
             <div class="form-group">
                 <label for="date">Date</label>
-                <input type="date" id="date" required>
+                <input type="date" id="date" name="date" required>
             </div>
             <div class="form-group">
                 <label>Available Times</label>
@@ -289,17 +312,17 @@ $path = $_SERVER['SCRIPT_NAME'];
                     <label><input type="radio" name="payment" value="etransfer"> E-transfer</label>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="shoeImages">Upload Shoe Images (Multiple allowed)</label>
-                <input type="file" id="shoeImages" multiple accept="image/*">
-            </div>
-            <div class="form-group">
-                <label for="comments">Comments</label>
-                <textarea id="comments" rows="4"></textarea>
-            </div>
-            <div class="total-cost">
-                Total Cost: $<span id="totalCost">0</span>
-            </div>
+<!--            <div class="form-group">-->
+<!--                <label for="shoeImages">Upload Shoe Images (Multiple allowed)</label>-->
+<!--                <input type="file" id="shoeImages" multiple accept="image/*">-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <label for="comments">Comments</label>-->
+<!--                <textarea id="comments" rows="4"></textarea>-->
+<!--            </div>-->
+            <label class="total-cost">
+                Total Cost: $<label for="totalCost"></label><input id="totalCost" name="totalCost" value="0" disabled style="width:50px; align-content: center">
+            </label>
             <button type="submit" class="request-btn">Request Booking</button>
         </form>
     </section>
@@ -313,10 +336,16 @@ $path = $_SERVER['SCRIPT_NAME'];
         redye: 80
     };
 
+    // const timeSlots = [
+    //     "10:00 AM", "11:00 AM", "1:00 PM", "2:00 PM",
+    //     "3:00 PM", "4:00 PM", "5:00 PM"
+    // ];
+
     const timeSlots = [
-        "10:00 AM", "11:00 AM", "1:00 PM", "2:00 PM",
-        "3:00 PM", "4:00 PM", "5:00 PM"
+        "10:00:00", "11:00:00", "13:00:00", "14:00:00",
+        "15:00:00", "16:00:00", "17:00:00"
     ];
+
 
     function generateShoeServices(count) {
         const container = document.getElementById('shoeServices');
@@ -328,10 +357,11 @@ $path = $_SERVER['SCRIPT_NAME'];
             shoeDiv.innerHTML = `
                     <h3>Shoe Pair ${i} - Select Services</h3>
                     <div class="service-checkboxes">
-                        <label><input type="checkbox" name="services_${i}" value="cleaning" data-price="50"> Cleaning ($50)</label>
-                        <label><input type="checkbox" name="services_${i}" value="repaint" data-price="80"> Re-paint ($80)</label>
-                        <label><input type="checkbox" name="services_${i}" value="icysole" data-price="20"> Icy-sole ($20)</label>
-                        <label><input type="checkbox" name="services_${i}" value="redye" data-price="80"> Re-dye ($80)</label>
+                        <label><input type="checkbox" name="services_${i}[]" value="cleaning" data-price="50"> Cleaning ($50)</label>
+                        <label><input type="checkbox" name="services_${i}[]" value="repaint" data-price="80"> Re-paint ($80)</label>
+                        <label><input type="checkbox" name="services_${i}[]" value="icysole" data-price="20"> Icy-sole ($20)</label>
+                        <label><input type="checkbox" name="services_${i}[]" value="redye" data-price="80"> Re-dye ($80)</label>
+                        <label>Shoe Image</label><input type="file" name="shoeImage[]">
                     </div>
                 `;
             container.appendChild(shoeDiv);
@@ -344,7 +374,7 @@ $path = $_SERVER['SCRIPT_NAME'];
         document.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
             total += parseInt(checkbox.dataset.price);
         });
-        document.getElementById('totalCost').textContent = total;
+        document.getElementById('totalCost').value = total;
     }
 
     document.getElementById('shoeCount').addEventListener('change', function() {
@@ -353,33 +383,45 @@ $path = $_SERVER['SCRIPT_NAME'];
 
     document.getElementById('shoeServices').addEventListener('change', updateTotal);
 
+
     document.getElementById('date').addEventListener('change', function() {
+        const selectedDate = document.getElementById('date').value;
+        console.log("Selected date:", selectedDate);
+
         const timeSlotsDiv = document.getElementById('timeSlots');
         timeSlotsDiv.innerHTML = '';
-        timeSlots.forEach(slot => {
-            const slotElement = document.createElement('div');
-            slotElement.className = 'time-slot';
-            slotElement.textContent = slot;
-            slotElement.onclick = () => {
-                document.querySelectorAll('.time-slot').forEach(el => el.style.background = '#fff');
-                slotElement.style.background = '#f9c303';
-            };
-            timeSlotsDiv.appendChild(slotElement);
+
+        timeSlots.forEach((slot, index) => {
+            const label = document.createElement('label');
+            label.style.marginRight = "15px";
+
+            const radio = document.createElement('input');
+            radio.type = 'radio';
+            radio.name = 'timeSlot';
+            radio.value = slot;
+            radio.required = true;
+
+            label.appendChild(radio);
+            label.appendChild(document.createTextNode(" " + slot));
+
+            timeSlotsDiv.appendChild(label);
         });
     });
 
-    document.getElementById('bookingForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const selectedServices = [];
-        const shoeCount = document.getElementById('shoeCount').value;
-        for (let i = 1; i <= shoeCount; i++) {
-            const services = Array.from(document.querySelectorAll(`input[name="services_${i}"]:checked`))
-                .map(input => input.value);
-            selectedServices.push({ pair: i, services });
-        }
-        console.log('Selected services:', selectedServices);
-        alert('Booking request submitted!');
-    });
+
+
+    // document.getElementById('bookingForm').addEventListener('submit', function(e) {
+    //     e.preventDefault();
+    //     const selectedServices = [];
+    //     const shoeCount = document.getElementById('shoeCount').value;
+    //     for (let i = 1; i <= shoeCount; i++) {
+    //         const services = Array.from(document.querySelectorAll(`input[name="services_${i}"]:checked`))
+    //             .map(input => input.value);
+    //         selectedServices.push({ pair: i, services });
+    //     }
+    //     console.log('Selected services:', selectedServices);
+    //     alert('Booking request submitted!');
+    // });
 
     // Set minimum date to today
     document.getElementById('date').min = new Date().toISOString().split('T')[0];
