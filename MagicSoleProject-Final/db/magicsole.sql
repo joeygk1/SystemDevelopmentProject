@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2025 at 02:51 AM
+-- Generation Time: May 12, 2025 at 02:46 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -56,15 +56,18 @@ CREATE TABLE `bookings` (
   `dropoff_date` datetime NOT NULL,
   `pickup_date` datetime DEFAULT NULL,
   `shoes_quantity` int(2) NOT NULL,
-  `status` varchar(30) NOT NULL
+  `status` varchar(30) NOT NULL,
+  `name` varchar(40) NOT NULL,
+  `total_Price` decimal(5,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `bookings`
 --
 
-INSERT INTO `bookings` (`booking_id`, `client_id`, `dropoff_date`, `pickup_date`, `shoes_quantity`, `status`) VALUES
-(4, 5, '0000-00-00 00:00:00', NULL, 1, 'pending');
+INSERT INTO `bookings` (`booking_id`, `client_id`, `dropoff_date`, `pickup_date`, `shoes_quantity`, `status`, `name`, `total_Price`) VALUES
+(5, 5, '2025-05-13 10:00:00', NULL, 1, 'Pending', '', 0),
+(6, 5, '2025-05-17 13:00:00', NULL, 1, 'Pending', 'Kishaan', 100);
 
 -- --------------------------------------------------------
 
@@ -236,7 +239,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `booking_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `booking_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `booking_service`
