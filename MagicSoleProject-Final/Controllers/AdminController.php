@@ -3,6 +3,7 @@
 include_once "Controllers/Controller.php";
 
 include_once "Models/Admin.php";
+include_once "Models/Booking.php";
 
 class AdminController extends Controller{
 
@@ -20,13 +21,17 @@ class AdminController extends Controller{
                 break;
 
             case "order-status":
-                $this->render($controller,$action);
+                $booking = new Booking();
+                $search = isset($_GET['search']) ? $_GET['search'] : '';
+                $status = isset($_GET['status']) ? $_GET['status'] : '';
 
+                $data = Booking::list($search, $status);
+                $this->render($controller,$action, $data);
                 break;
 
             case "view-orders":
-                $this->render($controller,$action);
-
+                $data = Booking::list();
+                $this->render($controller,$action, $data);
                 break;
 
             case "admin-gallery":

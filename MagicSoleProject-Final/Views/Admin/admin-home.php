@@ -267,13 +267,13 @@ $path = $_SERVER['SCRIPT_NAME'];
     </div>
     <div class="admin-options">
         <div class="admin-option">
-            <a href="view-orders.html">View Orders</a>
+            <a href="<?php echo dirname($path);?>/admin/view-orders">View Orders</a>
         </div>
         <div class="admin-option">
-            <a href="order-status.html">Order Status</a>
+            <a href="<?php echo dirname($path);?>/admin/order-status">Order Status</a>
         </div>
         <div class="admin-option">
-            <a href="admin-gallery.php">Manage Gallery</a>
+            <a href="<?php echo dirname($path);?>/admin/admin-gallery">Manage Gallery</a>
         </div>
     </div>
 </div>

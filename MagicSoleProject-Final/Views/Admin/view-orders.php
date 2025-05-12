@@ -150,9 +150,17 @@ $path = $_SERVER['SCRIPT_NAME'];
             animation: fadeInUp 0.5s forwards;
         }
 
-        .orders-table tr:nth-child(1) { animation-delay: 0.7s; }
-        .orders-table tr:nth-child(2) { animation-delay: 0.8s; }
-        .orders-table tr:nth-child(3) { animation-delay: 0.9s; }
+        .orders-table tr:nth-child(1) {
+            animation-delay: 0.7s;
+        }
+
+        .orders-table tr:nth-child(2) {
+            animation-delay: 0.8s;
+        }
+
+        .orders-table tr:nth-child(3) {
+            animation-delay: 0.9s;
+        }
 
         .orders-table tr:hover {
             background: #f5f7fa;
@@ -365,13 +373,21 @@ $path = $_SERVER['SCRIPT_NAME'];
         }
 
         @keyframes slideInLeft {
-            from { transform: translateX(-100%); }
-            to { transform: translateX(0); }
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes fadeInUp {
@@ -382,7 +398,9 @@ $path = $_SERVER['SCRIPT_NAME'];
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         @keyframes modalFadeIn {
@@ -396,16 +414,16 @@ $path = $_SERVER['SCRIPT_NAME'];
 <body>
 <header>
     <div class="logo">
-        <a href="<?php echo dirname($path);?>/Images/admin-home">
-            <img src="<?php echo dirname($path);?>/Images/MagicNoBackground.png" alt="Magic Sole Logo">
+        <a href="<?php echo dirname($path); ?>/Images/admin-home">
+            <img src="<?php echo dirname($path); ?>/Images/MagicNoBackground.png" alt="Magic Sole Logo">
         </a>
     </div>
     <nav>
-        <a href="<?php echo dirname($path);?>/admin/admin-home">Admin Home</a>
-        <a href="<?php echo dirname($path);?>/admin/view-orders">View Orders</a>
-        <a href="<?php echo dirname($path);?>/admin/order-status">Order Status</a>
-        <a href="<?php echo dirname($path);?>/admin/admin-gallery">Manage Gallery</a>
-        <a href="<?php echo dirname($path);?>/admin/logout">Logout</a>
+        <a href="<?php echo dirname($path); ?>/admin/admin-home">Admin Home</a>
+        <a href="<?php echo dirname($path); ?>/admin/view-orders">View Orders</a>
+        <a href="<?php echo dirname($path); ?>/admin/order-status">Order Status</a>
+        <a href="<?php echo dirname($path); ?>/admin/admin-gallery">Manage Gallery</a>
+        <a href="<?php echo dirname($path); ?>/admin/logout">Logout</a>
     </nav>
     <footer>
         <p>© 2025 Magic Sole. All rights reserved.</p>
@@ -422,14 +440,16 @@ $path = $_SERVER['SCRIPT_NAME'];
     <div class="orders-section">
         <h2>All Orders</h2>
         <div class="search-filter">
-            <input type="text" id="search-input" placeholder="Search by customer name...">
-            <select id="status-filter">
-                <option value="">All Statuses</option>
-                <option value="Processing">Processing</option>
-                <option value="Ready for Pickup">Ready for Pickup</option>
-                <option value="Completed">Completed</option>
-                <option value="Cancelled">Cancelled</option>
-            </select>
+            <form method="GET" action="<?php echo dirname($path); ?>/admin/view-orders">
+                <input type="text" id="search-input" placeholder="Search by customer name...">
+                <select name="status" id="status-filter">
+                    <option value="">All Statuses</option>
+                    <option value="Processing">Processing</option>
+                    <option value="Ready for Pickup">Ready for Pickup</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Cancelled">Cancelled</option>
+                </select>
+            </form>
         </div>
         <div class="loading-spinner" id="loading-spinner">
             <i class="fas fa-spinner"></i>
@@ -442,10 +462,22 @@ $path = $_SERVER['SCRIPT_NAME'];
                 <th>Date</th>
                 <th>Total</th>
                 <th>Status</th>
-                <th>Actions</th>
             </tr>
             </thead>
             <tbody id="orders-tbody">
+            <?php
+            foreach ($data as $row) {
+                ?>
+                <tr>
+                    <td><?= $row->getBookingId(); ?></td>
+                    <td><?= $row->getName() ?></td>
+                    <td><?= $row->getDropoffDate(); ?></td>
+                    <td><?= $row->getTotal();?></td>
+                    <td><?= $row->getStatus(); ?></td>
+                </tr>
+                <?php
+            }
+            ?>
             </tbody>
         </table>
         <div class="pagination">
@@ -502,49 +534,49 @@ $path = $_SERVER['SCRIPT_NAME'];
         window.location.href = 'login.html';
     }
 
-    let orders = [
-        { orderId: '#1001', customerName: 'Chris Tren', date: '2025-04-01', total: '$75.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' },
-        { orderId: '#1002', customerName: 'Joshua Ayoub', date: '2025-04-02', total: '$120.00', status: 'Ready for Pickup', email: 'jane@example.com', phone: '234-567-8901', items: 'Sneaker Restoration x2' },
-        { orderId: '#1003', customerName: 'Joey Ayoub', date: '2025-04-03', total: '$45.00', status: 'Completed', email: 'mike@example.com', phone: '345-678-9012', items: 'Sneaker Cleaning x1' },
-        { orderId: '#1004', customerName: 'Jack Black', date: '2025-04-01', total: '$50.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' },
-        { orderId: '#1005', customerName: 'P. Diddy', date: '2025-04-01', total: '$100.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' },
-        { orderId: '#1006', customerName: 'Chicken Jockey', date: '2025-04-01', total: '$95.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' },
-        { orderId: '#1007', customerName: 'The Nether', date: '2025-04-01', total: '$75.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' },
-
-    ];
+    // let orders = [
+    //     { orderId: '#1001', customerName: 'Chris Tren', date: '2025-04-01', total: '$75.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' },
+    //     { orderId: '#1002', customerName: 'Joshua Ayoub', date: '2025-04-02', total: '$120.00', status: 'Ready for Pickup', email: 'jane@example.com', phone: '234-567-8901', items: 'Sneaker Restoration x2' },
+    //     { orderId: '#1003', customerName: 'Joey Ayoub', date: '2025-04-03', total: '$45.00', status: 'Completed', email: 'mike@example.com', phone: '345-678-9012', items: 'Sneaker Cleaning x1' },
+    //     { orderId: '#1004', customerName: 'Jack Black', date: '2025-04-01', total: '$50.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' },
+    //     { orderId: '#1005', customerName: 'P. Diddy', date: '2025-04-01', total: '$100.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' },
+    //     { orderId: '#1006', customerName: 'Chicken Jockey', date: '2025-04-01', total: '$95.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' },
+    //     { orderId: '#1007', customerName: 'The Nether', date: '2025-04-01', total: '$75.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' },
+    //
+    // ];
 
     let currentPage = 1;
     const rowsPerPage = 10;
     let selectedOrderId = null;
 
-    function displayOrders(filteredOrders) {
-        const tbody = document.getElementById('orders-tbody');
-        tbody.innerHTML = '';
-        const start = (currentPage - 1) * rowsPerPage;
-        const end = start + rowsPerPage;
-        const paginatedOrders = filteredOrders.slice(start, end);
-
-        paginatedOrders.forEach(order => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${order.orderId}</td>
-                <td>${order.customerName}</td>
-                <td>${order.date}</td>
-                <td>${order.total}</td>
-                <td>${order.status}</td>
-                <td>
-                    <button class="action-btn update-btn" onclick="openUpdateModal('${order.orderId}')">Update</button>
-                    <button class="action-btn delete-btn" onclick="deleteOrder('${order.orderId}')">Delete</button>
-                </td>
-            `;
-            row.addEventListener('click', (e) => {
-                if (e.target.tagName !== 'BUTTON') {
-                    showOrderDetails(order);
-                }
-            });
-            tbody.appendChild(row);
-        });
-    }
+    // function displayOrders(filteredOrders) {
+    //     const tbody = document.getElementById('orders-tbody');
+    //     tbody.innerHTML = '';
+    //     const start = (currentPage - 1) * rowsPerPage;
+    //     const end = start + rowsPerPage;
+    //     const paginatedOrders = filteredOrders.slice(start, end);
+    //
+    //     paginatedOrders.forEach(order => {
+    //         const row = document.createElement('tr');
+    //         row.innerHTML = `
+    //             <td>${order.orderId}</td>
+    //             <td>${order.customerName}</td>
+    //             <td>${order.date}</td>
+    //             <td>${order.total}</td>
+    //             <td>${order.status}</td>
+    //             <td>
+    //                 <button class="action-btn update-btn" onclick="openUpdateModal('${order.orderId}')">Update</button>
+    //                 <button class="action-btn delete-btn" onclick="deleteOrder('${order.orderId}')">Delete</button>
+    //             </td>
+    //         `;
+    //         row.addEventListener('click', (e) => {
+    //             if (e.target.tagName !== 'BUTTON') {
+    //                 showOrderDetails(order);
+    //             }
+    //         });
+    //         tbody.appendChild(row);
+    //     });
+    // }
 
     function showOrderDetails(order) {
         document.getElementById('modal-order-id').textContent = order.orderId;

@@ -597,7 +597,7 @@ $path = $_SERVER['SCRIPT_NAME'];
         <a href="<?php echo dirname($path);?>/admin/admin-home">Admin Home</a>
         <a href="<?php echo dirname($path);?>/admin/view-orders">View Orders</a>
         <a href="<?php echo dirname($path);?>/admin/order-status">Order Status</a>
-        <a href="<?php echo dirname($path);?>/admin/admin-gallery">Order Status</a>
+        <a href="<?php echo dirname($path);?>/admin/admin-gallery">Manage Gallery</a>
         <a href="<?php echo dirname($path);?>/admin/logout">Logout</a>
     </nav>
     <footer>

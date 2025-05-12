@@ -42,35 +42,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 //        $redirectUrl = $isAdmin ? 'admin-home' : $path;
         $redirectUrl = $isAdmin ? dirname($path).'/admin/admin-home' : dirname($path).'/client/home';
         $isAdminJs = $isAdmin ? 'true' : 'false';
-
-        echo <<<EOD
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <meta charset="UTF-8">
-            <title>Redirecting...</title>
-        </head>
-        <body>
-            <script>
-                const isAdmin =  '$isAdminJs';
-                const clientEmail = '$clientEmail';  
-
-                if (isAdmin) {
-                    localStorage.setItem('isAdmin', 'true');
-                    localStorage.removeItem('clientEmail');
-                } else {
-                    localStorage.setItem('clientEmail', clientEmail);
-                    localStorage.removeItem('isAdmin');
-                }
-
-                
-            </script>
-        </body>
-        </html>
-        EOD;
         $_SESSION['token'] = $_SESSION['user_id'];
-        header('Location: '.$redirectUrl);
+        echo <<<EOD
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <meta charset="UTF-8">
+                <title>Redirecting...</title>
+            </head>
+            <body>
+                <script>
+                    const isAdmin = '$isAdminJs';
+                    const clientEmail = '$clientEmail';
+            
+                    if (isAdmin === 'true') {
+                        localStorage.setItem('isAdmin', 'true');
+                        localStorage.removeItem('clientEmail');
+                    } else {
+                        localStorage.setItem('clientEmail', clientEmail);
+                        localStorage.removeItem('isAdmin');
+                    }
+            
+                    // Redirect after localStorage is set
+                    window.location.href = '$redirectUrl';
+                </script>
+            </body>
+            </html>
+        EOD;
         exit;
+
     } else {
         $error = 'Invalid OTP';
         file_put_contents('debug.log', "Error: Invalid OTP\n", FILE_APPEND);
@@ -334,18 +334,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <a href="<?php echo dirname($path);?>/booking/booking">Booking</a>
         <a href="<?php echo dirname($path);?>/client/gallery">Gallery</a>
         <?php
-        if($_SESSION['token'] == null){
+        if(!isset($_SESSION['token'])){
             ?>
             <a href="<?php echo dirname($path);?>/client/login">Login</a>
+            <a href="<?php echo dirname($path);?>/client/register">Register</a>
+
             <?php
         }
         else{
             ?>
             <a href="<?php echo dirname($path);?>/client/client-orders">Orders</a>
+            <a href="<?php echo dirname($path);?>/client/logout" >Logout</a>
             <?php
         }
         ?>
-        <a href="#" id="logout-link" style="display: none;" onclick="logout()">Logout</a>
+
     </nav>
     <footer>
         <p>© 2025 Magic Sole. All rights reserved.</p>

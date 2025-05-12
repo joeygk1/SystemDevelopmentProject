@@ -383,7 +383,7 @@ $path = $_SERVER['SCRIPT_NAME'];
         <a href="<?php echo dirname($path);?>/admin/admin-home">Admin Home</a>
         <a href="<?php echo dirname($path);?>/admin/view-orders">View Orders</a>
         <a href="<?php echo dirname($path);?>/admin/order-status">Order Status</a>
-        <a href="<?php echo dirname($path);?>/admin/admin-gallery">Order Status</a>
+        <a href="<?php echo dirname($path);?>/admin/admin-gallery">Manage Gallery</a>
         <a href="<?php echo dirname($path);?>/admin/logout">Logout</a>
     </nav>
 </header>
@@ -421,6 +421,29 @@ $path = $_SERVER['SCRIPT_NAME'];
             </thead>
             <tbody id="orders-tbody">
             <!-- Orders will be displayed here -->
+            <?php
+            foreach ($data as $row) {
+                ?>
+                <tr>
+                    <td><?= $row->getBookingId(); ?></td>
+                    <td><?= $row->getName() ?></td>
+                    <td><?= $row->getDropoffDate(); ?></td>
+                    <td><?= $row->getTotal();?></td>
+                    <td><?= $row->getStatus(); ?></td>
+                    <td>
+                        <button class="update-btn" onclick="openModal(
+                                '<?= $row->getBookingId(); ?>',
+                                '<?= $row->getName() ?>',
+                                '<?= $row->getDropoffDate(); ?>',
+                                '<?= $row->getTotal(); ?>',
+                                '<?= $row->getStatus(); ?>'
+                                )">Update</button>
+                        <button class="delete-btn" onclick="deleteOrder('<?= $row->getBookingId(); ?>')">Delete</button>
+                    </td>
+                </tr>
+                <?php
+            }
+            ?>
             </tbody>
         </table>
 
@@ -486,15 +509,7 @@ $path = $_SERVER['SCRIPT_NAME'];
             document.getElementById('orders-section').style.display = 'block';
         });
 
-    let orders = [
-        { orderId: '#1001', customerName: 'Chris Tren', date: '2025-04-01', total: '$75.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' },
-        { orderId: '#1002', customerName: 'Joshua Ayoub', date: '2025-04-02', total: '$120.00', status: 'Ready for Pickup', email: 'jane@example.com', phone: '234-567-8901', items: 'Sneaker Restoration x2' },
-        { orderId: '#1003', customerName: 'Joey Ayoub', date: '2025-04-03', total: '$45.00', status: 'Completed', email: 'mike@example.com', phone: '345-678-9012', items: 'Sneaker Cleaning x1' },
-        { orderId: '#1004', customerName: 'Jack Black', date: '2025-04-01', total: '$50.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' },
-        { orderId: '#1005', customerName: 'P. Diddy', date: '2025-04-01', total: '$100.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' },
-        { orderId: '#1006', customerName: 'Chicken Jockey', date: '2025-04-01', total: '$95.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' },
-        { orderId: '#1007', customerName: 'The Nether', date: '2025-04-01', total: '$75.00', status: 'Processing', email: 'john@example.com', phone: '123-456-7890', items: 'Sneaker Cleaning x1' }
-    ];
+
 
     let currentPage = 1;
     const rowsPerPage = 10;
