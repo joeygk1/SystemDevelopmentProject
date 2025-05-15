@@ -1,0 +1,24 @@
+updateClientDetails.php - Script reached at 2025-05-15 22:41:53
+updateClientDetails.php - Raw input: {"booking_id":"13","name":"Barack","phone":"514-911-9111","username":"ObamaWhat","dropoff_time":"2025-05-17T14:00","payment_method":"etransfer"} at 2025-05-15 22:41:53
+updateClientDetails.php - Fatal error: Class "Booking" not found at 2025-05-15 22:41:53
+updateClientDetails.php - Script reached at 2025-05-15 22:43:11
+updateClientDetails.php - Raw input: {"booking_id":"13","name":"Barack","phone":"514-911-9111","username":"ObamaWhat","dropoff_time":"2025-05-17T14:00","payment_method":"etransfer"} at 2025-05-15 22:43:11
+updateClientDetails.php - Fatal error: Class "Booking" not found at 2025-05-15 22:43:11
+updateClientDetails.php - Script reached at 2025-05-15 22:44:16
+updateClientDetails.php - Raw input: {"booking_id":"11","name":"Sean Diddy Combs","phone":"514-911-9110","username":"ObamaWhat","dropoff_time":"2025-05-15T20:00","payment_method":"cash"} at 2025-05-15 22:44:16
+updateClientDetails.php - Fatal error: Class "Booking" not found at 2025-05-15 22:44:16
+updateClientDetails.php - Script reached at 2025-05-15 22:51:02
+updateClientDetails.php - Script reached at 2025-05-15 22:51:52
+updateClientDetails.php - Raw input: {"booking_id":"13","name":"Barack Obama","phone":"514-911-9111","username":"ObamaWhat","dropoff_time":"2025-05-17T14:00","payment_method":"etransfer"} at 2025-05-15 22:51:52
+updateClientDetails.php - Fatal error: Class "Booking" not found at 2025-05-15 22:51:52
+delete.php - Script reached at 2025-05-15 22:52:34
+delete.php - Fatal error: Class "Booking" not found at 2025-05-15 22:52:34
+updateClientDetails.php - Script reached at 2025-05-15 22:52:45
+updateClientDetails.php - Raw input: {"booking_id":"13","name":"Barack","phone":"514-911-9111","username":"ObamaWhat","dropoff_time":"2025-05-17T14:00","payment_method":"etransfer"} at 2025-05-15 22:52:45
+updateClientDetails.php - Fatal error: Class "Booking" not found at 2025-05-15 22:52:45
+updateClientDetails.php - Script reached at 2025-05-15 22:54:31
+updateClientDetails.php - Raw input: {"booking_id":"13","name":"Barack","phone":"514-911-9111","username":"ObamaWhat","dropoff_time":"2025-05-17T14:00","payment_method":"etransfer"} at 2025-05-15 22:54:31
+updateClientDetails.php - Fatal error: Class "Booking" not found at 2025-05-15 22:54:31
+updateClientDetails.php - Script reached at 2025-05-15 23:07:59
+updateClientDetails.php - Raw input: {"booking_id":"13","name":"Barack","phone":"514-911-9111","username":"ObamaWhat","dropoff_time":"2025-05-17T14:00","payment_method":"etransfer"} at 2025-05-15 23:07:59
+updateClientDetails.php - Fatal error: Class "Booking" not found at 2025-05-15 23:07:59

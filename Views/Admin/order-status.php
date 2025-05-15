@@ -1,0 +1,613 @@
+<?php
+$path = $_SERVER['SCRIPT_NAME'];
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Order Status - Magic Sole</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            color: #333;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .logo img {
+            width: 120px;
+            margin-bottom: 2rem;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+        }
+
+        nav a {
+            color: #e3e3e3;
+            text-decoration: none;
+            font-size: 1.4rem;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        nav a:hover {
+            background: #f9c303;
+            color: #1a1a1a;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            width: calc(100% - 250px);
+            padding: 50px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #d4af37, #f9c303);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            color: #1a1a1a;
+            animation: fadeIn 1s ease-out;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        .orders-section {
+            max-width: 1400px;
+            margin: 40px auto;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s forwards 0.5s;
+        }
+
+        .orders-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            text-align: center;
+        }
+
+        .search-filter {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            justify-content: space-between;
+        }
+
+        .search-filter input, .search-filter select {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            flex: 1;
+        }
+
+        .search-filter input:focus, .search-filter select:focus {
+            border: 1px solid #d4af37;
+        }
+
+        .orders-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .orders-table th, .orders-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .orders-table th {
+            background: linear-gradient(135deg, #d4af37, #f9c303);
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .orders-table tr {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s forwards;
+        }
+
+        .orders-table tr:nth-child(1) { animation-delay: 0.7s; }
+        .orders-table tr:nth-child(2) { animation-delay: 0.8s; }
+        .orders-table tr:nth-child(3) { animation-delay: 0.9s; }
+
+        .orders-table tr:hover {
+            background: #f5f7fa;
+            cursor: pointer;
+        }
+
+        .orders-table .action-btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .orders-table .update-btn {
+            background-color: #f9c303;
+            color: #1a1a1a;
+            margin-right: 10px;
+        }
+
+        .orders-table .update-btn:hover {
+            background-color: #d4af37;
+        }
+
+        .orders-table .delete-btn {
+            background-color: #ff4444;
+            color: #fff;
+        }
+
+        .orders-table .delete-btn:hover {
+            background-color: #cc0000;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .pagination button {
+            padding: 8px 16px;
+            background: #1a1a1a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .pagination button:hover {
+            background: #333;
+        }
+
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .loading-spinner i {
+            font-size: 2rem;
+            color: #d4af37;
+            animation: spin 1s linear infinite;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: modalFadeIn 0.3s forwards;
+        }
+
+        .modal-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .modal-content p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .modal-content .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            cursor: pointer;
+        }
+
+        .modal-content label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+
+        .modal-content input, .modal-content select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .modal-content input:focus, .modal-content select:focus {
+            border: 1px solid #d4af37;
+        }
+
+        .modal-content input[readonly] {
+            background: #f5f5f5;
+            cursor: not-allowed;
+        }
+
+        .modal-content button {
+            padding: 10px 20px;
+            background: #f9c303;
+            color: #1a1a1a;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .modal-content button:hover {
+            background: #d4af37;
+        }
+
+        footer {
+            font-size: 0.9rem;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 250px;
+            background-color: #1a1a1a;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+                padding: 20px;
+            }
+        }
+
+        @keyframes slideInLeft {
+            0% {
+                transform: translateX(-300px);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes modalFadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="<?php echo dirname($path);?>/Images/MagicNoBackground.png" alt="Magic Sole Logo">
+    </div>
+    <nav>
+        <a href="<?php echo dirname($path);?>/admin/admin-home">Admin Home</a>
+        <a href="<?php echo dirname($path);?>/admin/view-orders">View Orders</a>
+        <a href="<?php echo dirname($path);?>/admin/order-status">Order Status</a>
+        <a href="<?php echo dirname($path);?>/admin/admin-gallery">Manage Gallery</a>
+        <a href="<?php echo dirname($path);?>/admin/logout">Logout</a>
+    </nav>
+</header>
+
+<div class="main-content">
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Manage Order Status</h1>
+            <p>View and update order status here.</p>
+        </div>
+    </div>
+
+    <div class="orders-section" id="orders-section">
+        <h2>Orders</h2>
+        <div class="search-filter">
+            <input type="text" id="searchOrder" placeholder="Search by Order ID...">
+            <select id="statusFilter">
+                <option value="">All Statuses</option>
+                <option value="Processing">Processing</option>
+                <option value="Completed">Completed</option>
+                <option value="Ready for Pickup">Ready for Pickup</option>
+            </select>
+        </div>
+
+        <table class="orders-table">
+            <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Customer</th>
+                <th>Date</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody id="orders-tbody">
+            <!-- Orders will be displayed here -->
+            <?php
+            foreach ($data as $row) {
+                ?>
+                <tr>
+                    <td><?= $row->getBookingId(); ?></td>
+                    <td><?= $row->getName() ?></td>
+                    <td><?= $row->getDropoffDate(); ?></td>
+                    <td><?= $row->getTotal();?></td>
+                    <td><?= $row->getStatus(); ?></td>
+                    <td>
+                        <button class="update-btn" onclick="openModal(
+                                '<?= $row->getBookingId(); ?>',
+                                '<?= $row->getName() ?>',
+                                '<?= $row->getDropoffDate(); ?>',
+                                '<?= $row->getTotal(); ?>',
+                                '<?= $row->getStatus(); ?>'
+                                )">Update</button>
+                        <button class="delete-btn" onclick="deleteOrder('<?= $row->getBookingId(); ?>')">Delete</button>
+                    </td>
+                </tr>
+                <?php
+            }
+            ?>
+            </tbody>
+        </table>
+
+        <div class="pagination">
+            <button id="prevPage">Prev</button>
+            <button id="nextPage">Next</button>
+        </div>
+
+        <div class="loading-spinner" id="loading-spinner">
+            <i class="fa fa-spinner"></i>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2025 Magic Sole. All rights reserved.</p>
+</footer>
+
+<!-- Modal for Order Details -->
+<div class="modal" id="orderModal">
+    <div class="modal-content">
+        <span class="close-btn" id="closeModal">×</span>
+        <h3>Order Details</h3>
+        <p><strong>Order ID:</strong> <span id="modalOrderId"></span></p>
+        <p><strong>Customer Name:</strong> <span id="modalCustomerName"></span></p>
+        <p><strong>Email:</strong> <span id="modalEmail"></span></p>
+        <p><strong>Phone:</strong> <span id="modalPhone"></span></p>
+        <p><strong>Items:</strong> <span id="modalItems"></span></p>
+        <p><strong>Status:</strong> <span id="modalStatus"></span></p>
+        <label for="updateStatus">Update Status:</label>
+        <select id="updateStatus">
+            <option value="Processing">Processing</option>
+            <option value="Completed">Completed</option>
+            <option value="Ready for Pickup">Ready for Pickup</option>
+        </select>
+        <button id="updateStatusBtn">Update</button>
+    </div>
+</div>
+
+<script>
+    // Show loading spinner and hide content initially
+    document.getElementById('loading-spinner').style.display = 'block';
+    document.getElementById('orders-section').style.display = 'none';
+
+    // Lightweight session check for logging (optional, since .htaccess handles redirect)
+    fetch('check_session.php')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Session check response:', data);
+            // Proceed with page load (no redirect needed here; .htaccess handles it)
+            document.getElementById('loading-spinner').style.display = 'none';
+            document.getElementById('orders-section').style.display = 'block';
+        })
+        .catch(error => {
+            console.error('Error checking session:', error);
+            // No redirect here; .htaccess will handle it
+            document.getElementById('loading-spinner').style.display = 'none';
+            document.getElementById('orders-section').style.display = 'block';
+        });
+
+
+
+    let currentPage = 1;
+    const rowsPerPage = 10;
+    let selectedOrderId = null;
+
+    function displayOrders(filteredOrders) {
+        const tbody = document.getElementById('orders-tbody');
+        tbody.innerHTML = '';
+        const start = (currentPage - 1) * rowsPerPage;
+        const end = start + rowsPerPage;
+        const paginatedOrders = filteredOrders.slice(start, end);
+
+        paginatedOrders.forEach(order => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                    <td>${order.orderId}</td>
+                    <td>${order.customerName}</td>
+                    <td>${order.date}</td>
+                    <td>${order.total}</td>
+                    <td>${order.status}</td>
+                    <td>
+                        <button class="update-btn" onclick="openModal('${order.orderId}')">Update</button>
+                        <button class="delete-btn" onclick="deleteOrder('${order.orderId}')">Delete</button>
+                    </td>
+                `;
+            tbody.appendChild(row);
+        });
+    }
+
+    function openModal(orderId) {
+        const order = orders.find(order => order.orderId === orderId);
+        if (order) {
+            selectedOrderId = orderId;
+            document.getElementById('modalOrderId').textContent = order.orderId;
+            document.getElementById('modalCustomerName').textContent = order.customerName;
+            document.getElementById('modalEmail').textContent = order.email;
+            document.getElementById('modalPhone').textContent = order.phone;
+            document.getElementById('modalItems').textContent = order.items;
+            document.getElementById('modalStatus').textContent = order.status;
+            document.getElementById('updateStatus').value = order.status;
+
+            document.getElementById('orderModal').style.display = 'flex';
+        }
+    }
+
+    function closeModal() {
+        document.getElementById('orderModal').style.display = 'none';
+    }
+
+    document.getElementById('closeModal').addEventListener('click', closeModal);
+
+    function updateOrderStatus() {
+        const newStatus = document.getElementById('updateStatus').value;
+        const order = orders.find(order => order.orderId === selectedOrderId);
+        if (order) {
+            order.status = newStatus;
+            displayOrders(orders);
+            closeModal();
+        }
+    }
+
+    document.getElementById('updateStatusBtn').addEventListener('click', updateOrderStatus);
+
+    // Add page navigation and filtering functionality
+    document.getElementById('prevPage').addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            displayOrders(orders);
+        }
+    });
+
+    document.getElementById('nextPage').addEventListener('click', () => {
+        if (currentPage * rowsPerPage < orders.length) {
+            currentPage++;
+            displayOrders(orders);
+        }
+    });
+
+    // Filter orders based on the status
+    document.getElementById('statusFilter').addEventListener('change', () => {
+        const filteredOrders = orders.filter(order => {
+            const status = document.getElementById('statusFilter').value;
+            return status === '' || order.status === status;
+        });
+        displayOrders(filteredOrders);
+    });
+
+    // Search orders by order ID
+    document.getElementById('searchOrder').addEventListener('input', () => {
+        const query = document.getElementById('searchOrder').value.toLowerCase();
+        const filteredOrders = orders.filter(order => order.orderId.toLowerCase().includes(query));
+        displayOrders(filteredOrders);
+    });
+
+    // Initial display of orders after session check
+    document.addEventListener('DOMContentLoaded', () => {
+        displayOrders(orders);
+    });
+</script>
+</body>
+</html>
