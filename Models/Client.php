@@ -7,7 +7,7 @@ class Client extends Model
     private $admin_id;
     private $username;
     private $email;
-    private $phone; // Added for users table phone column
+    private $phone;
     private $password;
     private $role;
     private $verification_code;

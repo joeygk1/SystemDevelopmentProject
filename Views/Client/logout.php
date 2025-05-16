@@ -1,8 +1,9 @@
 <?php
 session_start();
 
-// Clear session data
+// Clear all session data
 $_SESSION = [];
+
 if (ini_get("session.use_cookies")) {
     $params = session_get_cookie_params();
     setcookie(session_name(), '', time() - 42000,
@@ -10,26 +11,24 @@ if (ini_get("session.use_cookies")) {
         $params["secure"], $params["httponly"]
     );
 }
+
 session_destroy();
 
-// Redirect to login page
-header('Location: /MagicSoleProject/client/login');
-exit;
-?>
+// Clear localStorage and redirect via JavaScript
+echo <<<EOD
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logging Out - Magic Sole</title>
-    <script>
-        // Client-side redirect as a fallback
-        setTimeout(() => {
-            window.location.href = "/MagicSoleProject/client/login";
-        }, 1000);
-    </script>
+    <title>Logging Out...</title>
 </head>
 <body>
-    <p>Logging you out...</p>
+    <script>
+        localStorage.removeItem('isAdmin');
+        localStorage.removeItem('clientEmail');
+        window.location.href = 'login.php'; // Adjust this path if needed
+    </script>
 </body>
 </html>
+EOD;
+exit;

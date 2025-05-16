@@ -57,34 +57,40 @@ class ClientController extends Controller{
 
                 break;
             case "logout":
+    session_start(); // Always start session before modifying it
 
-                // Clear all session data
-                $_SESSION = [];
-                session_destroy();
-                $home = dirname($path).'/client/home';
-                // Clear localStorage via JavaScript
-                echo <<<EOD
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <meta charset="UTF-8">
-                    <title>Logging Out...</title>
-                </head>
-                <body>
-                    <script>
-                        localStorage.removeItem('isAdmin');
-                        localStorage.removeItem('clientEmail');
-                         window.location.href = $home;
-                    </script>
-                </body>
-                </html>
-                EOD;
+    // Clear all session data
+    $_SESSION = [];
+    if (ini_get("session.use_cookies")) {
+        $params = session_get_cookie_params();
+        setcookie(session_name(), '', time() - 42000,
+            $params["path"], $params["domain"],
+            $params["secure"], $params["httponly"]
+        );
+    }
+    session_destroy();
 
-                break;
+    // Clear localStorage and redirect via JS
+    $home = dirname($_SERVER['SCRIPT_NAME']) . '/client/login';
 
+    echo <<<EOD
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Logging Out...</title>
+    </head>
+    <body>
+        <script>
+            localStorage.removeItem('isAdmin');
+            localStorage.removeItem('clientEmail');
+            window.location.href = "$home";
+        </script>
+    </body>
+    </html>
+    EOD;
 
-
-
+    exit;
 
         }
     }

@@ -37,6 +37,27 @@ $path = $_SERVER['SCRIPT_NAME'];
             animation: slideInLeft 1s ease-out;
         }
 
+        footer {
+            margin-top: 570px;
+            font-size: 0.9rem;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 200px;
+            background-color: #1a1a1a;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+                position: relative;
+                width: 100%;
+                left: 0;
+            }
+
+
         .logo img {
             width: 120px;
             margin-bottom: 2rem;

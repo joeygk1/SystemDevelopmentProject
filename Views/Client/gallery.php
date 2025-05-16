@@ -513,8 +513,9 @@ $path = $_SERVER['SCRIPT_NAME'];
         { type: 'video', src: '<?php echo dirname($path);?>/Videos/sneaker2.mp4', alt: '' },
         { type: 'video', src: '<?php echo dirname($path);?>/Videos/joey1.mp4', alt: '' },
         { type: 'video', src: '<?php echo dirname($path);?>/Videos/kev1.mp4', alt: '' },
-        { type: 'photo', src: '<?php echo dirname($path);?>/Videos/joey2.jpg', alt: '' },
-        { type: 'photo', src: '<?php echo dirname($path);?>/Videos/joey3.jpg', alt: '' }
+        { type: 'photo', src: '<?php echo dirname($path);?>/Images/joey2.jpg', alt: '' },
+        { type: 'photo', src: '<?php echo dirname($path);?>/Images/joey3.jpg', alt: '' }
+    
     ];
 
     let currentIndex = 0;

@@ -41440,3 +41440,93 @@ client-orders.php - Bookings fetched, count: 1 at 2025-05-16 21:15:57: Array
 
 client-orders.php - Entering foreach loop, count: 1 at 2025-05-16 21:15:57
 client-orders.php - Rendering booking ID: 22, Phone: 514-850-0978, Username: edp445 at 2025-05-16 21:15:57
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => xxchris.yk71@gmail.com
+    [password] => Bayernisthebest6
+)
+
+OTP generated: 381571 for email: xxchris.yk71@gmail.com
+Email sent successfully to xxchris.yk71@gmail.com
+POST data: Array
+(
+    [otp] => 381571
+)
+
+OTP entered: 381571
+Login successful for xxchris.yk71@gmail.com
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => xxchris.yk71@gmail.com
+    [password] => Bayernisthebest6
+)
+
+OTP generated: 926279 for email: xxchris.yk71@gmail.com
+PHPMailer Error: SMTP Error: Could not connect to SMTP host. Failed to connect to server SMTP server error: Failed to connect to server Additional SMTP info: php_network_getaddresses: getaddrinfo failed: No such host is known. 
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => xxchris.yk71@gmail.com
+    [password] => Bayernisthebest6
+)
+
+OTP generated: 811257 for email: xxchris.yk71@gmail.com
+Email sent successfully to xxchris.yk71@gmail.com
+POST data: Array
+(
+    [otp] => 811257
+)
+
+OTP entered: 811257
+Login successful for xxchris.yk71@gmail.com
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => xxchris.yk71@gmail.com
+    [password] => Bayernisthebest6
+)
+
+OTP generated: 534906 for email: xxchris.yk71@gmail.com
+Email sent successfully to xxchris.yk71@gmail.com
+POST data: Array
+(
+    [otp] => 811257
+)
+
+OTP entered: 811257
+Error: Invalid OTP
+POST data: Array
+(
+    [otp] => 534906
+)
+
+OTP entered: 534906
+Login successful for xxchris.yk71@gmail.com
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
