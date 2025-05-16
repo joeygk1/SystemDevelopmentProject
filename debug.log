@@ -36895,3 +36895,4548 @@ client-orders.php - Rendering buttons for booking ID: 10 at 2025-05-15 23:16:52
 client-orders.php - Rendering buttons for booking ID: 9 at 2025-05-15 23:16:52
 client-orders.php - Rendering buttons for booking ID: 8 at 2025-05-15 23:16:52
 client-orders.php - Rendering buttons for booking ID: 7 at 2025-05-15 23:16:52
+Booking.php - Constructor called with param: object at 2025-05-15 23:21:12
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 7
+    [client_id] => 1
+    [dropoff_date] => 2025-05-31 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 3
+    [status] => Completed
+    [total_Price] => 150
+    [username] => 
+    [payment_method] => cash
+    [name] => 
+    [phone] => 
+)
+ at 2025-05-15 23:21:12
+Booking.php - Constructor called with param: object at 2025-05-15 23:21:12
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 8
+    [client_id] => 1
+    [dropoff_date] => 2025-05-20 15:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 230
+    [username] => 
+    [payment_method] => cash
+    [name] => 
+    [phone] => 
+)
+ at 2025-05-15 23:21:12
+Booking.php - Constructor called with param: object at 2025-05-15 23:21:12
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 9
+    [client_id] => 1
+    [dropoff_date] => 2025-05-20 10:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 5
+    [status] => Pending
+    [total_Price] => 220
+    [username] => 
+    [payment_method] => cash
+    [name] => 
+    [phone] => 
+)
+ at 2025-05-15 23:21:12
+Booking.php - Constructor called with param: object at 2025-05-15 23:21:12
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 10
+    [client_id] => 1
+    [dropoff_date] => 2025-05-15 11:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [username] => 
+    [payment_method] => cash
+    [name] => 
+    [phone] => 
+)
+ at 2025-05-15 23:21:12
+Booking.php - Constructor called with param: object at 2025-05-15 23:21:12
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 11
+    [client_id] => 1
+    [dropoff_date] => 2025-05-15 16:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [username] => 
+    [payment_method] => cash
+    [name] => Sean Diddy Combs
+    [phone] => 
+)
+ at 2025-05-15 23:21:12
+Booking.php - Constructor called with param: object at 2025-05-15 23:21:12
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 12
+    [client_id] => 1
+    [dropoff_date] => 2025-05-16 10:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 230
+    [username] => 
+    [payment_method] => cash
+    [name] => John Porc
+    [phone] => 
+)
+ at 2025-05-15 23:21:12
+Booking.php - Constructor called with param: object at 2025-05-15 23:21:12
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 13
+    [client_id] => 1
+    [dropoff_date] => 2025-05-17 10:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 3
+    [status] => Pending
+    [total_Price] => 150
+    [username] => ObamaWhat
+    [payment_method] => etransfer
+    [name] => Barack Obama
+    [phone] => 514-911-9111
+)
+ at 2025-05-15 23:21:12
+Booking.php - Constructor called with param: object at 2025-05-15 23:21:12
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 21
+    [client_id] => 1
+    [dropoff_date] => 2025-05-15 20:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 0
+    [status] => Pending
+    [total_Price] => 100
+    [username] => ObamaWhat
+    [payment_method] => cash
+    [name] => Sean Diddy Combs
+    [phone] => 514-911-9110
+)
+ at 2025-05-15 23:21:12
+client-orders.php - Session client_id/user_id at 2025-05-15 23:21:12: 1
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, b.`phone`, b.`username`, b.`payment_method`
+                FROM `bookings` b
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 1 at 2025-05-15 23:21:12
+Booking.php - Constructor called with param: object at 2025-05-15 23:21:12
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 21
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 20:00:00
+    [status] => Pending
+    [shoes_quantity] => 0
+    [pickup_date] => 
+    [total_Price] => 100
+    [phone] => 514-911-9110
+    [username] => ObamaWhat
+    [payment_method] => cash
+)
+ at 2025-05-15 23:21:12
+Booking.php - Constructor called with param: object at 2025-05-15 23:21:12
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 13
+    [client_id] => 1
+    [name] => Barack Obama
+    [dropoff_date] => 2025-05-17 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [phone] => 514-911-9111
+    [username] => ObamaWhat
+    [payment_method] => etransfer
+)
+ at 2025-05-15 23:21:12
+Booking.php - Constructor called with param: object at 2025-05-15 23:21:12
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 12
+    [client_id] => 1
+    [name] => John Porc
+    [dropoff_date] => 2025-05-16 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [phone] => 
+    [username] => 
+    [payment_method] => cash
+)
+ at 2025-05-15 23:21:12
+Booking.php - Constructor called with param: object at 2025-05-15 23:21:12
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 11
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 16:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [phone] => 
+    [username] => 
+    [payment_method] => cash
+)
+ at 2025-05-15 23:21:12
+Booking.php - Constructor called with param: object at 2025-05-15 23:21:12
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 10
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-15 11:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [phone] => 
+    [username] => 
+    [payment_method] => cash
+)
+ at 2025-05-15 23:21:12
+Booking.php - Constructor called with param: object at 2025-05-15 23:21:12
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 9
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 5
+    [pickup_date] => 
+    [total_Price] => 220
+    [phone] => 
+    [username] => 
+    [payment_method] => cash
+)
+ at 2025-05-15 23:21:12
+Booking.php - Constructor called with param: object at 2025-05-15 23:21:12
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 8
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 15:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [phone] => 
+    [username] => 
+    [payment_method] => cash
+)
+ at 2025-05-15 23:21:12
+Booking.php - Constructor called with param: object at 2025-05-15 23:21:12
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 7
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-31 14:00:00
+    [status] => Completed
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [phone] => 
+    [username] => 
+    [payment_method] => cash
+)
+ at 2025-05-15 23:21:12
+Booking.php - List result: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 21
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-15 20:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 0
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Sean Diddy Combs
+            [total_Price:Booking:private] => 100
+            [phone:Booking:private] => 514-911-9110
+            [username:Booking:private] => ObamaWhat
+            [payment_method:Booking:private] => cash
+        )
+
+    [1] => Booking Object
+        (
+            [booking_id:Booking:private] => 13
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-17 10:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 3
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Barack Obama
+            [total_Price:Booking:private] => 150
+            [phone:Booking:private] => 514-911-9111
+            [username:Booking:private] => ObamaWhat
+            [payment_method:Booking:private] => etransfer
+        )
+
+    [2] => Booking Object
+        (
+            [booking_id:Booking:private] => 12
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-16 10:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => John Porc
+            [total_Price:Booking:private] => 230
+            [phone:Booking:private] => 
+            [username:Booking:private] => 
+            [payment_method:Booking:private] => cash
+        )
+
+    [3] => Booking Object
+        (
+            [booking_id:Booking:private] => 11
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-15 16:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Sean Diddy Combs
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 
+            [username:Booking:private] => 
+            [payment_method:Booking:private] => cash
+        )
+
+    [4] => Booking Object
+        (
+            [booking_id:Booking:private] => 10
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-15 11:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => 
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 
+            [username:Booking:private] => 
+            [payment_method:Booking:private] => cash
+        )
+
+    [5] => Booking Object
+        (
+            [booking_id:Booking:private] => 9
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-20 10:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 5
+            [status:Booking:private] => Pending
+            [name:Booking:private] => 
+            [total_Price:Booking:private] => 220
+            [phone:Booking:private] => 
+            [username:Booking:private] => 
+            [payment_method:Booking:private] => cash
+        )
+
+    [6] => Booking Object
+        (
+            [booking_id:Booking:private] => 8
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-20 15:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => 
+            [total_Price:Booking:private] => 230
+            [phone:Booking:private] => 
+            [username:Booking:private] => 
+            [payment_method:Booking:private] => cash
+        )
+
+    [7] => Booking Object
+        (
+            [booking_id:Booking:private] => 7
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-31 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 3
+            [status:Booking:private] => Completed
+            [name:Booking:private] => 
+            [total_Price:Booking:private] => 150
+            [phone:Booking:private] => 
+            [username:Booking:private] => 
+            [payment_method:Booking:private] => cash
+        )
+
+)
+ at 2025-05-15 23:21:12
+client-orders.php - Bookings data at 2025-05-15 23:21:12: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 21
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-15 20:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 0
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Sean Diddy Combs
+            [total_Price:Booking:private] => 100
+            [phone:Booking:private] => 514-911-9110
+            [username:Booking:private] => ObamaWhat
+            [payment_method:Booking:private] => cash
+        )
+
+    [1] => Booking Object
+        (
+            [booking_id:Booking:private] => 13
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-17 10:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 3
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Barack Obama
+            [total_Price:Booking:private] => 150
+            [phone:Booking:private] => 514-911-9111
+            [username:Booking:private] => ObamaWhat
+            [payment_method:Booking:private] => etransfer
+        )
+
+    [2] => Booking Object
+        (
+            [booking_id:Booking:private] => 12
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-16 10:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => John Porc
+            [total_Price:Booking:private] => 230
+            [phone:Booking:private] => 
+            [username:Booking:private] => 
+            [payment_method:Booking:private] => cash
+        )
+
+    [3] => Booking Object
+        (
+            [booking_id:Booking:private] => 11
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-15 16:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Sean Diddy Combs
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 
+            [username:Booking:private] => 
+            [payment_method:Booking:private] => cash
+        )
+
+    [4] => Booking Object
+        (
+            [booking_id:Booking:private] => 10
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-15 11:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => 
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 
+            [username:Booking:private] => 
+            [payment_method:Booking:private] => cash
+        )
+
+    [5] => Booking Object
+        (
+            [booking_id:Booking:private] => 9
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-20 10:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 5
+            [status:Booking:private] => Pending
+            [name:Booking:private] => 
+            [total_Price:Booking:private] => 220
+            [phone:Booking:private] => 
+            [username:Booking:private] => 
+            [payment_method:Booking:private] => cash
+        )
+
+    [6] => Booking Object
+        (
+            [booking_id:Booking:private] => 8
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-20 15:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => 
+            [total_Price:Booking:private] => 230
+            [phone:Booking:private] => 
+            [username:Booking:private] => 
+            [payment_method:Booking:private] => cash
+        )
+
+    [7] => Booking Object
+        (
+            [booking_id:Booking:private] => 7
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-31 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 3
+            [status:Booking:private] => Completed
+            [name:Booking:private] => 
+            [total_Price:Booking:private] => 150
+            [phone:Booking:private] => 
+            [username:Booking:private] => 
+            [payment_method:Booking:private] => cash
+        )
+
+)
+
+client-orders.php - Rendering buttons for booking ID: 21 at 2025-05-15 23:21:12
+client-orders.php - Rendering buttons for booking ID: 13 at 2025-05-15 23:21:12
+client-orders.php - Rendering buttons for booking ID: 12 at 2025-05-15 23:21:13
+client-orders.php - Rendering buttons for booking ID: 11 at 2025-05-15 23:21:13
+client-orders.php - Rendering buttons for booking ID: 10 at 2025-05-15 23:21:13
+client-orders.php - Rendering buttons for booking ID: 9 at 2025-05-15 23:21:13
+client-orders.php - Rendering buttons for booking ID: 8 at 2025-05-15 23:21:13
+client-orders.php - Rendering buttons for booking ID: 7 at 2025-05-15 23:21:13
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joeyayoubdisalvo@gmail.com
+    [password] => Joeyisagoalkeeper1
+)
+
+OTP generated: 468567 for email: joeyayoubdisalvo@gmail.com
+Email sent successfully to joeyayoubdisalvo@gmail.com
+POST data: Array
+(
+    [otp] => 468567
+)
+
+OTP entered: 468567
+Login successful for joeyayoubdisalvo@gmail.com
+Booking.php - Constructor called with param: object at 2025-05-16 19:36:40
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 7
+    [client_id] => 1
+    [dropoff_date] => 2025-05-31 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 3
+    [status] => Completed
+    [total_Price] => 150
+    [username] => 
+    [payment_method] => cash
+    [name] => 
+    [phone] => 
+)
+ at 2025-05-16 19:36:40
+Booking.php - Constructor called with param: object at 2025-05-16 19:36:40
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 8
+    [client_id] => 1
+    [dropoff_date] => 2025-05-20 15:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 230
+    [username] => 
+    [payment_method] => cash
+    [name] => 
+    [phone] => 
+)
+ at 2025-05-16 19:36:40
+Booking.php - Constructor called with param: object at 2025-05-16 19:36:40
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 9
+    [client_id] => 1
+    [dropoff_date] => 2025-05-20 10:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 5
+    [status] => Pending
+    [total_Price] => 220
+    [username] => 
+    [payment_method] => cash
+    [name] => 
+    [phone] => 
+)
+ at 2025-05-16 19:36:40
+Booking.php - Constructor called with param: object at 2025-05-16 19:36:40
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 10
+    [client_id] => 1
+    [dropoff_date] => 2025-05-15 11:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [username] => 
+    [payment_method] => cash
+    [name] => 
+    [phone] => 
+)
+ at 2025-05-16 19:36:40
+Booking.php - Constructor called with param: object at 2025-05-16 19:36:40
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 11
+    [client_id] => 1
+    [dropoff_date] => 2025-05-15 16:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [username] => 
+    [payment_method] => cash
+    [name] => Sean Diddy Combs
+    [phone] => 
+)
+ at 2025-05-16 19:36:40
+Booking.php - Constructor called with param: object at 2025-05-16 19:36:40
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 12
+    [client_id] => 1
+    [dropoff_date] => 2025-05-16 10:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 230
+    [username] => 
+    [payment_method] => cash
+    [name] => John Porc
+    [phone] => 
+)
+ at 2025-05-16 19:36:40
+Booking.php - Constructor called with param: object at 2025-05-16 19:36:40
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 13
+    [client_id] => 1
+    [dropoff_date] => 2025-05-17 10:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 3
+    [status] => Pending
+    [total_Price] => 150
+    [username] => ObamaWhat
+    [payment_method] => etransfer
+    [name] => Barack Obama
+    [phone] => 514-911-9111
+)
+ at 2025-05-16 19:36:40
+Booking.php - Constructor called with param: object at 2025-05-16 19:36:40
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 21
+    [client_id] => 1
+    [dropoff_date] => 2025-05-15 20:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 0
+    [status] => Pending
+    [total_Price] => 100
+    [username] => ObamaWhat
+    [payment_method] => cash
+    [name] => Sean Diddy Combs
+    [phone] => 514-911-9110
+)
+ at 2025-05-16 19:36:40
+client-orders.php - Session client_id/user_id at 2025-05-16 19:36:40: 1
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, b.`phone`, b.`username`, b.`payment_method`
+                FROM `bookings` b
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 1 at 2025-05-16 19:36:40
+Booking.php - Constructor called with param: object at 2025-05-16 19:36:40
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 21
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 20:00:00
+    [status] => Pending
+    [shoes_quantity] => 0
+    [pickup_date] => 
+    [total_Price] => 100
+    [phone] => 514-911-9110
+    [username] => ObamaWhat
+    [payment_method] => cash
+)
+ at 2025-05-16 19:36:40
+Booking.php - Constructor called with param: object at 2025-05-16 19:36:40
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 13
+    [client_id] => 1
+    [name] => Barack Obama
+    [dropoff_date] => 2025-05-17 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [phone] => 514-911-9111
+    [username] => ObamaWhat
+    [payment_method] => etransfer
+)
+ at 2025-05-16 19:36:40
+Booking.php - Constructor called with param: object at 2025-05-16 19:36:40
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 12
+    [client_id] => 1
+    [name] => John Porc
+    [dropoff_date] => 2025-05-16 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [phone] => 
+    [username] => 
+    [payment_method] => cash
+)
+ at 2025-05-16 19:36:40
+Booking.php - Constructor called with param: object at 2025-05-16 19:36:40
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 11
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 16:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [phone] => 
+    [username] => 
+    [payment_method] => cash
+)
+ at 2025-05-16 19:36:40
+Booking.php - Constructor called with param: object at 2025-05-16 19:36:40
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 10
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-15 11:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [phone] => 
+    [username] => 
+    [payment_method] => cash
+)
+ at 2025-05-16 19:36:40
+Booking.php - Constructor called with param: object at 2025-05-16 19:36:40
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 9
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 5
+    [pickup_date] => 
+    [total_Price] => 220
+    [phone] => 
+    [username] => 
+    [payment_method] => cash
+)
+ at 2025-05-16 19:36:40
+Booking.php - Constructor called with param: object at 2025-05-16 19:36:40
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 8
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 15:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [phone] => 
+    [username] => 
+    [payment_method] => cash
+)
+ at 2025-05-16 19:36:40
+Booking.php - Constructor called with param: object at 2025-05-16 19:36:40
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 7
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-31 14:00:00
+    [status] => Completed
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [phone] => 
+    [username] => 
+    [payment_method] => cash
+)
+ at 2025-05-16 19:36:40
+Booking.php - List result: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 21
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-15 20:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 0
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Sean Diddy Combs
+            [total_Price:Booking:private] => 100
+            [phone:Booking:private] => 514-911-9110
+            [username:Booking:private] => ObamaWhat
+            [payment_method:Booking:private] => cash
+        )
+
+    [1] => Booking Object
+        (
+            [booking_id:Booking:private] => 13
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-17 10:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 3
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Barack Obama
+            [total_Price:Booking:private] => 150
+            [phone:Booking:private] => 514-911-9111
+            [username:Booking:private] => ObamaWhat
+            [payment_method:Booking:private] => etransfer
+        )
+
+    [2] => Booking Object
+        (
+            [booking_id:Booking:private] => 12
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-16 10:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => John Porc
+            [total_Price:Booking:private] => 230
+            [phone:Booking:private] => 
+            [username:Booking:private] => 
+            [payment_method:Booking:private] => cash
+        )
+
+    [3] => Booking Object
+        (
+            [booking_id:Booking:private] => 11
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-15 16:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Sean Diddy Combs
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 
+            [username:Booking:private] => 
+            [payment_method:Booking:private] => cash
+        )
+
+    [4] => Booking Object
+        (
+            [booking_id:Booking:private] => 10
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-15 11:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => 
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 
+            [username:Booking:private] => 
+            [payment_method:Booking:private] => cash
+        )
+
+    [5] => Booking Object
+        (
+            [booking_id:Booking:private] => 9
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-20 10:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 5
+            [status:Booking:private] => Pending
+            [name:Booking:private] => 
+            [total_Price:Booking:private] => 220
+            [phone:Booking:private] => 
+            [username:Booking:private] => 
+            [payment_method:Booking:private] => cash
+        )
+
+    [6] => Booking Object
+        (
+            [booking_id:Booking:private] => 8
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-20 15:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => 
+            [total_Price:Booking:private] => 230
+            [phone:Booking:private] => 
+            [username:Booking:private] => 
+            [payment_method:Booking:private] => cash
+        )
+
+    [7] => Booking Object
+        (
+            [booking_id:Booking:private] => 7
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-31 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 3
+            [status:Booking:private] => Completed
+            [name:Booking:private] => 
+            [total_Price:Booking:private] => 150
+            [phone:Booking:private] => 
+            [username:Booking:private] => 
+            [payment_method:Booking:private] => cash
+        )
+
+)
+ at 2025-05-16 19:36:40
+client-orders.php - Bookings data at 2025-05-16 19:36:40: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 21
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-15 20:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 0
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Sean Diddy Combs
+            [total_Price:Booking:private] => 100
+            [phone:Booking:private] => 514-911-9110
+            [username:Booking:private] => ObamaWhat
+            [payment_method:Booking:private] => cash
+        )
+
+    [1] => Booking Object
+        (
+            [booking_id:Booking:private] => 13
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-17 10:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 3
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Barack Obama
+            [total_Price:Booking:private] => 150
+            [phone:Booking:private] => 514-911-9111
+            [username:Booking:private] => ObamaWhat
+            [payment_method:Booking:private] => etransfer
+        )
+
+    [2] => Booking Object
+        (
+            [booking_id:Booking:private] => 12
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-16 10:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => John Porc
+            [total_Price:Booking:private] => 230
+            [phone:Booking:private] => 
+            [username:Booking:private] => 
+            [payment_method:Booking:private] => cash
+        )
+
+    [3] => Booking Object
+        (
+            [booking_id:Booking:private] => 11
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-15 16:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Sean Diddy Combs
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 
+            [username:Booking:private] => 
+            [payment_method:Booking:private] => cash
+        )
+
+    [4] => Booking Object
+        (
+            [booking_id:Booking:private] => 10
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-15 11:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => 
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 
+            [username:Booking:private] => 
+            [payment_method:Booking:private] => cash
+        )
+
+    [5] => Booking Object
+        (
+            [booking_id:Booking:private] => 9
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-20 10:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 5
+            [status:Booking:private] => Pending
+            [name:Booking:private] => 
+            [total_Price:Booking:private] => 220
+            [phone:Booking:private] => 
+            [username:Booking:private] => 
+            [payment_method:Booking:private] => cash
+        )
+
+    [6] => Booking Object
+        (
+            [booking_id:Booking:private] => 8
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-20 15:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => 
+            [total_Price:Booking:private] => 230
+            [phone:Booking:private] => 
+            [username:Booking:private] => 
+            [payment_method:Booking:private] => cash
+        )
+
+    [7] => Booking Object
+        (
+            [booking_id:Booking:private] => 7
+            [client_id:Booking:private] => 1
+            [dropoff_date:Booking:private] => 2025-05-31 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 3
+            [status:Booking:private] => Completed
+            [name:Booking:private] => 
+            [total_Price:Booking:private] => 150
+            [phone:Booking:private] => 
+            [username:Booking:private] => 
+            [payment_method:Booking:private] => cash
+        )
+
+)
+
+client-orders.php - Rendering buttons for booking ID: 21 at 2025-05-16 19:36:40
+client-orders.php - Rendering buttons for booking ID: 13 at 2025-05-16 19:36:40
+client-orders.php - Rendering buttons for booking ID: 12 at 2025-05-16 19:36:40
+client-orders.php - Rendering buttons for booking ID: 11 at 2025-05-16 19:36:40
+client-orders.php - Rendering buttons for booking ID: 10 at 2025-05-16 19:36:40
+client-orders.php - Rendering buttons for booking ID: 9 at 2025-05-16 19:36:40
+client-orders.php - Rendering buttons for booking ID: 8 at 2025-05-16 19:36:40
+client-orders.php - Rendering buttons for booking ID: 7 at 2025-05-16 19:36:40
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => xxchris.yk71@gmail.com
+    [password] => Bayernisthebest6
+)
+
+OTP generated: 502203 for email: xxchris.yk71@gmail.com
+Email sent successfully to xxchris.yk71@gmail.com
+POST data: Array
+(
+    [otp] => 502203
+)
+
+OTP entered: 502203
+Login successful for xxchris.yk71@gmail.com
+client-orders.php - Session client_id/user_id at 2025-05-16 19:45:42: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`
+                FROM `bookings` b
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 19:45:42
+Booking.php - List result: Array
+(
+)
+ at 2025-05-16 19:45:42
+client-orders.php - Bookings data at 2025-05-16 19:45:42: Array
+(
+)
+
+Booking.php - Constructor called with param: null at 2025-05-16 19:52:28
+Booking.php - Booking data: Array
+(
+    [0] => 7
+    [1] => 2025-05-17 14:00:00
+    [2] => 
+    [3] => 2
+    [4] => Pending
+    [5] => Chris
+    [6] => 130
+)
+ at 2025-05-16 19:52:28
+Booking.php - Payment data: Array
+(
+    [0] => 22
+    [1] => cash
+    [2] => 0
+    [3] => 130
+    [4] => 2025-05-16
+    [5] => 0
+)
+ at 2025-05-16 19:52:28
+Booking.php - bookAppointment completed successfully for booking_id: 22 at 2025-05-16 19:52:28
+Booking.php - Constructor called with param: object at 2025-05-16 19:52:31
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 19:52:31
+client-orders.php - Session client_id/user_id at 2025-05-16 19:52:31: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`instargram`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.user_id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 19:52:31
+Booking.php - Constructor called with param: object at 2025-05-16 19:54:51
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 19:54:51
+client-orders.php - Session client_id/user_id at 2025-05-16 19:54:51: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`instargram`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.user_id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 19:54:51
+Booking.php - Constructor called with param: object at 2025-05-16 19:54:52
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 19:54:52
+client-orders.php - Session client_id/user_id at 2025-05-16 19:54:52: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`instargram`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.user_id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 19:54:52
+Booking.php - Constructor called with param: object at 2025-05-16 19:56:47
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 19:56:47
+client-orders.php - Session client_id/user_id at 2025-05-16 19:56:47: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.user_id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 19:56:47
+Booking.php - Constructor called with param: object at 2025-05-16 20:00:39
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:00:39
+client-orders.php - Session client_id/user_id at 2025-05-16 20:00:39: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`instargram`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 20:00:39
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.instargram' in 'field list' at 2025-05-16 20:00:39
+Booking.php - Constructor called with param: object at 2025-05-16 20:00:40
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:00:40
+client-orders.php - Session client_id/user_id at 2025-05-16 20:00:40: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`instargram`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 20:00:40
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.instargram' in 'field list' at 2025-05-16 20:00:40
+Booking.php - Constructor called with param: object at 2025-05-16 20:04:10
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:04:10
+client-orders.php - Session client_id/user_id at 2025-05-16 20:04:10: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`users`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 20:04:10
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.users' in 'field list' at 2025-05-16 20:04:10
+Booking.php - Constructor called with param: object at 2025-05-16 20:04:10
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:04:10
+client-orders.php - Session client_id/user_id at 2025-05-16 20:04:10: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`users`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 20:04:10
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.users' in 'field list' at 2025-05-16 20:04:10
+Booking.php - Constructor called with param: object at 2025-05-16 20:04:11
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:04:11
+client-orders.php - Session client_id/user_id at 2025-05-16 20:04:11: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`users`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 20:04:11
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.users' in 'field list' at 2025-05-16 20:04:11
+Booking.php - Constructor called with param: object at 2025-05-16 20:04:11
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:04:11
+client-orders.php - Session client_id/user_id at 2025-05-16 20:04:11: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`users`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 20:04:11
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.users' in 'field list' at 2025-05-16 20:04:11
+Booking.php - Constructor called with param: object at 2025-05-16 20:04:11
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:04:11
+client-orders.php - Session client_id/user_id at 2025-05-16 20:04:11: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`users`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 20:04:11
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.users' in 'field list' at 2025-05-16 20:04:11
+Booking.php - Constructor called with param: object at 2025-05-16 20:04:12
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:04:12
+client-orders.php - Session client_id/user_id at 2025-05-16 20:04:12: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`users`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 20:04:12
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.users' in 'field list' at 2025-05-16 20:04:12
+Booking.php - Constructor called with param: object at 2025-05-16 20:04:12
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:04:12
+client-orders.php - Session client_id/user_id at 2025-05-16 20:04:12: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`users`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 20:04:12
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.users' in 'field list' at 2025-05-16 20:04:12
+Booking.php - Constructor called with param: object at 2025-05-16 20:04:12
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:04:12
+client-orders.php - Session client_id/user_id at 2025-05-16 20:04:12: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`users`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 20:04:12
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.users' in 'field list' at 2025-05-16 20:04:12
+Booking.php - Constructor called with param: object at 2025-05-16 20:04:12
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:04:12
+client-orders.php - Session client_id/user_id at 2025-05-16 20:04:12: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`users`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 20:04:12
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.users' in 'field list' at 2025-05-16 20:04:12
+Booking.php - Constructor called with param: object at 2025-05-16 20:04:13
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:04:13
+client-orders.php - Session client_id/user_id at 2025-05-16 20:04:13: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`users`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 20:04:13
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.users' in 'field list' at 2025-05-16 20:04:13
+Booking.php - Constructor called with param: object at 2025-05-16 20:04:13
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:04:13
+client-orders.php - Session client_id/user_id at 2025-05-16 20:04:13: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`users`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 20:04:13
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.users' in 'field list' at 2025-05-16 20:04:13
+Booking.php - Constructor called with param: object at 2025-05-16 20:04:13
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:04:13
+client-orders.php - Session client_id/user_id at 2025-05-16 20:04:13: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`users`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 20:04:13
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.users' in 'field list' at 2025-05-16 20:04:13
+Booking.php - Constructor called with param: object at 2025-05-16 20:04:21
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:04:21
+client-orders.php - Session client_id/user_id at 2025-05-16 20:04:21: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`users`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 20:04:21
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.users' in 'field list' at 2025-05-16 20:04:21
+Booking.php - Constructor called with param: object at 2025-05-16 20:04:22
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:04:22
+client-orders.php - Session client_id/user_id at 2025-05-16 20:04:22: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`users`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 20:04:22
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.users' in 'field list' at 2025-05-16 20:04:22
+Booking.php - Constructor called with param: object at 2025-05-16 20:04:22
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:04:22
+client-orders.php - Session client_id/user_id at 2025-05-16 20:04:22: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`users`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 20:04:22
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.users' in 'field list' at 2025-05-16 20:04:22
+Booking.php - Constructor called with param: object at 2025-05-16 20:04:22
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:04:22
+client-orders.php - Session client_id/user_id at 2025-05-16 20:04:22: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`users`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 20:04:22
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.users' in 'field list' at 2025-05-16 20:04:22
+Booking.php - Constructor called with param: object at 2025-05-16 20:04:23
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:04:23
+client-orders.php - Session client_id/user_id at 2025-05-16 20:04:23: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`users`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 20:04:23
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.users' in 'field list' at 2025-05-16 20:04:23
+Booking.php - Constructor called with param: object at 2025-05-16 20:04:23
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:04:23
+client-orders.php - Session client_id/user_id at 2025-05-16 20:04:23: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`users`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 20:04:23
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.users' in 'field list' at 2025-05-16 20:04:23
+Booking.php - Constructor called with param: object at 2025-05-16 20:04:23
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:04:23
+client-orders.php - Session client_id/user_id at 2025-05-16 20:04:23: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`users`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 20:04:23
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.users' in 'field list' at 2025-05-16 20:04:23
+Booking.php - Constructor called with param: object at 2025-05-16 20:04:54
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:04:54
+client-orders.php - Session client_id/user_id at 2025-05-16 20:04:54: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 20:04:54
+Booking.php - Constructor called with param: object at 2025-05-16 20:04:54
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris
+    [dropoff_date] => 2025-05-17 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => cash
+    [phone] => 
+    [username] => edp445
+)
+ at 2025-05-16 20:04:54
+Booking.php - List result: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-17 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 
+            [username:Booking:private] => 
+            [payment_method:Booking:private] => cash
+        )
+
+)
+ at 2025-05-16 20:04:54
+client-orders.php - Bookings data at 2025-05-16 20:04:54: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-17 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 
+            [username:Booking:private] => 
+            [payment_method:Booking:private] => cash
+        )
+
+)
+
+client-orders.php - Rendering buttons for booking ID: 22 at 2025-05-16 20:04:54
+Booking.php - Constructor called with param: 22 at 2025-05-16 20:08:02
+Booking.php - Executing query: SELECT * FROM `bookings` WHERE `booking_id` = :bookingId with booking_id: 22 at 2025-05-16 20:08:02
+Booking.php - Found booking: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:08:02
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:08:02
+Booking.php - Executing update query: UPDATE `bookings` SET `status` = :status WHERE `booking_id` = :bookingId with status: Pending, booking_id: 22 at 2025-05-16 20:08:02
+Booking.php - Constructor called with param: object at 2025-05-16 20:19:05
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:19:05
+client-orders.php - Session client_id/user_id at 2025-05-16 20:19:05: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 20:19:05
+Booking.php - Constructor called with param: object at 2025-05-16 20:19:05
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris
+    [dropoff_date] => 2025-05-17 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => cash
+    [phone] => 
+    [username] => edp445
+)
+ at 2025-05-16 20:19:05
+Booking.php - List result: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-17 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => cash
+        )
+
+)
+ at 2025-05-16 20:19:05
+client-orders.php - Bookings data at 2025-05-16 20:19:05: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-17 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => cash
+        )
+
+)
+
+client-orders.php - Rendering buttons for booking ID: 22 at 2025-05-16 20:19:05
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => xxchris.yk71@gmail.com
+    [password] => Bayernisthebest6
+)
+
+OTP generated: 958333 for email: xxchris.yk71@gmail.com
+Email sent successfully to xxchris.yk71@gmail.com
+POST data: Array
+(
+    [otp] => 958333
+)
+
+OTP entered: 958333
+Login successful for xxchris.yk71@gmail.com
+Booking.php - Constructor called with param: object at 2025-05-16 20:22:51
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:22:51
+client-orders.php - Session client_id/user_id at 2025-05-16 20:22:51: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 20:22:51
+Booking.php - Constructor called with param: object at 2025-05-16 20:22:51
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris
+    [dropoff_date] => 2025-05-17 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => cash
+    [phone] => 
+    [username] => edp445
+)
+ at 2025-05-16 20:22:51
+Booking.php - List result: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-17 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => cash
+        )
+
+)
+ at 2025-05-16 20:22:51
+client-orders.php - Bookings data at 2025-05-16 20:22:51: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-17 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => cash
+        )
+
+)
+
+client-orders.php - Rendering buttons for booking ID: 22 at 2025-05-16 20:22:51
+Booking.php - Constructor called with param: object at 2025-05-16 20:31:47
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:31:47
+client-orders.php - Session client_id/user_id at 2025-05-16 20:31:47: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 20:31:47
+Booking.php - Constructor called with param: object at 2025-05-16 20:31:47
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris
+    [dropoff_date] => 2025-05-17 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => cash
+    [phone] => 
+    [username] => edp445
+)
+ at 2025-05-16 20:31:47
+Booking.php - List result: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-17 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => cash
+        )
+
+)
+ at 2025-05-16 20:31:47
+client-orders.php - Bookings data at 2025-05-16 20:31:47: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-17 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => cash
+        )
+
+)
+
+client-orders.php - Rendering buttons for booking ID: 22 at 2025-05-16 20:31:47
+Booking.php - Constructor called with param: object at 2025-05-16 20:38:31
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:38:31
+client-orders.php - Session client_id/user_id at 2025-05-16 20:38:31: 7
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 20:38:31
+Booking.php - Constructor called with param: object at 2025-05-16 20:38:31
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris
+    [dropoff_date] => 2025-05-17 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => cash
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-16 20:38:31
+Booking.php - List result: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-17 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => cash
+        )
+
+)
+ at 2025-05-16 20:38:31
+client-orders.php - Bookings data at 2025-05-16 20:38:31: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-17 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => cash
+        )
+
+)
+
+client-orders.php - Rendering buttons for booking ID: 22 at 2025-05-16 20:38:31
+Booking.php - Constructor called with param: 22 at 2025-05-16 20:38:44
+Booking.php - Executing query: SELECT * FROM `bookings` WHERE `booking_id` = :bookingId with booking_id: 22 at 2025-05-16 20:38:44
+Booking.php - Found booking: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:38:44
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:38:44
+Booking.php - Executing update query: UPDATE `bookings` SET `status` = :status WHERE `booking_id` = :bookingId with status: Pending, booking_id: 22 at 2025-05-16 20:38:44
+Booking.php - Constructor called with param: 22 at 2025-05-16 20:41:19
+Booking.php - Executing query: SELECT * FROM `bookings` WHERE `booking_id` = :bookingId with booking_id: 22 at 2025-05-16 20:41:20
+Booking.php - Found booking: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:41:20
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:41:20
+Booking.php - Executing update query: UPDATE `bookings` SET `status` = :status WHERE `booking_id` = :bookingId with status: Pending, booking_id: 22 at 2025-05-16 20:41:20
+client-orders.php - Session client_id/user_id at 2025-05-16 20:48:36: 7
+Booking.php - Executing list query: SELECT b.`id` AS booking_id, b.`client_id`, b.`admin_id`, b.`name`, 
+                           u.`phone`, u.`username`, 
+                           b.`dropoff_date`, b.`total_price`, b.`status`, b.`payment_method`
+                    FROM `bookings` b
+                    LEFT JOIN `users` u ON b.`client_id` = u.`id`
+                    WHERE b.`client_id` = :client_id
+                    ORDER BY b.`dropoff_date` DESC with client_id: 7 at 2025-05-16 20:48:36
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'b.id' in 'field list' at 2025-05-16 20:48:36
+client-orders.php - Bookings data at 2025-05-16 20:48:36: Array
+(
+)
+
+client-orders.php - Session client_id/user_id at 2025-05-16 20:49:28: 7
+Booking.php - Executing list query: SELECT b.`id` AS booking_id, b.`client_id`, b.`admin_id`, b.`name`, 
+                           u.`phone`, u.`username`, 
+                           b.`dropoff_date`, b.`total_price`, b.`status`, b.`payment_method`
+                    FROM `bookings` b
+                    LEFT JOIN `users` u ON b.`client_id` = u.`id`
+                    WHERE b.`client_id` = :client_id
+                    ORDER BY b.`dropoff_date` DESC with client_id: 7 at 2025-05-16 20:49:28
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'b.id' in 'field list' at 2025-05-16 20:49:28
+client-orders.php - Bookings fetched at 2025-05-16 20:49:28: Array
+(
+)
+
+client-orders.php - Session client_id/user_id at 2025-05-16 20:49:33: 7
+Booking.php - Executing list query: SELECT b.`id` AS booking_id, b.`client_id`, b.`admin_id`, b.`name`, 
+                           u.`phone`, u.`username`, 
+                           b.`dropoff_date`, b.`total_price`, b.`status`, b.`payment_method`
+                    FROM `bookings` b
+                    LEFT JOIN `users` u ON b.`client_id` = u.`id`
+                    WHERE b.`client_id` = :client_id
+                    ORDER BY b.`dropoff_date` DESC with client_id: 7 at 2025-05-16 20:49:33
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'b.id' in 'field list' at 2025-05-16 20:49:33
+client-orders.php - Bookings fetched at 2025-05-16 20:49:33: Array
+(
+)
+
+client-orders.php - Session client_id/user_id at 2025-05-16 20:49:34: 7
+Booking.php - Executing list query: SELECT b.`id` AS booking_id, b.`client_id`, b.`admin_id`, b.`name`, 
+                           u.`phone`, u.`username`, 
+                           b.`dropoff_date`, b.`total_price`, b.`status`, b.`payment_method`
+                    FROM `bookings` b
+                    LEFT JOIN `users` u ON b.`client_id` = u.`id`
+                    WHERE b.`client_id` = :client_id
+                    ORDER BY b.`dropoff_date` DESC with client_id: 7 at 2025-05-16 20:49:34
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'b.id' in 'field list' at 2025-05-16 20:49:34
+client-orders.php - Bookings fetched at 2025-05-16 20:49:34: Array
+(
+)
+
+client-orders.php - Session client_id/user_id at 2025-05-16 20:49:34: 7
+Booking.php - Executing list query: SELECT b.`id` AS booking_id, b.`client_id`, b.`admin_id`, b.`name`, 
+                           u.`phone`, u.`username`, 
+                           b.`dropoff_date`, b.`total_price`, b.`status`, b.`payment_method`
+                    FROM `bookings` b
+                    LEFT JOIN `users` u ON b.`client_id` = u.`id`
+                    WHERE b.`client_id` = :client_id
+                    ORDER BY b.`dropoff_date` DESC with client_id: 7 at 2025-05-16 20:49:34
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'b.id' in 'field list' at 2025-05-16 20:49:34
+client-orders.php - Bookings fetched at 2025-05-16 20:49:34: Array
+(
+)
+
+client-orders.php - Session client_id/user_id at 2025-05-16 20:49:34: 7
+Booking.php - Executing list query: SELECT b.`id` AS booking_id, b.`client_id`, b.`admin_id`, b.`name`, 
+                           u.`phone`, u.`username`, 
+                           b.`dropoff_date`, b.`total_price`, b.`status`, b.`payment_method`
+                    FROM `bookings` b
+                    LEFT JOIN `users` u ON b.`client_id` = u.`id`
+                    WHERE b.`client_id` = :client_id
+                    ORDER BY b.`dropoff_date` DESC with client_id: 7 at 2025-05-16 20:49:34
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'b.id' in 'field list' at 2025-05-16 20:49:34
+client-orders.php - Bookings fetched at 2025-05-16 20:49:35: Array
+(
+)
+
+client-orders.php - Session client_id/user_id at 2025-05-16 20:49:35: 7
+Booking.php - Executing list query: SELECT b.`id` AS booking_id, b.`client_id`, b.`admin_id`, b.`name`, 
+                           u.`phone`, u.`username`, 
+                           b.`dropoff_date`, b.`total_price`, b.`status`, b.`payment_method`
+                    FROM `bookings` b
+                    LEFT JOIN `users` u ON b.`client_id` = u.`id`
+                    WHERE b.`client_id` = :client_id
+                    ORDER BY b.`dropoff_date` DESC with client_id: 7 at 2025-05-16 20:49:35
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'b.id' in 'field list' at 2025-05-16 20:49:35
+client-orders.php - Bookings fetched at 2025-05-16 20:49:35: Array
+(
+)
+
+client-orders.php - Session client_id/user_id at 2025-05-16 20:49:47: 7
+Booking.php - Executing list query: SELECT b.`id` AS booking_id, b.`client_id`, b.`admin_id`, b.`name`, 
+                           u.`phone`, u.`username`, 
+                           b.`dropoff_date`, b.`total_price`, b.`status`, b.`payment_method`
+                    FROM `bookings` b
+                    LEFT JOIN `users` u ON b.`client_id` = u.`id`
+                    WHERE b.`client_id` = :client_id
+                    ORDER BY b.`dropoff_date` DESC with client_id: 7 at 2025-05-16 20:49:47
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'b.id' in 'field list' at 2025-05-16 20:49:47
+client-orders.php - Bookings fetched at 2025-05-16 20:49:47: Array
+(
+)
+
+client-orders.php - Session client_id/user_id: 7 at 2025-05-16 20:55:38
+Booking.php - Executing list query: SELECT b.`id` AS booking_id, b.`client_id`, b.`admin_id`, b.`name`, 
+                           u.`phone`, u.`username`, 
+                           b.`dropoff_date`, b.`total_price`, b.`status`, b.`payment_method`
+                    FROM `bookings` b
+                    LEFT JOIN `users` u ON b.`client_id` = u.`id`
+                    WHERE b.`client_id` = :client_id
+                    ORDER BY b.`dropoff_date` DESC with client_id: 7 at 2025-05-16 20:55:38
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'b.id' in 'field list' at 2025-05-16 20:55:38
+client-orders.php - Bookings fetched, count: 0 at 2025-05-16 20:55:38: Array
+(
+)
+
+client-orders.php - Session client_id/user_id: 7 at 2025-05-16 20:55:53
+Booking.php - Executing list query: SELECT b.`id` AS booking_id, b.`client_id`, b.`admin_id`, b.`name`, 
+                           u.`phone`, u.`username`, 
+                           b.`dropoff_date`, b.`total_price`, b.`status`, b.`payment_method`
+                    FROM `bookings` b
+                    LEFT JOIN `users` u ON b.`client_id` = u.`id`
+                    WHERE b.`client_id` = :client_id
+                    ORDER BY b.`dropoff_date` DESC with client_id: 7 at 2025-05-16 20:55:53
+Booking.php - PDOException in list: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'b.id' in 'field list' at 2025-05-16 20:55:53
+client-orders.php - Bookings fetched, count: 0 at 2025-05-16 20:55:53: Array
+(
+)
+
+Booking.php - Constructor called with param: object at 2025-05-16 20:56:02
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:56:02
+client-orders.php - Session client_id/user_id: 7 at 2025-05-16 20:56:02
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 20:56:02
+Booking.php - Constructor called with param: object at 2025-05-16 20:56:02
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris
+    [dropoff_date] => 2025-05-17 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => cash
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-16 20:56:02
+Booking.php - List result: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-17 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => cash
+        )
+
+)
+ at 2025-05-16 20:56:02
+client-orders.php - Bookings fetched, count: 1 at 2025-05-16 20:56:02: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-17 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => cash
+        )
+
+)
+
+client-orders.php - Entering foreach loop, count: 1 at 2025-05-16 20:56:02
+client-orders.php - Rendering booking ID: 22, Phone: 514-850-0978, Username: edp445 at 2025-05-16 20:56:02
+Booking.php - Constructor called with param: object at 2025-05-16 20:59:43
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:59:43
+client-orders.php - Session client_id/user_id: 7 at 2025-05-16 20:59:43
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 20:59:43
+Booking.php - Constructor called with param: object at 2025-05-16 20:59:43
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris
+    [dropoff_date] => 2025-05-17 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => cash
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-16 20:59:43
+Booking.php - List result: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-17 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => cash
+        )
+
+)
+ at 2025-05-16 20:59:43
+client-orders.php - Bookings fetched, count: 1 at 2025-05-16 20:59:43: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-17 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => cash
+        )
+
+)
+
+client-orders.php - Entering foreach loop, count: 1 at 2025-05-16 20:59:43
+client-orders.php - Rendering booking ID: 22, Phone: 514-850-0978, Username: edp445 at 2025-05-16 20:59:43
+Booking.php - Constructor called with param: object at 2025-05-16 20:59:47
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:59:47
+client-orders.php - POST request received with data: Array
+(
+    [action] => update
+    [booking_id] => 22
+    [name] => Chris
+    [dropoff_time] => 2025-05-17T18:00
+    [payment_method] => etransfer
+)
+ at 2025-05-16 20:59:47
+Booking.php - Constructor called with param: 22 at 2025-05-16 20:59:47
+Booking.php - Executing query: SELECT * FROM `bookings` WHERE `booking_id` = :bookingId with booking_id: 22 at 2025-05-16 20:59:47
+Booking.php - Found booking: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:59:47
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 20:59:47
+client-orders.php - Updating booking ID: 22 with data: Array
+(
+    [name] => Chris
+    [dropoff_date] => 2025-05-17 18:00:00
+    [payment_method] => etransfer
+)
+ at 2025-05-16 20:59:47
+Booking.php - Executing updateClientDetails query: UPDATE `bookings` SET 
+                    `name` = :name,
+                    `dropoff_date` = :dropoff_date,
+                    `payment_method` = :payment_method
+                    WHERE `id` = :booking_id AND `client_id` = :client_id with data: Array
+(
+    [name] => Chris
+    [dropoff_date] => 2025-05-17 18:00:00
+    [payment_method] => etransfer
+)
+ at 2025-05-16 20:59:47
+Booking.php - PDOException in updateClientDetails: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause' at 2025-05-16 20:59:47
+Booking.php - Constructor called with param: object at 2025-05-16 21:00:48
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:00:48
+client-orders.php - POST request received with data: Array
+(
+    [action] => update
+    [booking_id] => 22
+    [name] => Chris
+    [dropoff_time] => 2025-05-17T18:00
+    [payment_method] => etransfer
+)
+ at 2025-05-16 21:00:48
+Booking.php - Constructor called with param: 22 at 2025-05-16 21:00:48
+Booking.php - Executing query: SELECT * FROM `bookings` WHERE `booking_id` = :bookingId with booking_id: 22 at 2025-05-16 21:00:48
+Booking.php - Found booking: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:00:48
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:00:48
+client-orders.php - Updating booking ID: 22 with data: Array
+(
+    [name] => Chris
+    [dropoff_date] => 2025-05-17 18:00:00
+    [payment_method] => etransfer
+)
+ at 2025-05-16 21:00:48
+Booking.php - Executing updateClientDetails query: UPDATE `bookings` SET 
+                    `name` = :name,
+                    `dropoff_date` = :dropoff_date,
+                    `payment_method` = :payment_method
+                    WHERE `id` = :booking_id AND `client_id` = :client_id with data: Array
+(
+    [name] => Chris
+    [dropoff_date] => 2025-05-17 18:00:00
+    [payment_method] => etransfer
+)
+ at 2025-05-16 21:00:48
+Booking.php - PDOException in updateClientDetails: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause' at 2025-05-16 21:00:48
+Booking.php - Constructor called with param: object at 2025-05-16 21:01:44
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:01:44
+client-orders.php - POST request received with data: Array
+(
+    [action] => update
+    [booking_id] => 22
+    [name] => Chris
+    [dropoff_time] => 2025-05-17T18:00
+    [payment_method] => etransfer
+)
+ at 2025-05-16 21:01:44
+Booking.php - Constructor called with param: 22 at 2025-05-16 21:01:44
+Booking.php - Executing query: SELECT * FROM `bookings` WHERE `booking_id` = :bookingId with booking_id: 22 at 2025-05-16 21:01:44
+Booking.php - Found booking: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:01:44
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:01:44
+client-orders.php - Updating booking ID: 22 with data: Array
+(
+    [name] => Chris
+    [dropoff_date] => 2025-05-17 18:00:00
+    [payment_method] => etransfer
+)
+ at 2025-05-16 21:01:44
+Booking.php - Executing updateClientDetails query: UPDATE `bookings` SET 
+                    `name` = :name,
+                    `dropoff_date` = :dropoff_date,
+                    `payment_method` = :payment_method
+                    WHERE `booking_id` = :booking_id AND `client_id` = :client_id with data: Array
+(
+    [name] => Chris
+    [dropoff_date] => 2025-05-17 18:00:00
+    [payment_method] => etransfer
+)
+ at 2025-05-16 21:01:44
+Booking.php - PDOException in updateClientDetails: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'payment_method' in 'field list' at 2025-05-16 21:01:44
+Booking.php - Constructor called with param: object at 2025-05-16 21:02:18
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:02:18
+client-orders.php - Session client_id/user_id: 7 at 2025-05-16 21:02:18
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 21:02:18
+Booking.php - Constructor called with param: object at 2025-05-16 21:02:18
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris
+    [dropoff_date] => 2025-05-17 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => cash
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-16 21:02:18
+Booking.php - List result: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-17 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => cash
+        )
+
+)
+ at 2025-05-16 21:02:18
+client-orders.php - Bookings fetched, count: 1 at 2025-05-16 21:02:18: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-17 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => cash
+        )
+
+)
+
+client-orders.php - Entering foreach loop, count: 1 at 2025-05-16 21:02:18
+client-orders.php - Rendering booking ID: 22, Phone: 514-850-0978, Username: edp445 at 2025-05-16 21:02:18
+Booking.php - Constructor called with param: object at 2025-05-16 21:02:36
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:02:36
+client-orders.php - POST request received with data: Array
+(
+    [action] => update
+    [booking_id] => 22
+    [name] => Chris
+    [dropoff_time] => 2025-05-17T18:00
+    [payment_method] => etransfer
+)
+ at 2025-05-16 21:02:36
+Booking.php - Constructor called with param: 22 at 2025-05-16 21:02:36
+Booking.php - Executing query: SELECT * FROM `bookings` WHERE `booking_id` = :bookingId with booking_id: 22 at 2025-05-16 21:02:36
+Booking.php - Found booking: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:02:36
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:02:36
+client-orders.php - Updating booking ID: 22 with data: Array
+(
+    [name] => Chris
+    [dropoff_date] => 2025-05-17 18:00:00
+    [payment_method] => etransfer
+)
+ at 2025-05-16 21:02:36
+Booking.php - Executing updateClientDetails query: UPDATE `bookings` SET 
+                    `name` = :name,
+                    `dropoff_date` = :dropoff_date,
+                    `payment_method` = :payment_method
+                    WHERE `booking_id` = :booking_id AND `client_id` = :client_id with data: Array
+(
+    [name] => Chris
+    [dropoff_date] => 2025-05-17 18:00:00
+    [payment_method] => etransfer
+)
+ at 2025-05-16 21:02:36
+Booking.php - PDOException in updateClientDetails: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'payment_method' in 'field list' at 2025-05-16 21:02:36
+Booking.php - Constructor called with param: object at 2025-05-16 21:04:28
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:04:28
+client-orders.php - POST request received with data: Array
+(
+    [action] => update
+    [booking_id] => 22
+    [name] => Chris
+    [dropoff_time] => 2025-05-17T18:00
+    [payment_method] => etransfer
+)
+ at 2025-05-16 21:04:28
+Booking.php - Constructor called with param: 22 at 2025-05-16 21:04:28
+Booking.php - Executing query: SELECT * FROM `bookings` WHERE `booking_id` = :bookingId with booking_id: 22 at 2025-05-16 21:04:28
+Booking.php - Found booking: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:04:28
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:04:28
+client-orders.php - Updating booking ID: 22 with data: Array
+(
+    [name] => Chris
+    [dropoff_date] => 2025-05-17 18:00:00
+    [payment_method] => etransfer
+)
+ at 2025-05-16 21:04:28
+Booking.php - Executing updateClientDetails query: UPDATE `bookings` SET 
+                    `name` = :name,
+                    `dropoff_date` = :dropoff_date,
+                    WHERE `booking_id` = :booking_id AND `client_id` = :client_id with data: Array
+(
+    [name] => Chris
+    [dropoff_date] => 2025-05-17 18:00:00
+    [payment_method] => etransfer
+)
+ at 2025-05-16 21:04:28
+Booking.php - PDOException in updateClientDetails: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens at 2025-05-16 21:04:28
+Booking.php - Constructor called with param: object at 2025-05-16 21:05:06
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:05:06
+client-orders.php - POST request received with data: Array
+(
+    [action] => update
+    [booking_id] => 22
+    [name] => Chris
+    [dropoff_time] => 2025-05-17T18:00
+    [payment_method] => etransfer
+)
+ at 2025-05-16 21:05:06
+Booking.php - Constructor called with param: 22 at 2025-05-16 21:05:06
+Booking.php - Executing query: SELECT * FROM `bookings` WHERE `booking_id` = :bookingId with booking_id: 22 at 2025-05-16 21:05:06
+Booking.php - Found booking: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:05:06
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:05:06
+client-orders.php - Updating booking ID: 22 with data: Array
+(
+    [name] => Chris
+    [dropoff_date] => 2025-05-17 18:00:00
+    [payment_method] => etransfer
+)
+ at 2025-05-16 21:05:06
+Booking.php - Executing updateClientDetails query: UPDATE `bookings` SET 
+                    `name` = :name,
+                    `dropoff_date` = :dropoff_date,
+                    WHERE `booking_id` = :booking_id AND `client_id` = :client_id with data: Array
+(
+    [name] => Chris
+    [dropoff_date] => 2025-05-17 18:00:00
+    [payment_method] => etransfer
+)
+ at 2025-05-16 21:05:06
+Booking.php - PDOException in updateClientDetails: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE `booking_id` = 22 AND `client_id` = 7' at line 4 at 2025-05-16 21:05:06
+Booking.php - Constructor called with param: object at 2025-05-16 21:05:49
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:05:49
+client-orders.php - POST request received with data: Array
+(
+    [action] => update
+    [booking_id] => 22
+    [name] => Chris
+    [dropoff_time] => 2025-05-17T18:00
+    [payment_method] => etransfer
+)
+ at 2025-05-16 21:05:49
+Booking.php - Constructor called with param: 22 at 2025-05-16 21:05:49
+Booking.php - Executing query: SELECT * FROM `bookings` WHERE `booking_id` = :bookingId with booking_id: 22 at 2025-05-16 21:05:49
+Booking.php - Found booking: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:05:49
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:05:49
+client-orders.php - Updating booking ID: 22 with data: Array
+(
+    [name] => Chris
+    [dropoff_date] => 2025-05-17 18:00:00
+    [payment_method] => etransfer
+)
+ at 2025-05-16 21:05:49
+Booking.php - Executing updateClientDetails query: UPDATE `bookings` SET 
+                    `name` = :name,
+                    `dropoff_date` = :dropoff_date,
+                    `payment_method` = :payment_method
+                    WHERE `booking_id` = :booking_id AND `client_id` = :client_id with data: Array
+(
+    [name] => Chris
+    [dropoff_date] => 2025-05-17 18:00:00
+    [payment_method] => etransfer
+)
+ at 2025-05-16 21:05:49
+Booking.php - PDOException in updateClientDetails: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'payment_method' in 'field list' at 2025-05-16 21:05:49
+Booking.php - Constructor called with param: object at 2025-05-16 21:06:04
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:06:04
+client-orders.php - POST request received with data: Array
+(
+    [action] => update
+    [booking_id] => 22
+    [name] => Chris
+    [dropoff_time] => 2025-05-17T18:00
+    [payment_method] => cash
+)
+ at 2025-05-16 21:06:04
+Booking.php - Constructor called with param: 22 at 2025-05-16 21:06:04
+Booking.php - Executing query: SELECT * FROM `bookings` WHERE `booking_id` = :bookingId with booking_id: 22 at 2025-05-16 21:06:04
+Booking.php - Found booking: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:06:04
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:06:04
+client-orders.php - Updating booking ID: 22 with data: Array
+(
+    [name] => Chris
+    [dropoff_date] => 2025-05-17 18:00:00
+    [payment_method] => cash
+)
+ at 2025-05-16 21:06:04
+Booking.php - Executing updateClientDetails query: UPDATE `bookings` SET 
+                    `name` = :name,
+                    `dropoff_date` = :dropoff_date,
+                    `payment_method` = :payment_method
+                    WHERE `booking_id` = :booking_id AND `client_id` = :client_id with data: Array
+(
+    [name] => Chris
+    [dropoff_date] => 2025-05-17 18:00:00
+    [payment_method] => cash
+)
+ at 2025-05-16 21:06:04
+Booking.php - PDOException in updateClientDetails: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'payment_method' in 'field list' at 2025-05-16 21:06:04
+Booking.php - Constructor called with param: object at 2025-05-16 21:07:38
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:07:38
+client-orders.php - POST request received with data: Array
+(
+    [action] => update
+    [booking_id] => 22
+    [name] => Chris
+    [dropoff_time] => 2025-05-17T18:00
+    [payment_method] => cash
+)
+ at 2025-05-16 21:07:38
+Booking.php - Constructor called with param: 22 at 2025-05-16 21:07:38
+Booking.php - Executing query: SELECT * FROM `bookings` WHERE `booking_id` = :bookingId with booking_id: 22 at 2025-05-16 21:07:38
+Booking.php - Found booking: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:07:38
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:07:38
+client-orders.php - Updating booking ID: 22 with data: Array
+(
+    [name] => Chris
+    [dropoff_date] => 2025-05-17 18:00:00
+    [payment_method] => cash
+)
+ at 2025-05-16 21:07:38
+Booking.php - Executing updateClientDetails query: UPDATE `bookings` SET 
+                    `name` = :name,
+                    `dropoff_date` = :dropoff_date,
+                    `payment_method` = :payment_method
+                    WHERE `booking_id` = :booking_id AND `client_id` = :client_id with data: Array
+(
+    [name] => Chris
+    [dropoff_date] => 2025-05-17 18:00:00
+    [payment_method] => cash
+)
+ at 2025-05-16 21:07:38
+Booking.php - PDOException in updateClientDetails: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'payment_method' in 'field list' at 2025-05-16 21:07:38
+Booking.php - Constructor called with param: object at 2025-05-16 21:10:38
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:10:38
+client-orders.php - POST request received with data: Array
+(
+    [action] => update
+    [booking_id] => 22
+    [name] => Chris
+    [dropoff_time] => 2025-05-17T18:00
+    [payment_method] => etransfer
+)
+ at 2025-05-16 21:10:38
+Booking.php - Constructor called with param: 22 at 2025-05-16 21:10:38
+Booking.php - Executing query: SELECT * FROM `bookings` WHERE `booking_id` = :bookingId with booking_id: 22 at 2025-05-16 21:10:38
+Booking.php - Found booking: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:10:38
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:10:38
+client-orders.php - Updating booking ID: 22 with data: Array
+(
+    [name] => Chris
+    [dropoff_date] => 2025-05-17 18:00:00
+    [payment_method] => etransfer
+)
+ at 2025-05-16 21:10:38
+Booking.php - Constructor called with param: object at 2025-05-16 21:10:38
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 18:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:10:38
+client-orders.php - Session client_id/user_id: 7 at 2025-05-16 21:10:38
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 21:10:38
+Booking.php - Constructor called with param: object at 2025-05-16 21:10:38
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris
+    [dropoff_date] => 2025-05-17 18:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => etransfer
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-16 21:10:38
+Booking.php - List result: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-17 18:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => etransfer
+        )
+
+)
+ at 2025-05-16 21:10:38
+client-orders.php - Bookings fetched, count: 1 at 2025-05-16 21:10:38: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-17 18:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => etransfer
+        )
+
+)
+
+client-orders.php - Entering foreach loop, count: 1 at 2025-05-16 21:10:38
+client-orders.php - Rendering booking ID: 22, Phone: 514-850-0978, Username: edp445 at 2025-05-16 21:10:38
+Booking.php - Constructor called with param: object at 2025-05-16 21:10:55
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 18:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:10:55
+client-orders.php - POST request received with data: Array
+(
+    [action] => update
+    [booking_id] => 22
+    [name] => Chris P Bacon
+    [dropoff_time] => 2025-05-17T22:00
+    [payment_method] => etransfer
+)
+ at 2025-05-16 21:10:55
+Booking.php - Constructor called with param: 22 at 2025-05-16 21:10:55
+Booking.php - Executing query: SELECT * FROM `bookings` WHERE `booking_id` = :bookingId with booking_id: 22 at 2025-05-16 21:10:55
+Booking.php - Found booking: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 18:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:10:55
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 18:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris
+)
+ at 2025-05-16 21:10:55
+client-orders.php - Updating booking ID: 22 with data: Array
+(
+    [name] => Chris P Bacon
+    [dropoff_date] => 2025-05-17 22:00:00
+    [payment_method] => etransfer
+)
+ at 2025-05-16 21:10:55
+Booking.php - Constructor called with param: object at 2025-05-16 21:10:55
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 22:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris P Bacon
+)
+ at 2025-05-16 21:10:55
+client-orders.php - Session client_id/user_id: 7 at 2025-05-16 21:10:55
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 21:10:55
+Booking.php - Constructor called with param: object at 2025-05-16 21:10:55
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris P Bacon
+    [dropoff_date] => 2025-05-17 22:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => etransfer
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-16 21:10:55
+Booking.php - List result: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-17 22:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris P Bacon
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => etransfer
+        )
+
+)
+ at 2025-05-16 21:10:55
+client-orders.php - Bookings fetched, count: 1 at 2025-05-16 21:10:55: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-17 22:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris P Bacon
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => etransfer
+        )
+
+)
+
+client-orders.php - Entering foreach loop, count: 1 at 2025-05-16 21:10:55
+client-orders.php - Rendering booking ID: 22, Phone: 514-850-0978, Username: edp445 at 2025-05-16 21:10:55
+Booking.php - Constructor called with param: object at 2025-05-16 21:11:33
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 22:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris P Bacon
+)
+ at 2025-05-16 21:11:33
+client-orders.php - POST request received with data: Array
+(
+    [action] => update
+    [booking_id] => 22
+    [name] => Chris P Bacon
+    [dropoff_time] => 2025-05-19T14:00
+    [payment_method] => etransfer
+)
+ at 2025-05-16 21:11:33
+Booking.php - Constructor called with param: 22 at 2025-05-16 21:11:33
+Booking.php - Executing query: SELECT * FROM `bookings` WHERE `booking_id` = :bookingId with booking_id: 22 at 2025-05-16 21:11:33
+Booking.php - Found booking: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 22:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris P Bacon
+)
+ at 2025-05-16 21:11:33
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 22:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris P Bacon
+)
+ at 2025-05-16 21:11:33
+client-orders.php - Updating booking ID: 22 with data: Array
+(
+    [name] => Chris P Bacon
+    [dropoff_date] => 2025-05-19 14:00:00
+    [payment_method] => etransfer
+)
+ at 2025-05-16 21:11:33
+Booking.php - Constructor called with param: object at 2025-05-16 21:11:33
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-19 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris P Bacon
+)
+ at 2025-05-16 21:11:33
+client-orders.php - Session client_id/user_id: 7 at 2025-05-16 21:11:33
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 21:11:33
+Booking.php - Constructor called with param: object at 2025-05-16 21:11:33
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris P Bacon
+    [dropoff_date] => 2025-05-19 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => etransfer
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-16 21:11:33
+Booking.php - List result: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-19 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris P Bacon
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => etransfer
+        )
+
+)
+ at 2025-05-16 21:11:33
+client-orders.php - Bookings fetched, count: 1 at 2025-05-16 21:11:33: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-19 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris P Bacon
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => etransfer
+        )
+
+)
+
+client-orders.php - Entering foreach loop, count: 1 at 2025-05-16 21:11:33
+client-orders.php - Rendering booking ID: 22, Phone: 514-850-0978, Username: edp445 at 2025-05-16 21:11:33
+Booking.php - Constructor called with param: null at 2025-05-16 21:12:35
+Booking.php - Booking data: Array
+(
+    [0] => 7
+    [1] => 2025-05-28 17:00:00
+    [2] => 
+    [3] => 1
+    [4] => Pending
+    [5] => John Porc
+    [6] => 50
+)
+ at 2025-05-16 21:12:35
+Booking.php - Payment data: Array
+(
+    [0] => 23
+    [1] => cash
+    [2] => 0
+    [3] => 50
+    [4] => 2025-05-16
+    [5] => 0
+)
+ at 2025-05-16 21:12:35
+Booking.php - bookAppointment completed successfully for booking_id: 23 at 2025-05-16 21:12:35
+Booking.php - Constructor called with param: object at 2025-05-16 21:12:36
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-19 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris P Bacon
+)
+ at 2025-05-16 21:12:36
+Booking.php - Constructor called with param: object at 2025-05-16 21:12:36
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 23
+    [client_id] => 7
+    [dropoff_date] => 2025-05-28 17:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 1
+    [status] => Pending
+    [total_Price] => 50
+    [name] => John Porc
+)
+ at 2025-05-16 21:12:36
+client-orders.php - Session client_id/user_id: 7 at 2025-05-16 21:12:36
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 21:12:36
+Booking.php - Constructor called with param: object at 2025-05-16 21:12:36
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 23
+    [client_id] => 7
+    [name] => John Porc
+    [dropoff_date] => 2025-05-28 17:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 50
+    [payment_method] => cash
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-16 21:12:36
+Booking.php - Constructor called with param: object at 2025-05-16 21:12:36
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris P Bacon
+    [dropoff_date] => 2025-05-19 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => etransfer
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-16 21:12:36
+Booking.php - List result: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 23
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-28 17:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 1
+            [status:Booking:private] => Pending
+            [name:Booking:private] => John Porc
+            [total_Price:Booking:private] => 50
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => cash
+        )
+
+    [1] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-19 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris P Bacon
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => etransfer
+        )
+
+)
+ at 2025-05-16 21:12:36
+client-orders.php - Bookings fetched, count: 2 at 2025-05-16 21:12:36: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 23
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-28 17:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 1
+            [status:Booking:private] => Pending
+            [name:Booking:private] => John Porc
+            [total_Price:Booking:private] => 50
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => cash
+        )
+
+    [1] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-19 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris P Bacon
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => etransfer
+        )
+
+)
+
+client-orders.php - Entering foreach loop, count: 2 at 2025-05-16 21:12:36
+client-orders.php - Rendering booking ID: 23, Phone: 514-850-0978, Username: edp445 at 2025-05-16 21:12:36
+client-orders.php - Rendering booking ID: 22, Phone: 514-850-0978, Username: edp445 at 2025-05-16 21:12:36
+Booking.php - Constructor called with param: object at 2025-05-16 21:12:43
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-19 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris P Bacon
+)
+ at 2025-05-16 21:12:43
+Booking.php - Constructor called with param: object at 2025-05-16 21:12:43
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 23
+    [client_id] => 7
+    [dropoff_date] => 2025-05-28 17:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 1
+    [status] => Pending
+    [total_Price] => 50
+    [name] => John Porc
+)
+ at 2025-05-16 21:12:43
+client-orders.php - POST request received with data: Array
+(
+    [action] => delete
+    [booking_id] => 23
+)
+ at 2025-05-16 21:12:43
+Booking.php - Constructor called with param: 23 at 2025-05-16 21:12:43
+Booking.php - Executing query: SELECT * FROM `bookings` WHERE `booking_id` = :bookingId with booking_id: 23 at 2025-05-16 21:12:43
+Booking.php - Found booking: stdClass Object
+(
+    [booking_id] => 23
+    [client_id] => 7
+    [dropoff_date] => 2025-05-28 17:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 1
+    [status] => Pending
+    [total_Price] => 50
+    [name] => John Porc
+)
+ at 2025-05-16 21:12:43
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 23
+    [client_id] => 7
+    [dropoff_date] => 2025-05-28 17:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 1
+    [status] => Pending
+    [total_Price] => 50
+    [name] => John Porc
+)
+ at 2025-05-16 21:12:43
+client-orders.php - Deleting booking ID: 23 at 2025-05-16 21:12:43
+Booking.php - Executing delete query: DELETE FROM `bookings` WHERE `id` = :booking_id AND `client_id` = :client_id for booking ID: 23 at 2025-05-16 21:12:43
+Booking.php - PDOException in delete: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause' at 2025-05-16 21:12:43
+Booking.php - Constructor called with param: object at 2025-05-16 21:13:14
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-19 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris P Bacon
+)
+ at 2025-05-16 21:13:14
+Booking.php - Constructor called with param: object at 2025-05-16 21:13:14
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 23
+    [client_id] => 7
+    [dropoff_date] => 2025-05-28 17:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 1
+    [status] => Pending
+    [total_Price] => 50
+    [name] => John Porc
+)
+ at 2025-05-16 21:13:14
+client-orders.php - Session client_id/user_id: 7 at 2025-05-16 21:13:14
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 21:13:14
+Booking.php - Constructor called with param: object at 2025-05-16 21:13:14
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 23
+    [client_id] => 7
+    [name] => John Porc
+    [dropoff_date] => 2025-05-28 17:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 50
+    [payment_method] => cash
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-16 21:13:14
+Booking.php - Constructor called with param: object at 2025-05-16 21:13:14
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris P Bacon
+    [dropoff_date] => 2025-05-19 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => etransfer
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-16 21:13:14
+Booking.php - List result: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 23
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-28 17:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 1
+            [status:Booking:private] => Pending
+            [name:Booking:private] => John Porc
+            [total_Price:Booking:private] => 50
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => cash
+        )
+
+    [1] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-19 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris P Bacon
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => etransfer
+        )
+
+)
+ at 2025-05-16 21:13:14
+client-orders.php - Bookings fetched, count: 2 at 2025-05-16 21:13:14: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 23
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-28 17:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 1
+            [status:Booking:private] => Pending
+            [name:Booking:private] => John Porc
+            [total_Price:Booking:private] => 50
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => cash
+        )
+
+    [1] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-19 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris P Bacon
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => etransfer
+        )
+
+)
+
+client-orders.php - Entering foreach loop, count: 2 at 2025-05-16 21:13:14
+client-orders.php - Rendering booking ID: 23, Phone: 514-850-0978, Username: edp445 at 2025-05-16 21:13:14
+client-orders.php - Rendering booking ID: 22, Phone: 514-850-0978, Username: edp445 at 2025-05-16 21:13:14
+Booking.php - Constructor called with param: object at 2025-05-16 21:13:28
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-19 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris P Bacon
+)
+ at 2025-05-16 21:13:28
+Booking.php - Constructor called with param: object at 2025-05-16 21:13:28
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 23
+    [client_id] => 7
+    [dropoff_date] => 2025-05-28 17:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 1
+    [status] => Pending
+    [total_Price] => 50
+    [name] => John Porc
+)
+ at 2025-05-16 21:13:28
+client-orders.php - POST request received with data: Array
+(
+    [action] => delete
+    [booking_id] => 23
+)
+ at 2025-05-16 21:13:28
+Booking.php - Constructor called with param: 23 at 2025-05-16 21:13:28
+Booking.php - Executing query: SELECT * FROM `bookings` WHERE `booking_id` = :bookingId with booking_id: 23 at 2025-05-16 21:13:28
+Booking.php - Found booking: stdClass Object
+(
+    [booking_id] => 23
+    [client_id] => 7
+    [dropoff_date] => 2025-05-28 17:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 1
+    [status] => Pending
+    [total_Price] => 50
+    [name] => John Porc
+)
+ at 2025-05-16 21:13:28
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 23
+    [client_id] => 7
+    [dropoff_date] => 2025-05-28 17:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 1
+    [status] => Pending
+    [total_Price] => 50
+    [name] => John Porc
+)
+ at 2025-05-16 21:13:28
+client-orders.php - Deleting booking ID: 23 at 2025-05-16 21:13:28
+Booking.php - Executing delete query: DELETE FROM `bookings` WHERE `booking_id` = :booking_id AND `client_id` = :client_id for booking ID: 23 at 2025-05-16 21:13:28
+Booking.php - Delete affected 1 rows for booking ID: 23 at 2025-05-16 21:13:28
+Booking.php - Constructor called with param: object at 2025-05-16 21:13:28
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-19 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris P Bacon
+)
+ at 2025-05-16 21:13:28
+client-orders.php - Session client_id/user_id: 7 at 2025-05-16 21:13:28
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 21:13:28
+Booking.php - Constructor called with param: object at 2025-05-16 21:13:28
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris P Bacon
+    [dropoff_date] => 2025-05-19 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => etransfer
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-16 21:13:28
+Booking.php - List result: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-19 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris P Bacon
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => etransfer
+        )
+
+)
+ at 2025-05-16 21:13:28
+client-orders.php - Bookings fetched, count: 1 at 2025-05-16 21:13:28: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-19 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris P Bacon
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => etransfer
+        )
+
+)
+
+client-orders.php - Entering foreach loop, count: 1 at 2025-05-16 21:13:28
+client-orders.php - Rendering booking ID: 22, Phone: 514-850-0978, Username: edp445 at 2025-05-16 21:13:28
+Booking.php - Constructor called with param: null at 2025-05-16 21:15:09
+Booking.php - Booking data: Array
+(
+    [0] => 7
+    [1] => 2025-05-17 10:00:00
+    [2] => 
+    [3] => 2
+    [4] => Pending
+    [5] => Joey
+    [6] => 130
+)
+ at 2025-05-16 21:15:09
+Booking.php - Payment data: Array
+(
+    [0] => 24
+    [1] => cash
+    [2] => 0
+    [3] => 130
+    [4] => 2025-05-16
+    [5] => 0
+)
+ at 2025-05-16 21:15:09
+Booking.php - bookAppointment completed successfully for booking_id: 24 at 2025-05-16 21:15:09
+Booking.php - Constructor called with param: object at 2025-05-16 21:15:12
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-19 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris P Bacon
+)
+ at 2025-05-16 21:15:12
+Booking.php - Constructor called with param: object at 2025-05-16 21:15:12
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 24
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 10:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Joey
+)
+ at 2025-05-16 21:15:12
+client-orders.php - Session client_id/user_id: 7 at 2025-05-16 21:15:12
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 21:15:12
+Booking.php - Constructor called with param: object at 2025-05-16 21:15:12
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 24
+    [client_id] => 7
+    [name] => Joey
+    [dropoff_date] => 2025-05-17 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => cash
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-16 21:15:12
+Booking.php - Constructor called with param: object at 2025-05-16 21:15:12
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris P Bacon
+    [dropoff_date] => 2025-05-19 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => etransfer
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-16 21:15:12
+Booking.php - List result: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 24
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-17 10:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Joey
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => cash
+        )
+
+    [1] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-19 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris P Bacon
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => etransfer
+        )
+
+)
+ at 2025-05-16 21:15:12
+client-orders.php - Bookings fetched, count: 2 at 2025-05-16 21:15:12: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 24
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-17 10:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Joey
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => cash
+        )
+
+    [1] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-19 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris P Bacon
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => etransfer
+        )
+
+)
+
+client-orders.php - Entering foreach loop, count: 2 at 2025-05-16 21:15:12
+client-orders.php - Rendering booking ID: 24, Phone: 514-850-0978, Username: edp445 at 2025-05-16 21:15:12
+client-orders.php - Rendering booking ID: 22, Phone: 514-850-0978, Username: edp445 at 2025-05-16 21:15:12
+Booking.php - Constructor called with param: object at 2025-05-16 21:15:32
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-19 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris P Bacon
+)
+ at 2025-05-16 21:15:32
+Booking.php - Constructor called with param: object at 2025-05-16 21:15:32
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 24
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 10:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Joey
+)
+ at 2025-05-16 21:15:32
+client-orders.php - POST request received with data: Array
+(
+    [action] => update
+    [booking_id] => 24
+    [name] => John Porc
+    [dropoff_time] => 2025-05-17T14:00
+    [payment_method] => cash
+)
+ at 2025-05-16 21:15:32
+Booking.php - Constructor called with param: 24 at 2025-05-16 21:15:32
+Booking.php - Executing query: SELECT * FROM `bookings` WHERE `booking_id` = :bookingId with booking_id: 24 at 2025-05-16 21:15:32
+Booking.php - Found booking: stdClass Object
+(
+    [booking_id] => 24
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 10:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Joey
+)
+ at 2025-05-16 21:15:32
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 24
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 10:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Joey
+)
+ at 2025-05-16 21:15:32
+client-orders.php - Updating booking ID: 24 with data: Array
+(
+    [name] => John Porc
+    [dropoff_date] => 2025-05-17 14:00:00
+    [payment_method] => cash
+)
+ at 2025-05-16 21:15:32
+Booking.php - Constructor called with param: object at 2025-05-16 21:15:32
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-19 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris P Bacon
+)
+ at 2025-05-16 21:15:32
+Booking.php - Constructor called with param: object at 2025-05-16 21:15:32
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 24
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => John Porc
+)
+ at 2025-05-16 21:15:32
+client-orders.php - Session client_id/user_id: 7 at 2025-05-16 21:15:32
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 21:15:32
+Booking.php - Constructor called with param: object at 2025-05-16 21:15:32
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 24
+    [client_id] => 7
+    [name] => John Porc
+    [dropoff_date] => 2025-05-17 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => cash
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-16 21:15:33
+Booking.php - Constructor called with param: object at 2025-05-16 21:15:33
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris P Bacon
+    [dropoff_date] => 2025-05-19 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => etransfer
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-16 21:15:33
+Booking.php - List result: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 24
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-17 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => John Porc
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => cash
+        )
+
+    [1] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-19 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris P Bacon
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => etransfer
+        )
+
+)
+ at 2025-05-16 21:15:33
+client-orders.php - Bookings fetched, count: 2 at 2025-05-16 21:15:33: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 24
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-17 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => John Porc
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => cash
+        )
+
+    [1] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-19 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris P Bacon
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => etransfer
+        )
+
+)
+
+client-orders.php - Entering foreach loop, count: 2 at 2025-05-16 21:15:33
+client-orders.php - Rendering booking ID: 24, Phone: 514-850-0978, Username: edp445 at 2025-05-16 21:15:33
+client-orders.php - Rendering booking ID: 22, Phone: 514-850-0978, Username: edp445 at 2025-05-16 21:15:33
+Booking.php - Constructor called with param: object at 2025-05-16 21:15:57
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-19 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris P Bacon
+)
+ at 2025-05-16 21:15:57
+Booking.php - Constructor called with param: object at 2025-05-16 21:15:57
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 24
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => John Porc
+)
+ at 2025-05-16 21:15:57
+client-orders.php - POST request received with data: Array
+(
+    [action] => delete
+    [booking_id] => 24
+)
+ at 2025-05-16 21:15:57
+Booking.php - Constructor called with param: 24 at 2025-05-16 21:15:57
+Booking.php - Executing query: SELECT * FROM `bookings` WHERE `booking_id` = :bookingId with booking_id: 24 at 2025-05-16 21:15:57
+Booking.php - Found booking: stdClass Object
+(
+    [booking_id] => 24
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => John Porc
+)
+ at 2025-05-16 21:15:57
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 24
+    [client_id] => 7
+    [dropoff_date] => 2025-05-17 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => John Porc
+)
+ at 2025-05-16 21:15:57
+client-orders.php - Deleting booking ID: 24 at 2025-05-16 21:15:57
+Booking.php - Executing delete query: DELETE FROM `bookings` WHERE `booking_id` = :booking_id AND `client_id` = :client_id for booking ID: 24 at 2025-05-16 21:15:57
+Booking.php - Delete affected 1 rows for booking ID: 24 at 2025-05-16 21:15:57
+Booking.php - Constructor called with param: object at 2025-05-16 21:15:57
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-19 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris P Bacon
+)
+ at 2025-05-16 21:15:57
+client-orders.php - Session client_id/user_id: 7 at 2025-05-16 21:15:57
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-16 21:15:57
+Booking.php - Constructor called with param: object at 2025-05-16 21:15:57
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris P Bacon
+    [dropoff_date] => 2025-05-19 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => etransfer
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-16 21:15:57
+Booking.php - List result: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-19 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris P Bacon
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => etransfer
+        )
+
+)
+ at 2025-05-16 21:15:57
+client-orders.php - Bookings fetched, count: 1 at 2025-05-16 21:15:57: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-19 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Pending
+            [name:Booking:private] => Chris P Bacon
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => etransfer
+        )
+
+)
+
+client-orders.php - Entering foreach loop, count: 1 at 2025-05-16 21:15:57
+client-orders.php - Rendering booking ID: 22, Phone: 514-850-0978, Username: edp445 at 2025-05-16 21:15:57

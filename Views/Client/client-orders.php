@@ -1,15 +1,81 @@
 <?php
+ob_start();
 $path = $_SERVER['SCRIPT_NAME'];
-include_once "Models/Booking.php"; // Adjusted path: from /client/ to /Models/
+include_once "Models/Booking.php";
 
 if (!isset($_SESSION['token'])) {
     header('Location: /MagicSoleProject/client/login');
     exit;
 }
 
-file_put_contents('debug.log', "client-orders.php - Session client_id/user_id at " . date('Y-m-d H:i:s') . ": " . ($_SESSION['client_id'] ?? $_SESSION['user_id'] ?? 'not set') . "\n", FILE_APPEND);
+// Handle AJAX requests for update and delete
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    header('Content-Type: application/json');
+
+    $raw_input = file_get_contents('php://input');
+    $data = json_decode($raw_input, true);
+    file_put_contents('debug.log', "client-orders.php - POST request received with data: " . print_r($data, true) . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+
+    if (isset($data['action'])) {
+        try {
+            if ($data['action'] === 'update') {
+                if (!isset($data['booking_id']) || !isset($data['name']) || !isset($data['dropoff_time']) || !isset($data['payment_method'])) {
+                    file_put_contents('debug.log', "client-orders.php - Invalid or missing update data: " . print_r($data, true) . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+                    echo json_encode(['success' => false, 'message' => 'Invalid or missing data']);
+                    exit;
+                }
+
+                $booking = new Booking((int)$data['booking_id']);
+                if (!$booking->getBookingId()) {
+                    file_put_contents('debug.log', "client-orders.php - Booking not found for ID: " . $data['booking_id'] . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+                    echo json_encode(['success' => false, 'message' => 'Booking not found']);
+                    exit;
+                }
+
+                $updateData = [
+                    'name' => $data['name'],
+                    'dropoff_date' => date('Y-m-d H:i:s', strtotime($data['dropoff_time'])),
+                    'payment_method' => $data['payment_method']
+                ];
+                file_put_contents('debug.log', "client-orders.php - Updating booking ID: " . $data['booking_id'] . " with data: " . print_r($updateData, true) . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+                $response = $booking->updateClientDetails($updateData);
+                echo json_encode($response);
+                exit;
+            } elseif ($data['action'] === 'delete') {
+                if (!isset($data['booking_id'])) {
+                    file_put_contents('debug.log', "client-orders.php - Missing booking_id for delete at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+                    echo json_encode(['success' => false, 'message' => 'Invalid or missing booking ID']);
+                    exit;
+                }
+
+                $booking = new Booking((int)$data['booking_id']);
+                if (!$booking->getBookingId()) {
+                    file_put_contents('debug.log', "client-orders.php - Booking not found for ID: " . $data['booking_id'] . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+                    echo json_encode(['success' => false, 'message' => 'Booking not found']);
+                    exit;
+                }
+
+                file_put_contents('debug.log', "client-orders.php - Deleting booking ID: " . $data['booking_id'] . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+                $response = $booking->delete();
+                echo json_encode($response);
+                exit;
+            }
+        } catch (Exception $e) {
+            $error_message = 'Error: ' . $e->getMessage();
+            file_put_contents('debug.log', "client-orders.php - $error_message at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+            echo json_encode(['success' => false, 'message' => $error_message]);
+            exit;
+        }
+    }
+
+    echo json_encode(['success' => false, 'message' => 'Invalid action']);
+    exit;
+}
+
+$session_id = $_SESSION['client_id'] ?? $_SESSION['user_id'] ?? 'not set';
+file_put_contents('debug.log', "client-orders.php - Session client_id/user_id: $session_id at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
 $data = Booking::list();
-file_put_contents('debug.log', "client-orders.php - Bookings data at " . date('Y-m-d H:i:s') . ": " . print_r($data, true) . "\n", FILE_APPEND);
+file_put_contents('debug.log', "client-orders.php - Bookings fetched, count: " . count($data) . " at " . date('Y-m-d H:i:s') . ": " . print_r($data, true) . "\n", FILE_APPEND);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -83,7 +149,7 @@ file_put_contents('debug.log', "client-orders.php - Bookings data at " . date('Y
         <a href="/MagicSoleProject/client/policies">Policies</a>
         <a href="/MagicSoleProject/booking/booking">Booking</a>
         <a href="/MagicSoleProject/client/gallery">Gallery</a>
-        <?php if(!isset($_SESSION['token'])){ ?>
+        <?php if (!isset($_SESSION['token'])) { ?>
             <a href="/MagicSoleProject/client/login">Login</a>
             <a href="/MagicSoleProject/client/register">Register</a>
         <?php } else { ?>
@@ -110,20 +176,28 @@ file_put_contents('debug.log', "client-orders.php - Bookings data at " . date('Y
         <table class="orders-table" id="orders-table">
             <thead><tr><th>Order ID</th><th>Date</th><th>Total</th><th>Status</th><th>Name</th><th>Phone</th><th>Username</th><th>Payment Method</th><th>Actions</th></tr></thead>
             <tbody id="orders-tbody">
-                <?php if (empty($data)) { ?><tr><td colspan="9">No bookings found.</td></tr>
-                <?php } else { foreach ($data as $booking) { 
-                    file_put_contents('debug.log', "client-orders.php - Rendering buttons for booking ID: " . $booking->getBookingId() . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
-                ?><tr>
-                    <td data-order-id="<?php echo $booking->getBookingId(); ?>"><?php echo $booking->getBookingId(); ?></td>
-                    <td data-date="<?php echo $booking->getDropoffDate(); ?>"><?php echo $booking->getDropoffDate(); ?></td>
-                    <td data-total="<?php echo $booking->getTotalPrice(); ?>"><?php echo $booking->getTotalPrice(); ?></td>
-                    <td data-status="<?php echo $booking->getStatus(); ?>"><?php echo $booking->getStatus(); ?></td>
-                    <td data-name="<?php echo $booking->getName(); ?>"><?php echo $booking->getName(); ?></td>
-                    <td data-phone="<?php echo $booking->getPhone(); ?>"><?php echo $booking->getPhone(); ?></td>
-                    <td data-username="<?php echo $booking->getUsername(); ?>"><?php echo $booking->getUsername(); ?></td>
-                    <td data-payment-method="<?php echo $booking->getPaymentMethod(); ?>"><?php echo $booking->getPaymentMethod(); ?></td>
-                    <td><button class="action-btn update-btn" onclick="openUpdateModal('<?php echo $booking->getBookingId(); ?>')">Update</button><button class="action-btn delete-btn" onclick="deleteOrder('<?php echo $booking->getBookingId(); ?>')">Delete</button></td>
-                </tr><?php } } ?>
+                <?php if (empty($data)) { ?>
+                    <tr><td colspan="9">No bookings found.</td></tr>
+                <?php } else { 
+                    file_put_contents('debug.log', "client-orders.php - Entering foreach loop, count: " . count($data) . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+                    foreach ($data as $booking) { 
+                        file_put_contents('debug.log', "client-orders.php - Rendering booking ID: " . $booking->getBookingId() . ", Phone: " . ($booking->getPhone() ?: 'empty') . ", Username: " . ($booking->getUsername() ?: 'empty') . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+                ?>
+                    <tr>
+                        <td data-order-id="<?php echo $booking->getBookingId(); ?>"><?php echo $booking->getBookingId(); ?></td>
+                        <td data-date="<?php echo $booking->getDropoffDate(); ?>"><?php echo $booking->getDropoffDate(); ?></td>
+                        <td data-total="<?php echo $booking->getTotalPrice(); ?>"><?php echo $booking->getTotalPrice(); ?></td>
+                        <td data-status="<?php echo $booking->getStatus(); ?>"><?php echo $booking->getStatus(); ?></td>
+                        <td data-name="<?php echo htmlspecialchars($booking->getName()); ?>"><?php echo htmlspecialchars($booking->getName()); ?></td>
+                        <td data-phone="<?php echo htmlspecialchars($booking->getPhone()); ?>"><?php echo htmlspecialchars($booking->getPhone()) ?: 'Phone is empty'; ?></td>
+                        <td data-username="<?php echo htmlspecialchars($booking->getUsername()); ?>"><?php echo htmlspecialchars($booking->getUsername()) ?: 'Username is empty'; ?></td>
+                        <td data-payment-method="<?php echo $booking->getPaymentMethod(); ?>"><?php echo $booking->getPaymentMethod(); ?></td>
+                        <td>
+                            <button class="action-btn update-btn" onclick="openUpdateModal('<?php echo $booking->getBookingId(); ?>')">Update</button>
+                            <button class="action-btn delete-btn" onclick="deleteOrder('<?php echo $booking->getBookingId(); ?>')">Delete</button>
+                        </td>
+                    </tr>
+                <?php } } ?>
             </tbody>
         </table>
         <div class="pagination"><button onclick="changePage(-1)">Previous</button><button onclick="changePage(1)">Next</button></div>
@@ -134,8 +208,6 @@ file_put_contents('debug.log', "client-orders.php - Bookings data at " . date('Y
             <h3>Update Booking Details</h3>
             <label for="update-order-id">Order ID</label><input type="text" id="update-order-id" readonly>
             <label for="update-name">Name</label><input type="text" id="update-name">
-            <label for="update-phone">Phone Number</label><input type="tel" id="update-phone" pattern="[0-9]{10}" placeholder="1234567890">
-            <label for="update-username">Username</label><input type="text" id="update-username">
             <label for="update-dropoff-time">Drop-off Time</label><input type="datetime-local" id="update-dropoff-time">
             <label for="update-payment-method">Payment Method</label>
             <select id="update-payment-method"><option value="cash">Cash</option><option value="etransfer">E-Transfer</option></select>
@@ -155,8 +227,6 @@ file_put_contents('debug.log', "client-orders.php - Bookings data at " . date('Y
         if (row) {
             document.getElementById('update-order-id').value = orderId;
             document.getElementById('update-name').value = row.querySelector('[data-name]')?.getAttribute('data-name') || '';
-            document.getElementById('update-phone').value = row.querySelector('[data-phone]')?.getAttribute('data-phone') || '';
-            document.getElementById('update-username').value = row.querySelector('[data-username]')?.getAttribute('data-username') || '';
             const dropoffDate = row.querySelector('[data-date]')?.getAttribute('data-date') || '';
             document.getElementById('update-dropoff-time').value = dropoffDate ? new Date(dropoffDate).toISOString().slice(0, 16) : '';
             document.getElementById('update-payment-method').value = row.querySelector('[data-payment-method]')?.getAttribute('data-payment-method') || 'cash';
@@ -174,8 +244,6 @@ file_put_contents('debug.log', "client-orders.php - Bookings data at " . date('Y
     function saveOrder() {
         const orderId = document.getElementById('update-order-id').value;
         const name = document.getElementById('update-name').value.trim();
-        const phone = document.getElementById('update-phone').value.trim();
-        const username = document.getElementById('update-username').value.trim();
         const dropoffTime = document.getElementById('update-dropoff-time').value;
         const paymentMethod = document.getElementById('update-payment-method').value;
         const loadingSpinner = document.getElementById('loading-spinner');
@@ -186,37 +254,36 @@ file_put_contents('debug.log', "client-orders.php - Bookings data at " . date('Y
             return;
         }
 
-        const payload = { booking_id: orderId, name, phone, username, dropoff_time: dropoffTime, payment_method: paymentMethod };
+        const payload = { 
+            action: 'update',
+            booking_id: orderId, 
+            name, 
+            dropoff_time: dropoffTime, 
+            payment_method: paymentMethod 
+        };
         console.log('Sending update request with payload:', payload);
 
         loadingSpinner.style.display = 'block';
-        const updateUrl = '/MagicSoleProject/views/booking/updateClientDetails.php';
-        console.log('Fetching URL:', updateUrl);
 
-        fetch(updateUrl, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' }, body: JSON.stringify(payload) })
+        fetch('/MagicSoleProject/client/client-orders', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
+            body: JSON.stringify(payload)
+        })
             .then(res => {
                 console.log('Fetch response status:', res.status);
                 console.log('Fetch response headers:', [...res.headers.entries()]);
                 if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
-                return res.text();
+                return res.json();
             })
-            .then(text => {
-                console.log('Raw response text:', text);
-                try {
-                    const response = JSON.parse(text);
-                    console.log('Parsed JSON response:', response);
-                    loadingSpinner.style.display = 'none';
-                    if (response.success) {
-                        closeUpdateModal();
-                        location.reload();
-                    } else {
-                        alert(response.message || 'Failed to update booking.');
-                    }
-                } catch (e) {
-                    console.error('JSON parse error:', e.message);
-                    console.error('Raw response causing parse error:', text);
-                    loadingSpinner.style.display = 'none';
-                    alert(`An error occurred: Invalid response format. Raw response: ${text}`);
+            .then(response => {
+                console.log('Parsed JSON response:', response);
+                loadingSpinner.style.display = 'none';
+                if (response.success) {
+                    closeUpdateModal();
+                    location.reload();
+                } else {
+                    alert(response.message || 'Failed to update booking.');
                 }
             })
             .catch(error => {
@@ -231,31 +298,24 @@ file_put_contents('debug.log', "client-orders.php - Bookings data at " . date('Y
         if (confirm('Are you sure you want to delete this booking?')) {
             const loadingSpinner = document.getElementById('loading-spinner');
             loadingSpinner.style.display = 'block';
-            fetch('/MagicSoleProject/views/booking/delete.php?booking_id=' + orderId, {
+            const payload = { action: 'delete', booking_id: orderId };
+            fetch('/MagicSoleProject/client/client-orders', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' }
+                headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
+                body: JSON.stringify(payload)
             })
             .then(res => {
                 console.log('Delete response status:', res.status);
                 if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
-                return res.text();
+                return res.json();
             })
-            .then(text => {
-                console.log('Delete raw response text:', text);
-                try {
-                    const response = JSON.parse(text);
-                    console.log('Parsed delete response:', response);
-                    loadingSpinner.style.display = 'none';
-                    if (response.success) {
-                        location.reload();
-                    } else {
-                        alert(response.message || 'Failed to delete booking.');
-                    }
-                } catch (e) {
-                    console.error('JSON parse error:', e.message);
-                    console.error('Raw response causing parse error:', text);
-                    loadingSpinner.style.display = 'none';
-                    alert(`An error occurred: Invalid response format. Raw response: ${text}`);
+            .then(response => {
+                console.log('Parsed delete response:', response);
+                loadingSpinner.style.display = 'none';
+                if (response.success) {
+                    location.reload();
+                } else {
+                    alert(response.message || 'Failed to delete booking.');
                 }
             })
             .catch(error => {
@@ -287,9 +347,9 @@ file_put_contents('debug.log', "client-orders.php - Bookings data at " . date('Y
         const statusFilter = document.getElementById('status-filter').value;
         const rows = document.querySelectorAll('#orders-tbody tr');
         rows.forEach(row => {
-            const orderId = row.querySelector('[data-order-id]').textContent.toLowerCase();
-            const status = row.querySelector('[data-status]').textContent;
-            const matchesSearch = orderId.includes(searchTerm);
+            const orderId = row.querySelector('[data-order-id]')?.textContent.toLowerCase();
+            const status = row.querySelector('[data-status]')?.textContent;
+            const matchesSearch = orderId?.includes(searchTerm);
             const matchesStatus = statusFilter ? status === statusFilter : true;
             row.style.display = (matchesSearch && matchesStatus) ? '' : 'none';
         });

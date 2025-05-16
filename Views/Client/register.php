@@ -4,12 +4,11 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-
 require 'vendor/autoload.php';
 require 'config/config.php';
 $path = $_SERVER['SCRIPT_NAME'];
 
-// Load environment variables (if needed in the future)
+// Load environment variables
 $dotenv = Dotenv\Dotenv::createImmutable('config');
 $dotenv->load();
 
@@ -19,14 +18,17 @@ $success = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username'] ?? '');
     $email = filter_var($_POST['email'] ?? '', FILTER_SANITIZE_EMAIL);
+    $phone = trim($_POST['phone'] ?? ''); // Added phone
     $password = $_POST['password'] ?? '';
     $confirm_password = $_POST['confirm_password'] ?? '';
 
     // Validation
-    if (empty($username) || empty($email) || empty($password) || empty($confirm_password)) {
+    if (empty($username) || empty($email) || empty($phone) || empty($password) || empty($confirm_password)) {
         $error = 'All fields are required';
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = 'Invalid email format';
+    } elseif (!preg_match('/^\d{10,15}$/', $phone)) { // Basic phone validation
+        $error = 'Phone number must be 10-15 digits';
     } elseif ($password !== $confirm_password) {
         $error = 'Passwords do not match';
     } elseif (strlen($password) < 8) {
@@ -44,13 +46,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
                 // Insert the new user
-                $stmt = $conn->prepare("INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, 'client')");
-                $stmt->execute([$username, $email, $hashed_password]);
+                $stmt = $conn->prepare("INSERT INTO users (username, email, phone, password, role) VALUES (?, ?, ?, ?, 'client')");
+                $stmt->execute([$username, $email, $phone, $hashed_password]);
 
                 $success = 'Registration successful! You can now log in.';
-                // Optionally redirect to login.php after a delay
-                header('Refresh: 2; URL='.dirname($path).'/client/login');
-//                header('Location:'.dirname($path).'/client/login');
+                // Redirect to login.php after a delay
+                header('Refresh: 2; URL=' . dirname($path) . '/client/login');
             }
         } catch (PDOException $e) {
             $error = 'Database error: ' . $e->getMessage();
@@ -304,32 +305,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 <header>
     <div class="logo">
-        <a href="<?php echo dirname($path);?>/client/home">
-            <img src="<?php echo dirname($path);?>/Images/MagicNoBackground.png" alt="Magic Sole Logo">
+        <a href="<?php echo dirname($path); ?>/client/home">
+            <img src="<?php echo dirname($path); ?>/Images/MagicNoBackground.png" alt="Magic Sole Logo">
         </a>
     </div>
     <nav>
-        <a href="<?php echo dirname($path);?>/client/home">Home</a>
-        <a href="<?php echo dirname($path);?>/client/services">Services</a>
-        <a href="<?php echo dirname($path);?>/client/about">About</a>
-        <a href="<?php echo dirname($path);?>/client/policies">Policies</a>
-        <a href="<?php echo dirname($path);?>/booking/booking">Booking</a>
-        <a href="<?php echo dirname($path);?>/client/gallery">Gallery</a>
+        <a href="<?php echo dirname($path); ?>/client/home">Home</a>
+        <a href="<?php echo dirname($path); ?>/client/services">Services</a>
+        <a href="<?php echo dirname($path); ?>/client/about">About</a>
+        <a href="<?php echo dirname($path); ?>/client/policies">Policies</a>
+        <a href="<?php echo dirname($path); ?>/booking/booking">Booking</a>
+        <a href="<?php echo dirname($path); ?>/client/gallery">Gallery</a>
         <?php
-        if(!isset($_SESSION['token'])){
-            ?>
-            <a href="<?php echo dirname($path);?>/client/login">Login</a>
-            <a href="<?php echo dirname($path);?>/client/register">Register</a>
-            <?php
-        }
-        else{
-            ?>
-            <a href="<?php echo dirname($path);?>/client/client-orders">Orders</a>
-            <a href="<?php echo dirname($path);?>/client/logout" >Logout</a>
-            <?php
+        if (!isset($_SESSION['token'])) {
+        ?>
+            <a href="<?php echo dirname($path); ?>/client/login">Login</a>
+            <a href="<?php echo dirname($path); ?>/client/register">Register</a>
+        <?php
+        } else {
+        ?>
+            <a href="<?php echo dirname($path); ?>/client/client-orders">Orders</a>
+            <a href="<?php echo dirname($path); ?>/client/logout">Logout</a>
+        <?php
         }
         ?>
-
     </nav>
     <footer>
         <p>© 2025 Magic Sole. All rights reserved.</p>
@@ -351,6 +350,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="text" id="username" name="username" placeholder="Enter your username" value="<?php echo htmlspecialchars($username ?? ''); ?>" required>
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="Enter your email" value="<?php echo htmlspecialchars($email ?? ''); ?>" required>
+            <label for="phone">Phone</label>
+            <input type="text" id="phone" name="phone" placeholder="Enter your phone number" value="<?php echo htmlspecialchars($phone ?? ''); ?>" required>
             <label for="password">Password</label>
             <input type="password" id="password" name="password" placeholder="Enter your password" required>
             <label for="confirm_password">Confirm Password</label>
@@ -366,7 +367,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </section>
 
     <div class="bottom-logo">
-        <img src="<?php echo dirname($path);?>/Images/MagicNoBackground.png" alt="Magic Sole Logo">
+        <img src="<?php echo dirname($path); ?>/Images/MagicNoBackground.png" alt="Magic Sole Logo">
     </div>
 </div>
 
@@ -396,4 +397,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </script>
 </body>
 </html>
-
