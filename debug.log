@@ -41530,3 +41530,3402 @@ Login successful for xxchris.yk71@gmail.com
 Env file exists: No
 GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
 GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => joey.ayoubdisalvo@icloud.com
+    [password] => Admin123
+)
+
+OTP generated: 289092 for email: joey.ayoubdisalvo@icloud.com
+Email sent successfully to joey.ayoubdisalvo@icloud.com
+POST data: Array
+(
+    [otp] => 289092
+)
+
+OTP entered: 289092
+Login successful for joey.ayoubdisalvo@icloud.com
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 2 at 2025-05-17 02:37:55
+Booking.php - List result: Array
+(
+)
+ at 2025-05-17 02:37:55
+Booking.php - Constructor called with param: null at 2025-05-17 02:38:07
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 2 at 2025-05-17 02:38:07
+Booking.php - List result: Array
+(
+)
+ at 2025-05-17 02:38:07
+Booking.php - Constructor called with param: null at 2025-05-17 02:57:28
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 2 at 2025-05-17 02:57:28
+Booking.php - List result: 0 bookings at 2025-05-17 02:57:28
+view-orders.php - Session user_id: 2 at 2025-05-17 02:57:28
+Booking.php - Executing listAll query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                ORDER BY b.booking_id DESC at 2025-05-17 02:57:28
+Booking.php - Constructor called with param: null at 2025-05-17 02:57:28
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris P Bacon
+    [dropoff_date] => 2025-05-19 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => etransfer
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-17 02:57:28
+Booking.php - Constructor called with param: null at 2025-05-17 02:57:28
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 21
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 20:00:00
+    [status] => Pending
+    [shoes_quantity] => 0
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:57:28
+Booking.php - Constructor called with param: null at 2025-05-17 02:57:28
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 13
+    [client_id] => 1
+    [name] => Barack Obama
+    [dropoff_date] => 2025-05-17 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:57:28
+Booking.php - Constructor called with param: null at 2025-05-17 02:57:28
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 12
+    [client_id] => 1
+    [name] => John Porc
+    [dropoff_date] => 2025-05-16 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:57:28
+Booking.php - Constructor called with param: null at 2025-05-17 02:57:28
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 11
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 16:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:57:28
+Booking.php - Constructor called with param: null at 2025-05-17 02:57:28
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 10
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-15 11:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:57:28
+Booking.php - Constructor called with param: null at 2025-05-17 02:57:28
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 9
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 5
+    [pickup_date] => 
+    [total_Price] => 220
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:57:28
+Booking.php - Constructor called with param: null at 2025-05-17 02:57:28
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 8
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 15:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:57:28
+Booking.php - Constructor called with param: null at 2025-05-17 02:57:28
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 7
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-31 14:00:00
+    [status] => Completed
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:57:28
+Booking.php - Constructor called with param: null at 2025-05-17 02:57:28
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 6
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-17 13:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 02:57:28
+Booking.php - Constructor called with param: null at 2025-05-17 02:57:28
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 5
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-13 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 0
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 02:57:28
+Booking.php - listAll result: 11 bookings at 2025-05-17 02:57:28
+view-orders.php - Bookings fetched, count: 11 at 2025-05-17 02:57:28
+view-orders.php - Rendering booking ID: 22 at 2025-05-17 02:57:28
+view-orders.php - Rendering booking ID: 21 at 2025-05-17 02:57:28
+view-orders.php - Rendering booking ID: 13 at 2025-05-17 02:57:28
+view-orders.php - Rendering booking ID: 12 at 2025-05-17 02:57:28
+view-orders.php - Rendering booking ID: 11 at 2025-05-17 02:57:28
+view-orders.php - Rendering booking ID: 10 at 2025-05-17 02:57:28
+view-orders.php - Rendering booking ID: 9 at 2025-05-17 02:57:28
+view-orders.php - Rendering booking ID: 8 at 2025-05-17 02:57:28
+view-orders.php - Rendering booking ID: 7 at 2025-05-17 02:57:28
+view-orders.php - Rendering booking ID: 6 at 2025-05-17 02:57:28
+view-orders.php - Rendering booking ID: 5 at 2025-05-17 02:57:28
+Booking.php - Constructor called with param: null at 2025-05-17 02:57:58
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 2 at 2025-05-17 02:57:58
+Booking.php - List result: 0 bookings at 2025-05-17 02:57:58
+view-orders.php - Session user_id: 2 at 2025-05-17 02:57:58
+Booking.php - Executing listAll query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                ORDER BY b.booking_id DESC at 2025-05-17 02:57:58
+Booking.php - Constructor called with param: null at 2025-05-17 02:57:58
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris P Bacon
+    [dropoff_date] => 2025-05-19 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => etransfer
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-17 02:57:58
+Booking.php - Constructor called with param: null at 2025-05-17 02:57:58
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 21
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 20:00:00
+    [status] => Pending
+    [shoes_quantity] => 0
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:57:58
+Booking.php - Constructor called with param: null at 2025-05-17 02:57:58
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 13
+    [client_id] => 1
+    [name] => Barack Obama
+    [dropoff_date] => 2025-05-17 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:57:58
+Booking.php - Constructor called with param: null at 2025-05-17 02:57:58
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 12
+    [client_id] => 1
+    [name] => John Porc
+    [dropoff_date] => 2025-05-16 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:57:58
+Booking.php - Constructor called with param: null at 2025-05-17 02:57:58
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 11
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 16:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:57:58
+Booking.php - Constructor called with param: null at 2025-05-17 02:57:58
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 10
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-15 11:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:57:58
+Booking.php - Constructor called with param: null at 2025-05-17 02:57:58
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 9
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 5
+    [pickup_date] => 
+    [total_Price] => 220
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:57:58
+Booking.php - Constructor called with param: null at 2025-05-17 02:57:58
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 8
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 15:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:57:58
+Booking.php - Constructor called with param: null at 2025-05-17 02:57:58
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 7
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-31 14:00:00
+    [status] => Completed
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:57:58
+Booking.php - Constructor called with param: null at 2025-05-17 02:57:58
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 6
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-17 13:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 02:57:58
+Booking.php - Constructor called with param: null at 2025-05-17 02:57:58
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 5
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-13 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 0
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 02:57:58
+Booking.php - listAll result: 11 bookings at 2025-05-17 02:57:58
+view-orders.php - Bookings fetched, count: 11 at 2025-05-17 02:57:58
+view-orders.php - Rendering booking ID: 22 at 2025-05-17 02:57:58
+view-orders.php - Rendering booking ID: 21 at 2025-05-17 02:57:58
+view-orders.php - Rendering booking ID: 13 at 2025-05-17 02:57:58
+view-orders.php - Rendering booking ID: 12 at 2025-05-17 02:57:58
+view-orders.php - Rendering booking ID: 11 at 2025-05-17 02:57:58
+view-orders.php - Rendering booking ID: 10 at 2025-05-17 02:57:58
+view-orders.php - Rendering booking ID: 9 at 2025-05-17 02:57:58
+view-orders.php - Rendering booking ID: 8 at 2025-05-17 02:57:58
+view-orders.php - Rendering booking ID: 7 at 2025-05-17 02:57:58
+view-orders.php - Rendering booking ID: 6 at 2025-05-17 02:57:58
+view-orders.php - Rendering booking ID: 5 at 2025-05-17 02:57:58
+Booking.php - Executing listAll query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                ORDER BY b.booking_id DESC at 2025-05-17 02:58:07
+Booking.php - Constructor called with param: null at 2025-05-17 02:58:07
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris P Bacon
+    [dropoff_date] => 2025-05-19 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => etransfer
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-17 02:58:07
+Booking.php - Constructor called with param: null at 2025-05-17 02:58:07
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 21
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 20:00:00
+    [status] => Pending
+    [shoes_quantity] => 0
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:58:07
+Booking.php - Constructor called with param: null at 2025-05-17 02:58:07
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 13
+    [client_id] => 1
+    [name] => Barack Obama
+    [dropoff_date] => 2025-05-17 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:58:07
+Booking.php - Constructor called with param: null at 2025-05-17 02:58:07
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 12
+    [client_id] => 1
+    [name] => John Porc
+    [dropoff_date] => 2025-05-16 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:58:07
+Booking.php - Constructor called with param: null at 2025-05-17 02:58:07
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 11
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 16:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:58:07
+Booking.php - Constructor called with param: null at 2025-05-17 02:58:07
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 10
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-15 11:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:58:07
+Booking.php - Constructor called with param: null at 2025-05-17 02:58:07
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 9
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 5
+    [pickup_date] => 
+    [total_Price] => 220
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:58:07
+Booking.php - Constructor called with param: null at 2025-05-17 02:58:07
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 8
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 15:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:58:07
+Booking.php - Constructor called with param: null at 2025-05-17 02:58:07
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 7
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-31 14:00:00
+    [status] => Completed
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:58:07
+Booking.php - Constructor called with param: null at 2025-05-17 02:58:07
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 6
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-17 13:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 02:58:07
+Booking.php - Constructor called with param: null at 2025-05-17 02:58:07
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 5
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-13 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 0
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 02:58:07
+Booking.php - listAll result: 11 bookings at 2025-05-17 02:58:07
+AdminController.php - manage-orders: Fetched 11 bookings at 2025-05-17 02:58:07
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:21
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 2 at 2025-05-17 02:59:21
+Booking.php - List result: 0 bookings at 2025-05-17 02:59:21
+view-orders.php - Session user_id: 2 at 2025-05-17 02:59:21
+Booking.php - Executing listAll query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                ORDER BY b.booking_id DESC at 2025-05-17 02:59:21
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:21
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris P Bacon
+    [dropoff_date] => 2025-05-19 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => etransfer
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-17 02:59:21
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:21
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 21
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 20:00:00
+    [status] => Pending
+    [shoes_quantity] => 0
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:21
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:21
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 13
+    [client_id] => 1
+    [name] => Barack Obama
+    [dropoff_date] => 2025-05-17 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:21
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:21
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 12
+    [client_id] => 1
+    [name] => John Porc
+    [dropoff_date] => 2025-05-16 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:21
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:21
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 11
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 16:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:21
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:21
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 10
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-15 11:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:21
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:21
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 9
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 5
+    [pickup_date] => 
+    [total_Price] => 220
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:21
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:21
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 8
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 15:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:21
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:21
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 7
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-31 14:00:00
+    [status] => Completed
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:21
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:21
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 6
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-17 13:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 02:59:21
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:21
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 5
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-13 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 0
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 02:59:21
+Booking.php - listAll result: 11 bookings at 2025-05-17 02:59:21
+view-orders.php - Bookings fetched, count: 11 at 2025-05-17 02:59:21
+view-orders.php - Rendering booking ID: 22 at 2025-05-17 02:59:21
+view-orders.php - Rendering booking ID: 21 at 2025-05-17 02:59:21
+view-orders.php - Rendering booking ID: 13 at 2025-05-17 02:59:21
+view-orders.php - Rendering booking ID: 12 at 2025-05-17 02:59:21
+view-orders.php - Rendering booking ID: 11 at 2025-05-17 02:59:21
+view-orders.php - Rendering booking ID: 10 at 2025-05-17 02:59:21
+view-orders.php - Rendering booking ID: 9 at 2025-05-17 02:59:21
+view-orders.php - Rendering booking ID: 8 at 2025-05-17 02:59:21
+view-orders.php - Rendering booking ID: 7 at 2025-05-17 02:59:21
+view-orders.php - Rendering booking ID: 6 at 2025-05-17 02:59:21
+view-orders.php - Rendering booking ID: 5 at 2025-05-17 02:59:21
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:23
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 2 at 2025-05-17 02:59:23
+Booking.php - List result: 0 bookings at 2025-05-17 02:59:23
+view-orders.php - Session user_id: 2 at 2025-05-17 02:59:23
+Booking.php - Executing listAll query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                ORDER BY b.booking_id DESC at 2025-05-17 02:59:23
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:23
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris P Bacon
+    [dropoff_date] => 2025-05-19 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => etransfer
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-17 02:59:23
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:23
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 21
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 20:00:00
+    [status] => Pending
+    [shoes_quantity] => 0
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:23
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:23
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 13
+    [client_id] => 1
+    [name] => Barack Obama
+    [dropoff_date] => 2025-05-17 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:23
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:23
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 12
+    [client_id] => 1
+    [name] => John Porc
+    [dropoff_date] => 2025-05-16 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:23
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:23
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 11
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 16:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:23
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:23
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 10
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-15 11:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:23
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:23
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 9
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 5
+    [pickup_date] => 
+    [total_Price] => 220
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:23
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:23
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 8
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 15:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:23
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:23
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 7
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-31 14:00:00
+    [status] => Completed
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:23
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:23
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 6
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-17 13:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 02:59:23
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:23
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 5
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-13 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 0
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 02:59:23
+Booking.php - listAll result: 11 bookings at 2025-05-17 02:59:23
+view-orders.php - Bookings fetched, count: 11 at 2025-05-17 02:59:23
+view-orders.php - Rendering booking ID: 22 at 2025-05-17 02:59:23
+view-orders.php - Rendering booking ID: 21 at 2025-05-17 02:59:23
+view-orders.php - Rendering booking ID: 13 at 2025-05-17 02:59:23
+view-orders.php - Rendering booking ID: 12 at 2025-05-17 02:59:23
+view-orders.php - Rendering booking ID: 11 at 2025-05-17 02:59:23
+view-orders.php - Rendering booking ID: 10 at 2025-05-17 02:59:23
+view-orders.php - Rendering booking ID: 9 at 2025-05-17 02:59:23
+view-orders.php - Rendering booking ID: 8 at 2025-05-17 02:59:23
+view-orders.php - Rendering booking ID: 7 at 2025-05-17 02:59:23
+view-orders.php - Rendering booking ID: 6 at 2025-05-17 02:59:23
+view-orders.php - Rendering booking ID: 5 at 2025-05-17 02:59:23
+Booking.php - Executing listAll query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                ORDER BY b.booking_id DESC at 2025-05-17 02:59:26
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:26
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris P Bacon
+    [dropoff_date] => 2025-05-19 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => etransfer
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-17 02:59:26
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:26
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 21
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 20:00:00
+    [status] => Pending
+    [shoes_quantity] => 0
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:26
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:26
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 13
+    [client_id] => 1
+    [name] => Barack Obama
+    [dropoff_date] => 2025-05-17 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:26
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:27
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 12
+    [client_id] => 1
+    [name] => John Porc
+    [dropoff_date] => 2025-05-16 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:27
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:27
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 11
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 16:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:27
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:27
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 10
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-15 11:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:27
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:27
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 9
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 5
+    [pickup_date] => 
+    [total_Price] => 220
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:27
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:27
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 8
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 15:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:27
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:27
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 7
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-31 14:00:00
+    [status] => Completed
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:27
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:27
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 6
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-17 13:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 02:59:27
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:27
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 5
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-13 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 0
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 02:59:27
+Booking.php - listAll result: 11 bookings at 2025-05-17 02:59:27
+AdminController.php - view-orders: Fetched 11 bookings at 2025-05-17 02:59:27
+view-orders.php - Session user_id: 2 at 2025-05-17 02:59:27
+Booking.php - Executing listAll query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                ORDER BY b.booking_id DESC at 2025-05-17 02:59:27
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:27
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris P Bacon
+    [dropoff_date] => 2025-05-19 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => etransfer
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-17 02:59:27
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:27
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 21
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 20:00:00
+    [status] => Pending
+    [shoes_quantity] => 0
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:27
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:27
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 13
+    [client_id] => 1
+    [name] => Barack Obama
+    [dropoff_date] => 2025-05-17 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:27
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:27
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 12
+    [client_id] => 1
+    [name] => John Porc
+    [dropoff_date] => 2025-05-16 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:27
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:27
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 11
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 16:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:27
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:27
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 10
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-15 11:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:27
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:27
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 9
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 5
+    [pickup_date] => 
+    [total_Price] => 220
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:27
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:27
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 8
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 15:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:27
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:27
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 7
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-31 14:00:00
+    [status] => Completed
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:27
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:27
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 6
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-17 13:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 02:59:27
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:27
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 5
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-13 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 0
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 02:59:27
+Booking.php - listAll result: 11 bookings at 2025-05-17 02:59:27
+view-orders.php - Bookings fetched, count: 11 at 2025-05-17 02:59:27
+view-orders.php - Rendering booking ID: 22 at 2025-05-17 02:59:27
+view-orders.php - Rendering booking ID: 21 at 2025-05-17 02:59:27
+view-orders.php - Rendering booking ID: 13 at 2025-05-17 02:59:27
+view-orders.php - Rendering booking ID: 12 at 2025-05-17 02:59:27
+view-orders.php - Rendering booking ID: 11 at 2025-05-17 02:59:27
+view-orders.php - Rendering booking ID: 10 at 2025-05-17 02:59:27
+view-orders.php - Rendering booking ID: 9 at 2025-05-17 02:59:27
+view-orders.php - Rendering booking ID: 8 at 2025-05-17 02:59:27
+view-orders.php - Rendering booking ID: 7 at 2025-05-17 02:59:27
+view-orders.php - Rendering booking ID: 6 at 2025-05-17 02:59:27
+view-orders.php - Rendering booking ID: 5 at 2025-05-17 02:59:27
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:28
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 2 at 2025-05-17 02:59:28
+Booking.php - List result: 0 bookings at 2025-05-17 02:59:28
+view-orders.php - Session user_id: 2 at 2025-05-17 02:59:28
+Booking.php - Executing listAll query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                ORDER BY b.booking_id DESC at 2025-05-17 02:59:28
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:28
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris P Bacon
+    [dropoff_date] => 2025-05-19 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => etransfer
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-17 02:59:28
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:28
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 21
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 20:00:00
+    [status] => Pending
+    [shoes_quantity] => 0
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:28
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:28
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 13
+    [client_id] => 1
+    [name] => Barack Obama
+    [dropoff_date] => 2025-05-17 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:28
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:28
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 12
+    [client_id] => 1
+    [name] => John Porc
+    [dropoff_date] => 2025-05-16 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:28
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:28
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 11
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 16:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:28
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:28
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 10
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-15 11:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:28
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:28
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 9
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 5
+    [pickup_date] => 
+    [total_Price] => 220
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:28
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:28
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 8
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 15:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:28
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:28
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 7
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-31 14:00:00
+    [status] => Completed
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 02:59:28
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:28
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 6
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-17 13:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 02:59:28
+Booking.php - Constructor called with param: null at 2025-05-17 02:59:28
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 5
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-13 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 0
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 02:59:28
+Booking.php - listAll result: 11 bookings at 2025-05-17 02:59:28
+view-orders.php - Bookings fetched, count: 11 at 2025-05-17 02:59:28
+view-orders.php - Rendering booking ID: 22 at 2025-05-17 02:59:28
+view-orders.php - Rendering booking ID: 21 at 2025-05-17 02:59:28
+view-orders.php - Rendering booking ID: 13 at 2025-05-17 02:59:28
+view-orders.php - Rendering booking ID: 12 at 2025-05-17 02:59:28
+view-orders.php - Rendering booking ID: 11 at 2025-05-17 02:59:28
+view-orders.php - Rendering booking ID: 10 at 2025-05-17 02:59:28
+view-orders.php - Rendering booking ID: 9 at 2025-05-17 02:59:28
+view-orders.php - Rendering booking ID: 8 at 2025-05-17 02:59:28
+view-orders.php - Rendering booking ID: 7 at 2025-05-17 02:59:28
+view-orders.php - Rendering booking ID: 6 at 2025-05-17 02:59:28
+view-orders.php - Rendering booking ID: 5 at 2025-05-17 02:59:28
+Booking.php - Executing listAll query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                ORDER BY b.booking_id DESC at 2025-05-17 03:03:17
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:17
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris P Bacon
+    [dropoff_date] => 2025-05-19 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => etransfer
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-17 03:03:17
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:17
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 21
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 20:00:00
+    [status] => Pending
+    [shoes_quantity] => 0
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:17
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:17
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 13
+    [client_id] => 1
+    [name] => Barack Obama
+    [dropoff_date] => 2025-05-17 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:17
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:17
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 12
+    [client_id] => 1
+    [name] => John Porc
+    [dropoff_date] => 2025-05-16 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:17
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:17
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 11
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 16:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:17
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:17
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 10
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-15 11:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:17
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:17
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 9
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 5
+    [pickup_date] => 
+    [total_Price] => 220
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:17
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:17
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 8
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 15:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:17
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:17
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 7
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-31 14:00:00
+    [status] => Completed
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:17
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:17
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 6
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-17 13:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 03:03:17
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:17
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 5
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-13 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 0
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 03:03:17
+Booking.php - listAll result: 11 bookings at 2025-05-17 03:03:17
+AdminController.php - order-status: Fetched 11 bookings at 2025-05-17 03:03:17
+order-status.php - Session user_id: 2 at 2025-05-17 03:03:17
+Booking.php - Executing listAll query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                ORDER BY b.booking_id DESC at 2025-05-17 03:03:17
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:17
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris P Bacon
+    [dropoff_date] => 2025-05-19 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => etransfer
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-17 03:03:17
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:17
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 21
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 20:00:00
+    [status] => Pending
+    [shoes_quantity] => 0
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:17
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:17
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 13
+    [client_id] => 1
+    [name] => Barack Obama
+    [dropoff_date] => 2025-05-17 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:17
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:17
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 12
+    [client_id] => 1
+    [name] => John Porc
+    [dropoff_date] => 2025-05-16 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:17
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:17
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 11
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 16:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:17
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:17
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 10
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-15 11:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:17
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:17
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 9
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 5
+    [pickup_date] => 
+    [total_Price] => 220
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:17
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:17
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 8
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 15:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:17
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:17
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 7
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-31 14:00:00
+    [status] => Completed
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:17
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:17
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 6
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-17 13:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 03:03:17
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:17
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 5
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-13 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 0
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 03:03:17
+Booking.php - listAll result: 11 bookings at 2025-05-17 03:03:17
+order-status.php - Bookings fetched, count: 11 at 2025-05-17 03:03:17
+order-status.php - Rendering booking ID: 22 at 2025-05-17 03:03:17
+order-status.php - Rendering booking ID: 21 at 2025-05-17 03:03:17
+order-status.php - Rendering booking ID: 13 at 2025-05-17 03:03:17
+order-status.php - Rendering booking ID: 12 at 2025-05-17 03:03:17
+order-status.php - Rendering booking ID: 11 at 2025-05-17 03:03:17
+order-status.php - Rendering booking ID: 10 at 2025-05-17 03:03:17
+order-status.php - Rendering booking ID: 9 at 2025-05-17 03:03:17
+order-status.php - Rendering booking ID: 8 at 2025-05-17 03:03:17
+order-status.php - Rendering booking ID: 7 at 2025-05-17 03:03:17
+order-status.php - Rendering booking ID: 6 at 2025-05-17 03:03:17
+order-status.php - Rendering booking ID: 5 at 2025-05-17 03:03:17
+Booking.php - Executing listAll query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                ORDER BY b.booking_id DESC at 2025-05-17 03:03:23
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:23
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris P Bacon
+    [dropoff_date] => 2025-05-19 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => etransfer
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-17 03:03:23
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:23
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 21
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 20:00:00
+    [status] => Pending
+    [shoes_quantity] => 0
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:23
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:23
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 13
+    [client_id] => 1
+    [name] => Barack Obama
+    [dropoff_date] => 2025-05-17 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:23
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:23
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 12
+    [client_id] => 1
+    [name] => John Porc
+    [dropoff_date] => 2025-05-16 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:23
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:23
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 11
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 16:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:23
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:23
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 10
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-15 11:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:23
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:23
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 9
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 5
+    [pickup_date] => 
+    [total_Price] => 220
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:23
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:23
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 8
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 15:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:23
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:23
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 7
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-31 14:00:00
+    [status] => Completed
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:23
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:23
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 6
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-17 13:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 03:03:24
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:24
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 5
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-13 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 0
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 03:03:24
+Booking.php - listAll result: 11 bookings at 2025-05-17 03:03:24
+AdminController.php - view-orders: Fetched 11 bookings at 2025-05-17 03:03:24
+view-orders.php - Session user_id: 2 at 2025-05-17 03:03:24
+Booking.php - Executing listAll query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                ORDER BY b.booking_id DESC at 2025-05-17 03:03:24
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:24
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris P Bacon
+    [dropoff_date] => 2025-05-19 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => etransfer
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-17 03:03:24
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:24
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 21
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 20:00:00
+    [status] => Pending
+    [shoes_quantity] => 0
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:24
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:24
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 13
+    [client_id] => 1
+    [name] => Barack Obama
+    [dropoff_date] => 2025-05-17 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:24
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:24
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 12
+    [client_id] => 1
+    [name] => John Porc
+    [dropoff_date] => 2025-05-16 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:24
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:24
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 11
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 16:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:24
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:24
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 10
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-15 11:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:24
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:24
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 9
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 5
+    [pickup_date] => 
+    [total_Price] => 220
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:24
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:24
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 8
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 15:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:24
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:24
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 7
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-31 14:00:00
+    [status] => Completed
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:24
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:24
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 6
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-17 13:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 03:03:24
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:24
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 5
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-13 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 0
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 03:03:24
+Booking.php - listAll result: 11 bookings at 2025-05-17 03:03:24
+view-orders.php - Bookings fetched, count: 11 at 2025-05-17 03:03:24
+view-orders.php - Rendering booking ID: 22 at 2025-05-17 03:03:24
+view-orders.php - Rendering booking ID: 21 at 2025-05-17 03:03:24
+view-orders.php - Rendering booking ID: 13 at 2025-05-17 03:03:24
+view-orders.php - Rendering booking ID: 12 at 2025-05-17 03:03:24
+view-orders.php - Rendering booking ID: 11 at 2025-05-17 03:03:24
+view-orders.php - Rendering booking ID: 10 at 2025-05-17 03:03:24
+view-orders.php - Rendering booking ID: 9 at 2025-05-17 03:03:24
+view-orders.php - Rendering booking ID: 8 at 2025-05-17 03:03:24
+view-orders.php - Rendering booking ID: 7 at 2025-05-17 03:03:24
+view-orders.php - Rendering booking ID: 6 at 2025-05-17 03:03:24
+view-orders.php - Rendering booking ID: 5 at 2025-05-17 03:03:24
+Booking.php - Executing listAll query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                ORDER BY b.booking_id DESC at 2025-05-17 03:03:26
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:26
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris P Bacon
+    [dropoff_date] => 2025-05-19 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => etransfer
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-17 03:03:26
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:26
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 21
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 20:00:00
+    [status] => Pending
+    [shoes_quantity] => 0
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:26
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:26
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 13
+    [client_id] => 1
+    [name] => Barack Obama
+    [dropoff_date] => 2025-05-17 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:26
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:26
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 12
+    [client_id] => 1
+    [name] => John Porc
+    [dropoff_date] => 2025-05-16 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:26
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:26
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 11
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 16:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:26
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:26
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 10
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-15 11:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:26
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:26
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 9
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 5
+    [pickup_date] => 
+    [total_Price] => 220
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:26
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:26
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 8
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 15:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:26
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:26
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 7
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-31 14:00:00
+    [status] => Completed
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:26
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:26
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 6
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-17 13:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 03:03:26
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:26
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 5
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-13 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 0
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 03:03:26
+Booking.php - listAll result: 11 bookings at 2025-05-17 03:03:26
+AdminController.php - order-status: Fetched 11 bookings at 2025-05-17 03:03:26
+order-status.php - Session user_id: 2 at 2025-05-17 03:03:26
+Booking.php - Executing listAll query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                ORDER BY b.booking_id DESC at 2025-05-17 03:03:26
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:26
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris P Bacon
+    [dropoff_date] => 2025-05-19 14:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => etransfer
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-17 03:03:26
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:26
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 21
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 20:00:00
+    [status] => Pending
+    [shoes_quantity] => 0
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:26
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:26
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 13
+    [client_id] => 1
+    [name] => Barack Obama
+    [dropoff_date] => 2025-05-17 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:26
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:26
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 12
+    [client_id] => 1
+    [name] => John Porc
+    [dropoff_date] => 2025-05-16 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:26
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:26
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 11
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 16:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:26
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:26
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 10
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-15 11:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:26
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:26
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 9
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 5
+    [pickup_date] => 
+    [total_Price] => 220
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:26
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:26
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 8
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 15:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:26
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:26
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 7
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-31 14:00:00
+    [status] => Completed
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:26
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:26
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 6
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-17 13:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 03:03:26
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:26
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 5
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-13 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 0
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 03:03:26
+Booking.php - listAll result: 11 bookings at 2025-05-17 03:03:26
+order-status.php - Bookings fetched, count: 11 at 2025-05-17 03:03:26
+order-status.php - Rendering booking ID: 22 at 2025-05-17 03:03:26
+order-status.php - Rendering booking ID: 21 at 2025-05-17 03:03:26
+order-status.php - Rendering booking ID: 13 at 2025-05-17 03:03:26
+order-status.php - Rendering booking ID: 12 at 2025-05-17 03:03:26
+order-status.php - Rendering booking ID: 11 at 2025-05-17 03:03:26
+order-status.php - Rendering booking ID: 10 at 2025-05-17 03:03:26
+order-status.php - Rendering booking ID: 9 at 2025-05-17 03:03:26
+order-status.php - Rendering booking ID: 8 at 2025-05-17 03:03:26
+order-status.php - Rendering booking ID: 7 at 2025-05-17 03:03:26
+order-status.php - Rendering booking ID: 6 at 2025-05-17 03:03:26
+order-status.php - Rendering booking ID: 5 at 2025-05-17 03:03:26
+AdminController.php - order-status POST: Received data: Array
+(
+    [action] => update
+    [booking_id] => 22
+    [name] => Chris P Bacon
+    [dropoff_date] => 2025-05-19 14:00
+    [payment_method] => etransfer
+    [status] => Completed
+)
+ at 2025-05-17 03:03:31
+Booking.php - Constructor called with param: 22 at 2025-05-17 03:03:31
+Booking.php - Executing query: SELECT * FROM `bookings` WHERE `booking_id` = :bookingId with booking_id: 22 at 2025-05-17 03:03:31
+Booking.php - Found booking: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-19 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris P Bacon
+)
+ at 2025-05-17 03:03:31
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-19 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Pending
+    [total_Price] => 130
+    [name] => Chris P Bacon
+)
+ at 2025-05-17 03:03:31
+Booking.php - updateClientDetails successful for booking_id: 22 at 2025-05-17 03:03:31
+AdminController.php - order-status update response: Array
+(
+    [success] => 1
+    [message] => Booking updated successfully
+)
+ at 2025-05-17 03:03:31
+Booking.php - Executing listAll query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                ORDER BY b.booking_id DESC at 2025-05-17 03:03:36
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:36
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris P Bacon
+    [dropoff_date] => 2025-05-19 14:00:00
+    [status] => Completed
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => etransfer
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-17 03:03:36
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:36
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 21
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 20:00:00
+    [status] => Pending
+    [shoes_quantity] => 0
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:36
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:36
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 13
+    [client_id] => 1
+    [name] => Barack Obama
+    [dropoff_date] => 2025-05-17 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:36
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:36
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 12
+    [client_id] => 1
+    [name] => John Porc
+    [dropoff_date] => 2025-05-16 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:36
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:36
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 11
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 16:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:36
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:36
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 10
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-15 11:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:36
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:36
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 9
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 5
+    [pickup_date] => 
+    [total_Price] => 220
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:36
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:36
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 8
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 15:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:36
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:36
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 7
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-31 14:00:00
+    [status] => Completed
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:36
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:36
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 6
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-17 13:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 03:03:36
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:36
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 5
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-13 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 0
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 03:03:36
+Booking.php - listAll result: 11 bookings at 2025-05-17 03:03:36
+AdminController.php - order-status: Fetched 11 bookings at 2025-05-17 03:03:36
+order-status.php - Session user_id: 2 at 2025-05-17 03:03:36
+Booking.php - Executing listAll query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                ORDER BY b.booking_id DESC at 2025-05-17 03:03:36
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:36
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris P Bacon
+    [dropoff_date] => 2025-05-19 14:00:00
+    [status] => Completed
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => etransfer
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-17 03:03:36
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:36
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 21
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 20:00:00
+    [status] => Pending
+    [shoes_quantity] => 0
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:36
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:36
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 13
+    [client_id] => 1
+    [name] => Barack Obama
+    [dropoff_date] => 2025-05-17 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:36
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:36
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 12
+    [client_id] => 1
+    [name] => John Porc
+    [dropoff_date] => 2025-05-16 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:36
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:36
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 11
+    [client_id] => 1
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 16:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:36
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:36
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 10
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-15 11:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:36
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:36
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 9
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 5
+    [pickup_date] => 
+    [total_Price] => 220
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:36
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:36
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 8
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-20 15:00:00
+    [status] => Pending
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 230
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:36
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:36
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 7
+    [client_id] => 1
+    [name] => 
+    [dropoff_date] => 2025-05-31 14:00:00
+    [status] => Completed
+    [shoes_quantity] => 3
+    [pickup_date] => 
+    [total_Price] => 150
+    [payment_method] => 
+    [phone] => 
+    [username] => Joey
+)
+ at 2025-05-17 03:03:36
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:36
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 6
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-17 13:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 100
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 03:03:36
+Booking.php - Constructor called with param: null at 2025-05-17 03:03:36
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 5
+    [client_id] => 5
+    [name] => 
+    [dropoff_date] => 2025-05-13 10:00:00
+    [status] => Pending
+    [shoes_quantity] => 1
+    [pickup_date] => 
+    [total_Price] => 0
+    [payment_method] => 
+    [phone] => 
+    [username] => clientKishaan
+)
+ at 2025-05-17 03:03:36
+Booking.php - listAll result: 11 bookings at 2025-05-17 03:03:36
+order-status.php - Bookings fetched, count: 11 at 2025-05-17 03:03:36
+order-status.php - Rendering booking ID: 22 at 2025-05-17 03:03:36
+order-status.php - Rendering booking ID: 21 at 2025-05-17 03:03:36
+order-status.php - Rendering booking ID: 13 at 2025-05-17 03:03:36
+order-status.php - Rendering booking ID: 12 at 2025-05-17 03:03:36
+order-status.php - Rendering booking ID: 11 at 2025-05-17 03:03:36
+order-status.php - Rendering booking ID: 10 at 2025-05-17 03:03:36
+order-status.php - Rendering booking ID: 9 at 2025-05-17 03:03:36
+order-status.php - Rendering booking ID: 8 at 2025-05-17 03:03:36
+order-status.php - Rendering booking ID: 7 at 2025-05-17 03:03:36
+order-status.php - Rendering booking ID: 6 at 2025-05-17 03:03:36
+order-status.php - Rendering booking ID: 5 at 2025-05-17 03:03:36
+AdminController.php - order-status POST: Received data: Array
+(
+    [action] => update
+    [booking_id] => 21
+    [name] => Sean Diddy Combs
+    [dropoff_date] => 2025-05-15 20:00
+    [payment_method] => cash
+    [status] => Completed
+)
+ at 2025-05-17 03:03:45
+Booking.php - Constructor called with param: 21 at 2025-05-17 03:03:45
+Booking.php - Executing query: SELECT * FROM `bookings` WHERE `booking_id` = :bookingId with booking_id: 21 at 2025-05-17 03:03:45
+Booking.php - Found booking: stdClass Object
+(
+    [booking_id] => 21
+    [client_id] => 1
+    [dropoff_date] => 2025-05-15 20:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 0
+    [status] => Pending
+    [total_Price] => 100
+    [name] => Sean Diddy Combs
+)
+ at 2025-05-17 03:03:45
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 21
+    [client_id] => 1
+    [dropoff_date] => 2025-05-15 20:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 0
+    [status] => Pending
+    [total_Price] => 100
+    [name] => Sean Diddy Combs
+)
+ at 2025-05-17 03:03:45
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => xxchris.yk71@gmail.com
+    [password] => Bayernisthebest6
+)
+
+OTP generated: 501797 for email: xxchris.yk71@gmail.com
+Email sent successfully to xxchris.yk71@gmail.com
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => xxchris.yk71@gmail.com
+    [password] => Bayernisthebest6
+)
+
+OTP generated: 336205 for email: xxchris.yk71@gmail.com
+Email sent successfully to xxchris.yk71@gmail.com
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => xxchris.yk71@gmail.com
+    [password] => Bayernisthebest6
+)
+
+OTP generated: 345866 for email: xxchris.yk71@gmail.com
+Email sent successfully to xxchris.yk71@gmail.com
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => xxchris.yk71@gmail.com
+    [password] => Bayernisthebest6
+)
+
+OTP generated: 435380 for email: xxchris.yk71@gmail.com
+Email sent successfully to xxchris.yk71@gmail.com
+Env file exists: No
+GMAIL_USERNAME: joeyayoubdisalvo@gmail.com
+GMAIL_APP_PASSWORD: ijcbgdekkqiokahg
+POST data: Array
+(
+    [email] => xxchris.yk71@gmail.com
+    [password] => Bayernisthebest6
+)
+
+OTP generated: 720305 for email: xxchris.yk71@gmail.com
+Email sent successfully to xxchris.yk71@gmail.com
+POST data: Array
+(
+    [otp] => 501797
+)
+
+OTP entered: 501797
+Error: Invalid OTP
+POST data: Array
+(
+    [otp] => 720305
+)
+
+OTP entered: 720305
+Login successful for xxchris.yk71@gmail.com
+Booking.php - Constructor called with param: object at 2025-05-17 03:08:07
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [dropoff_date] => 2025-05-19 14:00:00
+    [pickup_date] => 
+    [shoes_quantity] => 2
+    [status] => Completed
+    [total_Price] => 130
+    [name] => Chris P Bacon
+)
+ at 2025-05-17 03:08:07
+client-orders.php - Session client_id/user_id: 7 at 2025-05-17 03:08:07
+Booking.php - Executing list query: SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                WHERE b.client_id = :client_id
+                ORDER BY b.booking_id DESC with client_id: 7 at 2025-05-17 03:08:07
+Booking.php - Constructor called with param: null at 2025-05-17 03:08:07
+Booking.php - setProperties called with param: stdClass Object
+(
+    [booking_id] => 22
+    [client_id] => 7
+    [name] => Chris P Bacon
+    [dropoff_date] => 2025-05-19 14:00:00
+    [status] => Completed
+    [shoes_quantity] => 2
+    [pickup_date] => 
+    [total_Price] => 130
+    [payment_method] => etransfer
+    [phone] => 514-850-0978
+    [username] => edp445
+)
+ at 2025-05-17 03:08:07
+Booking.php - List result: 1 bookings at 2025-05-17 03:08:07
+client-orders.php - Bookings fetched, count: 1 at 2025-05-17 03:08:07: Array
+(
+    [0] => Booking Object
+        (
+            [booking_id:Booking:private] => 22
+            [client_id:Booking:private] => 7
+            [dropoff_date:Booking:private] => 2025-05-19 14:00:00
+            [pickup_date:Booking:private] => 
+            [shoes_quantity:Booking:private] => 2
+            [status:Booking:private] => Completed
+            [name:Booking:private] => Chris P Bacon
+            [total_Price:Booking:private] => 130
+            [phone:Booking:private] => 514-850-0978
+            [username:Booking:private] => edp445
+            [payment_method:Booking:private] => etransfer
+        )
+
+)
+
+client-orders.php - Entering foreach loop, count: 1 at 2025-05-17 03:08:07
+client-orders.php - Rendering booking ID: 22, Phone: 514-850-0978, Username: edp445 at 2025-05-17 03:08:07
+Booking.php - Constructor called with param: null at 2025-05-17 03:08:40
+Booking.php - Booking data: Array
+(
+    [0] => 7
+    [1] => 2025-05-20 11:00:00
+    [2] => 
+    [3] => 2
+    [4] => Pending
+    [5] => Joey Ayoub-Di Salvo
+    [6] => 130
+)
+ at 2025-05-17 03:08:40

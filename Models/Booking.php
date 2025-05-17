@@ -11,7 +11,7 @@ class Booking extends Model
     private $status;
     private $name;
     private $total_Price;
-    private $phone; 
+    private $phone;
     private $username;
     private $payment_method;
 
@@ -41,7 +41,7 @@ class Booking extends Model
     {
         file_put_contents('debug.log', "Booking.php - setProperties called with param: " . print_r($param, true) . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
         $this->booking_id = $param->booking_id ?? null;
-        $this->client_id = $param->client_id ?? null; // client_id is id from users table
+        $this->client_id = $param->client_id ?? null;
         $this->dropoff_date = $param->dropoff_date ?? null;
         $this->pickup_date = $param->pickup_date ?? null;
         $this->shoes_quantity = $param->shoes_quantity ?? 0;
@@ -49,7 +49,7 @@ class Booking extends Model
         $this->name = $param->name ?? '';
         $this->total_Price = $param->total_Price ?? 0.00;
         $this->phone = $param->phone ?? '';
-        $this->username = $param->username ?? ''; // Map users column to username
+        $this->username = $param->username ?? '';
         $this->payment_method = $param->payment_method ?? '';
     }
 
@@ -72,10 +72,11 @@ class Booking extends Model
         try {
             $stmt->execute();
             while ($row = $stmt->fetch(PDO::FETCH_OBJ)) {
-                $booking = new Booking($row);
+                $booking = new Booking();
+                $booking->setProperties($row);
                 array_push($list, $booking);
             }
-            file_put_contents('debug.log', "Booking.php - List result: " . print_r($list, true) . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+            file_put_contents('debug.log', "Booking.php - List result: " . count($list) . " bookings at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
         } catch (PDOException $e) {
             file_put_contents('debug.log', "Booking.php - PDOException in list: " . $e->getMessage() . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
             throw $e;
@@ -83,52 +84,89 @@ class Booking extends Model
         return $list;
     }
 
-    public function updateClientDetails($data)
-{
-    try {
-        $conn = Model::connect();
-        $conn->beginTransaction();
-
-        // Update bookings table
-        $sql = "UPDATE `bookings` SET 
-                    `name` = :name,
-                    `dropoff_date` = :dropoff_date
-                WHERE `booking_id` = :booking_id AND `client_id` = :client_id";
-        $stmt = $conn->prepare($sql);
-        $stmt->bindValue(':name', $data['name'], PDO::PARAM_STR);
-        $stmt->bindValue(':dropoff_date', $data['dropoff_date'], PDO::PARAM_STR);
-        $stmt->bindValue(':booking_id', $this->booking_id, PDO::PARAM_INT);
-        $stmt->bindValue(':client_id', $_SESSION['client_id'] ?? $_SESSION['user_id'] ?? 0, PDO::PARAM_INT);
-        $stmt->execute();
-
-        // Update payments table (only if payment_method is provided)
-        if (!empty($data['payment_method'])) {
-            $sql_payment = "UPDATE `payments` SET 
-                                `payment_method` = :payment_method 
-                            WHERE `booking_id` = :booking_id";
-            $stmt_payment = $conn->prepare($sql_payment);
-            $stmt_payment->bindValue(':payment_method', $data['payment_method'], PDO::PARAM_STR);
-            $stmt_payment->bindValue(':booking_id', $this->booking_id, PDO::PARAM_INT);
-            $stmt_payment->execute();
+    public static function listAll()
+    {
+        $list = [];
+        $sql = "SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
+                b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
+                p.`payment_method`, u.`phone`, u.`username`
+                FROM `bookings` b
+                LEFT JOIN `payments` p ON b.booking_id = p.booking_id
+                LEFT JOIN `users` u ON b.client_id = u.id
+                ORDER BY b.booking_id DESC";
+        $connection = Model::connect();
+        $stmt = $connection->prepare($sql);
+        file_put_contents('debug.log', "Booking.php - Executing listAll query: $sql at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+        try {
+            $stmt->execute();
+            while ($row = $stmt->fetch(PDO::FETCH_OBJ)) {
+                $booking = new Booking();
+                $booking->setProperties($row);
+                array_push($list, $booking);
+            }
+            file_put_contents('debug.log', "Booking.php - listAll result: " . count($list) . " bookings at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+        } catch (PDOException $e) {
+            file_put_contents('debug.log', "Booking.php - PDOException in listAll: " . $e->getMessage() . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+            throw $e;
         }
-
-        $conn->commit();
-
-        // Update object properties
-        $this->name = $data['name'];
-        $this->dropoff_date = $data['dropoff_date'];
-        if (!empty($data['payment_method'])) {
-            $this->payment_method = $data['payment_method'];
-        }
-
-        return ['success' => true, 'message' => 'Booking updated successfully'];
-
-    } catch (PDOException $e) {
-        $conn->rollBack();
-        file_put_contents('debug.log', "Booking.php - PDOException in updateClientDetails: " . $e->getMessage() . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
-        return ['success' => false, 'message' => 'Database error: ' . $e->getMessage()];
+        return $list;
     }
-}
+
+    public function updateClientDetails($data)
+    {
+        try {
+            $conn = Model::connect();
+            $conn->beginTransaction();
+
+            // Validate status
+            $validStatuses = ['Pending', 'Completed', 'Cancelled'];
+            if (!empty($data['status']) && !in_array($data['status'], $validStatuses)) {
+                throw new Exception("Invalid status: {$data['status']}");
+            }
+
+            // Update bookings table
+            $sql = "UPDATE `bookings` SET 
+                        `name` = :name,
+                        `dropoff_date` = :dropoff_date,
+                        `status` = :status
+                    WHERE `booking_id` = :booking_id";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindValue(':name', $data['name'], PDO::PARAM_STR);
+            $stmt->bindValue(':dropoff_date', $data['dropoff_date'], PDO::PARAM_STR);
+            $stmt->bindValue(':status', $data['status'] ?? $this->status, PDO::PARAM_STR);
+            $stmt->bindValue(':booking_id', $this->booking_id, PDO::PARAM_INT);
+            $stmt->execute();
+
+            // Update payments table (if payment_method provided)
+            if (!empty($data['payment_method'])) {
+                $sql_payment = "UPDATE `payments` SET 
+                                    `payment_method` = :payment_method 
+                                WHERE `booking_id` = :booking_id";
+                $stmt_payment = $conn->prepare($sql_payment);
+                $stmt_payment->bindValue(':payment_method', $data['payment_method'], PDO::PARAM_STR);
+                $stmt_payment->bindValue(':booking_id', $this->booking_id, PDO::PARAM_INT);
+                $stmt_payment->execute();
+            }
+
+            $conn->commit();
+
+            // Update object properties
+            $this->name = $data['name'];
+            $this->dropoff_date = $data['dropoff_date'];
+            $this->status = $data['status'] ?? $this->status;
+            if (!empty($data['payment_method'])) {
+                $this->payment_method = $data['payment_method'];
+            }
+
+            file_put_contents('debug.log', "Booking.php - updateClientDetails successful for booking_id: {$this->booking_id} at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+            return ['success' => true, 'message' => 'Booking updated successfully'];
+
+        } catch (Exception $e) {
+            $conn->rollBack();
+            file_put_contents('debug.log', "Booking.php - Exception in updateClientDetails: " . $e->getMessage() . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+            return ['success' => false, 'message' => 'Error: ' . $e->getMessage()];
+        }
+    }
 
     public function delete()
     {
@@ -153,55 +191,6 @@ class Booking extends Model
             return ['success' => false, 'message' => 'Database error: ' . $e->getMessage()];
         }
     }
-
-    
-
-    public function getBookingId()
-    {
-        return $this->booking_id;
-    }
-    public function getName()
-    {
-        return $this->name;
-    }
-    public function getClientId()
-    {
-        return $this->client_id;
-    }
-    public function getDropoffDate()
-    {
-        return $this->dropoff_date;
-    }
-    public function getPickupDate()
-    {
-        return $this->pickup_date;
-    }
-    public function getShoesQuantity()
-    {
-        return $this->shoes_quantity;
-    }
-    public function getStatus()
-    {
-        return $this->status;
-    }
-    public function getTotalPrice()
-    {
-        return $this->total_Price;
-    }
-    public function getPhone()
-    {
-        return $this->phone;
-    }
-    public function getUsername()
-    {
-        return $this->username;
-    }
-    public function getPaymentMethod()
-    {
-        return $this->payment_method;
-    }
-
-    
 
     public function bookAppointment()
     {
@@ -267,9 +256,9 @@ class Booking extends Model
                             ) VALUES (?, ?, ?, ?, ?, ?)";
             $stmt_payment = $conn->prepare($sql_payment);
             $payment_method = trim($_POST['payment'] ?? 'cash');
-            $is_payed = 0; // Default: not paid
-            $payment_date = date('Y-m-d'); // Current date
-            $deposit_amount = (float)($_POST['depositAmount'] ?? 0.00); // Assuming form provides this
+            $is_payed = 0;
+            $payment_date = date('Y-m-d');
+            $deposit_amount = (float)($_POST['depositAmount'] ?? 0.00);
 
             // Validate payment fields
             if (!in_array($payment_method, ['cash', 'etransfer'])) {
@@ -321,5 +310,60 @@ class Booking extends Model
             file_put_contents('debug.log', "Booking.php - $error_message at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
             return ['success' => false, 'message' => $error_message];
         }
+    }
+
+    public function getBookingId()
+    {
+        return $this->booking_id;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getClientId()
+    {
+        return $this->client_id;
+    }
+
+    public function getDropoffDate()
+    {
+        return $this->dropoff_date;
+    }
+
+    public function getPickupDate()
+    {
+        return $this->pickup_date;
+    }
+
+    public function getShoesQuantity()
+    {
+        return $this->shoes_quantity;
+    }
+
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    public function getTotalPrice()
+    {
+        return $this->total_Price;
+    }
+
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    public function getPaymentMethod()
+    {
+        return $this->payment_method;
     }
 }
