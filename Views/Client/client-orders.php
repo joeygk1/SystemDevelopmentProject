@@ -3,8 +3,15 @@ ob_start();
 $path = $_SERVER['SCRIPT_NAME'];
 include_once "Models/Booking.php";
 
+// NEW: Add session debugging to check token
+file_put_contents('debug.log', "client-orders.php - Session token: " . (isset($_SESSION['token']) ? 'set' : 'not set') . ", session_id: " . session_id() . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+// NEW: Prevent redirect loop
+if (isset($_GET['redirected'])) {
+    die("Session validation failed. Please log in again. <a href='/MagicSoleProject/client/login'>Login</a>");
+}
+
 if (!isset($_SESSION['token'])) {
-    header('Location: /MagicSoleProject/client/login');
+    header('Location: /MagicSoleProject/client/login?redirected=1');
     exit;
 }
 
@@ -32,11 +39,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     exit;
                 }
 
+                // NEW: Add services and total_Price to updateData
+                $servicePrices = ['cleaning' => 50, 'repaint' => 80, 'icysole' => 20, 'redye' => 80];
+                $total_Price = 0;
+                if (isset($data['services']) && is_array($data['services'])) {
+                    foreach ($data['services'] as $service) {
+                        $total_Price += $servicePrices[$service] ?? 0;
+                    }
+                }
+
                 $updateData = [
                     'name' => $data['name'],
                     'dropoff_date' => date('Y-m-d H:i:s', strtotime($data['dropoff_time'])),
                     'payment_method' => $data['payment_method'],
-                    'phone' => $data['phone']
+                    'phone' => $data['phone'],
+                    // NEW: Include services and total_Price
+                    'services' => $data['services'] ?? [],
+                    'total_Price' => $total_Price
                 ];
                 file_put_contents('debug.log', "client-orders.php - Updating booking ID: " . $data['booking_id'] . " with data: " . print_r($updateData, true) . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
                 $response = $booking->updateClientDetails($updateData);
@@ -150,6 +169,8 @@ file_put_contents('debug.log', "client-orders.php - Bookings fetched, count: " .
         @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
         @keyframes spin { to { transform: rotate(360deg); } }
         @keyframes modalFadeIn { to { opacity: 1; transform: scale(1); } }
+        /* NEW: CSS for service checkboxes */
+        .service-checkboxes { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 15px; }
     </style>
 </head>
 <body>
@@ -187,15 +208,18 @@ file_put_contents('debug.log', "client-orders.php - Bookings fetched, count: " .
         </div>
         <div class="loading-spinner" id="loading-spinner"><i class="fas fa-spinner"></i></div>
         <table class="orders-table" id="orders-table">
-            <thead><tr><th>Order ID</th><th>Date</th><th>Total</th><th>Status</th><th>Name</th><th>Phone</th><th>Username</th><th>Payment Method</th><th>Actions</th></tr></thead>
+            <thead><tr><th>Order ID</th><th>Date</th><th>Total</th><th>Status</th><th>Name</th><th>Phone</th><th>Username</th><th>Payment Method</th><th>Services</th><th>Actions</th></tr></thead>
             <tbody id="orders-tbody">
                 <?php if (empty($data)) { ?>
-                    <tr><td colspan="9">No bookings found.</td></tr>
+                    <tr><td colspan="10">No bookings found.</td></tr>
                 <?php } else { 
                     file_put_contents('debug.log', "client-orders.php - Entering foreach loop, count: " . count($data) . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
                     foreach ($data as $booking) { 
                         $phoneValue = $booking->getPhone();
-                        file_put_contents('debug.log', "client-orders.php - Rendering booking ID: " . $booking->getBookingId() . ", Phone: " . ($phoneValue !== null && $phoneValue !== '' ? $phoneValue : 'empty') . ", Username: " . ($booking->getUsername() ?: 'empty') . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+                        // NEW: Get services
+                        $services = $booking->getServices();
+                        $servicesStr = !empty($services) ? implode(', ', $services) : 'N/A';
+                        file_put_contents('debug.log', "client-orders.php - Rendering booking ID: " . $booking->getBookingId() . ", Phone: " . ($phoneValue !== null && $phoneValue !== '' ? $phoneValue : 'empty') . ", Username: " . ($booking->getUsername() ?: 'empty') . ", Services: " . $servicesStr . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
                 ?>
                     <tr>
                         <td data-order-id="<?php echo htmlspecialchars($booking->getBookingId()); ?>"><?php echo htmlspecialchars($booking->getBookingId()); ?></td>
@@ -206,8 +230,11 @@ file_put_contents('debug.log', "client-orders.php - Bookings fetched, count: " .
                         <td data-phone="<?php echo htmlspecialchars($phoneValue); ?>"><?php echo htmlspecialchars($phoneValue) ?: 'N/A'; ?></td>
                         <td data-username="<?php echo htmlspecialchars($booking->getUsername()); ?>"><?php echo htmlspecialchars($booking->getUsername()) ?: 'N/A'; ?></td>
                         <td data-payment-method="<?php echo htmlspecialchars($booking->getPaymentMethod()); ?>"><?php echo htmlspecialchars($booking->getPaymentMethod()); ?></td>
+                        <!-- NEW: Services column -->
+                        <td data-services="<?php echo htmlspecialchars($servicesStr); ?>"><?php echo htmlspecialchars($servicesStr); ?></td>
                         <td>
-                            <button class="action-btn update-btn" onclick="openUpdateModal('<?php echo htmlspecialchars($booking->getBookingId()); ?>')">Update</button>
+                            <!-- NEW: Pass services to openUpdateModal -->
+                            <button class="action-btn update-btn" onclick="openUpdateModal('<?php echo htmlspecialchars($booking->getBookingId()); ?>', '<?php echo htmlspecialchars($booking->getName()); ?>', '<?php echo htmlspecialchars($booking->getDropoffDate()); ?>', '<?php echo htmlspecialchars($phoneValue ?: ''); ?>', '<?php echo htmlspecialchars($booking->getPaymentMethod()); ?>', '<?php echo htmlspecialchars(json_encode($services)); ?>')">Update</button>
                             <button class="action-btn delete-btn" onclick="deleteOrder('<?php echo htmlspecialchars($booking->getBookingId()); ?>')">Delete</button>
                         </td>
                     </tr>
@@ -230,6 +257,16 @@ file_put_contents('debug.log', "client-orders.php - Bookings fetched, count: " .
             <label for="update-dropoff-time">Drop-off Time</label><input type="datetime-local" id="update-dropoff-time">
             <label for="update-payment-method">Payment Method</label>
             <select id="update-payment-method"><option value="cash">Cash</option><option value="etransfer">E-Transfer</option></select>
+            <!-- NEW: Service checkboxes and total -->
+            <label>Services</label>
+            <div class="service-checkboxes">
+                <label><input type="checkbox" name="services[]" value="cleaning"> Cleaning ($50)</label>
+                <label><input type="checkbox" name="services[]" value="repaint"> Re-paint ($80)</label>
+                <label><input type="checkbox" name="services[]" value="icysole"> Icy-sole ($20)</label>
+                <label><input type="checkbox" name="services[]" value="redye"> Re-dye ($80)</label>
+            </div>
+            <label for="update-total">Total</label>
+            <input type="text" id="update-total" readonly>
             <button onclick="saveOrder()">Save</button>
         </div>
     </div>
@@ -281,12 +318,15 @@ file_put_contents('debug.log', "client-orders.php - Bookings fetched, count: " .
             const phone = row.querySelector('[data-phone]')?.textContent.toLowerCase() || '';
             const date = row.querySelector('[data-date]')?.textContent.toLowerCase() || '';
             const status = row.querySelector('[data-status]')?.textContent || '';
+            // NEW: Include services in filtering
+            const services = row.querySelector('[data-services]')?.textContent.toLowerCase() || '';
 
             const matchesSearch = (
                 orderId.includes(searchTerm) ||
                 name.includes(searchTerm) ||
                 phone.includes(searchTerm) ||
-                date.includes(searchTerm)
+                date.includes(searchTerm) ||
+                services.includes(searchTerm)
             );
             const matchesStatus = statusFilter ? status === statusFilter : true;
 
@@ -297,17 +337,24 @@ file_put_contents('debug.log', "client-orders.php - Bookings fetched, count: " .
         updatePagination();
     }
 
-    function openUpdateModal(orderId) {
+    // NEW: Modified openUpdateModal to handle services
+    function openUpdateModal(orderId, name, dropoffDate, phone, paymentMethod, servicesJson) {
         console.log('Opening modal for orderId:', orderId);
         selectedOrderId = orderId;
+        const services = servicesJson ? JSON.parse(servicesJson) : [];
         const row = document.querySelector(`tr td[data-order-id="${orderId}"]`)?.closest('tr');
         if (row) {
             document.getElementById('update-order-id').value = orderId;
-            document.getElementById('update-name').value = row.querySelector('[data-name]')?.getAttribute('data-name') || '';
-            document.getElementById('update-phone').value = row.querySelector('[data-phone]')?.getAttribute('data-phone') || '';
-            const dropoffDate = row.querySelector('[data-date]')?.getAttribute('data-date') || '';
+            document.getElementById('update-name').value = name || row.querySelector('[data-name]')?.getAttribute('data-name') || '';
+            document.getElementById('update-phone').value = phone || row.querySelector('[data-phone]')?.getAttribute('data-phone') || '';
             document.getElementById('update-dropoff-time').value = dropoffDate ? new Date(dropoffDate).toISOString().slice(0, 16) : '';
-            document.getElementById('update-payment-method').value = row.querySelector('[data-payment-method]')?.getAttribute('data-payment-method') || 'cash';
+            document.getElementById('update-payment-method').value = paymentMethod || row.querySelector('[data-payment-method]')?.getAttribute('data-payment-method') || 'cash';
+            // NEW: Set service checkboxes
+            document.querySelectorAll('.service-checkboxes input').forEach(checkbox => {
+                checkbox.checked = services.includes(checkbox.value);
+            });
+            // NEW: Calculate initial total
+            updateTotal();
             document.getElementById('update-modal').style.display = 'flex';
         } else {
             alert('Order not found.');
@@ -319,6 +366,16 @@ file_put_contents('debug.log', "client-orders.php - Bookings fetched, count: " .
         selectedOrderId = null;
     }
 
+    // NEW: Function to update total based on selected services
+    function updateTotal() {
+        const servicePrices = { cleaning: 50, repaint: 80, icysole: 20, redye: 80 };
+        let total = 0;
+        document.querySelectorAll('.service-checkboxes input:checked').forEach(checkbox => {
+            total += servicePrices[checkbox.value] || 0;
+        });
+        document.getElementById('update-total').value = `$${total.toFixed(2)}`;
+    }
+
     function saveOrder() {
         const orderId = document.getElementById('update-order-id').value;
         const name = document.getElementById('update-name').value.trim();
@@ -327,11 +384,22 @@ file_put_contents('debug.log', "client-orders.php - Bookings fetched, count: " .
         const paymentMethod = document.getElementById('update-payment-method').value;
         const loadingSpinner = document.getElementById('loading-spinner');
 
-        console.log('saveOrder inputs:', { orderId, name, phone, dropoffTime, paymentMethod });
+        // NEW: Get selected services
+        const services = Array.from(document.querySelectorAll('.service-checkboxes input:checked')).map(cb => cb.value);
+        const total = parseFloat(document.getElementById('update-total').value.replace('$', '')) || 0;
+
+        console.log('saveOrder inputs:', { orderId, name, phone, dropoffTime, paymentMethod, services, total });
 
         if (!orderId || !name || !dropoffTime || !paymentMethod) {
             console.log('Validation failed: Missing required fields');
             alert('Please fill in all required fields.');
+            return;
+        }
+
+        // NEW: Require at least one service
+        if (!services.length) {
+            console.log('Validation failed: No services selected');
+            alert('Please select at least one service.');
             return;
         }
 
@@ -348,7 +416,10 @@ file_put_contents('debug.log', "client-orders.php - Bookings fetched, count: " .
             name, 
             phone,
             dropoff_time: dropoffTime, 
-            payment_method: paymentMethod 
+            payment_method: paymentMethod,
+            // NEW: Include services and total
+            services,
+            total_Price: total
         };
         console.log('Sending update request with payload:', payload);
 
@@ -422,6 +493,11 @@ file_put_contents('debug.log', "client-orders.php - Bookings fetched, count: " .
 
     document.getElementById('search-input').addEventListener('input', filterOrders);
     document.getElementById('status-filter').addEventListener('change', filterOrders);
+
+    // NEW: Add event listeners for service checkboxes
+    document.querySelectorAll('.service-checkboxes input').forEach(checkbox => {
+        checkbox.addEventListener('change', updateTotal);
+    });
 
     const spinner = document.getElementById('loading-spinner');
     spinner.style.display = 'none';

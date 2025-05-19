@@ -47,6 +47,7 @@ $path = $_SERVER['SCRIPT_NAME'];
         .pagination { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
         .pagination button { padding: 8px 16px; background: #1a1a1a; color: white; border: none; border-radius: 5px; cursor: pointer; }
         .pagination button:hover { background: #333; }
+        .pagination button:disabled { background: #666; cursor: not-allowed; } /* NEW: Added disabled style for consistency */
         .loading-spinner { display: none; text-align: center; margin: 20px 0; }
         .loading-spinner i { font-size: 2rem; color: #d4af37; animation: spin 1s linear infinite; }
         footer { font-size: 0.9rem; color: white; text-align: center; padding: 1rem 0; position: fixed; bottom: 0; left: 0; width: 250px; background-color: #1a1a1a; box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2); }
@@ -83,7 +84,7 @@ $path = $_SERVER['SCRIPT_NAME'];
     <div class="orders-section">
         <h2>All Bookings</h2>
         <div class="search-filter">
-            <input type="text" id="search-input" placeholder="Search by Order ID, name, phone, username, or date...">
+            <input type="text" id="search-input" placeholder="Search by Order ID, name, phone, username, date, or services...">
             <select id="status-filter">
                 <option value="">All Statuses</option>
                 <option value="Pending">Pending</option>
@@ -93,15 +94,18 @@ $path = $_SERVER['SCRIPT_NAME'];
         </div>
         <div class="loading-spinner" id="loading-spinner"><i class="fas fa-spinner"></i></div>
         <table class="orders-table" id="orders-table">
-            <thead><tr><th>Order ID</th><th>Date</th><th>Total</th><th>Status</th><th>Name</th><th>Phone</th><th>Username</th><th>Payment Method</th></tr></thead>
+            <thead><tr><th>Order ID</th><th>Date</th><th>Total</th><th>Status</th><th>Name</th><th>Phone</th><th>Username</th><th>Payment Method</th><th>Services</th></tr></thead>
             <tbody id="orders-tbody">
                 <?php if (empty($data)) { ?>
-                    <tr><td colspan="8">No bookings found.</td></tr>
+                    <tr><td colspan="9">No bookings found.</td></tr>
                 <?php } else { 
                     foreach ($data as $booking) { 
                         $phoneValue = $booking->getPhone();
                         $usernameValue = $booking->getUsername();
-                        file_put_contents('debug.log', "view-orders.php - Rendering booking ID: " . $booking->getBookingId() . ", Phone: " . ($phoneValue !== '' ? $phoneValue : 'empty') . ", Username: " . ($usernameValue !== '' ? $usernameValue : 'empty') . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+                        // NEW: Get services
+                        $services = $booking->getServices();
+                        $servicesStr = !empty($services) ? implode(', ', $services) : 'N/A';
+                        file_put_contents('debug.log', "view-orders.php - Rendering booking ID: " . $booking->getBookingId() . ", Phone: " . ($phoneValue !== '' ? $phoneValue : 'empty') . ", Username: " . ($usernameValue !== '' ? $usernameValue : 'empty') . ", Services: " . $servicesStr . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
                 ?>
                     <tr>
                         <td data-order-id="<?php echo htmlspecialchars($booking->getBookingId()); ?>"><?php echo htmlspecialchars($booking->getBookingId()); ?></td>
@@ -112,6 +116,8 @@ $path = $_SERVER['SCRIPT_NAME'];
                         <td data-phone="<?php echo htmlspecialchars($phoneValue); ?>"><?php echo htmlspecialchars($phoneValue) ?: 'N/A'; ?></td>
                         <td data-username="<?php echo htmlspecialchars($usernameValue); ?>"><?php echo htmlspecialchars($usernameValue) ?: 'N/A'; ?></td>
                         <td data-payment-method="<?php echo htmlspecialchars($booking->getPaymentMethod()); ?>"><?php echo htmlspecialchars($booking->getPaymentMethod()) ?: 'N/A'; ?></td>
+                        <!-- NEW: Services column -->
+                        <td data-services="<?php echo htmlspecialchars($servicesStr); ?>"><?php echo htmlspecialchars($servicesStr); ?></td>
                     </tr>
                 <?php } } ?>
             </tbody>
@@ -171,13 +177,16 @@ $path = $_SERVER['SCRIPT_NAME'];
             const username = row.querySelector('[data-username]')?.textContent.toLowerCase() || '';
             const date = row.querySelector('[data-date]')?.textContent.toLowerCase() || '';
             const status = row.querySelector('[data-status]')?.textContent || '';
+            // NEW: Include services in search
+            const services = row.querySelector('[data-services]')?.textContent.toLowerCase() || '';
 
             const matchesSearch = (
                 orderId.includes(searchTerm) ||
                 name.includes(searchTerm) ||
                 phone.includes(searchTerm) ||
                 username.includes(searchTerm) ||
-                date.includes(searchTerm)
+                date.includes(searchTerm) ||
+                services.includes(searchTerm)
             );
             const matchesStatus = statusFilter ? status === statusFilter : true;
 

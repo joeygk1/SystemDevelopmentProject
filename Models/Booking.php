@@ -14,6 +14,7 @@ class Booking extends Model
     private $payment_method;
     private $username; // From users table
     private $phone; // From users table
+    private $services; // Array of services
 
     public function __construct($param = null)
     {
@@ -22,9 +23,13 @@ class Booking extends Model
             $this->setProperties($param);
         } elseif (is_int($param)) {
             $conn = Model::connect();
-            $sql = "SELECT b.*, u.username, u.phone FROM `bookings` b 
+            $sql = "SELECT b.*, u.username, u.phone, GROUP_CONCAT(s.service_name) as services 
+                    FROM `bookings` b 
                     LEFT JOIN `users` u ON b.client_id = u.id 
-                    WHERE b.`booking_id` = :bookingId";
+                    LEFT JOIN `booking_service` bs ON b.booking_id = bs.booking_id 
+                    LEFT JOIN `services` s ON bs.service_id = s.service_id 
+                    WHERE b.`booking_id` = :bookingId 
+                    GROUP BY b.booking_id";
             $stmt = $conn->prepare($sql);
             $stmt->bindParam(":bookingId", $param, PDO::PARAM_INT);
             file_put_contents('debug.log', "Booking.php - Executing query: $sql with booking_id: $param at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
@@ -53,7 +58,8 @@ class Booking extends Model
         $this->payment_method = $param->payment_method ?? '';
         $this->username = $param->username ?? '';
         $this->phone = $param->phone ?? '';
-        file_put_contents('debug.log', "Booking.php - setProperties assigned phone: " . ($this->phone !== '' ? $this->phone : 'empty') . ", username: " . ($this->username !== '' ? $this->username : 'empty') . " for booking_id: " . ($this->booking_id ?? 'unknown') . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+        $this->services = !empty($param->services) ? explode(',', $param->services) : [];
+        file_put_contents('debug.log', "Booking.php - setProperties assigned phone: " . ($this->phone !== '' ? $this->phone : 'empty') . ", username: " . ($this->username !== '' ? $this->username : 'empty') . ", services: " . json_encode($this->services) . " for booking_id: " . ($this->booking_id ?? 'unknown') . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
     }
 
     public static function list()
@@ -61,11 +67,15 @@ class Booking extends Model
         $list = [];
         $sql = "SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
                 b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
-                u.`username`, u.`phone`, p.`payment_method`
+                u.`username`, u.`phone`, p.`payment_method`,
+                GROUP_CONCAT(s.service_name) as services
                 FROM `bookings` b
                 LEFT JOIN `payments` p ON b.booking_id = p.booking_id
                 LEFT JOIN `users` u ON b.client_id = u.id
+                LEFT JOIN `booking_service` bs ON b.booking_id = bs.booking_id
+                LEFT JOIN `services` s ON bs.service_id = s.service_id
                 WHERE b.client_id = :client_id
+                GROUP BY b.booking_id
                 ORDER BY b.booking_id DESC";
         $connection = Model::connect();
         $stmt = $connection->prepare($sql);
@@ -75,7 +85,7 @@ class Booking extends Model
         try {
             $stmt->execute();
             while ($row = $stmt->fetch(PDO::FETCH_OBJ)) {
-                file_put_contents('debug.log', "Booking.php - Fetched row with booking_id: " . ($row->booking_id ?? 'unknown') . ", client_id: " . ($row->client_id ?? 'unknown') . ", phone: " . ($row->phone !== '' ? $row->phone : 'empty') . ", username: " . ($row->username !== '' ? $row->username : 'empty') . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+                file_put_contents('debug.log', "Booking.php - Fetched row with booking_id: " . ($row->booking_id ?? 'unknown') . ", client_id: " . ($row->client_id ?? 'unknown') . ", phone: " . ($row->phone !== '' ? $row->phone : 'empty') . ", username: " . ($row->username !== '' ? $row->username : 'empty') . ", services: " . ($row->services ?? 'none') . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
                 $booking = new Booking();
                 $booking->setProperties($row);
                 array_push($list, $booking);
@@ -93,10 +103,14 @@ class Booking extends Model
         $list = [];
         $sql = "SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
                 b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
-                u.`username`, u.`phone`, p.`payment_method`
+                u.`username`, u.`phone`, p.`payment_method`,
+                GROUP_CONCAT(s.service_name) as services
                 FROM `bookings` b
                 LEFT JOIN `payments` p ON b.booking_id = p.booking_id
                 LEFT JOIN `users` u ON b.client_id = u.id
+                LEFT JOIN `booking_service` bs ON b.booking_id = bs.booking_id
+                LEFT JOIN `services` s ON bs.service_id = s.service_id
+                GROUP BY b.booking_id
                 ORDER BY b.booking_id DESC";
         $connection = Model::connect();
         $stmt = $connection->prepare($sql);
@@ -104,7 +118,7 @@ class Booking extends Model
         try {
             $stmt->execute();
             while ($row = $stmt->fetch(PDO::FETCH_OBJ)) {
-                file_put_contents('debug.log', "Booking.php - Fetched row with booking_id: " . ($row->booking_id ?? 'unknown') . ", client_id: " . ($row->client_id ?? 'unknown') . ", phone: " . ($row->phone !== '' ? $row->phone : 'empty') . ", username: " . ($row->username !== '' ? $row->username : 'empty') . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+                file_put_contents('debug.log', "Booking.php - Fetched row with booking_id: " . ($row->booking_id ?? 'unknown') . ", client_id: " . ($row->client_id ?? 'unknown') . ", phone: " . ($row->phone !== '' ? $row->phone : 'empty') . ", username: " . ($row->username !== '' ? $row->username : 'empty') . ", services: " . ($row->services ?? 'none') . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
                 $booking = new Booking();
                 $booking->setProperties($row);
                 array_push($list, $booking);
@@ -134,12 +148,14 @@ class Booking extends Model
             $sql = "UPDATE `bookings` SET 
                         `name` = :name,
                         `dropoff_date` = :dropoff_date,
-                        `status` = :status
+                        `status` = :status,
+                        `total_Price` = :total_Price
                     WHERE `booking_id` = :booking_id" . ($isAdmin ? "" : " AND `client_id` = :client_id");
             $stmt = $conn->prepare($sql);
             $stmt->bindValue(':name', $data['name'], PDO::PARAM_STR);
             $stmt->bindValue(':dropoff_date', $data['dropoff_date'], PDO::PARAM_STR);
             $stmt->bindValue(':status', $data['status'] ?? $this->status, PDO::PARAM_STR);
+            $stmt->bindValue(':total_Price', $data['total_Price'] ?? $this->total_Price, PDO::PARAM_STR);
             $stmt->bindValue(':booking_id', $this->booking_id, PDO::PARAM_INT);
             if (!$isAdmin) {
                 $stmt->bindValue(':client_id', $_SESSION['client_id'] ?? $_SESSION['user_id'] ?? 0, PDO::PARAM_INT);
@@ -162,12 +178,52 @@ class Booking extends Model
             // Update payments table (if payment_method provided)
             if (!empty($data['payment_method'])) {
                 $sql_payment = "UPDATE `payments` SET 
-                                    `payment_method` = :payment_method 
+                                    `payment_method` = :payment_method,
+                                    `total_price` = :total_price
                                 WHERE `booking_id` = :booking_id";
                 $stmt_payment = $conn->prepare($sql_payment);
                 $stmt_payment->bindValue(':payment_method', $data['payment_method'], PDO::PARAM_STR);
+                $stmt_payment->bindValue(':total_price', $data['total_Price'] ?? $this->total_Price, PDO::PARAM_STR);
                 $stmt_payment->bindValue(':booking_id', $this->booking_id, PDO::PARAM_INT);
                 $stmt_payment->execute();
+            }
+
+            // Update services (delete existing and insert new)
+            if (isset($data['services']) && is_array($data['services'])) {
+                // Delete existing services
+                $sql_delete = "DELETE FROM `booking_service` WHERE `booking_id` = :booking_id";
+                $stmt_delete = $conn->prepare($sql_delete);
+                $stmt_delete->bindValue(':booking_id', $this->booking_id, PDO::PARAM_INT);
+                $stmt_delete->execute();
+
+                // Insert new services
+                foreach ($data['services'] as $service_name) {
+                    // Check if service exists
+                    $sql_service = "SELECT `service_id` FROM `services` WHERE `service_name` = :service_name";
+                    $stmt_service = $conn->prepare($sql_service);
+                    $stmt_service->bindValue(':service_name', $service_name, PDO::PARAM_STR);
+                    $stmt_service->execute();
+                    $service_id = $stmt_service->fetchColumn();
+
+                    if (!$service_id) {
+                        // Insert new service (use price from booking form logic)
+                        $servicePrices = ['cleaning' => 50, 'repaint' => 80, 'icysole' => 20, 'redye' => 80];
+                        $price = $servicePrices[$service_name] ?? 0;
+                        $sql_insert_service = "INSERT INTO `services` (`service_name`, `price`) VALUES (:service_name, :price)";
+                        $stmt_insert_service = $conn->prepare($sql_insert_service);
+                        $stmt_insert_service->bindValue(':service_name', $service_name, PDO::PARAM_STR);
+                        $stmt_insert_service->bindValue(':price', $price, PDO::PARAM_STR);
+                        $stmt_insert_service->execute();
+                        $service_id = $conn->lastInsertId();
+                    }
+
+                    // Link service to booking
+                    $sql_link = "INSERT INTO `booking_service` (`booking_id`, `service_id`) VALUES (:booking_id, :service_id)";
+                    $stmt_link = $conn->prepare($sql_link);
+                    $stmt_link->bindValue(':booking_id', $this->booking_id, PDO::PARAM_INT);
+                    $stmt_link->bindValue(':service_id', $service_id, PDO::PARAM_INT);
+                    $stmt_link->execute();
+                }
             }
 
             $conn->commit();
@@ -176,6 +232,7 @@ class Booking extends Model
             $this->name = $data['name'];
             $this->dropoff_date = $data['dropoff_date'];
             $this->status = $data['status'] ?? $this->status;
+            $this->total_Price = $data['total_Price'] ?? $this->total_Price;
             if (!empty($data['payment_method'])) {
                 $this->payment_method = $data['payment_method'];
             }
@@ -185,8 +242,11 @@ class Booking extends Model
             if (!empty($data['username'])) {
                 $this->username = $data['username'];
             }
+            if (isset($data['services']) && is_array($data['services'])) {
+                $this->services = $data['services'];
+            }
 
-            file_put_contents('debug.log', "Booking.php - updateClientDetails successful for booking_id: {$this->booking_id}, phone updated: " . ($data['phone'] ?? 'not provided') . ", username updated: " . ($data['username'] ?? 'not provided') . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+            file_put_contents('debug.log', "Booking.php - updateClientDetails successful for booking_id: {$this->booking_id}, phone updated: " . ($data['phone'] ?? 'not provided') . ", username updated: " . ($data['username'] ?? 'not provided') . ", services updated: " . json_encode($data['services'] ?? []) . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
             return ['success' => true, 'message' => 'Booking updated successfully'];
 
         } catch (Exception $e) {
@@ -320,22 +380,23 @@ class Booking extends Model
             $stmt_payment->execute($payment_params);
 
             // Insert services and link to booking_service
-            if (isset($_POST['services']) && isset($_POST['prices']) && is_array($_POST['services']) && is_array($_POST['prices'])) {
-                $services = $_POST['services'];
-                $prices = $_POST['prices'];
-                if (count($services) === count($prices)) {
-                    foreach ($services as $index => $service_name) {
-                        $price = (float)$prices[$index];
-                        $sql_service = "INSERT INTO `services` (`service_name`, `price`) VALUES (?, ?)";
-                        $stmt_service = $conn->prepare($sql_service);
-                        $stmt_service->execute([$service_name, $price]);
-                        $service_id = $conn->lastInsertId();
-                        $sql_link = "INSERT INTO `booking_service` (`booking_id`, `service_id`) VALUES (?, ?)";
-                        $stmt_link = $conn->prepare($sql_link);
-                        $stmt_link->execute([$booking_id, $service_id]);
-                    }
-                } else {
-                    throw new Exception("Mismatch between services and prices arrays.");
+            $services = [];
+            for ($i = 1; $i <= $shoes_quantity; $i++) {
+                if (isset($_POST['services_' . $i]) && is_array($_POST['services_' . $i])) {
+                    $services = array_merge($services, $_POST['services_' . $i]);
+                }
+            }
+            if (!empty($services)) {
+                $servicePrices = ['cleaning' => 50, 'repaint' => 80, 'icysole' => 20, 'redye' => 80];
+                foreach ($services as $service_name) {
+                    $price = $servicePrices[$service_name] ?? 0;
+                    $sql_service = "INSERT INTO `services` (`service_name`, `price`) VALUES (?, ?)";
+                    $stmt_service = $conn->prepare($sql_service);
+                    $stmt_service->execute([$service_name, $price]);
+                    $service_id = $conn->lastInsertId();
+                    $sql_link = "INSERT INTO `booking_service` (`booking_id`, `service_id`) VALUES (?, ?)";
+                    $stmt_link = $conn->prepare($sql_link);
+                    $stmt_link->execute([$booking_id, $service_id]);
                 }
             }
 
@@ -405,6 +466,11 @@ class Booking extends Model
     public function getPaymentMethod()
     {
         return $this->payment_method;
+    }
+
+    public function getServices()
+    {
+        return $this->services;
     }
 }
 ?>
