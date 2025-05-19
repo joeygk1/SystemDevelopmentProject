@@ -1,9 +1,53 @@
 <?php
 ob_start();
 include_once "Models/Booking.php";
-
 if (!isset($_SESSION['token']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     header('Location: /MagicSoleProject/admin/login');
+    exit;
+}
+
+// Handle AJAX requests for update
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    header('Content-Type: application/json');
+
+    $raw_input = file_get_contents('php://input');
+    $data = json_decode($raw_input, true);
+    file_put_contents('debug.log', "order-status.php - POST request received with data: " . print_r($data, true) . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+
+    if (isset($data['action']) && $data['action'] === 'update') {
+        try {
+            if (!isset($data['booking_id']) || !isset($data['name']) || !isset($data['dropoff_date']) || !isset($data['payment_method']) || !isset($data['status'])) {
+                file_put_contents('debug.log', "order-status.php - Invalid or missing update data: " . print_r($data, true) . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+                echo json_encode(['success' => false, 'message' => 'Invalid or missing data']);
+                exit;
+            }
+
+            $booking = new Booking((int)$data['booking_id']);
+            if (!$booking->getBookingId()) {
+                file_put_contents('debug.log', "order-status.php - Booking not found for ID: " . $data['booking_id'] . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+                echo json_encode(['success' => false, 'message' => 'Booking not found']);
+                exit;
+            }
+
+            $updateData = [
+                'name' => $data['name'],
+                'dropoff_date' => $data['dropoff_date'],
+                'payment_method' => $data['payment_method'],
+                'status' => $data['status']
+            ];
+            file_put_contents('debug.log', "order-status.php - Updating booking ID: " . $data['booking_id'] . " with data: " . print_r($updateData, true) . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+            $response = $booking->updateClientDetails($updateData);
+            echo json_encode($response);
+            exit;
+        } catch (Exception $e) {
+            $error_message = 'Error: ' . $e->getMessage();
+            file_put_contents('debug.log', "order-status.php - $error_message at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+            echo json_encode(['success' => false, 'message' => $error_message]);
+            exit;
+        }
+    }
+
+    echo json_encode(['success' => false, 'message' => 'Invalid action']);
     exit;
 }
 
@@ -49,7 +93,9 @@ $path = $_SERVER['SCRIPT_NAME'];
         .update-btn:hover { background-color: #d4af37; }
         .pagination { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
         .pagination button { padding: 8px 16px; background: #1a1a1a; color: white; border: none; border-radius: 5px; cursor: pointer; }
-        .pagination button:hover { background: #333; }
+        .pagination button:disabled { background: #666; cursor: not-allowed; }
+        .pagination button:hover:not(:disabled) { background: #333; }
+        .pagination span { padding: 8px 16px; font-size: 1rem; color: #1a1a1a; }
         .loading-spinner { display: none; text-align: center; margin: 20px 0; }
         .loading-spinner i { font-size: 2rem; color: #d4af37; animation: spin 1s linear infinite; }
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center; }
@@ -97,7 +143,7 @@ $path = $_SERVER['SCRIPT_NAME'];
     <div class="orders-section">
         <h2>All Bookings</h2>
         <div class="search-filter">
-            <input type="text" id="search-input" placeholder="Search by Order ID...">
+            <input type="text" id="search-input" placeholder="Search by Order ID, name, phone, or date...">
             <select id="status-filter">
                 <option value="">All Statuses</option>
                 <option value="Pending">Pending</option>
@@ -112,24 +158,32 @@ $path = $_SERVER['SCRIPT_NAME'];
                 <?php if (empty($data)) { ?>
                     <tr><td colspan="9">No bookings found.</td></tr>
                 <?php } else { 
+                    file_put_contents('debug.log', "order-status.php - Entering foreach loop, count: " . count($data) . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
                     foreach ($data as $booking) { 
-                        file_put_contents('debug.log', "order-status.php - Rendering booking ID: " . $booking->getBookingId() . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+                        $phoneValue = $booking->getPhone();
+                        file_put_contents('debug.log', "order-status.php - Rendering booking ID: " . $booking->getBookingId() . ", Phone: " . ($phoneValue !== null && $phoneValue !== '' ? $phoneValue : 'empty') . ", Username: " . ($booking->getUsername() ?: 'empty') . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
                 ?>
                     <tr>
-                        <td data-order-id="<?php echo $booking->getBookingId(); ?>"><?php echo $booking->getBookingId(); ?></td>
-                        <td data-date="<?php echo $booking->getDropoffDate(); ?>"><?php echo $booking->getDropoffDate(); ?></td>
-                        <td data-total="<?php echo $booking->getTotalPrice(); ?>">$<?php echo number_format($booking->getTotalPrice(), 2); ?></td>
-                        <td data-status="<?php echo $booking->getStatus(); ?>"><?php echo $booking->getStatus(); ?></td>
+                        <td data-order-id="<?php echo htmlspecialchars($booking->getBookingId()); ?>"><?php echo htmlspecialchars($booking->getBookingId()); ?></td>
+                        <td data-date="<?php echo htmlspecialchars($booking->getDropoffDate()); ?>"><?php echo htmlspecialchars($booking->getDropoffDate()); ?></td>
+                        <td data-total="<?php echo htmlspecialchars($booking->getTotalPrice()); ?>">$<?php echo number_format($booking->getTotalPrice(), 2); ?></td>
+                        <td data-status="<?php echo htmlspecialchars($booking->getStatus()); ?>"><?php echo htmlspecialchars($booking->getStatus()); ?></td>
                         <td data-name="<?php echo htmlspecialchars($booking->getName()); ?>"><?php echo htmlspecialchars($booking->getName()); ?></td>
-                        <td data-phone="<?php echo htmlspecialchars($booking->getPhone()); ?>"><?php echo htmlspecialchars($booking->getPhone()) ?: 'N/A'; ?></td>
+                        <td data-phone="<?php echo htmlspecialchars($phoneValue); ?>"><?php echo htmlspecialchars($phoneValue) ?: 'N/A'; ?></td>
                         <td data-username="<?php echo htmlspecialchars($booking->getUsername()); ?>"><?php echo htmlspecialchars($booking->getUsername()) ?: 'N/A'; ?></td>
-                        <td data-payment-method="<?php echo $booking->getPaymentMethod(); ?>"><?php echo $booking->getPaymentMethod() ?: 'N/A'; ?></td>
-                        <td><button class="action-btn update-btn" onclick="openUpdateModal(<?php echo $booking->getBookingId(); ?>, '<?php echo htmlspecialchars($booking->getName()); ?>', '<?php echo $booking->getDropoffDate(); ?>', '<?php echo $booking->getPaymentMethod(); ?>', '<?php echo $booking->getStatus(); ?>')">Update</button></td>
+                        <td data-payment-method="<?php echo htmlspecialchars($booking->getPaymentMethod()); ?>"><?php echo htmlspecialchars($booking->getPaymentMethod()) ?: 'N/A'; ?></td>
+                        <td>
+                            <button class="action-btn update-btn" onclick="openUpdateModal('<?php echo htmlspecialchars($booking->getBookingId()); ?>', '<?php echo htmlspecialchars($booking->getName()); ?>', '<?php echo htmlspecialchars($booking->getDropoffDate()); ?>', '<?php echo htmlspecialchars($booking->getPaymentMethod() ?: 'cash'); ?>', '<?php echo htmlspecialchars($booking->getStatus()); ?>')">Update</button>
+                        </td>
                     </tr>
                 <?php } } ?>
             </tbody>
         </table>
-        <div class="pagination"><button onclick="changePage(-1)">Previous</button><button onclick="changePage(1)">Next</button></div>
+        <div class="pagination">
+            <button id="prev-btn" onclick="changePage(-1)" disabled>Previous</button>
+            <span id="page-info">Page 1 of 1</span>
+            <button id="next-btn" onclick="changePage(1)" disabled>Next</button>
+        </div>
     </div>
     <div class="modal" id="update-modal">
         <div class="modal-content">
@@ -160,41 +214,69 @@ $path = $_SERVER['SCRIPT_NAME'];
     let currentPage = 1;
     const rowsPerPage = 5;
 
-    function changePage(direction) {
-        currentPage += direction;
+    function updatePagination() {
+        const allRows = document.querySelectorAll('#orders-tbody tr');
+        const visibleRows = Array.from(allRows).filter(row => !row.classList.contains('hidden'));
+        const totalPages = Math.ceil(visibleRows.length / rowsPerPage);
+        currentPage = Math.min(currentPage, Math.max(1, totalPages));
         if (currentPage < 1) currentPage = 1;
-        const rows = document.querySelectorAll('#orders-tbody tr:not([style*="display: none"])');
-        const totalPages = Math.ceil(rows.length / rowsPerPage);
-        if (currentPage > totalPages) currentPage = totalPages;
+
         const start = (currentPage - 1) * rowsPerPage;
         const end = start + rowsPerPage;
-        document.querySelectorAll('#orders-tbody tr').forEach((row, index) => {
-            row.style.display = (index >= start && index < end && row.style.display !== 'none') ? '' : 'none';
+
+        allRows.forEach(row => {
+            row.style.display = 'none';
         });
+
+        visibleRows.slice(start, end).forEach(row => {
+            row.style.display = '';
+        });
+
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const pageInfo = document.getElementById('page-info');
+
+        prevBtn.disabled = currentPage === 1;
+        nextBtn.disabled = currentPage >= totalPages || totalPages === 0;
+        pageInfo.textContent = `Page ${currentPage} of ${totalPages || 1}`;
     }
 
-    document.getElementById('search-input').addEventListener('input', filterOrders);
-    document.getElementById('status-filter').addEventListener('change', filterOrders);
+    function changePage(direction) {
+        currentPage += direction;
+        updatePagination();
+    }
 
     function filterOrders() {
         const searchTerm = document.getElementById('search-input').value.toLowerCase();
         const statusFilter = document.getElementById('status-filter').value;
         const rows = document.querySelectorAll('#orders-tbody tr');
+
         rows.forEach(row => {
-            const orderId = row.querySelector('[data-order-id]')?.textContent.toLowerCase();
-            const status = row.querySelector('[data-status]')?.textContent;
-            const matchesSearch = orderId?.includes(searchTerm);
+            const orderId = row.querySelector('[data-order-id]')?.textContent.toLowerCase() || '';
+            const name = row.querySelector('[data-name]')?.textContent.toLowerCase() || '';
+            const phone = row.querySelector('[data-phone]')?.textContent.toLowerCase() || '';
+            const date = row.querySelector('[data-date]')?.textContent.toLowerCase() || '';
+            const status = row.querySelector('[data-status]')?.textContent || '';
+
+            const matchesSearch = (
+                orderId.includes(searchTerm) ||
+                name.includes(searchTerm) ||
+                phone.includes(searchTerm) ||
+                date.includes(searchTerm)
+            );
             const matchesStatus = statusFilter ? status === statusFilter : true;
-            row.style.display = (matchesSearch && matchesStatus) ? '' : 'none';
+
+            row.classList.toggle('hidden', !(matchesSearch && matchesStatus));
         });
+
         currentPage = 1;
-        changePage(0);
+        updatePagination();
     }
 
     function openUpdateModal(bookingId, name, dropoffDate, paymentMethod, status) {
         document.getElementById('update-booking-id').value = bookingId;
         document.getElementById('update-name').value = name;
-        document.getElementById('update-dropoff-date').value = dropoffDate.replace(' ', 'T').slice(0, 16);
+        document.getElementById('update-dropoff-date').value = dropoffDate ? new Date(dropoffDate).toISOString().slice(0, 16) : '';
         document.getElementById('update-payment-method').value = paymentMethod || 'cash';
         document.getElementById('update-status').value = status;
         document.getElementById('update-modal').style.display = 'flex';
@@ -206,10 +288,11 @@ $path = $_SERVER['SCRIPT_NAME'];
 
     function saveBooking() {
         const bookingId = document.getElementById('update-booking-id').value;
-        const name = document.getElementById('update-name').value;
+        const name = document.getElementById('update-name').value.trim();
         const dropoffDate = document.getElementById('update-dropoff-date').value;
         const paymentMethod = document.getElementById('update-payment-method').value;
         const status = document.getElementById('update-status').value;
+        const loadingSpinner = document.getElementById('loading-spinner');
 
         if (!name || !dropoffDate) {
             alert('Name and Dropoff Date are required.');
@@ -225,13 +308,29 @@ $path = $_SERVER['SCRIPT_NAME'];
             status: status
         };
 
+        console.log('Sending update request with payload:', data);
+        loadingSpinner.style.display = 'block';
+
         fetch('/MagicSoleProject/admin/order-status', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+            },
             body: JSON.stringify(data)
         })
-        .then(response => response.json())
+        .then(response => {
+            console.log('Fetch response status:', response.status);
+            if (!response.ok) {
+                return response.text().then(text => {
+                    throw new Error(`HTTP error! Status: ${response.status}, Response: ${text}`);
+                });
+            }
+            return response.json();
+        })
         .then(result => {
+            console.log('Parsed JSON response:', result);
+            loadingSpinner.style.display = 'none';
             if (result.success) {
                 alert('Booking updated successfully');
                 location.reload();
@@ -240,16 +339,18 @@ $path = $_SERVER['SCRIPT_NAME'];
             }
         })
         .catch(error => {
-            console.error('Error:', error);
-            alert('An error occurred while updating the booking.');
+            console.error('Fetch error:', error.message);
+            loadingSpinner.style.display = 'none';
+            alert('An error occurred: ' + error.message);
         });
-
-        closeUpdateModal();
     }
+
+    document.getElementById('search-input').addEventListener('input', filterOrders);
+    document.getElementById('status-filter').addEventListener('change', filterOrders);
 
     const spinner = document.getElementById('loading-spinner');
     spinner.style.display = 'none';
-    changePage(0);
+    updatePagination();
 </script>
 </body>
 </html>

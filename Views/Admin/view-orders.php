@@ -83,7 +83,7 @@ $path = $_SERVER['SCRIPT_NAME'];
     <div class="orders-section">
         <h2>All Bookings</h2>
         <div class="search-filter">
-            <input type="text" id="search-input" placeholder="Search by Order ID...">
+            <input type="text" id="search-input" placeholder="Search by Order ID, name, phone, username, or date...">
             <select id="status-filter">
                 <option value="">All Statuses</option>
                 <option value="Pending">Pending</option>
@@ -99,62 +99,101 @@ $path = $_SERVER['SCRIPT_NAME'];
                     <tr><td colspan="8">No bookings found.</td></tr>
                 <?php } else { 
                     foreach ($data as $booking) { 
-                        file_put_contents('debug.log', "view-orders.php - Rendering booking ID: " . $booking->getBookingId() . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+                        $phoneValue = $booking->getPhone();
+                        $usernameValue = $booking->getUsername();
+                        file_put_contents('debug.log', "view-orders.php - Rendering booking ID: " . $booking->getBookingId() . ", Phone: " . ($phoneValue !== '' ? $phoneValue : 'empty') . ", Username: " . ($usernameValue !== '' ? $usernameValue : 'empty') . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
                 ?>
                     <tr>
-                        <td data-order-id="<?php echo $booking->getBookingId(); ?>"><?php echo $booking->getBookingId(); ?></td>
-                        <td data-date="<?php echo $booking->getDropoffDate(); ?>"><?php echo $booking->getDropoffDate(); ?></td>
-                        <td data-total="<?php echo $booking->getTotalPrice(); ?>">$<?php echo number_format($booking->getTotalPrice(), 2); ?></td>
-                        <td data-status="<?php echo $booking->getStatus(); ?>"><?php echo $booking->getStatus(); ?></td>
+                        <td data-order-id="<?php echo htmlspecialchars($booking->getBookingId()); ?>"><?php echo htmlspecialchars($booking->getBookingId()); ?></td>
+                        <td data-date="<?php echo htmlspecialchars($booking->getDropoffDate()); ?>"><?php echo htmlspecialchars($booking->getDropoffDate()); ?></td>
+                        <td data-total="<?php echo htmlspecialchars($booking->getTotalPrice()); ?>">$<?php echo number_format($booking->getTotalPrice(), 2); ?></td>
+                        <td data-status="<?php echo htmlspecialchars($booking->getStatus()); ?>"><?php echo htmlspecialchars($booking->getStatus()); ?></td>
                         <td data-name="<?php echo htmlspecialchars($booking->getName()); ?>"><?php echo htmlspecialchars($booking->getName()); ?></td>
-                        <td data-phone="<?php echo htmlspecialchars($booking->getPhone()); ?>"><?php echo htmlspecialchars($booking->getPhone()) ?: 'N/A'; ?></td>
-                        <td data-username="<?php echo htmlspecialchars($booking->getUsername()); ?>"><?php echo htmlspecialchars($booking->getUsername()) ?: 'N/A'; ?></td>
-                        <td data-payment-method="<?php echo $booking->getPaymentMethod(); ?>"><?php echo $booking->getPaymentMethod() ?: 'N/A'; ?></td>
+                        <td data-phone="<?php echo htmlspecialchars($phoneValue); ?>"><?php echo htmlspecialchars($phoneValue) ?: 'N/A'; ?></td>
+                        <td data-username="<?php echo htmlspecialchars($usernameValue); ?>"><?php echo htmlspecialchars($usernameValue) ?: 'N/A'; ?></td>
+                        <td data-payment-method="<?php echo htmlspecialchars($booking->getPaymentMethod()); ?>"><?php echo htmlspecialchars($booking->getPaymentMethod()) ?: 'N/A'; ?></td>
                     </tr>
                 <?php } } ?>
             </tbody>
         </table>
-        <div class="pagination"><button onclick="changePage(-1)">Previous</button><button onclick="changePage(1)">Next</button></div>
+        <div class="pagination">
+            <button id="prev-btn" onclick="changePage(-1)" disabled>Previous</button>
+            <span id="page-info">Page 1 of 1</span>
+            <button id="next-btn" onclick="changePage(1)" disabled>Next</button>
+        </div>
     </div>
 </div>
 <script>
     let currentPage = 1;
     const rowsPerPage = 5;
 
-    function changePage(direction) {
-        currentPage += direction;
+    function updatePagination() {
+        const allRows = document.querySelectorAll('#orders-tbody tr');
+        const visibleRows = Array.from(allRows).filter(row => !row.classList.contains('hidden'));
+        const totalPages = Math.ceil(visibleRows.length / rowsPerPage);
+        currentPage = Math.min(currentPage, Math.max(1, totalPages));
         if (currentPage < 1) currentPage = 1;
-        const rows = document.querySelectorAll('#orders-tbody tr:not([style*="display: none"])');
-        const totalPages = Math.ceil(rows.length / rowsPerPage);
-        if (currentPage > totalPages) currentPage = totalPages;
+
         const start = (currentPage - 1) * rowsPerPage;
         const end = start + rowsPerPage;
-        document.querySelectorAll('#orders-tbody tr').forEach((row, index) => {
-            row.style.display = (index >= start && index < end && row.style.display !== 'none') ? '' : 'none';
+
+        allRows.forEach(row => {
+            row.style.display = 'none';
         });
+
+        visibleRows.slice(start, end).forEach(row => {
+            row.style.display = '';
+        });
+
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const pageInfo = document.getElementById('page-info');
+
+        prevBtn.disabled = currentPage === 1;
+        nextBtn.disabled = currentPage >= totalPages || totalPages === 0;
+        pageInfo.textContent = `Page ${currentPage} of ${totalPages || 1}`;
     }
 
-    document.getElementById('search-input').addEventListener('input', filterOrders);
-    document.getElementById('status-filter').addEventListener('change', filterOrders);
+    function changePage(direction) {
+        currentPage += direction;
+        updatePagination();
+    }
 
     function filterOrders() {
         const searchTerm = document.getElementById('search-input').value.toLowerCase();
         const statusFilter = document.getElementById('status-filter').value;
         const rows = document.querySelectorAll('#orders-tbody tr');
+
         rows.forEach(row => {
-            const orderId = row.querySelector('[data-order-id]')?.textContent.toLowerCase();
-            const status = row.querySelector('[data-status]')?.textContent;
-            const matchesSearch = orderId?.includes(searchTerm);
+            const orderId = row.querySelector('[data-order-id]')?.textContent.toLowerCase() || '';
+            const name = row.querySelector('[data-name]')?.textContent.toLowerCase() || '';
+            const phone = row.querySelector('[data-phone]')?.textContent.toLowerCase() || '';
+            const username = row.querySelector('[data-username]')?.textContent.toLowerCase() || '';
+            const date = row.querySelector('[data-date]')?.textContent.toLowerCase() || '';
+            const status = row.querySelector('[data-status]')?.textContent || '';
+
+            const matchesSearch = (
+                orderId.includes(searchTerm) ||
+                name.includes(searchTerm) ||
+                phone.includes(searchTerm) ||
+                username.includes(searchTerm) ||
+                date.includes(searchTerm)
+            );
             const matchesStatus = statusFilter ? status === statusFilter : true;
-            row.style.display = (matchesSearch && matchesStatus) ? '' : 'none';
+
+            row.classList.toggle('hidden', !(matchesSearch && matchesStatus));
         });
+
         currentPage = 1;
-        changePage(0);
+        updatePagination();
     }
+
+    document.getElementById('search-input').addEventListener('input', filterOrders);
+    document.getElementById('status-filter').addEventListener('change', filterOrders);
 
     const spinner = document.getElementById('loading-spinner');
     spinner.style.display = 'none';
-    changePage(0);
+    updatePagination();
 </script>
 </body>
 </html>

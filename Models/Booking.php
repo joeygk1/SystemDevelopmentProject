@@ -1,5 +1,5 @@
 <?php
-include_once "Models/Model.php";
+include_once "Model.php";
 
 class Booking extends Model
 {
@@ -11,9 +11,9 @@ class Booking extends Model
     private $status;
     private $name;
     private $total_Price;
-    private $phone;
-    private $username;
     private $payment_method;
+    private $username; // From users table
+    private $phone; // From users table
 
     public function __construct($param = null)
     {
@@ -22,7 +22,9 @@ class Booking extends Model
             $this->setProperties($param);
         } elseif (is_int($param)) {
             $conn = Model::connect();
-            $sql = "SELECT * FROM `bookings` WHERE `booking_id` = :bookingId";
+            $sql = "SELECT b.*, u.username, u.phone FROM `bookings` b 
+                    LEFT JOIN `users` u ON b.client_id = u.id 
+                    WHERE b.`booking_id` = :bookingId";
             $stmt = $conn->prepare($sql);
             $stmt->bindParam(":bookingId", $param, PDO::PARAM_INT);
             file_put_contents('debug.log', "Booking.php - Executing query: $sql with booking_id: $param at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
@@ -48,9 +50,10 @@ class Booking extends Model
         $this->status = $param->status ?? 'Pending';
         $this->name = $param->name ?? '';
         $this->total_Price = $param->total_Price ?? 0.00;
-        $this->phone = $param->phone ?? '';
-        $this->username = $param->username ?? '';
         $this->payment_method = $param->payment_method ?? '';
+        $this->username = $param->username ?? '';
+        $this->phone = $param->phone ?? '';
+        file_put_contents('debug.log', "Booking.php - setProperties assigned phone: " . ($this->phone !== '' ? $this->phone : 'empty') . ", username: " . ($this->username !== '' ? $this->username : 'empty') . " for booking_id: " . ($this->booking_id ?? 'unknown') . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
     }
 
     public static function list()
@@ -58,7 +61,7 @@ class Booking extends Model
         $list = [];
         $sql = "SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
                 b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
-                p.`payment_method`, u.`phone`, u.`username`
+                u.`username`, u.`phone`, p.`payment_method`
                 FROM `bookings` b
                 LEFT JOIN `payments` p ON b.booking_id = p.booking_id
                 LEFT JOIN `users` u ON b.client_id = u.id
@@ -72,6 +75,7 @@ class Booking extends Model
         try {
             $stmt->execute();
             while ($row = $stmt->fetch(PDO::FETCH_OBJ)) {
+                file_put_contents('debug.log', "Booking.php - Fetched row with booking_id: " . ($row->booking_id ?? 'unknown') . ", client_id: " . ($row->client_id ?? 'unknown') . ", phone: " . ($row->phone !== '' ? $row->phone : 'empty') . ", username: " . ($row->username !== '' ? $row->username : 'empty') . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
                 $booking = new Booking();
                 $booking->setProperties($row);
                 array_push($list, $booking);
@@ -89,7 +93,7 @@ class Booking extends Model
         $list = [];
         $sql = "SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
                 b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
-                p.`payment_method`, u.`phone`, u.`username`
+                u.`username`, u.`phone`, p.`payment_method`
                 FROM `bookings` b
                 LEFT JOIN `payments` p ON b.booking_id = p.booking_id
                 LEFT JOIN `users` u ON b.client_id = u.id
@@ -100,6 +104,7 @@ class Booking extends Model
         try {
             $stmt->execute();
             while ($row = $stmt->fetch(PDO::FETCH_OBJ)) {
+                file_put_contents('debug.log', "Booking.php - Fetched row with booking_id: " . ($row->booking_id ?? 'unknown') . ", client_id: " . ($row->client_id ?? 'unknown') . ", phone: " . ($row->phone !== '' ? $row->phone : 'empty') . ", username: " . ($row->username !== '' ? $row->username : 'empty') . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
                 $booking = new Booking();
                 $booking->setProperties($row);
                 array_push($list, $booking);
@@ -125,17 +130,34 @@ class Booking extends Model
             }
 
             // Update bookings table
+            $isAdmin = isset($_SESSION['role']) && $_SESSION['role'] === 'admin';
             $sql = "UPDATE `bookings` SET 
                         `name` = :name,
                         `dropoff_date` = :dropoff_date,
                         `status` = :status
-                    WHERE `booking_id` = :booking_id";
+                    WHERE `booking_id` = :booking_id" . ($isAdmin ? "" : " AND `client_id` = :client_id");
             $stmt = $conn->prepare($sql);
             $stmt->bindValue(':name', $data['name'], PDO::PARAM_STR);
             $stmt->bindValue(':dropoff_date', $data['dropoff_date'], PDO::PARAM_STR);
             $stmt->bindValue(':status', $data['status'] ?? $this->status, PDO::PARAM_STR);
             $stmt->bindValue(':booking_id', $this->booking_id, PDO::PARAM_INT);
+            if (!$isAdmin) {
+                $stmt->bindValue(':client_id', $_SESSION['client_id'] ?? $_SESSION['user_id'] ?? 0, PDO::PARAM_INT);
+            }
             $stmt->execute();
+
+            // Update users table (phone and username)
+            if (!empty($data['phone']) || !empty($data['username'])) {
+                $sql_user = "UPDATE `users` SET 
+                                `phone` = :phone,
+                                `username` = :username
+                             WHERE `id` = :client_id";
+                $stmt_user = $conn->prepare($sql_user);
+                $stmt_user->bindValue(':phone', $data['phone'] ?? $this->phone, PDO::PARAM_STR);
+                $stmt_user->bindValue(':username', $data['username'] ?? $this->username, PDO::PARAM_STR);
+                $stmt_user->bindValue(':client_id', $this->client_id, PDO::PARAM_INT);
+                $stmt_user->execute();
+            }
 
             // Update payments table (if payment_method provided)
             if (!empty($data['payment_method'])) {
@@ -157,8 +179,14 @@ class Booking extends Model
             if (!empty($data['payment_method'])) {
                 $this->payment_method = $data['payment_method'];
             }
+            if (!empty($data['phone'])) {
+                $this->phone = $data['phone'];
+            }
+            if (!empty($data['username'])) {
+                $this->username = $data['username'];
+            }
 
-            file_put_contents('debug.log', "Booking.php - updateClientDetails successful for booking_id: {$this->booking_id} at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+            file_put_contents('debug.log', "Booking.php - updateClientDetails successful for booking_id: {$this->booking_id}, phone updated: " . ($data['phone'] ?? 'not provided') . ", username updated: " . ($data['username'] ?? 'not provided') . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
             return ['success' => true, 'message' => 'Booking updated successfully'];
 
         } catch (Exception $e) {
@@ -214,6 +242,18 @@ class Booking extends Model
             $shoes_quantity = (int)($_POST['shoeCount'] ?? 1);
             $name = trim($_POST['name'] ?? '');
             $total_price = (float)($_POST['totalCost'] ?? 0.00);
+            // Log phone and username if sent, but don't store in bookings
+            $phone = trim($_POST['phone'] ?? '');
+            $username = trim($_POST['username'] ?? '');
+
+            // Log POST data for debugging
+            file_put_contents('debug.log', "Booking.php - bookAppointment POST data: " . print_r($_POST, true) . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+            if (!empty($phone)) {
+                file_put_contents('debug.log', "Booking.php - Received phone: $phone (not stored in bookings) at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+            }
+            if (!empty($username)) {
+                file_put_contents('debug.log', "Booking.php - Received username: $username (not stored in bookings) at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+            }
 
             // Validate required fields
             if ($client_id <= 0) {
@@ -367,3 +407,4 @@ class Booking extends Model
         return $this->payment_method;
     }
 }
+?>
