@@ -174,334 +174,334 @@ file_put_contents('debug.log', "client-orders.php - Bookings fetched, count: " .
     </style>
 </head>
 <body>
-<header>
-    <div class="logo"><a href="/MagicSoleProject/client/home"><img src="/MagicSoleProject/Images/MagicNoBackground.png" alt="Magic Sole Logo"></a></div>
-    <nav>
-        <a href="/MagicSoleProject/client/home">Home</a>
-        <a href="/MagicSoleProject/client/services">Services</a>
-        <a href="/MagicSoleProject/client/about">About</a>
-        <a href="/MagicSoleProject/client/policies">Policies</a>
-        <a href="/MagicSoleProject/booking/booking">Booking</a>
-        <a href="/MagicSoleProject/client/gallery">Gallery</a>
-        <?php if (!isset($_SESSION['token'])) { ?>
-            <a href="/MagicSoleProject/client/login">Login</a>
-            <a href="/MagicSoleProject/client/register">Register</a>
-        <?php } else { ?>
-            <a href="/MagicSoleProject/client/client-orders">Orders</a>
-            <a href="/MagicSoleProject/client/logout">Logout</a>
-        <?php } ?>
-    </nav>
-    <footer><p>© 2025 Magic Sole. All rights reserved.</p></footer>
-</header>
-<div class="main-content">
-    <section class="hero"><div class="hero-content"><h1>View Your Orders</h1><p>Manage your bookings here.</p></div></section>
-    <div class="orders-section">
-        <h2>Your Bookings</h2>
-        <div class="search-filter">
-            <input type="text" id="search-input" placeholder="Search by order ID, name, phone, or date...">
-            <select id="status-filter">
-                <option value="">All Statuses</option>
-                <option value="Pending">Pending</option>
-                <option value="Completed">Completed</option>
-                <option value="Cancelled">Cancelled</option>
-            </select>
-        </div>
-        <div class="loading-spinner" id="loading-spinner"><i class="fas fa-spinner"></i></div>
-        <table class="orders-table" id="orders-table">
-            <thead><tr><th>Order ID</th><th>Date</th><th>Total</th><th>Status</th><th>Name</th><th>Phone</th><th>Username</th><th>Payment Method</th><th>Services</th><th>Actions</th></tr></thead>
-            <tbody id="orders-tbody">
-                <?php if (empty($data)) { ?>
-                    <tr><td colspan="10">No bookings found.</td></tr>
-                <?php } else { 
-                    file_put_contents('debug.log', "client-orders.php - Entering foreach loop, count: " . count($data) . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
-                    foreach ($data as $booking) { 
-                        $phoneValue = $booking->getPhone();
-                        // NEW: Get services
-                        $services = $booking->getServices();
-                        $servicesStr = !empty($services) ? implode(', ', $services) : 'N/A';
-                        file_put_contents('debug.log', "client-orders.php - Rendering booking ID: " . $booking->getBookingId() . ", Phone: " . ($phoneValue !== null && $phoneValue !== '' ? $phoneValue : 'empty') . ", Username: " . ($booking->getUsername() ?: 'empty') . ", Services: " . $servicesStr . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
-                ?>
-                    <tr>
-                        <td data-order-id="<?php echo htmlspecialchars($booking->getBookingId()); ?>"><?php echo htmlspecialchars($booking->getBookingId()); ?></td>
-                        <td data-date="<?php echo htmlspecialchars($booking->getDropoffDate()); ?>"><?php echo htmlspecialchars($booking->getDropoffDate()); ?></td>
-                        <td data-total="<?php echo htmlspecialchars($booking->getTotalPrice()); ?>">$<?php echo number_format($booking->getTotalPrice(), 2); ?></td>
-                        <td data-status="<?php echo htmlspecialchars($booking->getStatus()); ?>"><?php echo htmlspecialchars($booking->getStatus()); ?></td>
-                        <td data-name="<?php echo htmlspecialchars($booking->getName()); ?>"><?php echo htmlspecialchars($booking->getName()); ?></td>
-                        <td data-phone="<?php echo htmlspecialchars($phoneValue); ?>"><?php echo htmlspecialchars($phoneValue) ?: 'N/A'; ?></td>
-                        <td data-username="<?php echo htmlspecialchars($booking->getUsername()); ?>"><?php echo htmlspecialchars($booking->getUsername()) ?: 'N/A'; ?></td>
-                        <td data-payment-method="<?php echo htmlspecialchars($booking->getPaymentMethod()); ?>"><?php echo htmlspecialchars($booking->getPaymentMethod()); ?></td>
-                        <!-- NEW: Services column -->
-                        <td data-services="<?php echo htmlspecialchars($servicesStr); ?>"><?php echo htmlspecialchars($servicesStr); ?></td>
-                        <td>
-                            <!-- NEW: Pass services to openUpdateModal -->
-                            <button class="action-btn update-btn" onclick="openUpdateModal('<?php echo htmlspecialchars($booking->getBookingId()); ?>', '<?php echo htmlspecialchars($booking->getName()); ?>', '<?php echo htmlspecialchars($booking->getDropoffDate()); ?>', '<?php echo htmlspecialchars($phoneValue ?: ''); ?>', '<?php echo htmlspecialchars($booking->getPaymentMethod()); ?>', '<?php echo htmlspecialchars(json_encode($services)); ?>')">Update</button>
-                            <button class="action-btn delete-btn" onclick="deleteOrder('<?php echo htmlspecialchars($booking->getBookingId()); ?>')">Delete</button>
-                        </td>
-                    </tr>
-                <?php } } ?>
-            </tbody>
-        </table>
-        <div class="pagination">
-            <button id="prev-btn" onclick="changePage(-1)" disabled>Previous</button>
-            <span id="page-info">Page 1 of 1</span>
-            <button id="next-btn" onclick="changePage(1)" disabled>Next</button>
-        </div>
-    </div>
-    <div class="modal" id="update-modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeUpdateModal()">×</span>
-            <h3>Update Booking Details</h3>
-            <label for="update-order-id">Order ID</label><input type="text" id="update-order-id" readonly>
-            <label for="update-name">Name</label><input type="text" id="update-name">
-            <label for="update-phone">Phone Number</label><input type="tel" id="update-phone" pattern="[0-9]{10}" placeholder="Enter 10-digit phone number">
-            <label for="update-dropoff-time">Drop-off Time</label><input type="datetime-local" id="update-dropoff-time">
-            <label for="update-payment-method">Payment Method</label>
-            <select id="update-payment-method"><option value="cash">Cash</option><option value="etransfer">E-Transfer</option></select>
-            <!-- NEW: Service checkboxes and total -->
-            <label>Services</label>
-            <div class="service-checkboxes">
-                <label><input type="checkbox" name="services[]" value="cleaning"> Cleaning ($50)</label>
-                <label><input type="checkbox" name="services[]" value="repaint"> Re-paint ($80)</label>
-                <label><input type="checkbox" name="services[]" value="icysole"> Icy-sole ($20)</label>
-                <label><input type="checkbox" name="services[]" value="redye"> Re-dye ($80)</label>
+    <header>
+        <div class="logo"><a href="/MagicSoleProject/client/home"><img src="/MagicSoleProject/Images/MagicNoBackground.png" alt="Magic Sole Logo"></a></div>
+        <nav>
+            <a href="/MagicSoleProject/client/home">Home</a>
+            <a href="/MagicSoleProject/client/services">Services</a>
+            <a href="/MagicSoleProject/client/about">About</a>
+            <a href="/MagicSoleProject/client/policies">Policies</a>
+            <a href="/MagicSoleProject/booking/booking">Booking</a>
+            <a href="/MagicSoleProject/client/gallery">Gallery</a>
+            <?php if (!isset($_SESSION['token'])) { ?>
+                <a href="/MagicSoleProject/client/login">Login</a>
+                <a href="/MagicSoleProject/client/register">Register</a>
+            <?php } else { ?>
+                <a href="/MagicSoleProject/client/client-orders">Orders</a>
+                <a href="/MagicSoleProject/client/logout">Logout</a>
+            <?php } ?>
+        </nav>
+        <footer><p>© 2025 Magic Sole. All rights reserved.</p></footer>
+    </header>
+    <div class="main-content">
+        <section class="hero"><div class="hero-content"><h1>View Your Orders</h1><p>Manage your bookings here.</p></div></section>
+        <div class="orders-section">
+            <h2>Your Bookings</h2>
+            <div class="search-filter">
+                <input type="text" id="search-input" placeholder="Search by order ID, name, phone, or date...">
+                <select id="status-filter">
+                    <option value="">All Statuses</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Cancelled">Cancelled</option>
+                </select>
             </div>
-            <label for="update-total">Total</label>
-            <input type="text" id="update-total" readonly>
-            <button onclick="saveOrder()">Save</button>
+            <div class="loading-spinner" id="loading-spinner"><i class="fas fa-spinner"></i></div>
+            <table class="orders-table" id="orders-table">
+                <thead><tr><th>Order ID</th><th>Date</th><th>Total</th><th>Status</th><th>Name</th><th>Phone</th><th>Username</th><th>Payment Method</th><th>Services</th><th>Actions</th></tr></thead>
+                <tbody id="orders-tbody">
+                    <?php if (empty($data)) { ?>
+                        <tr><td colspan="10">No bookings found.</td></tr>
+                    <?php } else { 
+                        file_put_contents('debug.log', "client-orders.php - Entering foreach loop, count: " . count($data) . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+                        foreach ($data as $booking) { 
+                            $phoneValue = $booking->getPhone();
+                        // NEW: Get services
+                            $services = $booking->getServices();
+                            $servicesStr = !empty($services) ? implode(', ', $services) : 'N/A';
+                            file_put_contents('debug.log', "client-orders.php - Rendering booking ID: " . $booking->getBookingId() . ", Phone: " . ($phoneValue !== null && $phoneValue !== '' ? $phoneValue : 'empty') . ", Username: " . ($booking->getUsername() ?: 'empty') . ", Services: " . $servicesStr . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+                            ?>
+                            <tr>
+                                <td data-order-id="<?php echo htmlspecialchars($booking->getBookingId()); ?>"><?php echo htmlspecialchars($booking->getBookingId()); ?></td>
+                                <td data-date="<?php echo htmlspecialchars($booking->getDropoffDate()); ?>"><?php echo htmlspecialchars($booking->getDropoffDate()); ?></td>
+                                <td data-total="<?php echo htmlspecialchars($booking->getTotalPrice()); ?>">$<?php echo number_format($booking->getTotalPrice(), 2); ?></td>
+                                <td data-status="<?php echo htmlspecialchars($booking->getStatus()); ?>"><?php echo htmlspecialchars($booking->getStatus()); ?></td>
+                                <td data-name="<?php echo htmlspecialchars($booking->getName()); ?>"><?php echo htmlspecialchars($booking->getName()); ?></td>
+                                <td data-phone="<?php echo htmlspecialchars($phoneValue); ?>"><?php echo htmlspecialchars($phoneValue) ?: 'N/A'; ?></td>
+                                <td data-username="<?php echo htmlspecialchars($booking->getUsername()); ?>"><?php echo htmlspecialchars($booking->getUsername()) ?: 'N/A'; ?></td>
+                                <td data-payment-method="<?php echo htmlspecialchars($booking->getPaymentMethod()); ?>"><?php echo htmlspecialchars($booking->getPaymentMethod()); ?></td>
+                                <!-- NEW: Services column -->
+                                <td data-services="<?php echo htmlspecialchars($servicesStr); ?>"><?php echo htmlspecialchars($servicesStr); ?></td>
+                                <td>
+                                    <!-- NEW: Pass services to openUpdateModal -->
+                                    <button class="action-btn update-btn" onclick="openUpdateModal('<?php echo htmlspecialchars($booking->getBookingId()); ?>', '<?php echo htmlspecialchars($booking->getName()); ?>', '<?php echo htmlspecialchars($booking->getDropoffDate()); ?>', '<?php echo htmlspecialchars($phoneValue ?: ''); ?>', '<?php echo htmlspecialchars($booking->getPaymentMethod()); ?>', '<?php echo htmlspecialchars(json_encode($services)); ?>')">Update</button>
+                                    <button class="action-btn delete-btn" onclick="deleteOrder('<?php echo htmlspecialchars($booking->getBookingId()); ?>')">Delete</button>
+                                </td>
+                            </tr>
+                        <?php } } ?>
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    <button id="prev-btn" onclick="changePage(-1)" disabled>Previous</button>
+                    <span id="page-info">Page 1 of 1</span>
+                    <button id="next-btn" onclick="changePage(1)" disabled>Next</button>
+                </div>
+            </div>
+            <div class="modal" id="update-modal">
+                <div class="modal-content">
+                    <span class="close-btn" onclick="closeUpdateModal()">×</span>
+                    <h3>Update Booking Details</h3>
+                    <label for="update-order-id">Order ID</label><input type="text" id="update-order-id" readonly>
+                    <label for="update-name">Name</label><input type="text" id="update-name">
+                    <label for="update-phone">Phone Number</label><input type="tel" id="update-phone" pattern="[0-9]{10}" placeholder="Enter 10-digit phone number">
+                    <label for="update-dropoff-time">Drop-off Time</label><input type="datetime-local" id="update-dropoff-time">
+                    <label for="update-payment-method">Payment Method</label>
+                    <select id="update-payment-method"><option value="cash">Cash</option><option value="etransfer">E-Transfer</option></select>
+                    <!-- NEW: Service checkboxes and total -->
+                    <label>Services</label>
+                    <div class="service-checkboxes">
+                        <label><input type="checkbox" name="services[]" value="cleaning"> Cleaning ($50)</label>
+                        <label><input type="checkbox" name="services[]" value="repaint"> Re-paint ($80)</label>
+                        <label><input type="checkbox" name="services[]" value="icysole"> Icy-sole ($20)</label>
+                        <label><input type="checkbox" name="services[]" value="redye"> Re-dye ($80)</label>
+                    </div>
+                    <label for="update-total">Total</label>
+                    <input type="text" id="update-total" readonly>
+                    <button onclick="saveOrder()">Save</button>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-<script>
-    let currentPage = 1;
-    const rowsPerPage = 5;
+        <script>
+            let currentPage = 1;
+            const rowsPerPage = 5;
 
-    function updatePagination() {
-        const allRows = document.querySelectorAll('#orders-tbody tr');
-        const visibleRows = Array.from(allRows).filter(row => !row.classList.contains('hidden'));
-        const totalPages = Math.ceil(visibleRows.length / rowsPerPage);
-        currentPage = Math.min(currentPage, Math.max(1, totalPages));
-        if (currentPage < 1) currentPage = 1;
+            function updatePagination() {
+                const allRows = document.querySelectorAll('#orders-tbody tr');
+                const visibleRows = Array.from(allRows).filter(row => !row.classList.contains('hidden'));
+                const totalPages = Math.ceil(visibleRows.length / rowsPerPage);
+                currentPage = Math.min(currentPage, Math.max(1, totalPages));
+                if (currentPage < 1) currentPage = 1;
 
-        const start = (currentPage - 1) * rowsPerPage;
-        const end = start + rowsPerPage;
+                const start = (currentPage - 1) * rowsPerPage;
+                const end = start + rowsPerPage;
 
-        allRows.forEach(row => {
-            row.style.display = 'none';
-        });
+                allRows.forEach(row => {
+                    row.style.display = 'none';
+                });
 
-        visibleRows.slice(start, end).forEach(row => {
-            row.style.display = '';
-        });
+                visibleRows.slice(start, end).forEach(row => {
+                    row.style.display = '';
+                });
 
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
-        const pageInfo = document.getElementById('page-info');
+                const prevBtn = document.getElementById('prev-btn');
+                const nextBtn = document.getElementById('next-btn');
+                const pageInfo = document.getElementById('page-info');
 
-        prevBtn.disabled = currentPage === 1;
-        nextBtn.disabled = currentPage >= totalPages || totalPages === 0;
-        pageInfo.textContent = `Page ${currentPage} of ${totalPages || 1}`;
-    }
+                prevBtn.disabled = currentPage === 1;
+                nextBtn.disabled = currentPage >= totalPages || totalPages === 0;
+                pageInfo.textContent = `Page ${currentPage} of ${totalPages || 1}`;
+            }
 
-    function changePage(direction) {
-        currentPage += direction;
-        updatePagination();
-    }
+            function changePage(direction) {
+                currentPage += direction;
+                updatePagination();
+            }
 
-    function filterOrders() {
-        const searchTerm = document.getElementById('search-input').value.toLowerCase();
-        const statusFilter = document.getElementById('status-filter').value;
-        const rows = document.querySelectorAll('#orders-tbody tr');
+            function filterOrders() {
+                const searchTerm = document.getElementById('search-input').value.toLowerCase();
+                const statusFilter = document.getElementById('status-filter').value;
+                const rows = document.querySelectorAll('#orders-tbody tr');
 
-        rows.forEach(row => {
-            const orderId = row.querySelector('[data-order-id]')?.textContent.toLowerCase() || '';
-            const name = row.querySelector('[data-name]')?.textContent.toLowerCase() || '';
-            const phone = row.querySelector('[data-phone]')?.textContent.toLowerCase() || '';
-            const date = row.querySelector('[data-date]')?.textContent.toLowerCase() || '';
-            const status = row.querySelector('[data-status]')?.textContent || '';
+                rows.forEach(row => {
+                    const orderId = row.querySelector('[data-order-id]')?.textContent.toLowerCase() || '';
+                    const name = row.querySelector('[data-name]')?.textContent.toLowerCase() || '';
+                    const phone = row.querySelector('[data-phone]')?.textContent.toLowerCase() || '';
+                    const date = row.querySelector('[data-date]')?.textContent.toLowerCase() || '';
+                    const status = row.querySelector('[data-status]')?.textContent || '';
             // NEW: Include services in filtering
-            const services = row.querySelector('[data-services]')?.textContent.toLowerCase() || '';
+                    const services = row.querySelector('[data-services]')?.textContent.toLowerCase() || '';
 
-            const matchesSearch = (
-                orderId.includes(searchTerm) ||
-                name.includes(searchTerm) ||
-                phone.includes(searchTerm) ||
-                date.includes(searchTerm) ||
-                services.includes(searchTerm)
-            );
-            const matchesStatus = statusFilter ? status === statusFilter : true;
+                    const matchesSearch = (
+                        orderId.includes(searchTerm) ||
+                        name.includes(searchTerm) ||
+                        phone.includes(searchTerm) ||
+                        date.includes(searchTerm) ||
+                        services.includes(searchTerm)
+                        );
+                    const matchesStatus = statusFilter ? status === statusFilter : true;
 
-            row.classList.toggle('hidden', !(matchesSearch && matchesStatus));
-        });
+                    row.classList.toggle('hidden', !(matchesSearch && matchesStatus));
+                });
 
-        currentPage = 1;
-        updatePagination();
-    }
+                currentPage = 1;
+                updatePagination();
+            }
 
     // NEW: Modified openUpdateModal to handle services
-    function openUpdateModal(orderId, name, dropoffDate, phone, paymentMethod, servicesJson) {
-        console.log('Opening modal for orderId:', orderId);
-        selectedOrderId = orderId;
-        const services = servicesJson ? JSON.parse(servicesJson) : [];
-        const row = document.querySelector(`tr td[data-order-id="${orderId}"]`)?.closest('tr');
-        if (row) {
-            document.getElementById('update-order-id').value = orderId;
-            document.getElementById('update-name').value = name || row.querySelector('[data-name]')?.getAttribute('data-name') || '';
-            document.getElementById('update-phone').value = phone || row.querySelector('[data-phone]')?.getAttribute('data-phone') || '';
-            document.getElementById('update-dropoff-time').value = dropoffDate ? new Date(dropoffDate).toISOString().slice(0, 16) : '';
-            document.getElementById('update-payment-method').value = paymentMethod || row.querySelector('[data-payment-method]')?.getAttribute('data-payment-method') || 'cash';
+            function openUpdateModal(orderId, name, dropoffDate, phone, paymentMethod, servicesJson) {
+                console.log('Opening modal for orderId:', orderId);
+                selectedOrderId = orderId;
+                const services = servicesJson ? JSON.parse(servicesJson) : [];
+                const row = document.querySelector(`tr td[data-order-id="${orderId}"]`)?.closest('tr');
+                if (row) {
+                    document.getElementById('update-order-id').value = orderId;
+                    document.getElementById('update-name').value = name || row.querySelector('[data-name]')?.getAttribute('data-name') || '';
+                    document.getElementById('update-phone').value = phone || row.querySelector('[data-phone]')?.getAttribute('data-phone') || '';
+                    document.getElementById('update-dropoff-time').value = dropoffDate ? new Date(dropoffDate).toISOString().slice(0, 16) : '';
+                    document.getElementById('update-payment-method').value = paymentMethod || row.querySelector('[data-payment-method]')?.getAttribute('data-payment-method') || 'cash';
             // NEW: Set service checkboxes
-            document.querySelectorAll('.service-checkboxes input').forEach(checkbox => {
-                checkbox.checked = services.includes(checkbox.value);
-            });
+                    document.querySelectorAll('.service-checkboxes input').forEach(checkbox => {
+                        checkbox.checked = services.includes(checkbox.value);
+                    });
             // NEW: Calculate initial total
-            updateTotal();
-            document.getElementById('update-modal').style.display = 'flex';
-        } else {
-            alert('Order not found.');
-        }
-    }
+                    updateTotal();
+                    document.getElementById('update-modal').style.display = 'flex';
+                } else {
+                    alert('Order not found.');
+                }
+            }
 
-    function closeUpdateModal() {
-        document.getElementById('update-modal').style.display = 'none';
-        selectedOrderId = null;
-    }
+            function closeUpdateModal() {
+                document.getElementById('update-modal').style.display = 'none';
+                selectedOrderId = null;
+            }
 
     // NEW: Function to update total based on selected services
-    function updateTotal() {
-        const servicePrices = { cleaning: 50, repaint: 80, icysole: 20, redye: 80 };
-        let total = 0;
-        document.querySelectorAll('.service-checkboxes input:checked').forEach(checkbox => {
-            total += servicePrices[checkbox.value] || 0;
-        });
-        document.getElementById('update-total').value = `$${total.toFixed(2)}`;
-    }
+            function updateTotal() {
+                const servicePrices = { cleaning: 50, repaint: 80, icysole: 20, redye: 80 };
+                let total = 0;
+                document.querySelectorAll('.service-checkboxes input:checked').forEach(checkbox => {
+                    total += servicePrices[checkbox.value] || 0;
+                });
+                document.getElementById('update-total').value = `$${total.toFixed(2)}`;
+            }
 
-    function saveOrder() {
-        const orderId = document.getElementById('update-order-id').value;
-        const name = document.getElementById('update-name').value.trim();
-        const phone = document.getElementById('update-phone').value.trim();
-        const dropoffTime = document.getElementById('update-dropoff-time').value;
-        const paymentMethod = document.getElementById('update-payment-method').value;
-        const loadingSpinner = document.getElementById('loading-spinner');
+            function saveOrder() {
+                const orderId = document.getElementById('update-order-id').value;
+                const name = document.getElementById('update-name').value.trim();
+                const phone = document.getElementById('update-phone').value.trim();
+                const dropoffTime = document.getElementById('update-dropoff-time').value;
+                const paymentMethod = document.getElementById('update-payment-method').value;
+                const loadingSpinner = document.getElementById('loading-spinner');
 
         // NEW: Get selected services
-        const services = Array.from(document.querySelectorAll('.service-checkboxes input:checked')).map(cb => cb.value);
-        const total = parseFloat(document.getElementById('update-total').value.replace('$', '')) || 0;
+                const services = Array.from(document.querySelectorAll('.service-checkboxes input:checked')).map(cb => cb.value);
+                const total = parseFloat(document.getElementById('update-total').value.replace('$', '')) || 0;
 
-        console.log('saveOrder inputs:', { orderId, name, phone, dropoffTime, paymentMethod, services, total });
+                console.log('saveOrder inputs:', { orderId, name, phone, dropoffTime, paymentMethod, services, total });
 
-        if (!orderId || !name || !dropoffTime || !paymentMethod) {
-            console.log('Validation failed: Missing required fields');
-            alert('Please fill in all required fields.');
-            return;
-        }
+                if (!orderId || !name || !dropoffTime || !paymentMethod) {
+                    console.log('Validation failed: Missing required fields');
+                    alert('Please fill in all required fields.');
+                    return;
+                }
 
         // NEW: Require at least one service
-        if (!services.length) {
-            console.log('Validation failed: No services selected');
-            alert('Please select at least one service.');
-            return;
-        }
+                if (!services.length) {
+                    console.log('Validation failed: No services selected');
+                    alert('Please select at least one service.');
+                    return;
+                }
 
-        const phonePattern = /^[0-9]{10}$/;
-        if (phone && !phonePattern.test(phone)) {
-            console.log('Validation failed: Invalid phone number:', phone);
-            alert('Please enter a valid 10-digit phone number.');
-            return;
-        }
+                const phonePattern = /^[0-9]{10}$/;
+                if (phone && !phonePattern.test(phone)) {
+                    console.log('Validation failed: Invalid phone number:', phone);
+                    alert('Please enter a valid 10-digit phone number.');
+                    return;
+                }
 
-        const payload = { 
-            action: 'update',
-            booking_id: orderId, 
-            name, 
-            phone,
-            dropoff_time: dropoffTime, 
-            payment_method: paymentMethod,
+                const payload = { 
+                    action: 'update',
+                    booking_id: orderId, 
+                    name, 
+                    phone,
+                    dropoff_time: dropoffTime, 
+                    payment_method: paymentMethod,
             // NEW: Include services and total
-            services,
-            total_Price: total
-        };
-        console.log('Sending update request with payload:', payload);
+                    services,
+                    total_Price: total
+                };
+                console.log('Sending update request with payload:', payload);
 
-        loadingSpinner.style.display = 'block';
+                loadingSpinner.style.display = 'block';
 
-        fetch('/MagicSoleProject/client/client-orders', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
-            body: JSON.stringify(payload)
-        })
-            .then(res => {
-                console.log('Fetch response status:', res.status);
-                console.log('Fetch response headers:', [...res.headers.entries()]);
-                if (!res.ok) {
-                    return res.text().then(text => {
-                        throw new Error(`HTTP error! Status: ${res.status}, Response: ${text}`);
+                fetch('/MagicSoleProject/client/client-orders', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
+                    body: JSON.stringify(payload)
+                })
+                .then(res => {
+                    console.log('Fetch response status:', res.status);
+                    console.log('Fetch response headers:', [...res.headers.entries()]);
+                    if (!res.ok) {
+                        return res.text().then(text => {
+                            throw new Error(`HTTP error! Status: ${res.status}, Response: ${text}`);
+                        });
+                    }
+                    return res.json();
+                })
+                .then(response => {
+                    console.log('Parsed JSON response:', response);
+                    loadingSpinner.style.display = 'none';
+                    if (response.success) {
+                        closeUpdateModal();
+                        location.reload();
+                    } else {
+                        console.log('Update failed with message:', response.message);
+                        alert(response.message || 'Failed to update booking.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Fetch error:', error.message);
+                    loadingSpinner.style.display = 'none';
+                    alert('An error occurred: ' + error.message);
+                });
+            }
+
+            function deleteOrder(orderId) {
+                console.log('Deleting orderId:', orderId);
+                if (confirm('Are you sure you want to delete this booking?')) {
+                    const loadingSpinner = document.getElementById('loading-spinner');
+                    loadingSpinner.style.display = 'block';
+                    const payload = { action: 'delete', booking_id: orderId };
+                    fetch('/MagicSoleProject/client/client-orders', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
+                        body: JSON.stringify(payload)
+                    })
+                    .then(res => {
+                        console.log('Delete response status:', res.status);
+                        if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+                        return res.json();
+                    })
+                    .then(response => {
+                        console.log('Parsed delete response:', response);
+                        loadingSpinner.style.display = 'none';
+                        if (response.success) {
+                            location.reload();
+                        } else {
+                            alert(response.message || 'Failed to delete booking.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Delete fetch error:', error.message);
+                        loadingSpinner.style.display = 'none';
+                        alert('An error occurred: ' + error.message);
                     });
                 }
-                return res.json();
-            })
-            .then(response => {
-                console.log('Parsed JSON response:', response);
-                loadingSpinner.style.display = 'none';
-                if (response.success) {
-                    closeUpdateModal();
-                    location.reload();
-                } else {
-                    console.log('Update failed with message:', response.message);
-                    alert(response.message || 'Failed to update booking.');
-                }
-            })
-            .catch(error => {
-                console.error('Fetch error:', error.message);
-                loadingSpinner.style.display = 'none';
-                alert('An error occurred: ' + error.message);
-            });
-    }
+            }
 
-    function deleteOrder(orderId) {
-        console.log('Deleting orderId:', orderId);
-        if (confirm('Are you sure you want to delete this booking?')) {
-            const loadingSpinner = document.getElementById('loading-spinner');
-            loadingSpinner.style.display = 'block';
-            const payload = { action: 'delete', booking_id: orderId };
-            fetch('/MagicSoleProject/client/client-orders', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
-                body: JSON.stringify(payload)
-            })
-            .then(res => {
-                console.log('Delete response status:', res.status);
-                if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
-                return res.json();
-            })
-            .then(response => {
-                console.log('Parsed delete response:', response);
-                loadingSpinner.style.display = 'none';
-                if (response.success) {
-                    location.reload();
-                } else {
-                    alert(response.message || 'Failed to delete booking.');
-                }
-            })
-            .catch(error => {
-                console.error('Delete fetch error:', error.message);
-                loadingSpinner.style.display = 'none';
-                alert('An error occurred: ' + error.message);
-            });
-        }
-    }
-
-    document.getElementById('search-input').addEventListener('input', filterOrders);
-    document.getElementById('status-filter').addEventListener('change', filterOrders);
+            document.getElementById('search-input').addEventListener('input', filterOrders);
+            document.getElementById('status-filter').addEventListener('change', filterOrders);
 
     // NEW: Add event listeners for service checkboxes
-    document.querySelectorAll('.service-checkboxes input').forEach(checkbox => {
-        checkbox.addEventListener('change', updateTotal);
-    });
+            document.querySelectorAll('.service-checkboxes input').forEach(checkbox => {
+                checkbox.addEventListener('change', updateTotal);
+            });
 
-    const spinner = document.getElementById('loading-spinner');
-    spinner.style.display = 'none';
-    updatePagination();
-</script>
-</body>
-</html>
+            const spinner = document.getElementById('loading-spinner');
+            spinner.style.display = 'none';
+            updatePagination();
+        </script>
+    </body>
+    </html>

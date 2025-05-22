@@ -1,4 +1,12 @@
 <?php
+session_start();
+ob_start();
+
+if (!isset($_SESSION['token']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+    header('Location: /MagicSoleProject/admin/login');
+    exit;
+}
+
 $path = $_SERVER['SCRIPT_NAME'];
 ?>
 <!DOCTYPE html>
@@ -225,15 +233,15 @@ $path = $_SERVER['SCRIPT_NAME'];
 <body>
 <header>
     <div class="logo">
-        <a href="admin-home.html">
-            <img src="MagicNoBackground.png" alt="Magic Sole Logo">
+        <a href="<?php echo dirname($path);?>/admin/admin-home">
+            <img src="<?php echo dirname($path);?>/Images/MagicNoBackground.png" alt="Magic Sole Logo">
         </a>
     </div>
     <nav>
         <a href="<?php echo dirname($path);?>/admin/admin-home">Admin Home</a>
         <a href="<?php echo dirname($path);?>/admin/view-orders">View Orders</a>
         <a href="<?php echo dirname($path);?>/admin/order-status">Order Status</a>
-        <a href="<?php echo dirname($path);?>/admin/admin-gallery">Order Status</a>
+        <a href="<?php echo dirname($path);?>/admin/admin-gallery">Manage Gallery</a>
         <a href="<?php echo dirname($path);?>/admin/logout">Logout</a>
     </nav>
     <footer>
@@ -267,32 +275,71 @@ $path = $_SERVER['SCRIPT_NAME'];
     </div>
     <div class="admin-options">
         <div class="admin-option">
-            <a href="view-orders.html">View Orders</a>
+            <a href="<?php echo dirname($path);?>/admin/view-orders">View Orders</a>
         </div>
         <div class="admin-option">
-            <a href="order-status.html">Order Status</a>
+            <a href="<?php echo dirname($path);?>/admin/order-status">Order Status</a>
         </div>
         <div class="admin-option">
-            <a href="admin-gallery.php">Manage Gallery</a>
+            <a href="<?php echo dirname($path);?>/admin/admin-gallery">Manage Gallery</a>
         </div>
     </div>
 </div>
 
 <script>
-    // Lightweight session check for logging (optional, since .htaccess handles redirect)
-    fetch('check_session.php')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Session check response:', data);
-        })
-        .catch(error => {
-            console.error('Error checking session:', error);
-        });
+    // Default orders if localStorage is empty
+    const defaultOrders = [
+        { id: 1, user_id: 1, status: 'pending', total_price: 49.99, created_at: '2025-05-20T10:00:00' },
+        { id: 2, user_id: 2, status: 'completed', total_price: 79.99, created_at: '2025-05-20T12:00:00' },
+        { id: 3, user_id: 3, status: 'pending', total_price: 29.99, created_at: '2025-05-20T14:00:00' }
+    ];
+
+    // Load orders from localStorage or use default
+    function loadOrders() {
+        try {
+            const orders = localStorage.getItem('orders');
+            return orders ? JSON.parse(orders) : [...defaultOrders];
+        } catch (e) {
+            console.error('Error parsing orders:', e);
+            return [...defaultOrders];
+        }
+    }
+
+    // Save orders to localStorage
+    function saveOrders(orders) {
+        try {
+            localStorage.setItem('orders', JSON.stringify(orders));
+        } catch (e) {
+            console.error('Error saving orders:', e);
+            alert('Failed to save orders. localStorage may be full.');
+        }
+    }
+
+    // Calculate summary data
+    function calculateSummary() {
+        const orders = loadOrders();
+        const totalOrders = orders.length;
+        const pendingOrders = orders.filter(order => order.status === 'pending').length;
+        const totalRevenue = orders.reduce((sum, order) => sum + order.total_price, 0);
+
+        return {
+            total_orders: totalOrders,
+            pending_orders: pendingOrders,
+            total_revenue: totalRevenue.toFixed(2)
+        };
+    }
+
+    // Update summary cards
+    function updateSummary() {
+        const summary = calculateSummary();
+        document.getElementById('total-orders').textContent = summary.total_orders;
+        document.getElementById('pending-orders').textContent = summary.pending_orders;
+        document.getElementById('total-revenue').textContent = '$' + summary.total_revenue;
+    }
+
+    // Update immediately on load and then every 30 seconds
+    updateSummary();
+    setInterval(updateSummary, 30000); // 30 seconds interval
 
     // Logout function
     function logout() {
@@ -305,13 +352,6 @@ $path = $_SERVER['SCRIPT_NAME'];
                 window.location.href = 'login.php';
             });
     }
-
-    // Simulate fetching summary data (replace with real API call)
-    setTimeout(() => {
-        document.getElementById('total-orders').textContent = '0';
-        document.getElementById('pending-orders').textContent = '0';
-        document.getElementById('total-revenue').textContent = '$0';
-    }, 1000);
 </script>
 </body>
 </html>

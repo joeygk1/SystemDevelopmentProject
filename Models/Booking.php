@@ -101,6 +101,10 @@ class Booking extends Model
     public static function listAll()
     {
         $list = [];
+        date_default_timezone_set('America/New_York'); // Set to EDT
+        $currentDateTime = date('Y-m-d H:i:s'); // Current time in EDT (04:54 PM EDT, May 22, 2025)
+        file_put_contents('debug.log', "Booking.php - Current date/time (EDT): $currentDateTime at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+
         $sql = "SELECT b.`booking_id`, b.`client_id`, b.`name`, b.`dropoff_date`, b.`status`, 
                 b.`shoes_quantity`, b.`pickup_date`, b.`total_Price`, 
                 u.`username`, u.`phone`, p.`payment_method`,
@@ -110,11 +114,13 @@ class Booking extends Model
                 LEFT JOIN `users` u ON b.client_id = u.id
                 LEFT JOIN `booking_service` bs ON b.booking_id = bs.booking_id
                 LEFT JOIN `services` s ON bs.service_id = s.service_id
+                WHERE b.`dropoff_date` >= :currentDateTime
                 GROUP BY b.booking_id
                 ORDER BY b.booking_id DESC";
         $connection = Model::connect();
         $stmt = $connection->prepare($sql);
-        file_put_contents('debug.log', "Booking.php - Executing listAll query: $sql at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+        $stmt->bindValue(':currentDateTime', $currentDateTime, PDO::PARAM_STR);
+        file_put_contents('debug.log', "Booking.php - Executing listAll query: $sql with currentDateTime: $currentDateTime at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
         try {
             $stmt->execute();
             while ($row = $stmt->fetch(PDO::FETCH_OBJ)) {
@@ -129,6 +135,31 @@ class Booking extends Model
             throw $e;
         }
         return $list;
+    }
+
+    public function updateStatus($status)
+    {
+        try {
+            $conn = Model::connect();
+            $validStatuses = ['Pending', 'Completed', 'Cancelled'];
+            if (!in_array($status, $validStatuses)) {
+                file_put_contents('debug.log', "Booking.php - Invalid status: $status for booking_id: {$this->booking_id} at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+                return ['success' => false, 'message' => "Invalid status: $status"];
+            }
+
+            $sql = "UPDATE `bookings` SET `status` = :status WHERE `booking_id` = :booking_id";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindValue(':status', $status, PDO::PARAM_STR);
+            $stmt->bindValue(':booking_id', $this->booking_id, PDO::PARAM_INT);
+            $stmt->execute();
+
+            $this->status = $status;
+            file_put_contents('debug.log', "Booking.php - updateStatus successful for booking_id: {$this->booking_id}, status: $status at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+            return ['success' => true, 'message' => 'Status updated successfully'];
+        } catch (Exception $e) {
+            file_put_contents('debug.log', "Booking.php - Exception in updateStatus: " . $e->getMessage() . " for booking_id: {$this->booking_id} at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+            return ['success' => false, 'message' => 'Error: ' . $e->getMessage()];
+        }
     }
 
     public function updateClientDetails($data)
@@ -410,6 +441,23 @@ class Booking extends Model
             $error_message = "Booking error: " . $e->getMessage() . ' in ' . $e->getFile() . ' on line ' . $e->getLine();
             file_put_contents('debug.log', "Booking.php - $error_message at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
             return ['success' => false, 'message' => $error_message];
+        }
+    }
+
+    public function getEmail()
+    {
+        try {
+            $conn = Model::connect();
+            $sql = "SELECT email FROM `users` WHERE `id` = :client_id";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindValue(':client_id', $this->client_id, PDO::PARAM_INT);
+            $stmt->execute();
+            $email = $stmt->fetchColumn();
+            file_put_contents('debug.log', "Booking.php - getEmail for client_id: {$this->client_id}, email: " . ($email ?: 'none') . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+            return $email ?: null;
+        } catch (Exception $e) {
+            file_put_contents('debug.log', "Booking.php - Exception in getEmail: " . $e->getMessage() . " for client_id: {$this->client_id} at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+            return null;
         }
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 $path = $_SERVER['SCRIPT_NAME'];
 ?>
 <!DOCTYPE html>
@@ -90,7 +91,7 @@ $path = $_SERVER['SCRIPT_NAME'];
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('CoolGrey.gif') no-repeat center center/cover;
+            background: url('<?php echo dirname($path);?>/Images/CoolGrey.gif') no-repeat center center/cover;
             opacity: 0.2;
             z-index: 0;
             transform: translateY(0);
@@ -165,7 +166,7 @@ $path = $_SERVER['SCRIPT_NAME'];
         }
 
         .gallery-grid {
-            column-count: 3; /* Masonry layout for all sections */
+            column-count: 3;
             column-gap: 20px;
         }
 
@@ -179,6 +180,8 @@ $path = $_SERVER['SCRIPT_NAME'];
             opacity: 0;
             transform: scale(0.9);
             animation: galleryItemFadeIn 0.5s forwards;
+            width: 100%;
+            height: 200px;
         }
 
         .gallery-item:nth-child(1) { animation-delay: 0.6s; }
@@ -190,7 +193,8 @@ $path = $_SERVER['SCRIPT_NAME'];
 
         .gallery-item img, .gallery-item video {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
             display: block;
             transition: transform 0.3s ease;
         }
@@ -248,7 +252,7 @@ $path = $_SERVER['SCRIPT_NAME'];
 
         .gallery-item.loading {
             background: #e0e0e0;
-            height: 300px; /* Placeholder height */
+            height: 200px;
             animation: pulse 1.5s infinite;
         }
 
@@ -376,11 +380,11 @@ $path = $_SERVER['SCRIPT_NAME'];
             }
 
             .gallery-grid {
-                column-count: 1; /* Single column on mobile */
+                column-count: 1;
             }
 
-            .gallery-item img, .gallery-item video {
-                height: auto;
+            .gallery-item {
+                height: 150px;
             }
 
             .filter-buttons {
@@ -461,16 +465,15 @@ $path = $_SERVER['SCRIPT_NAME'];
         <a href="<?php echo dirname($path);?>/booking/booking">Booking</a>
         <a href="<?php echo dirname($path);?>/client/gallery">Gallery</a>
         <?php
-        if(!isset($_SESSION['token'])){
+        if (!isset($_SESSION['token'])) {
             ?>
             <a href="<?php echo dirname($path);?>/client/login">Login</a>
             <a href="<?php echo dirname($path);?>/client/register">Register</a>
             <?php
-        }
-        else{
+        } else {
             ?>
             <a href="<?php echo dirname($path);?>/client/client-orders">Orders</a>
-            <a href="<?php echo dirname($path);?>/client/logout" >Logout</a>
+            <a href="<?php echo dirname($path);?>/client/logout">Logout</a>
             <?php
         }
         ?>
@@ -507,35 +510,42 @@ $path = $_SERVER['SCRIPT_NAME'];
 </div>
 
 <script>
-    // Add your photo and video file paths here
-    const galleryItems = [
-        { type: 'video', src: '<?php echo dirname($path);?>/Videos/sneaker1.mp4', alt: '' },
-        { type: 'video', src: '<?php echo dirname($path);?>/Videos/sneaker2.mp4', alt: '' },
-        { type: 'video', src: '<?php echo dirname($path);?>/Videos/joey1.mp4', alt: '' },
-        { type: 'video', src: '<?php echo dirname($path);?>/Videos/kev1.mp4', alt: '' },
-        { type: 'photo', src: '<?php echo dirname($path);?>/Images/joey2.jpg', alt: '' },
-        { type: 'photo', src: '<?php echo dirname($path);?>/Images/joey3.jpg', alt: '' }
-    
-    ];
+    // Default gallery items
+    const defaultGalleryItems = [
+    { type: 'video', src: '/MagicSoleProject/Videos/sneaker1.mp4', alt: 'Sneaker Restoration 1' },
+    { type: 'video', src: '/MagicSoleProject/Videos/sneaker2.mp4', alt: 'Sneaker Restoration 2' },
+    { type: 'video', src: '/MagicSoleProject/Videos/joey1.mp4', alt: 'Joey\'s Sneaker Process' },
+    { type: 'video', src: '/MagicSoleProject/Videos/kev1.mp4', alt: 'Kev\'s Sneaker Process' },
+    { type: 'photo', src: '/MagicSoleProject/Images/joey2.jpg', alt: 'Restored Sneaker Photo 1' },
+    { type: 'photo', src: '/MagicSoleProject/Images/joey3.jpg', alt: 'Restored Sneaker Photo 2' }
+];
 
+    function loadGalleryItems() {
+        try {
+            const items = localStorage.getItem('galleryItems');
+            return items ? JSON.parse(items) : [...defaultGalleryItems];
+        } catch (e) {
+            console.error('Error parsing galleryItems:', e);
+            return [...defaultGalleryItems];
+        }
+    }
+
+    let galleryItems = loadGalleryItems();
     let currentIndex = 0;
     let currentFilter = 'all';
     let filteredItems = galleryItems;
 
-    // Populate gallery with loading placeholders
     function populateGallery(filter = 'all') {
         currentFilter = filter;
         const galleryGrid = document.getElementById('gallery-grid');
         galleryGrid.innerHTML = '';
 
-        // Add loading placeholders
         for (let i = 0; i < 6; i++) {
             const placeholder = document.createElement('div');
             placeholder.classList.add('gallery-item', 'loading');
             galleryGrid.appendChild(placeholder);
         }
 
-        // Simulate loading delay (remove this in production if loading is fast)
         setTimeout(() => {
             galleryGrid.innerHTML = '';
             filteredItems = filter === 'all' ? galleryItems : galleryItems.filter(item => item.type === filter);
@@ -568,10 +578,9 @@ $path = $_SERVER['SCRIPT_NAME'];
                 galleryItem.addEventListener('click', () => openLightbox(originalIndex));
                 galleryGrid.appendChild(galleryItem);
             });
-        }, 1000); // Simulated delay
+        }, 1000);
     }
 
-    // Filter gallery
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             document.querySelector('.filter-btn.active').classList.remove('active');
@@ -581,7 +590,6 @@ $path = $_SERVER['SCRIPT_NAME'];
         });
     });
 
-    // Open lightbox
     function openLightbox(index) {
         currentIndex = index;
         const item = galleryItems[index];
@@ -594,7 +602,6 @@ $path = $_SERVER['SCRIPT_NAME'];
         document.getElementById('lightbox').style.display = 'flex';
     }
 
-    // Close lightbox
     function closeLightbox() {
         document.getElementById('lightbox').style.display = 'none';
         const lightboxContent = document.getElementById('lightbox-content');
@@ -603,7 +610,6 @@ $path = $_SERVER['SCRIPT_NAME'];
         }
     }
 
-    // Navigate through media
     function changeMedia(direction) {
         const currentFilteredIndex = filteredItems.indexOf(galleryItems[currentIndex]);
         let newFilteredIndex = currentFilteredIndex + direction;
@@ -615,14 +621,12 @@ $path = $_SERVER['SCRIPT_NAME'];
         openLightbox(currentIndex);
     }
 
-    // Parallax effect for hero section
     window.addEventListener('scroll', () => {
         const hero = document.querySelector('.hero');
         const scrolled = window.pageYOffset;
         hero.style.setProperty('--scroll', scrolled * 0.5 + 'px');
     });
 
-    // Initialize gallery
     populateGallery();
 </script>
 </body>

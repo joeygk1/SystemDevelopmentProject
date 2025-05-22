@@ -9,18 +9,23 @@ if (!isset($_SESSION['token']) || !isset($_SESSION['role']) || $_SESSION['role']
 
 $session_id = $_SESSION['user_id'] ?? 'not set';
 file_put_contents('debug.log', "view-orders.php - Session user_id: $session_id at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
-$data = Booking::listAll();
-file_put_contents('debug.log', "view-orders.php - Bookings fetched, count: " . count($data) . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+
+// Fetch bookings with date filter and sorting
+$bookings = Booking::listAll(['where' => 'dropoff_date >= CURDATE()', 'order_by' => 'dropoff_date ASC']);
+file_put_contents('debug.log', "view-orders.php - Bookings fetched, count: " . count($bookings) . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+
 $path = $_SERVER['SCRIPT_NAME'];
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Orders - Magic Sole Admin</title>
+    <title>View Bookings - Magic Sole Admin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* CSS mostly unchanged, removed modal-related styles */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background: linear-gradient(135deg, #f5f7fa, #c3cfe2); color: #333; display: flex; }
         header { background-color: #1a1a1a; color: white; padding: 2rem 1rem; display: flex; flex-direction: column; align-items: center; width: 250px; height: 100vh; position: fixed; left: 0; top: 0; box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2); animation: slideInLeft 1s ease-out; }
@@ -43,13 +48,12 @@ $path = $_SERVER['SCRIPT_NAME'];
         .orders-table tr:nth-child(1) { animation-delay: 0.7s; }
         .orders-table tr:nth-child(2) { animation-delay: 0.8s; }
         .orders-table tr:nth-child(3) { animation-delay: 0.9s; }
-        .orders-table tr:hover { background: #f5f7fa; cursor: pointer; }
+        .orders-table tr:hover { background: #f5f7fa; }
         .pagination { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
         .pagination button { padding: 8px 16px; background: #1a1a1a; color: white; border: none; border-radius: 5px; cursor: pointer; }
-        .pagination button:hover { background: #333; }
-        .pagination button:disabled { background: #666; cursor: not-allowed; } /* NEW: Added disabled style for consistency */
-        .loading-spinner { display: none; text-align: center; margin: 20px 0; }
-        .loading-spinner i { font-size: 2rem; color: #d4af37; animation: spin 1s linear infinite; }
+        .pagination button:disabled { background: #666; cursor: not-allowed; }
+        .pagination button:hover:not(:disabled) { background: #333; }
+        .pagination span { padding: 8px 16px; font-size: 1rem; color: #1a1a1a; }
         footer { font-size: 0.9rem; color: white; text-align: center; padding: 1rem 0; position: fixed; bottom: 0; left: 0; width: 250px; background-color: #1a1a1a; box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2); }
         @media (max-width: 768px) { 
             .main-content { margin-left: 0; width: 100%; padding: 20px; } 
@@ -64,7 +68,6 @@ $path = $_SERVER['SCRIPT_NAME'];
         @keyframes slideInLeft { from { transform: translateX(-100%); } to { transform: translateX(0); } }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
-        @keyframes spin { to { transform: rotate(360deg); } }
     </style>
 </head>
 <body>
@@ -72,19 +75,19 @@ $path = $_SERVER['SCRIPT_NAME'];
     <div class="logo"><a href="<?php echo dirname($path); ?>/admin/admin-home"><img src="<?php echo dirname($path); ?>/Images/MagicNoBackground.png" alt="Magic Sole Logo"></a></div>
     <nav>
         <a href="<?php echo dirname($path); ?>/admin/admin-home">Admin Home</a>
-        <a href="<?php echo dirname($path); ?>/admin/view-orders">View Orders</a>
-        <a href="<?php echo dirname($path); ?>/admin/order-status">Manage Orders</a>
+        <a href="<?php echo dirname($path); ?>/admin/view-orders">View Bookings</a>
+        <a href="<?php echo dirname($path); ?>/admin/order-status">Manage Bookings</a>
         <a href="<?php echo dirname($path); ?>/admin/admin-gallery">Manage Gallery</a>
         <a href="<?php echo dirname($path); ?>/admin/logout">Logout</a>
     </nav>
     <footer><p>© 2025 Magic Sole. All rights reserved.</p></footer>
 </header>
 <div class="main-content">
-    <section class="hero"><div class="hero-content"><h1>View Orders</h1><p>View all bookings here.</p></div></section>
+    <section class="hero"><div class="hero-content"><h1>View Bookings</h1><p>View booking details here.</p></div></section>
     <div class="orders-section">
         <h2>All Bookings</h2>
         <div class="search-filter">
-            <input type="text" id="search-input" placeholder="Search by Order ID, name, phone, username, date, or services...">
+            <input type="text" id="search-input" placeholder="Search by Order ID, name, phone, or date...">
             <select id="status-filter">
                 <option value="">All Statuses</option>
                 <option value="Pending">Pending</option>
@@ -92,20 +95,18 @@ $path = $_SERVER['SCRIPT_NAME'];
                 <option value="Cancelled">Cancelled</option>
             </select>
         </div>
-        <div class="loading-spinner" id="loading-spinner"><i class="fas fa-spinner"></i></div>
         <table class="orders-table" id="orders-table">
-            <thead><tr><th>Order ID</th><th>Date</th><th>Total</th><th>Status</th><th>Name</th><th>Phone</th><th>Username</th><th>Payment Method</th><th>Services</th></tr></thead>
+            <thead><tr><th>Order ID</th><th>Drop Off Date</th><th>Total</th><th>Status</th><th>Name</th><th>Phone</th><th>Username</th><th>Payment Method</th><th>Services</th></tr></thead>
             <tbody id="orders-tbody">
-                <?php if (empty($data)) { ?>
+                <?php if (empty($bookings)) { ?>
                     <tr><td colspan="9">No bookings found.</td></tr>
-                <?php } else { 
-                    foreach ($data as $booking) { 
+                <?php } else {
+                    file_put_contents('debug.log', "view-orders.php - Entering foreach loop, count: " . count($bookings) . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+                    foreach ($bookings as $booking) {
                         $phoneValue = $booking->getPhone();
-                        $usernameValue = $booking->getUsername();
-                        // NEW: Get services
                         $services = $booking->getServices();
                         $servicesStr = !empty($services) ? implode(', ', $services) : 'N/A';
-                        file_put_contents('debug.log', "view-orders.php - Rendering booking ID: " . $booking->getBookingId() . ", Phone: " . ($phoneValue !== '' ? $phoneValue : 'empty') . ", Username: " . ($usernameValue !== '' ? $usernameValue : 'empty') . ", Services: " . $servicesStr . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+                        file_put_contents('debug.log', "view-orders.php - Rendering booking ID: " . $booking->getBookingId() . ", Phone: " . ($phoneValue !== null && $phoneValue !== '' ? $phoneValue : 'empty') . ", Username: " . ($booking->getUsername() ?: 'empty') . ", Services: " . $servicesStr . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
                 ?>
                     <tr>
                         <td data-order-id="<?php echo htmlspecialchars($booking->getBookingId()); ?>"><?php echo htmlspecialchars($booking->getBookingId()); ?></td>
@@ -114,9 +115,8 @@ $path = $_SERVER['SCRIPT_NAME'];
                         <td data-status="<?php echo htmlspecialchars($booking->getStatus()); ?>"><?php echo htmlspecialchars($booking->getStatus()); ?></td>
                         <td data-name="<?php echo htmlspecialchars($booking->getName()); ?>"><?php echo htmlspecialchars($booking->getName()); ?></td>
                         <td data-phone="<?php echo htmlspecialchars($phoneValue); ?>"><?php echo htmlspecialchars($phoneValue) ?: 'N/A'; ?></td>
-                        <td data-username="<?php echo htmlspecialchars($usernameValue); ?>"><?php echo htmlspecialchars($usernameValue) ?: 'N/A'; ?></td>
+                        <td data-username="<?php echo htmlspecialchars($booking->getUsername()); ?>"><?php echo htmlspecialchars($booking->getUsername()) ?: 'N/A'; ?></td>
                         <td data-payment-method="<?php echo htmlspecialchars($booking->getPaymentMethod()); ?>"><?php echo htmlspecialchars($booking->getPaymentMethod()) ?: 'N/A'; ?></td>
-                        <!-- NEW: Services column -->
                         <td data-services="<?php echo htmlspecialchars($servicesStr); ?>"><?php echo htmlspecialchars($servicesStr); ?></td>
                     </tr>
                 <?php } } ?>
@@ -174,17 +174,14 @@ $path = $_SERVER['SCRIPT_NAME'];
             const orderId = row.querySelector('[data-order-id]')?.textContent.toLowerCase() || '';
             const name = row.querySelector('[data-name]')?.textContent.toLowerCase() || '';
             const phone = row.querySelector('[data-phone]')?.textContent.toLowerCase() || '';
-            const username = row.querySelector('[data-username]')?.textContent.toLowerCase() || '';
             const date = row.querySelector('[data-date]')?.textContent.toLowerCase() || '';
             const status = row.querySelector('[data-status]')?.textContent || '';
-            // NEW: Include services in search
             const services = row.querySelector('[data-services]')?.textContent.toLowerCase() || '';
 
             const matchesSearch = (
                 orderId.includes(searchTerm) ||
                 name.includes(searchTerm) ||
                 phone.includes(searchTerm) ||
-                username.includes(searchTerm) ||
                 date.includes(searchTerm) ||
                 services.includes(searchTerm)
             );
@@ -199,9 +196,6 @@ $path = $_SERVER['SCRIPT_NAME'];
 
     document.getElementById('search-input').addEventListener('input', filterOrders);
     document.getElementById('status-filter').addEventListener('change', filterOrders);
-
-    const spinner = document.getElementById('loading-spinner');
-    spinner.style.display = 'none';
     updatePagination();
 </script>
 </body>

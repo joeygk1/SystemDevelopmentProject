@@ -1,61 +1,9 @@
 <?php
 ob_start();
 include_once "Models/Booking.php";
+
 if (!isset($_SESSION['token']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     header('Location: /MagicSoleProject/admin/login');
-    exit;
-}
-
-// Handle AJAX requests for update
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    header('Content-Type: application/json');
-
-    $raw_input = file_get_contents('php://input');
-    $data = json_decode($raw_input, true);
-    file_put_contents('debug.log', "order-status.php - POST request received with data: " . print_r($data, true) . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
-
-    if (isset($data['action']) && $data['action'] === 'update') {
-        try {
-            if (!isset($data['booking_id']) || !isset($data['name']) || !isset($data['dropoff_date']) || !isset($data['payment_method']) || !isset($data['status']) || !isset($data['services'])) {
-                file_put_contents('debug.log', "order-status.php - Invalid or missing update data: " . print_r($data, true) . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
-                echo json_encode(['success' => false, 'message' => 'Invalid or missing data']);
-                exit;
-            }
-
-            $booking = new Booking((int)$data['booking_id']);
-            if (!$booking->getBookingId()) {
-                file_put_contents('debug.log', "order-status.php - Booking not found for ID: " . $data['booking_id'] . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
-                echo json_encode(['success' => false, 'message' => 'Booking not found']);
-                exit;
-            }
-
-            $servicePrices = ['cleaning' => 50, 'repaint' => 80, 'icysole' => 20, 'redye' => 80];
-            $total_Price = 0;
-            foreach ($data['services'] as $service) {
-                $total_Price += $servicePrices[$service] ?? 0;
-            }
-
-            $updateData = [
-                'name' => $data['name'],
-                'dropoff_date' => $data['dropoff_date'],
-                'payment_method' => $data['payment_method'],
-                'status' => $data['status'],
-                'services' => $data['services'],
-                'total_Price' => $total_Price
-            ];
-            file_put_contents('debug.log', "order-status.php - Updating booking ID: " . $data['booking_id'] . " with data: " . print_r($updateData, true) . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
-            $response = $booking->updateClientDetails($updateData);
-            echo json_encode($response);
-            exit;
-        } catch (Exception $e) {
-            $error_message = 'Error: ' . $e->getMessage();
-            file_put_contents('debug.log', "order-status.php - $error_message at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
-            echo json_encode(['success' => false, 'message' => $error_message]);
-            exit;
-        }
-    }
-
-    echo json_encode(['success' => false, 'message' => 'Invalid action']);
     exit;
 }
 
@@ -65,12 +13,13 @@ $data = Booking::listAll();
 file_put_contents('debug.log', "order-status.php - Bookings fetched, count: " . count($data) . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
 $path = $_SERVER['SCRIPT_NAME'];
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Orders - Magic Sole Admin</title>
+    <title>Manage Bookings - Magic Sole Admin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
@@ -113,7 +62,7 @@ $path = $_SERVER['SCRIPT_NAME'];
         .modal-content label { display: block; margin-bottom: 5px; font-weight: 500; color: #1a1a1a; }
         .modal-content input, .modal-content select { width: 100%; padding: 8px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem; outline: none; }
         .modal-content input:focus, .modal-content select:focus { border: 1px solid #d4af37; }
-        .modal-content input[readonly] { background: #f5f5f5; cursor: not-allowed; }
+        .modal-content input[readonly], .modal-content select[readonly] { background: #f5f5f5; cursor: not-allowed; }
         .modal-content button { padding: 10px 20px; background: #f9c303; color: #1a1a1a; border: none; border-radius: 5px; cursor: pointer; }
         .modal-content button:hover { background: #d4af37; }
         .service-checkboxes { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 15px; }
@@ -140,15 +89,15 @@ $path = $_SERVER['SCRIPT_NAME'];
     <div class="logo"><a href="<?php echo dirname($path); ?>/admin/admin-home"><img src="<?php echo dirname($path); ?>/Images/MagicNoBackground.png" alt="Magic Sole Logo"></a></div>
     <nav>
         <a href="<?php echo dirname($path); ?>/admin/admin-home">Admin Home</a>
-        <a href="<?php echo dirname($path); ?>/admin/view-orders">View Orders</a>
-        <a href="<?php echo dirname($path); ?>/admin/order-status">Manage Orders</a>
+        <a href="<?php echo dirname($path); ?>/admin/view-orders">View Bookings</a>
+        <a href="<?php echo dirname($path); ?>/admin/order-status">Manage Bookings</a>
         <a href="<?php echo dirname($path); ?>/admin/admin-gallery">Manage Gallery</a>
         <a href="<?php echo dirname($path); ?>/admin/logout">Logout</a>
     </nav>
     <footer><p>© 2025 Magic Sole. All rights reserved.</p></footer>
 </header>
 <div class="main-content">
-    <section class="hero"><div class="hero-content"><h1>Manage Orders</h1><p>Update booking details here.</p></div></section>
+    <section class="hero"><div class="hero-content"><h1>Manage Bookings</h1><p>Update booking statuses here.</p></div></section>
     <div class="orders-section">
         <h2>All Bookings</h2>
         <div class="search-filter">
@@ -162,7 +111,7 @@ $path = $_SERVER['SCRIPT_NAME'];
         </div>
         <div class="loading-spinner" id="loading-spinner"><i class="fas fa-spinner"></i></div>
         <table class="orders-table" id="orders-table">
-            <thead><tr><th>Order ID</th><th>Date</th><th>Total</th><th>Status</th><th>Name</th><th>Phone</th><th>Username</th><th>Payment Method</th><th>Services</th><th>Actions</th></tr></thead>
+            <thead><tr><th>Order ID</th><th>Drop Off Date</th><th>Total</th><th>Status</th><th>Name</th><th>Phone</th><th>Username</th><th>Payment Method</th><th>Services</th><th>Actions</th></tr></thead>
             <tbody id="orders-tbody">
                 <?php if (empty($data)) { ?>
                     <tr><td colspan="10">No bookings found.</td></tr>
@@ -200,15 +149,15 @@ $path = $_SERVER['SCRIPT_NAME'];
     <div class="modal" id="update-modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeUpdateModal()">×</span>
-            <h3>Update Booking</h3>
+            <h3>Update Booking Status</h3>
             <label for="update-booking-id">Booking ID</label>
             <input type="text" id="update-booking-id" readonly>
             <label for="update-name">Name</label>
-            <input type="text" id="update-name">
+            <input type="text" id="update-name" readonly>
             <label for="update-dropoff-date">Dropoff Date</label>
-            <input type="datetime-local" id="update-dropoff-date">
+            <input type="datetime-local" id="update-dropoff-date" readonly>
             <label for="update-payment-method">Payment Method</label>
-            <select id="update-payment-method">
+            <select id="update-payment-method" disabled>
                 <option value="cash">Cash</option>
                 <option value="etransfer">E-Transfer</option>
             </select>
@@ -220,10 +169,10 @@ $path = $_SERVER['SCRIPT_NAME'];
             </select>
             <label>Services</label>
             <div class="service-checkboxes">
-                <label><input type="checkbox" name="services[]" value="cleaning"> Cleaning ($50)</label>
-                <label><input type="checkbox" name="services[]" value="repaint"> Re-paint ($80)</label>
-                <label><input type="checkbox" name="services[]" value="icysole"> Icy-sole ($20)</label>
-                <label><input type="checkbox" name="services[]" value="redye"> Re-dye ($80)</label>
+                <label><input type="checkbox" name="services[]" value="cleaning" disabled> Cleaning ($50)</label>
+                <label><input type="checkbox" name="services[]" value="repaint" disabled> Re-paint ($80)</label>
+                <label><input type="checkbox" name="services[]" value="icysole" disabled> Icy-sole ($20)</label>
+                <label><input type="checkbox" name="services[]" value="redye" disabled> Re-dye ($80)</label>
             </div>
             <label for="update-total">Total</label>
             <input type="text" id="update-total" readonly>
@@ -304,13 +253,11 @@ $path = $_SERVER['SCRIPT_NAME'];
         document.getElementById('update-payment-method').value = paymentMethod || 'cash';
         document.getElementById('update-status').value = status;
 
-        // Update service checkboxes
         document.querySelectorAll('.service-checkboxes input').forEach(checkbox => {
             checkbox.checked = services.includes(checkbox.value);
         });
 
-        // Calculate and display total
-        updateTotal();
+        document.getElementById('update-total').value = `$${parseFloat(document.querySelector('[data-order-id="' + bookingId + '"]')?.closest('tr')?.querySelector('[data-total]')?.getAttribute('data-total') || 0).toFixed(2)}`;
 
         document.getElementById('update-modal').style.display = 'flex';
     }
@@ -319,42 +266,22 @@ $path = $_SERVER['SCRIPT_NAME'];
         document.getElementById('update-modal').style.display = 'none';
     }
 
-    function updateTotal() {
-        const servicePrices = { cleaning: 50, repaint: 80, icysole: 20, redye: 80 };
-        let total = 0;
-        document.querySelectorAll('.service-checkboxes input:checked').forEach(checkbox => {
-            total += servicePrices[checkbox.value] || 0;
-        });
-        document.getElementById('update-total').value = `$${total.toFixed(2)}`;
-    }
-
     function saveBooking() {
         const bookingId = document.getElementById('update-booking-id').value;
-        const name = document.getElementById('update-name').value.trim();
-        const dropoffDate = document.getElementById('update-dropoff-date').value;
-        const paymentMethod = document.getElementById('update-payment-method').value;
         const status = document.getElementById('update-status').value;
-        const services = Array.from(document.querySelectorAll('.service-checkboxes input:checked')).map(cb => cb.value);
-        const total = parseFloat(document.getElementById('update-total').value.replace('$', '')) || 0;
         const loadingSpinner = document.getElementById('loading-spinner');
 
-        if (!name || !dropoffDate || !services.length) {
-            alert('Name, Dropoff Date, and at least one service are required.');
+        if (!status) {
+            alert('Please select a status');
             return;
         }
 
         const data = {
             action: 'update',
             booking_id: bookingId,
-            name: name,
-            dropoff_date: dropoffDate.replace('T', ' '),
-            payment_method: paymentMethod,
-            status: status,
-            services: services,
-            total_Price: total
+            status: status
         };
 
-        console.log('Sending update request with payload:', data);
         loadingSpinner.style.display = 'block';
 
         fetch('/MagicSoleProject/admin/order-status', {
@@ -366,7 +293,6 @@ $path = $_SERVER['SCRIPT_NAME'];
             body: JSON.stringify(data)
         })
         .then(response => {
-            console.log('Fetch response status:', response.status);
             if (!response.ok) {
                 return response.text().then(text => {
                     throw new Error(`HTTP error! Status: ${response.status}, Response: ${text}`);
@@ -375,31 +301,26 @@ $path = $_SERVER['SCRIPT_NAME'];
             return response.json();
         })
         .then(result => {
-            console.log('Parsed JSON response:', result);
             loadingSpinner.style.display = 'none';
             if (result.success) {
-                alert('Booking updated successfully');
+                alert('Booking status updated successfully');
                 location.reload();
             } else {
+                console.error('Update failed:', result.message);
                 alert('Error: ' + result.message);
             }
         })
         .catch(error => {
-            console.error('Fetch error:', error.message);
             loadingSpinner.style.display = 'none';
+            console.error('AJAX error:', error.message);
             alert('An error occurred: ' + error.message);
         });
     }
 
     document.getElementById('search-input').addEventListener('input', filterOrders);
     document.getElementById('status-filter').addEventListener('change', filterOrders);
-    document.querySelectorAll('.service-checkboxes input').forEach(checkbox => {
-        checkbox.addEventListener('change', updateTotal);
-    });
-
-    const spinner = document.getElementById('loading-spinner');
-    spinner.style.display = 'none';
     updatePagination();
 </script>
 </body>
 </html>
+<?php ob_end_flush(); ?>

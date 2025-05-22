@@ -1,4 +1,13 @@
 <?php
+ob_start();
+
+if (!isset($_SESSION['token']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+    header('Location: /MagicSoleProject/admin/login');
+    exit;
+}
+
+$session_id = $_SESSION['user_id'] ?? 'not set';
+file_put_contents('debug.log', "admin-gallery.php - Session user_id: $session_id at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
 $path = $_SERVER['SCRIPT_NAME'];
 ?>
 <!DOCTYPE html>
@@ -90,7 +99,7 @@ $path = $_SERVER['SCRIPT_NAME'];
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('CoolGrey.gif') no-repeat center center/cover;
+            background: url('<?php echo dirname($path);?>/Images/CoolGrey.gif') no-repeat center center/cover;
             opacity: 0.2;
             z-index: 0;
             transform: translateY(0);
@@ -179,6 +188,8 @@ $path = $_SERVER['SCRIPT_NAME'];
             opacity: 0;
             transform: scale(0.9);
             animation: galleryItemFadeIn 0.5s forwards;
+            width: 100%;
+            height: 200px; /* Fixed height for consistency */
         }
 
         .gallery-item:nth-child(1) { animation-delay: 0.6s; }
@@ -190,7 +201,8 @@ $path = $_SERVER['SCRIPT_NAME'];
 
         .gallery-item img, .gallery-item video {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover; /* Ensure consistent sizing */
             display: block;
             transition: transform 0.3s ease;
         }
@@ -248,7 +260,7 @@ $path = $_SERVER['SCRIPT_NAME'];
 
         .gallery-item.loading {
             background: #e0e0e0;
-            height: 300px;
+            height: 200px;
             animation: pulse 1.5s infinite;
         }
 
@@ -477,13 +489,6 @@ $path = $_SERVER['SCRIPT_NAME'];
             cursor: pointer;
         }
 
-        @keyframes modalFadeIn {
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
         @media (max-width: 768px) {
             .main-content {
                 margin-left: 0;
@@ -514,8 +519,8 @@ $path = $_SERVER['SCRIPT_NAME'];
                 column-count: 1;
             }
 
-            .gallery-item img, .gallery-item video {
-                height: auto;
+            .gallery-item {
+                height: 150px; /* Smaller height for mobile */
             }
 
             .filter-buttons {
@@ -584,6 +589,13 @@ $path = $_SERVER['SCRIPT_NAME'];
             50% { background: #d0d0d0; }
             100% { background: #e0e0e0; }
         }
+
+        @keyframes modalFadeIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
     </style>
 </head>
 <body>
@@ -595,8 +607,8 @@ $path = $_SERVER['SCRIPT_NAME'];
     </div>
     <nav>
         <a href="<?php echo dirname($path);?>/admin/admin-home">Admin Home</a>
-        <a href="<?php echo dirname($path);?>/admin/view-orders">View Orders</a>
-        <a href="<?php echo dirname($path);?>/admin/order-status">Order Status</a>
+        <a href="<?php echo dirname($path);?>/admin/view-orders">View Bookings</a>
+        <a href="<?php echo dirname($path);?>/admin/order-status">Order Bookings</a>
         <a href="<?php echo dirname($path);?>/admin/admin-gallery">Manage Gallery</a>
         <a href="<?php echo dirname($path);?>/admin/logout">Logout</a>
     </nav>
@@ -667,29 +679,14 @@ $path = $_SERVER['SCRIPT_NAME'];
 </div>
 
 <script>
-
-    // In admin-home.html, admin-gallery.php
-fetch('check_session.php')
-    .then(response => response.json())
-    .then(data => {
-        if (!data.loggedIn || !data.isAdmin) {
-            window.location.href = 'login.php';
-        }
-    });
-    
-    // Redirect non-admins to login
-    if (!localStorage.getItem('isAdmin')) {
-        window.location.href = 'login.html';
-    }
-
-    // Load gallery items from localStorage or use default
+    // Default gallery items (same as gallery.php)
     const defaultGalleryItems = [
-        { type: 'video', src: './sneaker1.mp4', alt: '' },
-        { type: 'video', src: './sneaker2.mp4', alt: '' },
-        { type: 'video', src: './joey1.mp4', alt: '' },
-        { type: 'video', src: './kev1.mp4', alt: '' },
-        { type: 'photo', src: './joey2.jpg', alt: '' },
-        { type: 'photo', src: './joey3.jpg', alt: '' }
+        { type: 'video', src: '<?php echo dirname($path);?>/Videos/sneaker1.mp4', alt: 'Sneaker Restoration 1' },
+        { type: 'video', src: '<?php echo dirname($path);?>/Videos/sneaker2.mp4', alt: 'Sneaker Restoration 2' },
+        { type: 'video', src: '<?php echo dirname($path);?>/Videos/joey1.mp4', alt: 'Joey\'s Sneaker Process' },
+        { type: 'video', src: '<?php echo dirname($path);?>/Videos/kev1.mp4', alt: 'Kev\'s Sneaker Process' },
+        { type: 'photo', src: '<?php echo dirname($path);?>/Images/joey2.jpg', alt: 'Restored Sneaker Photo 1' },
+        { type: 'photo', src: '<?php echo dirname($path);?>/Images/joey3.jpg', alt: 'Restored Sneaker Photo 2' }
     ];
 
     function loadGalleryItems() {
@@ -704,10 +701,7 @@ fetch('check_session.php')
 
     function saveGalleryItems(items) {
         try {
-            const serialized = JSON.stringify(items);
-            localStorage.setItem('galleryItems', serialized);
-            // Verify save by re-parsing
-            JSON.parse(localStorage.getItem('galleryItems'));
+            localStorage.setItem('galleryItems', JSON.stringify(items));
         } catch (e) {
             console.error('Error saving galleryItems:', e);
             alert('Failed to save media. Try using a smaller file or deleting some items.');
@@ -720,7 +714,6 @@ fetch('check_session.php')
     let filteredItems = galleryItems;
     let selectedIndex = null;
 
-    // Update file input accept attribute based on media type
     function updateFileAccept() {
         const addType = document.getElementById('add-type').value;
         const updateType = document.getElementById('update-type').value;
@@ -841,7 +834,6 @@ fetch('check_session.php')
         }
 
         const file = fileInput.files[0];
-        // Validate file type and size
         if (type === 'photo' && !file.type.match(/^image\/(jpeg|png)$/)) {
             alert('Please upload a JPG or PNG image.');
             return;
@@ -850,7 +842,7 @@ fetch('check_session.php')
             alert('Please upload an MP4 or WebM video.');
             return;
         }
-        if (file.size > 2 * 1024 * 1024) { // 2 MB limit
+        if (file.size > 2 * 1024 * 1024) {
             alert('File is too large. Please upload a file smaller than 2 MB.');
             return;
         }
@@ -900,7 +892,6 @@ fetch('check_session.php')
 
         if (fileInput.files[0]) {
             const file = fileInput.files[0];
-            // Validate file type and size
             if (type === 'photo' && !file.type.match(/^image\/(jpeg|png)$/)) {
                 alert('Please upload a JPG or PNG image.');
                 return;
@@ -909,7 +900,7 @@ fetch('check_session.php')
                 alert('Please upload an MP4 or WebM video.');
                 return;
             }
-            if (file.size > 2 * 1024 * 1024) { // 2 MB limit
+            if (file.size > 2 * 1024 * 1024) {
                 alert('File is too large. Please upload a file smaller than 2 MB.');
                 return;
             }
@@ -946,12 +937,6 @@ fetch('check_session.php')
             saveGalleryItems(galleryItems);
             populateGallery(currentFilter);
         }
-    }
-
-    function logout() {
-        localStorage.removeItem('isAdmin');
-        localStorage.removeItem('clientEmail');
-        window.location.href = 'login.html';
     }
 
     document.querySelectorAll('.filter-btn').forEach(btn => {
