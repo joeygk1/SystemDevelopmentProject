@@ -175,20 +175,20 @@ file_put_contents('debug.log', "client-orders.php - Bookings fetched, count: " .
 </head>
 <body>
     <header>
-        <div class="logo"><a href="/MagicSoleProject/client/home"><img src="/MagicSoleProject/Images/MagicNoBackground.png" alt="Magic Sole Logo"></a></div>
+        <div class="logo"><a href="<?php echo dirname($path);?>/client/home"><img src="<?php echo dirname($path);?>/Images/MagicNoBackground.png" alt="Magic Sole Logo"></a></div>
         <nav>
-            <a href="/MagicSoleProject/client/home">Home</a>
-            <a href="/MagicSoleProject/client/services">Services</a>
-            <a href="/MagicSoleProject/client/about">About</a>
-            <a href="/MagicSoleProject/client/policies">Policies</a>
-            <a href="/MagicSoleProject/booking/booking">Booking</a>
-            <a href="/MagicSoleProject/client/gallery">Gallery</a>
+            <a href="<?php echo dirname($path);?>/client/home">Home</a>
+            <a href="<?php echo dirname($path);?>/client/services">Services</a>
+            <a href="<?php echo dirname($path);?>t/client/about">About</a>
+            <a href="<?php echo dirname($path);?>/client/policies">Policies</a>
+            <a href="<?php echo dirname($path);?>/booking/booking">Booking</a>
+            <a href="<?php echo dirname($path);?>/client/gallery">Gallery</a>
             <?php if (!isset($_SESSION['token'])) { ?>
-                <a href="/MagicSoleProject/client/login">Login</a>
-                <a href="/MagicSoleProject/client/register">Register</a>
+                <a href="<?php echo dirname($path);?>/client/login">Login</a>
+                <a href="<?php echo dirname($path);?>/client/register">Register</a>
             <?php } else { ?>
-                <a href="/MagicSoleProject/client/client-orders">Orders</a>
-                <a href="/MagicSoleProject/client/logout">Logout</a>
+                <a href="<?php echo dirname($path);?>/client/client-orders">Orders</a>
+                <a href="<?php echo dirname($path);?>/client/logout">Logout</a>
             <?php } ?>
         </nav>
         <footer><p>© 2025 Magic Sole. All rights reserved.</p></footer>
@@ -425,7 +425,7 @@ file_put_contents('debug.log', "client-orders.php - Bookings fetched, count: " .
 
                 loadingSpinner.style.display = 'block';
 
-                fetch('/MagicSoleProject/client/client-orders', {
+                fetch('client-orders', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
                     body: JSON.stringify(payload)
@@ -464,7 +464,7 @@ file_put_contents('debug.log', "client-orders.php - Bookings fetched, count: " .
                     const loadingSpinner = document.getElementById('loading-spinner');
                     loadingSpinner.style.display = 'block';
                     const payload = { action: 'delete', booking_id: orderId };
-                    fetch('/MagicSoleProject/client/client-orders', {
+                    fetch('client-orders', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
                         body: JSON.stringify(payload)
