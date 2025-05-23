@@ -284,7 +284,7 @@ $path = $_SERVER['SCRIPT_NAME'];
 
         loadingSpinner.style.display = 'block';
 
-        fetch('/MagicSoleProject/admin/order-status', {
+        fetch('order-status', {
             method: 'POST',
             headers: { 
                 'Content-Type': 'application/json',
