@@ -34,11 +34,11 @@ SMTP Debug [1]: CLIENT -> SERVER: MIME-Version: 1.0
 
 SMTP Debug [1]: CLIENT -> SERVER: Content-Type: text/html; charset=iso-8859-1
 
-SMTP Debug [1]: CLIENT -> SERVER: 
+SMTP Debug [1]: CLIENT -> SERVER:
 
 SMTP Debug [1]: CLIENT -> SERVER: This is a test OTP email.
 
-SMTP Debug [1]: CLIENT -> SERVER: 
+SMTP Debug [1]: CLIENT -> SERVER:
 
 SMTP Debug [1]: CLIENT -> SERVER: .
 

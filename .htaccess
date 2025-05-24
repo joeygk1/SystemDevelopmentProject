@@ -1,16 +1,6 @@
-RewriteEngine On
-   RewriteBase /SystemDevelopmentProject/
+ReWriteEngine On
 
-   # Skip rewrite for login.php, logout.php, check_session.php, and check_session_redirect.php
-   RewriteCond %{REQUEST_URI} ^/login\.php$ [OR]
-   RewriteCond %{REQUEST_URI} ^/logout\.php$ [OR]
-   RewriteCond %{REQUEST_URI} ^/check_session\.php$ [OR]
-   RewriteCond %{REQUEST_URI} ^/check_session_redirect\.php$
-   RewriteRule ^ - [L]
 
-   # Apply rewrite rule to admin HTML pages
-   RewriteCond %{REQUEST_URI} ^/(admin-home\.html|order-status\.html|view-orders\.html|admin-gallery\.html)$ [NC]
-   # Rewrite to check session and log
-   RewriteRule ^ - [E=SESSION_CHECK:%{DOCUMENT_ROOT}/SystemDevelopmentProject/check_session_redirect.php]
-   RewriteCond %{ENV:SESSION_CHECK} invalid
-   RewriteRule ^ login.php [L,R=302]
+ReWriteRule "^([a-zA-Z]+)/?$" "index.php?controller=$1&action=$2"
+ReWriteRule "^([a-zA-Z]+)/([a-zA-Z\_-]+)?$" "index.php?controller=$1&action=$2"
+ReWriteRule "^([a-zA-Z]+)/([a-zA-Z\_-]+)/([0-9]+)?$" "index.php?controller=$1&action=$2&id=$3"

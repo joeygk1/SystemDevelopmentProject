@@ -373,9 +373,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         fetch('logout.php', {
             method: 'POST'
         })
-        .then(() => {
-            window.location.href = 'login.php';
-        });
+            .then(() => {
+                window.location.href = 'login.php';
+            });
     }
 </script>
 </body>

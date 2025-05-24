@@ -1,6 +1,7 @@
 <?php
 session_start();
-require 'config.php';
+require 'config/config.php';
+require 'Models/Model.php';
 
 // Initialize variables
 $error = '';
@@ -14,9 +15,10 @@ if (empty($token)) {
 // Validate token and check if it exists and is not expired
 if (!$error) {
     try {
-        $stmt = $db->prepare("SELECT email, expires_at FROM password_resets WHERE token = ?");
+        $conn = Model::connect();
+        $stmt = $conn->prepare("SELECT email, expires_at FROM password_resets WHERE token = ?");
         $stmt->execute([$token]);
-        $reset = $stmt->fetch();
+        $reset = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if (!$reset) {
             $error = 'Invalid token.';
@@ -43,14 +45,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
         try {
             // Update the user's password
             $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
-            $stmt = $db->prepare("UPDATE users SET password = ? WHERE email = ?");
+            $stmt = $conn->prepare("UPDATE users SET password = ? WHERE email = ?");
             $stmt->execute([$hashed_password, $reset['email']]);
 
             // Delete the reset token
-            $stmt = $db->prepare("DELETE FROM password_resets WHERE token = ?");
+            $stmt = $conn->prepare("DELETE FROM password_resets WHERE token = ?");
             $stmt->execute([$token]);
 
-            $success = 'Your password has been reset successfully. You can now <a href="login.php">log in</a> with your new password.';
+            $success = 'Your password has been reset successfully. You can now <a href="/MagicSoleProject/client/login.php">Log in</a> with your new password.';
         } catch (PDOException $e) {
             $error = 'Database error: ' . $e->getMessage();
         }
@@ -71,14 +73,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
         }
-
         body {
             background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
             color: #333;
             display: flex;
             min-height: 100vh;
         }
-
         header {
             background-color: #1a1a1a;
             color: white;
@@ -94,19 +94,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
             animation: slideInLeft 1s ease-out;
         }
-
         .logo img {
             width: 120px;
             margin-bottom: 2rem;
         }
-
         nav {
             display: flex;
             flex-direction: column;
             gap: 20px;
             width: 100%;
         }
-
         nav a {
             color: #e3e3e3;
             text-decoration: none;
@@ -115,18 +112,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
             border-radius: 8px;
             text-align: center;
         }
-
         nav a:hover {
             background: #f9c303;
             color: #1a1a1a;
         }
-
         .main-content {
             margin-left: 250px;
             width: calc(100% - 250px);
             padding: 50px;
         }
-
         .hero {
             background: linear-gradient(135deg, #d4af37, #f9c303);
             border-radius: 20px;
@@ -136,12 +130,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
             animation: fadeIn 1s ease-out;
             text-align: center;
         }
-
         .hero-content h1 {
             font-size: 3.5rem;
             margin-bottom: 15px;
         }
-
         .reset-section {
             padding: 30px;
             max-width: 500px;
@@ -153,25 +145,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
             transform: translateY(50px);
             animation: fadeInUp 1s forwards 0.5s;
         }
-
         .reset-section h2 {
             font-size: 2.5rem;
             margin-bottom: 20px;
             text-align: center;
             color: #1a1a1a;
         }
-
         .reset-form {
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
-
         .reset-form label {
             font-size: 1.1rem;
             color: #333;
         }
-
         .reset-form input {
             padding: 10px;
             font-size: 1rem;
@@ -179,11 +167,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
             border-radius: 5px;
             outline: none;
         }
-
         .reset-form input:focus {
             border: 1px solid #d4af37;
         }
-
         .reset-form button {
             background: #1a1a1a;
             color: white;
@@ -193,26 +179,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
             font-size: 1rem;
             cursor: pointer;
         }
-
         .reset-form button:hover {
             background: #333;
             transform: scale(1.05);
         }
-
         .error-message, .success-message {
             font-size: 0.9rem;
             text-align: center;
             margin-top: 10px;
         }
-
         .error-message {
             color: #e74c3c;
         }
-
         .success-message {
             color: #2ecc71;
         }
-
         footer {
             font-size: 0.9rem;
             color: white;
@@ -225,81 +206,74 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$error) {
             background-color: #1a1a1a;
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
         }
-
         @media (max-width: 768px) {
             .main-content {
                 margin-left: 0;
                 width: 100%;
                 padding: 20px;
             }
-
             header {
                 width: 100%;
                 height: auto;
                 position: relative;
                 padding: 1rem;
             }
-
             nav {
                 flex-direction: row;
                 justify-content: center;
                 gap: 15px;
             }
-
             footer {
                 position: relative;
                 width: 100%;
                 left: 0;
             }
         }
-
         @keyframes slideInLeft {
             from { transform: translateX(-100%); }
             to { transform: translateX(0); }
         }
-
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-
         @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 <header>
     <div class="logo">
-        <a href="index.html">
-            <img src="MagicNoBackground.png" alt="Magic Sole Logo">
+        <a href="/MagicSoleProject/client/home">
+            <img src="/MagicSoleProject/Images/MagicNoBackground.png" alt="Magic Sole Logo">
         </a>
     </div>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="about.html">About Us</a>
-        <a href="policies.html">Policies</a>
-        <a href="booking.html">Booking</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="login.php">Login</a>
-        <a href="register.php">Register</a>
+        <a href="/MagicSoleProject/client/home">Home</a>
+        <a href="/MagicSoleProject/client/services">Services</a>
+        <a href="/MagicSoleProject/client/about">About</a>
+        <a href="/MagicSoleProject/client/policies">Policies</a>
+        <a href="/MagicSoleProject/booking/booking">Booking</a>
+        <a href="/MagicSoleProject/client/gallery">Gallery</a>
+        <?php if (!isset($_SESSION['token'])) { ?>
+            <a href="/MagicSoleProject/client/login.php">Login</a>
+            <a href="/MagicSoleProject/client/register">Register</a>
+        <?php } else { ?>
+            <a href="/MagicSoleProject/client/client-orders">Orders</a>
+            <a href="/MagicSoleProject/client/logout">Logout</a>
+        <?php } ?>
     </nav>
     <footer>
         <p>© 2025 Magic Sole. All rights reserved.</p>
     </footer>
 </header>
-
 <div class="main-content">
     <section class="hero">
         <div class="hero-content">
             <h1>Reset Password</h1>
         </div>
     </section>
-
     <section class="reset-section">
         <h2>Reset Your Password</h2>
         <?php if ($error) { ?>
