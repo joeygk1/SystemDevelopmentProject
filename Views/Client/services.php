@@ -65,6 +65,7 @@ $path = $_SERVER['SCRIPT_NAME'];
 
         nav {
             display: flex;
+            /*overflow-y: auto;*/
             flex-direction: column;
             gap: 20px;
             width: 100%;

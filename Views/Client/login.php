@@ -130,7 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['reset-email'])) {
             flex-direction: column;
             align-items: center;
             width: 250px;
-            height: 100vh;
+            height: 95vh;
             position: fixed;
             left: 0;
             top: 0;
@@ -143,6 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['reset-email'])) {
         }
         nav {
             display: flex;
+            overflow-y: auto;
             flex-direction: column;
             gap: 20px;
             width: 100%;
