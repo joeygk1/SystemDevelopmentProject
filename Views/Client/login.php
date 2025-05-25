@@ -2,106 +2,106 @@
 ob_start();
 include_once "Models/Model.php";
 $path = $_SERVER['SCRIPT_NAME'];
-
-require 'vendor/autoload.php';
-require 'config/config.php';
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-// Load environment variables
-$dotenv = Dotenv\Dotenv::createImmutable('config');
-$dotenv->load();
-
-$error = '';
-
-// Debug: Log environment file existence
-$env_path = __DIR__ . '/.env';
-file_put_contents('debug.log', "login.php - Env file exists: " . (file_exists($env_path) ? 'Yes' : 'No') . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
-
-// Use $_ENV for Gmail credentials
-$gmail_username = $_ENV['GMAIL_USERNAME'] ?? '';
-$gmail_password = $_ENV['GMAIL_APP_PASSWORD'] ?? '';
-file_put_contents('debug.log', "login.php - GMAIL_USERNAME: " . ($gmail_username ? 'Set' : 'Empty') . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
-file_put_contents('debug.log', "login.php - GMAIL_APP_PASSWORD: " . ($gmail_password ? 'Set' : 'Empty') . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
-
-if (empty($gmail_username) || empty($gmail_password)) {
-    $error = 'Gmail credentials are missing in .env file. Please contact the administrator.';
-    file_put_contents('debug.log', "login.php - Error: Gmail credentials missing at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['reset-email'])) {
-    // Debug: Log POST data
-    file_put_contents('debug.log', "login.php - POST data: " . print_r($_POST, true) . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
-
-    // Step 1: Verify email and password
-    $email = filter_var($_POST['email'] ?? '', FILTER_SANITIZE_EMAIL);
-    $password = $_POST['password'] ?? '';
-
-    if (empty($email) || empty($password)) {
-        $error = 'Email and password are required';
-        file_put_contents('debug.log', "login.php - Error: Email or password empty at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $error = 'Invalid email format';
-        file_put_contents('debug.log', "login.php - Error: Invalid email format at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
-    } else {
-        try {
-            $conn = Model::connect();
-            $stmt = $conn->prepare("SELECT id, username, email, password, role FROM users WHERE email = ?");
-            $stmt->execute([$email]);
-            $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            if ($user && password_verify($password, $user['password'])) {
-                // Generate 6-digit OTP
-                $otp = sprintf("%06d", mt_rand(100000, 999999));
-                $_SESSION['2fa_user_id'] = $user['id'];
-                $_SESSION['2fa_otp'] = $otp;
-                $_SESSION['2fa_email'] = $user['email'];
-                $_SESSION['2fa_role'] = $user['role'];
-                $_SESSION['2fa_expires'] = time() + 600; // 10 minutes
-                $_SESSION['token'] = bin2hex(random_bytes(16)); // Session token
-
-                // Debug: Log OTP
-                file_put_contents('debug.log', "login.php - OTP generated: $otp for email: {$user['email']} at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
-
-                // Send OTP via Gmail SMTP
-                if (!empty($gmail_username) && !empty($gmail_password)) {
-                    $mail = new PHPMailer(true);
-                    try {
-                        $mail->isSMTP();
-                        $mail->Host = 'smtp.gmail.com';
-                        $mail->SMTPAuth = true;
-                        $mail->Username = $gmail_username;
-                        $mail->Password = $gmail_password;
-                        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-                        $mail->Port = 465;
-                        $mail->setFrom($gmail_username, 'Magic Sole');
-                        $mail->addAddress($user['email']);
-                        $mail->isHTML(true);
-                        $mail->Subject = 'Your Magic Sole 2FA Code';
-                        $mail->Body = "Hello {$user['username']},<br><br>Your one-time code is: <b>$otp</b><br>This code expires in 10 minutes.";
-                        $mail->AltBody = "Hello {$user['username']},\n\nYour one-time code is: $otp\nThis code expires in 10 minutes.";
-                        $mail->send();
-                        file_put_contents('debug.log', "login.php - Email sent successfully to {$user['email']} at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
-
-                        // Redirect to OTP verification page
-                        $newURL = dirname($path) . '/admin/verify_otp';
-                        header('Location: ' . $newURL);
-                        exit;
-                    } catch (Exception $e) {
-                        $error = 'Failed to send OTP. Please try again or contact support.';
-                        file_put_contents('debug.log', "login.php - PHPMailer Error: {$mail->ErrorInfo} at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
-                    }
-                }
-            } else {
-                $error = 'Invalid email or password';
-                file_put_contents('debug.log', "login.php - Error: Invalid email or password at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
-            }
-        } catch (PDOException $e) {
-            $error = 'Database error: Unable to process login';
-            file_put_contents('debug.log', "login.php - Database error: " . $e->getMessage() . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
-        }
-    }
-}
+//
+//require 'vendor/autoload.php';
+//require 'config/config.php';
+//use PHPMailer\PHPMailer\PHPMailer;
+//use PHPMailer\PHPMailer\Exception;
+//
+//// Load environment variables
+//$dotenv = Dotenv\Dotenv::createImmutable('config');
+//$dotenv->load();
+//
+//$error = '';
+//
+//// Debug: Log environment file existence
+//$env_path = __DIR__ . '/.env';
+//file_put_contents('debug.log', "login.php - Env file exists: " . (file_exists($env_path) ? 'Yes' : 'No') . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+//
+//// Use $_ENV for Gmail credentials
+//$gmail_username = $_ENV['GMAIL_USERNAME'] ?? '';
+//$gmail_password = $_ENV['GMAIL_APP_PASSWORD'] ?? '';
+//file_put_contents('debug.log', "login.php - GMAIL_USERNAME: " . ($gmail_username ? 'Set' : 'Empty') . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+//file_put_contents('debug.log', "login.php - GMAIL_APP_PASSWORD: " . ($gmail_password ? 'Set' : 'Empty') . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+//
+//if (empty($gmail_username) || empty($gmail_password)) {
+//    $error = 'Gmail credentials are missing in .env file. Please contact the administrator.';
+//    file_put_contents('debug.log', "login.php - Error: Gmail credentials missing at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+//}
+//
+//if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['reset-email'])) {
+//    // Debug: Log POST data
+//    file_put_contents('debug.log', "login.php - POST data: " . print_r($_POST, true) . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+//
+//    // Step 1: Verify email and password
+//    $email = filter_var($_POST['email'] ?? '', FILTER_SANITIZE_EMAIL);
+//    $password = $_POST['password'] ?? '';
+//
+//    if (empty($email) || empty($password)) {
+//        $error = 'Email and password are required';
+//        file_put_contents('debug.log', "login.php - Error: Email or password empty at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+//    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+//        $error = 'Invalid email format';
+//        file_put_contents('debug.log', "login.php - Error: Invalid email format at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+//    } else {
+//        try {
+//            $conn = Model::connect();
+//            $stmt = $conn->prepare("SELECT id, username, email, password, role FROM users WHERE email = ?");
+//            $stmt->execute([$email]);
+//            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+//
+//            if ($user && password_verify($password, $user['password'])) {
+//                // Generate 6-digit OTP
+//                $otp = sprintf("%06d", mt_rand(100000, 999999));
+//                $_SESSION['2fa_user_id'] = $user['id'];
+//                $_SESSION['2fa_otp'] = $otp;
+//                $_SESSION['2fa_email'] = $user['email'];
+//                $_SESSION['2fa_role'] = $user['role'];
+//                $_SESSION['2fa_expires'] = time() + 600; // 10 minutes
+//                $_SESSION['token'] = bin2hex(random_bytes(16)); // Session token
+//
+//                // Debug: Log OTP
+//                file_put_contents('debug.log', "login.php - OTP generated: $otp for email: {$user['email']} at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+//
+//                // Send OTP via Gmail SMTP
+//                if (!empty($gmail_username) && !empty($gmail_password)) {
+//                    $mail = new PHPMailer(true);
+//                    try {
+//                        $mail->isSMTP();
+//                        $mail->Host = 'smtp.gmail.com';
+//                        $mail->SMTPAuth = true;
+//                        $mail->Username = $gmail_username;
+//                        $mail->Password = $gmail_password;
+//                        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+//                        $mail->Port = 465;
+//                        $mail->setFrom($gmail_username, 'Magic Sole');
+//                        $mail->addAddress($user['email']);
+//                        $mail->isHTML(true);
+//                        $mail->Subject = 'Your Magic Sole 2FA Code';
+//                        $mail->Body = "Hello {$user['username']},<br><br>Your one-time code is: <b>$otp</b><br>This code expires in 10 minutes.";
+//                        $mail->AltBody = "Hello {$user['username']},\n\nYour one-time code is: $otp\nThis code expires in 10 minutes.";
+//                        $mail->send();
+//                        file_put_contents('debug.log', "login.php - Email sent successfully to {$user['email']} at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+//
+//                        // Redirect to OTP verification page
+//                        $newURL = dirname($path) . '/admin/verify_otp';
+//                        header('Location: ' . $newURL);
+//                        exit;
+//                    } catch (Exception $e) {
+//                        $error = 'Failed to send OTP. Please try again or contact support.';
+//                        file_put_contents('debug.log', "login.php - PHPMailer Error: {$mail->ErrorInfo} at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+//                    }
+//                }
+//            } else {
+//                $error = 'Invalid email or password';
+//                file_put_contents('debug.log', "login.php - Error: Invalid email or password at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+//            }
+//        } catch (PDOException $e) {
+//            $error = 'Database error: Unable to process login';
+//            file_put_contents('debug.log', "login.php - Database error: " . $e->getMessage() . " at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+//        }
+//    }
+//}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -130,7 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['reset-email'])) {
             flex-direction: column;
             align-items: center;
             width: 250px;
-            height: 100vh;
+            height: 95vh;
             position: fixed;
             left: 0;
             top: 0;
@@ -143,6 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['reset-email'])) {
         }
         nav {
             display: flex;
+            overflow-y: auto;
             flex-direction: column;
             gap: 20px;
             width: 100%;
@@ -451,8 +452,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['reset-email'])) {
                 <a href="#" onclick="openForgotPasswordModal()">Forgot Password?</a>
             </div>
         </form>
-        <?php if ($error) { ?>
-            <p class="error-message" style="display: block;"><?php echo htmlspecialchars($error); ?></p>
+        <?php if ($_POST['error']) { ?>
+            <p class="error-message" style="display: block;"><?php echo htmlspecialchars($_POST['error']); ?></p>
         <?php } ?>
     </section>
     <div class="modal" id="forgot-password-modal">

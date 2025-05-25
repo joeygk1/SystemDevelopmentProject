@@ -104,6 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         nav {
             display: flex;
+            overflow-y: auto;
             flex-direction: column;
             gap: 20px;
             width: 100%;

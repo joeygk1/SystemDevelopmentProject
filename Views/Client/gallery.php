@@ -31,7 +31,7 @@ $path = $_SERVER['SCRIPT_NAME'];
             flex-direction: column;
             align-items: center;
             width: 250px;
-            height: 100vh;
+            height: 95vh;
             position: fixed;
             left: 0;
             top: 0;
@@ -46,6 +46,7 @@ $path = $_SERVER['SCRIPT_NAME'];
 
         nav {
             display: flex;
+            overflow-y: auto;
             flex-direction: column;
             gap: 20px;
             width: 100%;

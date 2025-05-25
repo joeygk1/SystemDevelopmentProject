@@ -11,7 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'):
     <div style="position: fixed; top: 0; left: 260px; width: calc(100% - 260px); background: rgba(255,255,255,0.95); color: #000; z-index: 9999; padding: 10px; font-size: 14px; border-bottom: 1px solid #ccc; max-height: 300px; overflow-y: auto;">
         <pre><?php var_dump([$_SESSION['user_id'], $_POST['date'] . ' ' . $_POST['timeSlot'], null, $_POST['shoeCount'], "Pending", $_POST['name'], $_POST['totalCost'], $_POST['phoneNumber'], $_POST['instagram'], $_POST['payment'], $services]); ?></pre>
     </div>
-<?php endif; ?>
+<?php endif;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'):
             flex-direction: column;
             align-items: center;
             width: 250px;
-            height: 100vh;
+            height: 95vh;
             position: fixed;
             left: 0;
             top: 0;
@@ -58,6 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'):
             flex-direction: column;
             gap: 20px;
             width: 100%;
+            overflow-y: auto;
         }
 
         nav a {
