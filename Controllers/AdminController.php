@@ -125,7 +125,17 @@ class AdminController extends Controller
                 break;
 
             case "verify_otp":
-                $this->render($controller, $action);
+                if (!isset($_SESSION['2fa_user_id']) || !isset($_SESSION['2fa_otp'])) {
+                    header('Location:'.dirname($path).'/client/login');
+                }
+                else{
+                    if(isset($_POST['otp'])){
+                        Admin::verifyOtp();
+                    }
+                    else{
+                        $this->render($controller, $action);
+                    }
+                }
                 break;
 
             case "logout":
