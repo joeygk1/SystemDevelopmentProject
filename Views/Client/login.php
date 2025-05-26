@@ -410,7 +410,7 @@ $path = $_SERVER['SCRIPT_NAME'];
             return;
         }
 
-        fetch('/MagicSoleProject/forgot_password.php', {
+        fetch('forgot_password.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: 'reset-email=' + encodeURIComponent(email)
