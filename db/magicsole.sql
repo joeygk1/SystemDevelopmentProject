@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2025 at 03:46 PM
+-- Generation Time: May 26, 2025 at 07:59 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,7 +44,7 @@ CREATE TABLE `bookings` (
 
 INSERT INTO `bookings` (`booking_id`, `client_id`, `dropoff_date`, `pickup_date`, `shoes_quantity`, `status`, `total_Price`, `name`) VALUES
 (5, 5, '2025-05-13 10:00:00', NULL, 1, 'Pending', 0, ''),
-(6, 5, '2025-05-17 13:00:00', NULL, 1, 'Pending', 100, ''),
+(6, 5, '2025-05-17 17:00:00', NULL, 1, 'Pending', 50, 'Kishaan'),
 (7, 1, '2025-05-31 18:00:00', NULL, 3, 'Completed', 130, 'Gordon'),
 (8, 1, '2025-05-20 19:00:00', NULL, 2, 'Pending', 230, 'John Porc'),
 (9, 1, '2025-05-20 18:00:00', NULL, 5, 'Pending', 100, 'Joh'),
@@ -60,7 +60,8 @@ INSERT INTO `bookings` (`booking_id`, `client_id`, `dropoff_date`, `pickup_date`
 (34, 8, '2025-05-24 18:00:00', NULL, 2, 'Completed', 70, 'Gianny'),
 (35, 7, '2025-05-22 13:00:00', NULL, 3, 'Completed', 150, 'Thomas'),
 (36, 1, '2025-05-22 17:00:00', NULL, 4, 'Completed', 150, 'Thomas'),
-(37, 7, '2025-05-24 10:00:00', NULL, 2, 'Pending', 150, 'Chris');
+(37, 7, '2025-05-24 10:00:00', NULL, 2, 'Pending', 150, 'Chris'),
+(38, 5, '2025-05-30 14:00:00', NULL, 2, 'Pending', 70, 'newBooking');
 
 -- --------------------------------------------------------
 
@@ -110,7 +111,10 @@ INSERT INTO `booking_service` (`shoe_id`, `service_id`, `booking_id`, `shoe_name
 (46, 2, 29, '', ''),
 (47, 1, 37, '', ''),
 (48, 2, 37, '', ''),
-(49, 3, 37, '', '');
+(49, 3, 37, '', ''),
+(50, 1, 6, '', ''),
+(51, 20, 38, '', ''),
+(52, 21, 38, '', '');
 
 -- --------------------------------------------------------
 
@@ -181,7 +185,8 @@ INSERT INTO `payments` (`payment_id`, `booking_id`, `payment_method`, `is_payed`
 (14, 34, 'cash', 0, 70.00, '2025-05-19', 0.00),
 (15, 35, 'cash', 0, 150.00, '2025-05-20', 0.00),
 (16, 36, 'cash', 0, 150.00, '2025-05-20', 0.00),
-(17, 37, 'etransfer', 0, 150.00, '2025-05-22', 0.00);
+(17, 37, 'etransfer', 0, 150.00, '2025-05-22', 0.00),
+(18, 38, 'etransfer', 0, 70.00, '2025-05-26', 0.00);
 
 -- --------------------------------------------------------
 
@@ -218,7 +223,9 @@ INSERT INTO `services` (`service_id`, `service_name`, `price`) VALUES
 (16, 'cleaning', 50.00),
 (17, 'repaint', 80.00),
 (18, 'repaint', 80.00),
-(19, 'icysole', 20.00);
+(19, 'icysole', 20.00),
+(20, 'cleaning', 50.00),
+(21, 'icysole', 20.00);
 
 -- --------------------------------------------------------
 
@@ -310,13 +317,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `booking_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `booking_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `booking_service`
 --
 ALTER TABLE `booking_service`
-  MODIFY `shoe_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `shoe_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `password_resets`
@@ -328,13 +335,13 @@ ALTER TABLE `password_resets`
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `payment_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `payment_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `service_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `service_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `users`

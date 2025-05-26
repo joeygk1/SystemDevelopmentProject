@@ -353,7 +353,7 @@ $path = $_SERVER['SCRIPT_NAME'];
                 <a href="#" onclick="openForgotPasswordModal()">Forgot Password?</a>
             </div>
         </form>
-        <?php if ($_POST['error']) { ?>
+        <?php if (isset($_POST['error'])) { ?>
             <p class="error-message" style="display: block;"><?php echo htmlspecialchars($_POST['error']); ?></p>
         <?php } ?>
     </section>
