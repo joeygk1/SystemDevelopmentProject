@@ -40,11 +40,18 @@ class ClientController extends Controller{
 
                 break;
             case "login":
-                if(isset($_POST['email']) && isset($_POST['password'])){
-
+                if (isset($_POST['email']) && isset($_POST['password'])) {
+                    $clientModel = new Client();
+                    $checkLogin = $clientModel->login();
+                    if ($checkLogin) {
+                        $newURL = dirname($path) . '/admin/verify_otp';
+                        header('Location: ' . $newURL);
+                    } else {
+                        $this->render($controller,$action);
+                    }
+                } else {
+                    $this->render($controller,$action);
                 }
-                $this->render($controller,$action);
-
                 break;
             case "client-orders":
                 $client = new Client();

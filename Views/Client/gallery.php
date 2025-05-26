@@ -513,13 +513,14 @@ $path = $_SERVER['SCRIPT_NAME'];
 
 <script>
     // Default gallery items
+    const path = '<?php echo dirname($path); ?>';
     const defaultGalleryItems = [
-    { type: 'video', src: '/MagicSoleProject/Videos/sneaker1.mp4', alt: 'Sneaker Restoration 1' },
-    { type: 'video', src: '/MagicSoleProject/Videos/sneaker2.mp4', alt: 'Sneaker Restoration 2' },
-    { type: 'video', src: '/MagicSoleProject/Videos/joey1.mp4', alt: 'Joey\'s Sneaker Process' },
-    { type: 'video', src: '/MagicSoleProject/Videos/kev1.mp4', alt: 'Kev\'s Sneaker Process' },
-    { type: 'photo', src: '/MagicSoleProject/Images/joey2.jpg', alt: 'Restored Sneaker Photo 1' },
-    { type: 'photo', src: '/MagicSoleProject/Images/joey3.jpg', alt: 'Restored Sneaker Photo 2' }
+    { type: 'video', src: path +'/Videos/sneaker1.mp4', alt: 'Sneaker Restoration 1' },
+    { type: 'video', src: path +'/Videos/sneaker2.mp4', alt: 'Sneaker Restoration 2' },
+    { type: 'video', src: path +'/Videos/joey1.mp4', alt: 'Joey\'s Sneaker Process' },
+    { type: 'video', src: path +'/Videos/kev1.mp4', alt: 'Kev\'s Sneaker Process' },
+    { type: 'photo', src: path +'/Images/joey2.jpg', alt: 'Restored Sneaker Photo 1' },
+    { type: 'photo', src: path +'/Images/joey3.jpg', alt: 'Restored Sneaker Photo 2' }
 ];
 
     function loadGalleryItems() {
