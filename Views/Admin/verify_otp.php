@@ -1,81 +1,82 @@
 <?php
 $path = $_SERVER['SCRIPT_NAME'];
-
-
-$error = '';
-
-if (!isset($_SESSION['2fa_user_id']) || !isset($_SESSION['2fa_otp'])) {
-    header('Location:'.dirname($path).'/client/login');
-    exit;
-}
-
 $email = $_SESSION['2fa_email'] ?? 'your email';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    file_put_contents('debug.log', "POST data: " . print_r($_POST, true) . "\n", FILE_APPEND);
-
-    $otp = trim($_POST['otp'] ?? '');
-    file_put_contents('debug.log', "OTP entered: $otp\n", FILE_APPEND);
-
-    if (empty($otp)) {
-        $error = 'OTP is required';
-        file_put_contents('debug.log', "Error: OTP empty\n", FILE_APPEND);
-    } elseif (time() > $_SESSION['2fa_expires']) {
-        $error = 'OTP has expired. Please try again.';
-        unset($_SESSION['2fa_user_id'], $_SESSION['2fa_otp'], $_SESSION['2fa_email'], $_SESSION['2fa_role'], $_SESSION['2fa_expires']);
-        file_put_contents('debug.log', "Error: OTP expired\n", FILE_APPEND);
-        header('Location:'.dirname($path).'/client/login');
-        exit;
-    } elseif ($otp === $_SESSION['2fa_otp']) {
-        // Successful login
-        $_SESSION['user_id'] = $_SESSION['2fa_user_id'];
-        $_SESSION['role'] = $_SESSION['2fa_role'];
-        $email = $_SESSION['2fa_email'];
-
-        $isAdmin = ($_SESSION['role'] === 'admin');
-        $clientEmail = ($isAdmin ? '' : $email);
-
-        // Clear 2FA session data
-        unset($_SESSION['2fa_user_id'], $_SESSION['2fa_otp'], $_SESSION['2fa_email'], $_SESSION['2fa_role'], $_SESSION['2fa_expires']);
-        file_put_contents('debug.log', "Login successful for $email\n", FILE_APPEND);
-
-//        $redirectUrl = $isAdmin ? 'admin-home' : $path;
-        $redirectUrl = $isAdmin ? dirname($path).'/admin/admin-home' : dirname($path).'/client/home';
-        $isAdminJs = $isAdmin ? 'true' : 'false';
-        $_SESSION['token'] = $_SESSION['user_id'];
-        echo <<<EOD
-            <!DOCTYPE html>
-            <html>
-            <head>
-                <meta charset="UTF-8">
-                <title>Redirecting...</title>
-            </head>
-            <body>
-                <script>
-                    const isAdmin = '$isAdminJs';
-                    const clientEmail = '$clientEmail';
-            
-                    if (isAdmin === 'true') {
-                        localStorage.setItem('isAdmin', 'true');
-                        localStorage.removeItem('clientEmail');
-                    } else {
-                        localStorage.setItem('clientEmail', clientEmail);
-                        localStorage.removeItem('isAdmin');
-                    }
-            
-                    // Redirect after localStorage is set
-                    window.location.href = '$redirectUrl';
-                </script>
-            </body>
-            </html>
-        EOD;
-        exit;
-
-    } else {
-        $error = 'Invalid OTP';
-        file_put_contents('debug.log', "Error: Invalid OTP\n", FILE_APPEND);
-    }
-}
+//
+//$error = '';
+//
+//if (!isset($_SESSION['2fa_user_id']) || !isset($_SESSION['2fa_otp'])) {
+//    header('Location:'.dirname($path).'/client/login');
+//    exit;
+//}
+//
+//$email = $_SESSION['2fa_email'] ?? 'your email';
+//
+//if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//    file_put_contents('debug.log', "POST data: " . print_r($_POST, true) . "\n", FILE_APPEND);
+//
+//    $otp = trim($_POST['otp'] ?? '');
+//    file_put_contents('debug.log', "OTP entered: $otp\n", FILE_APPEND);
+//
+//    if (empty($otp)) {
+//        $error = 'OTP is required';
+//        file_put_contents('debug.log', "Error: OTP empty\n", FILE_APPEND);
+//    } elseif (time() > $_SESSION['2fa_expires']) {
+//        $error = 'OTP has expired. Please try again.';
+//        unset($_SESSION['2fa_user_id'], $_SESSION['2fa_otp'], $_SESSION['2fa_email'], $_SESSION['2fa_role'], $_SESSION['2fa_expires']);
+//        file_put_contents('debug.log', "Error: OTP expired\n", FILE_APPEND);
+//        header('Location:'.dirname($path).'/client/login');
+//        exit;
+//    } elseif ($otp === $_SESSION['2fa_otp']) {
+//        // Successful login
+//        $_SESSION['user_id'] = $_SESSION['2fa_user_id'];
+//        $_SESSION['role'] = $_SESSION['2fa_role'];
+//        $email = $_SESSION['2fa_email'];
+//
+//        $isAdmin = ($_SESSION['role'] === 'admin');
+//        $clientEmail = ($isAdmin ? '' : $email);
+//
+//        // Clear 2FA session data
+//        unset($_SESSION['2fa_user_id'], $_SESSION['2fa_otp'], $_SESSION['2fa_email'], $_SESSION['2fa_role'], $_SESSION['2fa_expires']);
+//        file_put_contents('debug.log', "Login successful for $email\n", FILE_APPEND);
+//
+////        $redirectUrl = $isAdmin ? 'admin-home' : $path;
+//        $redirectUrl = $isAdmin ? dirname($path).'/admin/admin-home' : dirname($path).'/client/home';
+//        $isAdminJs = $isAdmin ? 'true' : 'false';
+//        $_SESSION['token'] = $_SESSION['user_id'];
+//        echo <<<EOD
+//            <!DOCTYPE html>
+//            <html>
+//            <head>
+//                <meta charset="UTF-8">
+//                <title>Redirecting...</title>
+//            </head>
+//            <body>
+//                <script>
+//                    const isAdmin = '$isAdminJs';
+//                    const clientEmail = '$clientEmail';
+//
+//                    if (isAdmin === 'true') {
+//                        localStorage.setItem('isAdmin', 'true');
+//                        localStorage.removeItem('clientEmail');
+//                    } else {
+//                        localStorage.setItem('clientEmail', clientEmail);
+//                        localStorage.removeItem('isAdmin');
+//                    }
+//
+//                    // Redirect after localStorage is set
+//                    window.location.href = '$redirectUrl';
+//                </script>
+//            </body>
+//            </html>
+//        EOD;
+//        exit;
+//
+//    } else {
+//        $error = 'Invalid OTP';
+//        file_put_contents('debug.log', "Error: Invalid OTP\n", FILE_APPEND);
+//    }
+//}
 ?>
 
 <!DOCTYPE html>
@@ -371,8 +372,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="text" id="otp" name="otp" placeholder="Enter the 6-digit code" required>
             <button type="submit">Verify OTP</button>
         </form>
-        <?php if ($error) { ?>
-            <p class="error-message" style="display: block;"><?php echo htmlspecialchars($error); ?></p>
+        <?php if (isset($_POST['error'])) { ?>
+            <p class="error-message" style="display: block;"><?php echo htmlspecialchars($_POST['error']); ?></p>
         <?php } ?>
     </section>
 
