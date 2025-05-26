@@ -195,11 +195,11 @@ file_put_contents('debug.log', "client-orders.php - Bookings fetched, count: " .
         <footer><p>© 2025 Magic Sole. All rights reserved.</p></footer>
     </header>
     <div class="main-content">
-        <section class="hero"><div class="hero-content"><h1>View Your Orders</h1><p>Manage your bookings here.</p></div></section>
+        <section class="hero"><div class="hero-content"><h1>View Your Bookings</h1><p>Manage your bookings here.</p></div></section>
         <div class="orders-section">
             <h2>Your Bookings</h2>
             <div class="search-filter">
-                <input type="text" id="search-input" placeholder="Search by order ID, name, phone, or date...">
+                <input type="text" id="search-input" placeholder="Search by Booking ID, name, phone, or date...">
                 <select id="status-filter">
                     <option value="">All Statuses</option>
                     <option value="Pending">Pending</option>
@@ -209,7 +209,7 @@ file_put_contents('debug.log', "client-orders.php - Bookings fetched, count: " .
             </div>
             <div class="loading-spinner" id="loading-spinner"><i class="fas fa-spinner"></i></div>
             <table class="orders-table" id="orders-table">
-                <thead><tr><th>Order ID</th><th>Date</th><th>Total</th><th>Status</th><th>Name</th><th>Phone</th><th>Username</th><th>Payment Method</th><th>Services</th><th>Actions</th></tr></thead>
+                <thead><tr><th>Booking ID</th><th>Date</th><th>Total</th><th>Status</th><th>Name</th><th>Phone</th><th>Username</th><th>Payment Method</th><th>Services</th><th>Actions</th></tr></thead>
                 <tbody id="orders-tbody">
                     <?php if (empty($data)) { ?>
                         <tr><td colspan="10">No bookings found.</td></tr>
