@@ -149,7 +149,15 @@ class AdminController extends Controller
                 </html>
                 EOD;
                 break;
+            case "help":
+                $file = 'UserGuides/AdminGuide.pdf';
 
+                header('Content-type: application/pdf');
+                header('Content-Disposition: inline; filename="'.$file.'"');
+                header('Content-Transfer-Encoding: binary');
+                header('Accept-Ranges: bytes');
+                readfile($file);
+                break;
             default:
                 $this->render($controller, 'error', ['message' => 'Invalid action']);
                 break;

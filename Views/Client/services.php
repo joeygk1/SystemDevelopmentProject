@@ -219,6 +219,8 @@ $path = $_SERVER['SCRIPT_NAME'];
         <a href="<?php echo dirname($path);?>/client/policies">Policies</a>
         <a href="<?php echo dirname($path);?>/booking/booking">Booking</a>
         <a href="<?php echo dirname($path);?>/client/gallery">Gallery</a>
+        <a href="<?php echo dirname($path);?>/client/help" target="_blank">Help</a>
+
         <?php
         if(!isset($_SESSION['token'])){
             ?>

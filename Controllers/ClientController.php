@@ -56,6 +56,15 @@ class ClientController extends Controller{
                 $this->render($controller,$action);
 
                 break;
+            case "help":
+                $file = 'UserGuides/ClientGuide.pdf';
+
+                header('Content-type: application/pdf');
+                header('Content-Disposition: inline; filename="'.$file.'"');
+                header('Content-Transfer-Encoding: binary');
+                header('Accept-Ranges: bytes');
+                readfile($file);
+                break;
             case "logout":
     session_start(); // Always start session before modifying it
 

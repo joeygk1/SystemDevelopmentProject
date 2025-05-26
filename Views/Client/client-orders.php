@@ -183,6 +183,7 @@ file_put_contents('debug.log', "client-orders.php - Bookings fetched, count: " .
             <a href="<?php echo dirname($path);?>/client/policies">Policies</a>
             <a href="<?php echo dirname($path);?>/booking/booking">Booking</a>
             <a href="<?php echo dirname($path);?>/client/gallery">Gallery</a>
+            <a href="<?php echo dirname($path);?>/client/help" target="_blank">Help</a>
             <?php if (!isset($_SESSION['token'])) { ?>
                 <a href="<?php echo dirname($path);?>/client/login">Login</a>
                 <a href="<?php echo dirname($path);?>/client/register">Register</a>
